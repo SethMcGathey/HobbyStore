@@ -1,9 +1,9 @@
 <?php
-	include 'sessionStart.php'; 
-	include 'database.php';
+	require_once 'sessionStart.php'; 
+	require_once 'database.php';
     $pdo = Database::connect();
 	
-    $sql = 'SELECT id,name,category_id FROM subcategory WHERE category_id = ' . $_GET["id"];
+    $sql = 'SELECT id,name,category_id FROM subcategory WHERE category_id = ' . $_POST["id"];
     $num = 0;
 	foreach ($pdo->query($sql) as $row) {
 		//echo 'hello';
@@ -19,4 +19,3 @@
 	}
 
 	Database::disconnect();
-?>

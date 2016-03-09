@@ -1,6 +1,6 @@
 <?php
-	include 'sessionStart.php'; 
-	include 'database.php';
+	require_once 'sessionStart.php'; 
+	require_once 'database.php';
     $pdo = Database::connect();
 
 	//echo $_SESSION['user'];
@@ -48,10 +48,3 @@
     }
 //print_r($_SESSION);
  	Database::disconnect();
-
- 	
-
-?>
-
-
-

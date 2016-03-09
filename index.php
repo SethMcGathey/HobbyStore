@@ -1,11 +1,11 @@
-<?php include 'sessionStart.php'; ?>
+<?php require_once 'sessionStart.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-	<?php require 'header.php' ?>
+	<?php require_once 'header.php' ?>
 
 	<body>
 
-		<?php require 'navigation.php' ?> 
+		<?php require_once 'navigation.php' ?> 
 		<div class="container-fluid" id="Not_Ajax_Output">
 			<h1 class="centerText">Home Page</h1>
 			<div class="row">
@@ -55,7 +55,7 @@
 		</div>
 
 
-<?php require 'footer.php' ?>
+<?php require_once 'footer.php' ?>
 
 
 	</body>

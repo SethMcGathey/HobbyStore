@@ -1,6 +1,6 @@
 <?php
-	include 'sessionStart.php'; 
-	include 'database.php';
+	require_once 'sessionStart.php'; 
+	require_once 'database.php';
     $pdo = Database::connect();
 
 	if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -28,7 +28,3 @@
 		$_SESSION['ErrorMessage'] =  "Fill in all required fields.";
 		header('Location: register.php');
 	}
-
-
-
-?>
