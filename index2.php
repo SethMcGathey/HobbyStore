@@ -13,9 +13,11 @@
 			<div class="row">
 
               <?php
+              error_reporting(E_ALL);
+				ini_set('display_errors', 'on');
                $category = new categoryDataAccess();
                $category->readData(1);
-               
+
                $sql = 'SELECT id, name FROM category ORDER BY id';
                $num = 0;
                foreach ($pdo->query($sql) as $row) {
