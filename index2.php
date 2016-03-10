@@ -12,7 +12,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 $category = new categoryDataAccess();
 $returnValues = $category->readData(1);
 
-foreach ($returnValues as $row) {
+foreach ($category as $row) {
 	$row['id'];
 	$quantity = $row['quantity'];
 }
