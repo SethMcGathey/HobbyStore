@@ -1,67 +1,36 @@
 <?php
 
-class customer{
-    public function readData($inputValues){
-        try{
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT * FROM customer WHERE ?";
-            $q = $pdo->prepare($sql);
-            $q->execute($inputValues);
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
+class customerDataAccess extends accessDatabase{
+    public function readData($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM customer WHERE ?";
+        doSql($sql, $columns);
     }
 
-	public function createData($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username){
-        try{
-    	    $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO customer (first_name,last_name,email,phone,dob,gender,password,permission,username) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username);
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
-	}
+    public function createData($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username,$city,$country,$state,$street_one,$street_two,$zipcode){
+        $columns = array($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username);
+        $sql = "INSERT INTO customer (first_name,last_name,email,phone,dob,gender,password,permission,username) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        doSql($sql, $columns);
 
-	public function updateData($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username){
-        try{
-    		$pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE customer  set first_name = ?, last_name = ?, email = ?, phone =?, dob =?, gender =?, password =?, permission =?, username =? WHERE id = ?";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username);
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
-	}
+        $columns2 = array($city,$country,$state,$street_one,$street_two,$zipcode);
+        $sql2 = "INSERT INTO address (city,country,state,street_one,street_two,zipcode) values(?, ?, ?, ?, ?, ?)";
+        $address_id = doSql($sql, $columns2);
 
-	public function deleteData($id){
-        try{
-    	    $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "DELETE FROM customer  WHERE id = ?";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($id));
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
+        $columns3 = array($customer_id, $address_id);
+        $sql3 = "INSERT INTO customer_address (customer_id, address_id) values(?, ?)";
+        doSql($sql3, $columns3);
+    }
+
+/***/
+    public function updateData($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username){
+        $columns = array($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username);
+        $sql = "UPDATE customer  set first_name = ?, last_name = ?, email = ?, phone =?, dob =?, gender =?, password =?, permission =?, username =? WHERE id = ?";  
+        doSql($sql, $columns);
+    }
+
+    public function deleteData($id){
+        $columns = array($id);
+        $sql = "DELETE FROM customer  WHERE id = ?";
+        doSql($sql, $columns);
     }
 }

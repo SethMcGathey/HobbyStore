@@ -1,24 +1,44 @@
 <?php
 
-class address{
+class addressDataAccess extends accessDatabase{
 
-	public function readData($inputValues){
-		try{
-			$pdo = Database::connect();
-	        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	        $sql = "SELECT * FROM address WHERE ?";
-	        $q = $pdo->prepare($sql);
-	        $q->execute($inputValues);
-	        Database::disconnect();
-	    }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
+	public function readData($selectParam){
+		$columns = array($selectParam);
+		$sql = "SELECT * FROM address WHERE ?";
+		doSql($sql, $columns);
 	}
 
 	public function createData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
+		$columns = array($city,$country,$state,$street_one,$street_two,$zipcode);
+		$sql = "INSERT INTO address (city,country,state,street_one,street_two,zipcode) values(?, ?, ?, ?, ?, ?)";
+		$address_id = doSql($sql, $columns);
+
+		$columns2 = array($customer_id, $address_id);
+		$sql2 = "INSERT INTO customer_address (customer_id, address_id) values(?, ?)";
+		doSql($sql2, $columns2);
+	}
+
+/***/
+	public function updateData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
+		$columns = array($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id);
+		$sql = "UPDATE address  set city = ?, country = ?, state = ?, street_one =?, street_two =?, zipcode =? WHERE id = ?";
+		doSql($sql, $columns);
+	}
+
+	public function deleteData($id){
+		$columns = array($d);
+		$sql = "DELETE FROM address  WHERE id = ?";
+		doSql($sql, $columns);
+    }
+}
+
+
+
+
+	public function createData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
+		$columns = array($city,$country,$state,$street_one,$street_two,$zipcode);
+
+		doSql($sql, $columns);
 		try{
 		    $pdo = Database::connect();
 	        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -38,37 +58,3 @@ class address{
     		die();
     	}
 	}
-
-/***/
-	public function updateData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
-		try{
-			$pdo = Database::connect();
-	        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	        $sql = "UPDATE address  set city = ?, country = ?, state = ?, street_one =?, street_two =?, zipcode =? WHERE id = ?";
-	        $q = $pdo->prepare($sql);
-	        $q->execute($city,$country,$state,$street_one,$street_two,$zipcode);
-	        Database::disconnect();
-	    }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
-	}
-
-	public function deleteData($id){
-		try{
-		    $pdo = Database::connect();
-	        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	        $sql = "DELETE FROM address  WHERE id = ?";
-	        $q = $pdo->prepare($sql);
-	        $q->execute(array($id));
-	        Database::disconnect();
-	    }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
-    }
-}

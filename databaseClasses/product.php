@@ -1,67 +1,40 @@
 <?php
 
-class product{
-    public function readData($inputValues){
-        try{
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT * FROM product WHERE ?";
-            $q = $pdo->prepare($sql);
-            $q->execute($inputValues);
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
+class productDataAccess extends accessDatabase{
+    public function readData($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM product WHERE ?";
+        doSql($sql, $columns);
     }
 
-	public function createData($name,$cost,$description,$subcategory_id){
-        try{
-    	    $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO product (name,cost,description,subcategory_id) values(?, ?, ?, ?)";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($name,$cost,$description,$subcategory_id));
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
-	}
+    public function createData($name,$cost,$description,$subcategory_id, $stock, $bin_id, $description,$featured,$image,){
+        $columns = array($name,$cost,$description,$subcategory_id);
+        $sql = "INSERT INTO product (name,cost,description,subcategory_id) values(?, ?, ?, ?)";
+        $product_id = doSql($sql, $columns);
 
-	public function updateData($name,$cost,$description,$subcategory_id){
-        try{
-    		$pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE product  set name = ?, cost = ?, description = ?, subcategory_id =? WHERE id = ?";       
-            $q = $pdo->prepare($sql);
-            $q->execute(array($name,$cost,$description,$subcategory_id));
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
-	}
+        $columns2 = array($stock, $product_id, $bin_id);
+        $sql2 = "INSERT INTO product_bin (stock, product_id, bin_id) values(?, ?, ?)";
+        doSql($sql2, $columns2);
 
-	public function deleteData($id){
-        try{
-    	    $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "DELETE FROM product  WHERE id = ?";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($id));
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
+        $columns3 = array($tag_id,$product_id);
+        $sql3 = "INSERT INTO product_tag (tag_id,product_id) values(?, ?)";
+        doSql($sql3, $columns3);
+
+        $columns4 = array($description,$featured,$image,$product_id);
+        $sql4 = "INSERT INTO image (description,featured,image,product_id) values(?, ?, ?, ?)";
+        doSql($sql4, $columns4);
+    }
+
+/***/
+    public function updateData($name,$cost,$description,$subcategory_id){
+        $columns = array($name,$cost,$description,$subcategory_id);
+        $sql = "UPDATE product  set name = ?, cost = ?, description = ?, subcategory_id =? WHERE id = ?"; 
+        doSql($sql, $columns);
+    }
+
+    public function deleteData($id){
+        $columns = array($id);
+        $sql = "DELETE FROM product  WHERE id = ?";
+        doSql($sql, $columns);
     }
 }

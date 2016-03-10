@@ -1,67 +1,28 @@
 <?php
 
-class category{
-    public function readData($inputValues){
-        try{
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT * FROM category WHERE ?";
-            $q = $pdo->prepare($sql);
-            $q->execute($inputValues);
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
+class categoryDataAccess extends accessDatabase{
+    public function readData($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM category WHERE ?";
+        doSql($sql, $columns);
     }
 
-	public function createData($name){
-        try{
-    	    $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO category (name) values(?)";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($name);
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
-	}
+    public function createData($name){
+        $columns = array($name);
+        $sql = "INSERT INTO category (name) values(?)";
+        doSql($sql, $columns);
+    }
 
-	public function updateData($name){
-        try{
-    		$pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE category  set name = ? WHERE id = ?";        
-            $q = $pdo->prepare($sql);
-            $q->execute(array($name);
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
-	}
+/***/
+    public function updateData($name){
+        $columns = array($name);
+        $sql = "UPDATE category  set name = ? WHERE id = ?";   
+        doSql($sql, $columns);
+    }
 
-	public function deleteData($id){
-        try{
-    	    $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "DELETE FROM category  WHERE id = ?";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($id));
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
+    public function deleteData($id){
+        $columns = array($id);
+        $sql = "DELETE FROM category  WHERE id = ?";
+        doSql($sql, $columns);
     }
 }

@@ -1,67 +1,36 @@
 <?php
 
-class transaction{
-    public function readData($inputValues){
-        try{
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT * FROM transaction WHERE ?";
-            $q = $pdo->prepare($sql);
-            $q->execute($inputValues);
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
+class transactionDataAccess extends accessDatabase{
+    public function readData($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM transaction WHERE ?";
+        doSql($sql, $columns);
     }
 
-	public function createData($cart,$timestamp,$payment_id,$customer_id){
-        try{
-    	    $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO transaction (cart,timestamp,payment_id,customer_id) values(?, ?, ?, ?)";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($cart,$timestamp,$payment_id,$customer_id));
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
-	}
+    public function createData($cart,$timestamp,$payment_id,$customer_id, $phone,$type,$address_id, $quantity,$product_id){
+        $columns = array($cart,$timestamp,$payment_id,$customer_id);
+        $sql = "INSERT INTO transaction (cart,timestamp,payment_id,customer_id) values(?, ?, ?, ?)";
+        $transaction_id = doSql($sql, $columns);
 
-	public function updateData($cart,$timestamp,$payment_id,$customer_id){
-        try{
-    		$pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE transaction  set cart = ?, timestamp = ?, payment_id = ?, customer_id =? WHERE id = ?";      
-            $q = $pdo->prepare($sql);
-            $q->execute(array($cart,$timestamp,$payment_id,$customer_id));
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
-	}
+        $columns2 = array($phone,$type,$address_id,$transaction_id);
+        $sql2 = "INSERT INTO transaction_address (phone,type,address_id,transaction_id) values(?, ?, ?, ?)";
+        doSql($sql2, $columns2);
 
-	public function deleteData($id){
-        try{
-    	    $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "DELETE FROM transaction  WHERE id = ?";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($id));
-            Database::disconnect();
-        }catch(PDOException $error){
-            header("Location: 500.php");
-            //header("Location: 500.php?msg=creating%20an%20address");
-            //echo $error->getMessage();
-            die();
-        }
+        $columns3 = array($quantity,$transaction_id,$product_id);
+        $sql3 = "INSERT INTO transaction_product (quantity,transaction_id,product_id) values(?, ?, ?)";
+        doSql($sql3, $columns3);
+    }
+
+/***/
+    public function updateData($cart,$timestamp,$payment_id,$customer_id){
+        $columns = array($cart,$timestamp,$payment_id,$customer_id);
+        $sql = "UPDATE transaction  set cart = ?, timestamp = ?, payment_id = ?, customer_id =? WHERE id = ?";  
+        doSql($sql, $columns);
+    }
+
+    public function deleteData($id){
+        $columns = array($id);
+        $sql = "DELETE FROM transaction  WHERE id = ?";
+        doSql($sql, $columns);
     }
 }
