@@ -19,9 +19,28 @@ abstract class accessDatabase{
 	        $q = $pdo->prepare($sqlVar);
 	        $q->execute($inputValues);
 	        $returnId = $pdo->lastInsertId();
+	        $returnArray = array($returnId, $pdo->query($sqlVar))
 	        Database::disconnect();
-	        return $returnId;
+	        return $returnArray;
 
+	    }catch(PDOException $error){
+            header("Location: 500.php");
+            //header("Location: 500.php?msg=creating%20an%20address");
+            //echo $error->getMessage();
+            die();
+        }
+	}
+
+	public function readSql($sqlVar, $inputValues ){
+		try{
+			$pdo = Database::connect();
+	        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	        $q = $pdo->prepare($sqlVar);
+	        $q->execute($inputValues);
+	        return 
+	        Database::disconnect();
+
+	        
 	    }catch(PDOException $error){
             header("Location: 500.php");
             //header("Location: 500.php?msg=creating%20an%20address");

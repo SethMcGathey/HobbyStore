@@ -3,7 +3,7 @@
 class categoryDataAccess extends accessDatabase{
     public function readData($selectParam){
         $columns = array($selectParam);
-        $sql = "SELECT * FROM category WHERE ?";
+        $sql = "SELECT * FROM category";
         parent::doSql($sql, $columns);
     }
 
@@ -16,7 +16,7 @@ class categoryDataAccess extends accessDatabase{
 /***/
     public function updateData($name){
         $columns = array($name);
-        $sql = "UPDATE category  set name = ? WHERE id = ?";   
+        $sql = "UPDATE category set name = ? WHERE id = ?";   
         parent::doSql($sql, $columns);
     }
 
