@@ -21,52 +21,6 @@ require_once 'databaseClasses/subcategoryClass.php';
 			<div class="row">
 
 	          <?php
-	          $category = new categoryDataAccess();
-			  $category->readData(1);
-			  $num = 0;
-			  //print_r($category->readData(1));
-			  //foreach ($category->readData(1) as $row) {
-				foreach($category->readData(1)[1] as $innerRow)
-				{
-					echo $name = $innerRow['name'];
-					echo '<a href="#">
-	                		<div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
-	                			<img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>
-	                		</div>
-	                	  </a>';
-	                if($num < 1)
-	               	{
-	                	$num++;
-	                }else
-	                {
-						$num = 0;
-	                }
-				}
-
-
-               //$sql = 'SELECT id,name FROM category ORDER BY id';
-               /*$num = 0;
-               foreach ($pdo->query($sql) as $row) {
-	                echo '<a href="#">
-	                		<div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $row['id']. '">
-	                			<img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $row['name'] . '</p>
-	                		</div>
-	                	  </a>';
-	               	if($num < 1)
-	               	{
-	                	$num++;
-	                }else
-	                {
-						$num = 0;
-	                }
-               }*/
-
-
-              ?>
-          	</div>
-
-			<div id="inner_ajax_Output">
-				<?php
 		          $category = new categoryDataAccess();
 				  $category->readData(1);
 				  $num = 0;
@@ -88,21 +42,27 @@ require_once 'databaseClasses/subcategoryClass.php';
 							$num = 0;
 		                }
 					}
+              ?>
+          	</div>
 
-
-				    /*$sql = 'SELECT id,name,category_id FROM subcategory WHERE category_id = 1';
-				    $num = 0;
-					foreach ($pdo->query($sql) as $row) {
-						//echo 'hello';
-				    	echo '<a href="products.php?id=' . $row['id']. '"><div class="col-lg-12 subcategoryColor' . $num . '" id="' . $row['id']. '"><p class="leftRight' . $num . '"">' . $row['name'] . '</p></div></a>';
-
-				    	if($num < 1){
-				    		$num++;
-				    	}else
-				    	{
-				    		$num = 0;
-				    	}
-					}*/
+			<div id="inner_ajax_Output">
+				<?php
+		          $subcategory = new subcategoryDataAccess();
+				  $subcategory->readData(1);
+				  $num = 0;
+				  //print_r($category->readData(1));
+				  //foreach ($category->readData(1) as $row) {
+					foreach($subcategory->readData(1)[1] as $innerRow)
+					{
+						echo '<a href="products.php?id=' . $row['id']. '"><div class="col-lg-12 subcategoryColor' . $num . '" id="' . $innerRow['id']. '"><p class="leftRight' . $num . '"">' . $innerRow['name'] . '</p></div></a>';
+		                if($num < 1)
+		               	{
+		                	$num++;
+		                }else
+		                {
+							$num = 0;
+		                }
+					}
 				?>
 			</div>
 		</div>
