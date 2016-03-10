@@ -8,7 +8,7 @@ abstract class accessDatabase{
 	abstract function updateData($tableColumnsArray);
 
 	public function selectData($tableName){
-		$sql = 'SELECT * FROM $tableName'
+		$sql = 'SELECT * FROM $tableName';
 	};
 
 
@@ -21,7 +21,7 @@ abstract class accessDatabase{
 	        $returnId = $pdo->lastInsertId();
 	        Database::disconnect();
 	        return $returnId;
-	        
+
 	    }catch(PDOException $error){
             header("Location: 500.php");
             //header("Location: 500.php?msg=creating%20an%20address");
