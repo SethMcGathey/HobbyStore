@@ -18,7 +18,7 @@ abstract class accessDatabase{
 	        $q = $pdo->prepare($sqlVar);
 	        $q->execute($inputValues);
 	        $returnId = $pdo->lastInsertId();
-	        $row = $q->fetch();
+	        $row = $q->fetchAll();
 	        $returnArray = array($returnId, $row);
 	        Database::disconnect();
 	        print_r($returnArray);
