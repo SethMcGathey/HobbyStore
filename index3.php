@@ -67,7 +67,30 @@ require_once 'databaseClasses/subcategoryClass.php';
 
 			<div id="inner_ajax_Output">
 				<?php
-				    $sql = 'SELECT id,name,category_id FROM subcategory WHERE category_id = 1';
+		          $category = new categoryDataAccess();
+				  $category->readData(1);
+				  $num = 0;
+				  //print_r($category->readData(1));
+				  //foreach ($category->readData(1) as $row) {
+					foreach($category->readData(1)[1] as $innerRow)
+					{
+						echo $name = $innerRow['name'];
+						echo '<a href="#">
+		                		<div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
+		                			<img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>
+		                		</div>
+		                	  </a>';
+		                if($num < 1)
+		               	{
+		                	$num++;
+		                }else
+		                {
+							$num = 0;
+		                }
+					}
+
+
+				    /*$sql = 'SELECT id,name,category_id FROM subcategory WHERE category_id = 1';
 				    $num = 0;
 					foreach ($pdo->query($sql) as $row) {
 						//echo 'hello';
@@ -79,7 +102,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 				    	{
 				    		$num = 0;
 				    	}
-					}
+					}*/
 				?>
 			</div>
 		</div>
