@@ -12,7 +12,7 @@ abstract class accessDatabase{
 	};
 
 */
-	public function doSql($inputValues, $sqlVar){
+	public function doSql($sqlVar, $inputValues ){
 		try{
 			$pdo = Database::connect();
 	        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
