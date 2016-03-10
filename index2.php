@@ -10,9 +10,9 @@ require_once 'databaseClasses/categoryClass.php';
 require_once 'databaseClasses/subcategoryClass.php';
 
 $category = new categoryDataAccess();
-$returnValues = $category->readData(1);
+$category->readData(1);
 
-foreach ($category as $row) {
+foreach ($category->readData(1) as $row) {
 	$row['id'];
 	$quantity = $row['quantity'];
 }
