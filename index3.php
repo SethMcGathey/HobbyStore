@@ -30,8 +30,8 @@ require_once 'databaseClasses/subcategoryClass.php';
 				{
 					echo $name = $innerRow['name'];
 					echo '<a href="#">
-	                		<div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $row['id']. '">
-	                			<img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $row['name'] . '</p>
+	                		<div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
+	                			<img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>
 	                		</div>
 	                	  </a>';
 	                if($num < 1)
