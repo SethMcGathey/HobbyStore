@@ -46,7 +46,7 @@ require_once 'databaseClasses/subcategoryClass.php';
           	</div>
 
 			<div id="inner_ajax_Output">
-				<?php
+				<?php/*
 		          $subcategory = new subcategoryDataAccess();
 				  //$subcategory->readData(1);
 				  $num = 0;
@@ -62,7 +62,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 		                {
 							$num = 0;
 		                }
-					}
+					}*/
 				?>
 			</div>
 		</div>
