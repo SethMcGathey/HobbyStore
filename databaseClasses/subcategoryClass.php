@@ -1,9 +1,15 @@
 <?php
 
 class subcategoryDataAccess extends accessDatabase{
-    public function readData($selectParam){
-        $columns = array($selectParam);
+    public function readData(){
+        $columns = array();
         $sql = "SELECT * FROM subcategory";
+        return parent::doSql($sql, $columns);
+    }
+
+    public function readDataByCategoryID($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM subcategory WHERE category_id = " $selectedParam;
         return parent::doSql($sql, $columns);
     }
 

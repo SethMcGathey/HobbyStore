@@ -54,7 +54,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 				  //foreach ($category->readData(1) as $row) {
 					foreach($subcategory->readData(1)[1] as $innerRow)
 					{
-						echo '<a href="products.php?id=' . $row['id']. '"><div class="col-lg-12 subcategoryColor' . $num . '" id="' . $innerRow['id']. '"><p class="leftRight' . $num . '"">' . $innerRow['name'] . '</p></div></a>';
+						echo '<a href="products.php?id=' . $innerRow['id']. '"><div class="col-lg-12 subcategoryColor' . $num . '" id="' . $innerRow['id']. '"><p class="leftRight' . $num . '"">' . $innerRow['name'] . '</p></div></a>';
 		                if($num < 1)
 		               	{
 		                	$num++;
