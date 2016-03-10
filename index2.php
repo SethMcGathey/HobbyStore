@@ -10,10 +10,4 @@ require_once 'databaseClasses/categoryClass.php';
 require_once 'databaseClasses/subcategoryClass.php';
 
 $category = new categoryDataAccess();
-$category->readData(1);
-
-              
-
-
-
-
+echo $category->readData(1);
