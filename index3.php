@@ -22,7 +22,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 
 	          <?php
 		          $category = new categoryDataAccess();
-				  $category->readData(1);
+				  //$category->readData(1);
 				  $num = 0;
 				  //print_r($category->readData(1));
 				  //foreach ($category->readData(1) as $row) {
@@ -48,7 +48,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 			<div id="inner_ajax_Output">
 				<?php
 		          $subcategory = new subcategoryDataAccess();
-				  $subcategory->readData(1);
+				  //$subcategory->readData(1);
 				  $num = 0;
 				  //print_r($category->readData(1));
 				  //foreach ($category->readData(1) as $row) {
