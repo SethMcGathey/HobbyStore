@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-	<?php require 'header.php' ?>
+	<?php require_once 'header.php' ?>
 	<body>
-		<?php require 'navigation.php' ?>
+		<?php require_once 'navigation.php' ?>
 
 		<div class="container" id="Not_Ajax_Output">
 			<h1>cart.php</h1>
@@ -56,7 +56,7 @@
 		</div>
 
 	</body>
-	<?php require 'footer.php' ?>
+	<?php require_once 'footer.php' ?>
 </html>
 
 

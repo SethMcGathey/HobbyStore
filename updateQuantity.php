@@ -1,12 +1,12 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
-	include 'sessionStart.php'; 
-	include 'database.php';
+	require_once 'sessionStart.php'; 
+	require_once 'database.php';
     $pdo = Database::connect();
 
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql="UPDATE transaction_product SET quantity = " . $_GET['quantity'] . " WHERE transaction_id = " . $_GET['transaction_id'] . " AND product_id = " . $_GET['productid'];
+	$sql="UPDATE transaction_product SET quantity = " . $_POST['quantity'] . " WHERE transaction_id = " . $_POST['transaction_id'] . " AND product_id = " . $_POST['productid'];
     $q = $pdo->prepare($sql);
     $q->execute();
 
@@ -14,5 +14,3 @@ ini_set('display_errors', 'on');
     //header('Location: cart.php');
 
 	Database::disconnect();
-
-?>
