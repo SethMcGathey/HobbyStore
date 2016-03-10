@@ -21,7 +21,7 @@ abstract class accessDatabase{
 	        $row = $q->fetchAll();
 	        $returnArray = array($returnId, $row);
 	        Database::disconnect();
-	        print_r($returnArray);
+	        return $returnArray;
 
 	    }catch(PDOException $error){
             header("Location: 500.php");

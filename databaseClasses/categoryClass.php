@@ -4,7 +4,7 @@ class categoryDataAccess extends accessDatabase{
     public function readData($selectParam){
         $columns = array($selectParam);
         $sql = "SELECT * FROM category";
-        parent::doSql($sql, $columns);
+        return parent::doSql($sql, $columns);
     }
 
     public function createData($name){

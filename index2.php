@@ -11,7 +11,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 
 $category = new categoryDataAccess();
 $category->readData(1);
-echo $category->readData(1);
+print_r($category->readData(1));
 foreach ($category->readData(1) as $row) {
 	$row['id'];
 	$quantity = $row['quantity'];
