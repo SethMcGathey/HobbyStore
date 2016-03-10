@@ -23,7 +23,8 @@ require_once 'databaseClasses/subcategoryClass.php';
 	          <?php
 	          $category = new categoryDataAccess();
 			  $category->readData(1);
-			  print_r($category->readData(1));
+			  $num = 0;
+			  //print_r($category->readData(1));
 			  //foreach ($category->readData(1) as $row) {
 				foreach($category->readData(1)[1] as $innerRow)
 				{
@@ -33,11 +34,18 @@ require_once 'databaseClasses/subcategoryClass.php';
 	                			<img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $row['name'] . '</p>
 	                		</div>
 	                	  </a>';
+	                if($num < 1)
+	               	{
+	                	$num++;
+	                }else
+	                {
+						$num = 0;
+	                }
 				}
 
 
                //$sql = 'SELECT id,name FROM category ORDER BY id';
-               $num = 0;
+               /*$num = 0;
                foreach ($pdo->query($sql) as $row) {
 	                echo '<a href="#">
 	                		<div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $row['id']. '">
@@ -51,7 +59,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 	                {
 						$num = 0;
 	                }
-               }
+               }*/
 
 
               ?>
