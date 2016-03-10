@@ -10,7 +10,6 @@ abstract class accessDatabase{
 	public function selectData($tableName){
 		$sql = 'SELECT * FROM $tableName';
 	};
-
 */
 	public function doSql($sqlVar, $inputValues ){
 		try{
@@ -19,7 +18,7 @@ abstract class accessDatabase{
 	        $q = $pdo->prepare($sqlVar);
 	        $q->execute($inputValues);
 	        $returnId = $pdo->lastInsertId();
-	        $returnArray = array($returnId, $pdo->query($sqlVar));
+	        $returnArray = array($returnId, $q->fetch());
 	        Database::disconnect();
 	        return $returnArray;
 
