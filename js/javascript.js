@@ -8,6 +8,31 @@ $(document).ready(function(){
 	});
 });
 
+$(".myCategories").on("click", function(){
+	$.ajax({
+		url: "selectSubcategory.php",
+	    method: 'POST',
+	    dataType:"json",
+	   	data: {this.id},
+	    success: function(data){
+	    	$( "#inner_ajax_Output" ).html( data );
+	    },
+	    error : function() {
+			alert("error");
+		}
+	});
+});
+
+
+$(document).ready(function(){
+	$(".myCategories").on("click", function(){
+		var clickedId = this.id;
+		$.get( "selectSubcategory.php?id=" + clickedId, function( data ) {	
+  			$( "#inner_ajax_Output" ).html( data );
+		});	
+	});
+});
+
 
 $(document).ready(function(){
 	$("#searchField").keyup(function(){
