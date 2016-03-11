@@ -14,10 +14,11 @@ $(".myCategories").on("click", function(){
 	$(".categoryId1").hide();
 	$(".categoryId2").hide();
 	$(".categoryId" + clickedId).show();
+	console.log(clickedId);
 
 });
 
-
+/*
 $(document).ready(function(){
 	$(".myCategories").on("click", function(){
 		var clickedId = this.id;
@@ -26,7 +27,7 @@ $(document).ready(function(){
 		});	
 	});
 });
-
+*/
 
 $(document).ready(function(){
 	$("#searchField").keyup(function(){
