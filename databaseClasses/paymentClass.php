@@ -3,7 +3,7 @@
 class paymentDataAccess extends accessDatabase{
     public function readData($selectParam){
         $columns = array($selectParam);
-        $sql = "SELECT * FROM payment WHERE ?";
+        $sql = "SELECT * FROM payment";
         return parent::doSql($sql, $columns);
     }
 

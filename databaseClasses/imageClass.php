@@ -3,7 +3,7 @@
 class imageDataAccess extends accessDatabase{
     public function readData($selectParam){
         $columns = array($selectParam);
-        $sql = "SELECT * FROM image WHERE ?";
+        $sql = "SELECT * FROM image";
         return parent::doSql($sql, $columns);
     }
 

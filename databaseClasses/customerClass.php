@@ -3,7 +3,7 @@
 class customerDataAccess extends accessDatabase{
     public function readData($selectParam){
         $columns = array($selectParam);
-        $sql = "SELECT * FROM customer WHERE ?";
+        $sql = "SELECT * FROM customer";
         return parent::doSql($sql, $columns);
     }
 

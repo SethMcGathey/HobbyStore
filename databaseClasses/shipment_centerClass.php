@@ -1,31 +1,28 @@
 <?php
 
-class shipment_center{
+class product_tagDataAccess extends accessDatabase{
+    public function readData($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM product_tag";
+        return parent::doSql($sql, $columns);
+    }
 
-	public function insertData($inputValues){
-	    $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    public function createData($name,$phone,$address_id){
+        $columns = array($name,$phone,$address_id);
         $sql = "INSERT INTO shipment_center (name,phone,address_id) values(?, ?, ?)";
-        $q = $pdo->prepare($sql);
-        $q->execute($inputValues);
-        Database::disconnect();
-	}
+        parent::doSql($sql, $columns);
+    }
 
-	public function updateData($inputValues){
-		$pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "UPDATE shipment_center  set name = ?, phone = ?, address_id = ? WHERE id = ?";       
-        $q = $pdo->prepare($sql);
-        $q->execute($inputValues);
-        Database::disconnect();
-	}
+/***/
+    public function updateData($name,$phone,$address_id){
+        $columns = array($name,$phone,$address_id);
+        $sql = "UPDATE shipment_center  set name = ?, phone = ?, address_id = ? WHERE id = ?";  
+        parent::doSql($sql, $columns);
+    }
 
-	public function deleteData($id){
-	    $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    public function deleteData($id){
+        $columns = array($id);
         $sql = "DELETE FROM shipment_center  WHERE id = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        Database::disconnect();
+        parent::doSql($sql, $columns);
     }
 }

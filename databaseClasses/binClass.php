@@ -3,7 +3,7 @@
 class binDataAccess extends accessDatabase{
     public function readData($selectParam){
         $columns = array($selectParam);
-        $sql = "SELECT * FROM bin WHERE ?";
+        $sql = "SELECT * FROM bin";
         return parent::doSql($sql, $columns);
     }
 

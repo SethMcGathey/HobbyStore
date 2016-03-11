@@ -1,31 +1,28 @@
 <?php
 
-class product_tag{
+class product_tagDataAccess extends accessDatabase{
+    public function readData($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM product_tag";
+        return parent::doSql($sql, $columns);
+    }
 
-	public function insertData($inputValues){
-	    $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    public function createData($tag_id,$product_id){
+        $columns = array($tag_id,$product_id);
         $sql = "INSERT INTO product_tag (tag_id,product_id) values(?, ?)";
-        $q = $pdo->prepare($sql);
-        $q->execute($inputValues);
-        Database::disconnect();
-	}
+        parent::doSql($sql, $columns);
+    }
 
-	public function updateData($inputValues){
-		$pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "UPDATE product_tag  set tag_id = ?, product_id = ? WHERE id = ?";      
-        $q = $pdo->prepare($sql);
-        $q->execute($inputValues);
-        Database::disconnect();
-	}
+/***/
+    public function updateData($tag_id,$product_id){
+        $columns = array($tag_id,$product_id);
+        $sql = "UPDATE product_tag  set tag_id = ?, product_id = ? WHERE id = ?";  
+        parent::doSql($sql, $columns);
+    }
 
-	public function deleteData($id){
-	    $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    public function deleteData($id){
+        $columns = array($id);
         $sql = "DELETE FROM product_tag  WHERE id = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        Database::disconnect();
+        parent::doSql($sql, $columns);
     }
 }
