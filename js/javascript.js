@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 });
 
-$(".myCategories").on("click", function hideSubcategories(start){
+function hideSubcategories(start){
 	if(start)
 	{
 		var clickedId = this.id;
@@ -29,6 +29,10 @@ $(".myCategories").on("click", function hideSubcategories(start){
 		$(".categoryId" + clickedId).show();
 		console.log(clickedId);
 	}
+};
+
+$(".myCategories").on("click", 
+	hideSubcategories();
 });
 
 /*
