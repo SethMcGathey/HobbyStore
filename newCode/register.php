@@ -22,7 +22,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 				    unset($_SESSION['myForm']);
 				}
 			?>
-			<form action="registerUser.php" method="POST">
+			<form action="registerBackend.php" method="POST">
 				<p>First Name:</p><input type="text" placeholder="First Name" name="firstNameInput" id="firstNameInput" value="<?=$form_data['myForm']['firstNameInput']?>">
 				<p>Last Name:</p><input type="text" placeholder="Last Name" name="lastNameInput" id="lastNameInput" value="<?=$form_data['myForm']['lastNameInput']?>">
 				<p>User Name:</p><input type="text" placeholder="User Name" name="userNameInput" id="userNameInput" value="<?=$form_data['myForm']['userNameInput']?>">

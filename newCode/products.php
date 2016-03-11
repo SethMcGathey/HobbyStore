@@ -9,7 +9,7 @@ require_once 'databaseClasses/productClass.php';
 <html lang="en">
 	<?php require_once 'header.php' ?>
 	<body>
-		<?php require_once 'navigation3.php' ?>
+		<?php require_once 'navigation.php' ?>
 		<div class="container-fluid" id="Not_Ajax_Output">
 			<h1>products.php</h1>
 

@@ -11,14 +11,14 @@ class customerDataAccess extends accessDatabase{
         $columns = array($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username);
         $sql = "INSERT INTO customer (first_name,last_name,email,phone,dob,gender,password,permission,username) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         parent::doSql($sql, $columns);
-
+/*
         $columns2 = array($city,$country,$state,$street_one,$street_two,$zipcode);
         $sql2 = "INSERT INTO address (city,country,state,street_one,street_two,zipcode) values(?, ?, ?, ?, ?, ?)";
         $address_id = parent::doSql($sql, $columns2);
 
         $columns3 = array($customer_id, $address_id);
         $sql3 = "INSERT INTO customer_address (customer_id, address_id) values(?, ?)";
-        parent::doSql($sql3, $columns3);
+        parent::doSql($sql3, $columns3);*/
     }
 
 /***/
