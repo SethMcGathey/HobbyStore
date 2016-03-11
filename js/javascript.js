@@ -10,9 +10,9 @@ $(document).ready(function(){
 
 $(".myCategories").on("click", function(){
 	var clickedId = this.id;
-	$(".categoryId0").hide();
 	$(".categoryId1").hide();
 	$(".categoryId2").hide();
+	$(".categoryId3").hide();
 	$(".categoryId" + clickedId).show();
 	console.log(clickedId);
 
