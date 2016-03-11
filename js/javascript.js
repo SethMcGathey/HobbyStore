@@ -7,15 +7,28 @@ $(document).ready(function(){
 		});	
 	});
 });*/
+$(document).ready(function(){
+	hideSubcategories(1);
 
-$(".myCategories").on("click", function(){
-	var clickedId = this.id;
-	$(".categoryId1").hide();
-	$(".categoryId2").hide();
-	$(".categoryId3").hide();
-	$(".categoryId" + clickedId).show();
-	console.log(clickedId);
+}
 
+$(".myCategories").on("click", function hideSubcategories(start){
+	if(start)
+	{
+		var clickedId = this.id;
+		$(".categoryId1").show();
+		$(".categoryId2").hide();
+		$(".categoryId3").hide();
+		console.log(clickedId);
+	}else
+	{
+		var clickedId = this.id;
+		$(".categoryId1").hide();
+		$(".categoryId2").hide();
+		$(".categoryId3").hide();
+		$(".categoryId" + clickedId).show();
+		console.log(clickedId);
+	}
 });
 
 /*
