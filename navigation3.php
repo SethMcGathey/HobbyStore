@@ -1,3 +1,11 @@
+<?php 
+require_once 'sessionStart.php'; 
+require_once 'accessDatabaseClass.php'; 
+
+require_once 'sessionStart.php';
+require_once 'databaseClasses/categoryClass.php';
+require_once 'databaseClasses/subcategoryClass.php';
+?>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
