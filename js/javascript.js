@@ -1,4 +1,4 @@
-
+/*
 $(document).ready(function(){
 	$(".myCategories").on("click", function(){
 		var clickedId = this.id;
@@ -6,13 +6,10 @@ $(document).ready(function(){
   			$( "#inner_ajax_Output" ).html( data );
 		});	
 	});
-});
+});*/
 
 $(".myCategories").on("click", function(){
-	$.get("selectSubcategory3.php?id=" + clickedId, function( data ) {	
-  			$( "#inner_ajax_Output" ).html( data );
-		});	
-	/*$.ajax({
+	$.ajax({
 		url: "selectSubcategory3.php",
 	    method: 'POST',
 	    dataType:"json",
@@ -23,7 +20,7 @@ $(".myCategories").on("click", function(){
 	    error : function() {
 			alert("error");
 		}
-	});*/
+	});
 });
 
 
