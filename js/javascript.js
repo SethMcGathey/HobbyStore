@@ -33,7 +33,7 @@ function hideSubcategories(start){
 
 $(".myCategories").on("click", 
 	hideSubcategories();
-});
+);
 
 /*
 $(document).ready(function(){
