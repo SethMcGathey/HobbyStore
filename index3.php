@@ -28,7 +28,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 				  //foreach ($category->readData(1) as $row) {
 					foreach($category->readData(1)[1] as $innerRow)
 					{
-						echo $name = $innerRow['name'];
+						//echo $name = $innerRow['name'];
 						echo '<a href="#">
 		                		<div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
 		                			<img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>
@@ -68,16 +68,8 @@ require_once 'databaseClasses/subcategoryClass.php';
 		<div class="container-fluid" id="ajax_Output">
 		</div>
 
-
 <?php require_once 'footer.php' ?>
-
 
 	</body>
 
-	
 </html>
-
-
-
-
-
