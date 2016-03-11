@@ -9,8 +9,11 @@ $(document).ready(function(){
 });
 
 $(".myCategories").on("click", function(){
-	$.ajax({
-		url: "selectSubcategory.php",
+	$.get("selectSubcategory3.php?id=" + clickedId, function( data ) {	
+  			$( "#inner_ajax_Output" ).html( data );
+		});	
+	/*$.ajax({
+		url: "selectSubcategory3.php",
 	    method: 'POST',
 	    dataType:"json",
 	   	data: {this.id},
@@ -20,7 +23,7 @@ $(".myCategories").on("click", function(){
 	    error : function() {
 			alert("error");
 		}
-	});
+	});*/
 });
 
 
