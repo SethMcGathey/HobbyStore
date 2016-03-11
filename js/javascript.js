@@ -10,10 +10,10 @@ $(document).ready(function(){
 
 $(".myCategories").on("click", function(){
 	var clickedId = this.id;
-	$(".leftRight0").hide();
-	$(".leftRight1").hide();
-	$(".leftRight2").hide();
-	$(".leftRight" . clickedId).show();
+	$(".categoryId0").hide();
+	$(".categoryId1").hide();
+	$(".categoryId2").hide();
+	$(".categoryId" . clickedId).show();
 
 });
 

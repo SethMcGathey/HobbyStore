@@ -10,7 +10,7 @@ ini_set('display_errors', 'on');
     $num = 0;
     foreach($subcategory->readDataByCategoryID(1)[$_POST["id"]] as $innerRow)
     {
-        echo '<a href="products.php?id=' . $innerRow['id']. '"><div class="col-lg-12 subcategoryColor' . $num . '" id="' . $innerRow['id']. '"><p class="leftRight' . $num . '"">' . $innerRow['name'] . '</p></div></a>';
+        echo '<a href="products.php?id=' . $innerRow['id']. '"><div class="col-lg-12 subcategoryColor' . $num . '" id="' . $innerRow['id'] . '"><p class="leftRight' . $num . '"">' . $innerRow['name'] . '</p></div></a>';
         if($num < 1)
         {
             $num++;
