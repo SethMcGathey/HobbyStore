@@ -12,7 +12,7 @@ $(".myCategories").on("click", function(){
 	$.ajax({
 		url: "selectSubcategory3.php",
 	    method: 'POST',
-	    dataType:"json",
+	    /*dataType:"data",*/
 	   	data: {this.id},
 	    success: function(data){
 	    	$( "#inner_ajax_Output" ).html( data );
