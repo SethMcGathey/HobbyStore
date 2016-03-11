@@ -10,7 +10,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 	hideSubcategories(1);
 
-}
+});
 
 $(".myCategories").on("click", function hideSubcategories(start){
 	if(start)
