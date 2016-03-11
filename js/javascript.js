@@ -13,7 +13,7 @@ $(".myCategories").on("click", function(){
 	$(".categoryId0").hide();
 	$(".categoryId1").hide();
 	$(".categoryId2").hide();
-	$(".categoryId" . clickedId).show();
+	$(".categoryId" + clickedId).show();
 
 });
 
