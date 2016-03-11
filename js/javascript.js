@@ -19,7 +19,7 @@ function hideSubcategories(start){
 		$(".categoryId1").show();
 		$(".categoryId2").hide();
 		$(".categoryId3").hide();
-		console.log(clickedId);
+		console.log('with var');
 	}else
 	{
 		var clickedId = this.id;
@@ -27,7 +27,7 @@ function hideSubcategories(start){
 		$(".categoryId2").hide();
 		$(".categoryId3").hide();
 		$(".categoryId" + clickedId).show();
-		console.log(clickedId);
+		console.log('without var');
 	}
 };
 
