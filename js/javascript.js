@@ -31,9 +31,7 @@ function hideSubcategories(start){
 	}
 };
 
-$(".myCategories").on("click", 
-	hideSubcategories();
-);
+$(".myCategories").click(hideSubcategories)
 
 /*
 $(document).ready(function(){
