@@ -14,7 +14,7 @@ class productDataAccess extends accessDatabase{
     }
 
 
-    public function createData($name,$cost,$description,$subcategory_id, $stock, $bin_id, $description,$featured,$image,){
+    public function createData($name,$cost,$description,$subcategory_id, $stock, $bin_id, $description,$featured,$image){
         $columns = array($name,$cost,$description,$subcategory_id);
         $sql = "INSERT INTO product (name,cost,description,subcategory_id) values(?, ?, ?, ?)";
         $product_id = parent::doSql($sql, $columns);
