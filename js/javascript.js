@@ -9,18 +9,12 @@ $(document).ready(function(){
 });*/
 
 $(".myCategories").on("click", function(){
-	$.ajax({
-		url: "selectSubcategory3.php",
-	    method: 'POST',
-	    /*dataType:"data",*/
-	   	data: {this.id},
-	    success: function(data){
-	    	$( "#inner_ajax_Output" ).html( data );
-	    },
-	    error : function() {
-			alert("error");
-		}
-	});
+	var clickedId = this.id;
+	$(".leftRight0").hide();
+	$(".leftRight1").hide();
+	$(".leftRight2").hide();
+	$(".leftRight" . clickedId).show();
+
 });
 
 
