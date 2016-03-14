@@ -9,7 +9,7 @@ class customerDataAccess extends accessDatabase{
         return parent::doSql($sql, $columns);
     }
 
-    public function createData($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username,$city,$country,$state,$street_one,$street_two,$zipcode){
+    public function createData($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username){
         $columns = array($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username);
         $sql = "INSERT INTO customer (first_name,last_name,email,phone,dob,gender,password,permission,username) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         parent::doSql($sql, $columns);
