@@ -9,6 +9,12 @@ class customerDataAccess extends accessDatabase{
         return parent::doSql($sql, $columns);
     }
 
+    public function readData($username, $password){
+        $columns = array($username, $password);
+        $sql = "SELECT id, username, first_name, password, permission FROM customer WHERE username = ? AND password = ?"
+        return parent::doSql($sql, $columns);
+    }
+
     public function createData($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username){
         $columns = array($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username);
         $sql = "INSERT INTO customer (first_name,last_name,email,phone,dob,gender,password,permission,username) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";

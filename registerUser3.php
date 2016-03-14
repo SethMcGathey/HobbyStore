@@ -39,8 +39,7 @@ require_once 'databaseClasses/customerClass.php';
 	if($_POST['passwordInput'] != $_POST['reenteredPasswordInput'])
 	{
 		$_SESSION['ErrorMessage'] = "Passwords do not match. <br>";
-		echo 'made it 1';
-		//header('Location: register.php');
+		header('Location: register.php');
 	/*}
 	else if(trim($_POST['passwordInput']) == ""){
 		$_SESSION['ErrorMessage'] = "Please fill out password fields.";
@@ -68,8 +67,7 @@ require_once 'databaseClasses/customerClass.php';
 		{
 			$customer = new customerDataAccess();
 			$customer->createData($firstName, $phoneNumber, $dob, $username, $password, $gender, 1, $email, $lastName);
-			echo "made it 2";
-			//header('Location: login3.php');
+			header('Location: login3.php');
 
 
 			/*//echo "Got inside long if statement <br>";
@@ -81,8 +79,7 @@ require_once 'databaseClasses/customerClass.php';
 		}else
 		{
 			$_SESSION['ErrorMessage'] =  "Fill in all required fields.";
-			echo 'made it 3';
-			//header('Location: register.php');
+			header('Location: register.php');
 		}
 	}
 
