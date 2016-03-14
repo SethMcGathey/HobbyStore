@@ -67,7 +67,7 @@ require_once 'databaseClasses/customerClass.php';
 		{
 			$customer = new customerDataAccess();
 			$customer->createData($firstName, $phoneNumber, $dob, $username, $password, $gender, 1, $email, $lastName);
-			header('Location: login.php');
+			header('Location: login3.php');
 
 
 			/*//echo "Got inside long if statement <br>";
