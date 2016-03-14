@@ -67,6 +67,7 @@ require_once 'databaseClasses/customerClass.php';
 		{
 			$customer = new customerDataAccess();
 			$customer->createData($firstName, $phoneNumber, $dob, $username, $password, $gender, 1, $email, $lastName);
+			echo "made it";
 			header('Location: login3.php');
 
 
