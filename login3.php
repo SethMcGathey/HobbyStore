@@ -3,7 +3,7 @@
 	<?php require_once 'header.php' ?>
 	<body>
 		<?php require_once 'navigation.php' ?>
-		<div class="container" id="Not_Ajax_Output">
+		<div class="container" id="">
 			<h1>Login</h1>
 			<form action="verify3.php" method="POST">
 				<p>User Name:</p><input type="text" placeholder="User Name" name="usernameInput" id="usernameInput">
