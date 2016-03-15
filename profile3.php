@@ -61,8 +61,8 @@ require_once 'databaseClasses/customer_paymentClass.php';
 					<h3>Cards on Record</h3>
 					<div class="scrollbox">
 					<?php
-						$customer_address = new customer_addressDataAccess();
-						foreach($customer_address->readDataJoinedPayments($_SESSION['customerid']) as $innerRow)
+						$customer_address = new customer_paymentDataAccess();
+						foreach($customer_address->readDataJoinedPayments($_SESSION['customerid'])[1] as $innerRow)
 						{
 							echo '<p name="nameOnCard" id="nameOnCard">Name on Card: ' . $innerRow['card_full_name'] . '</p>
 								  <p name="cardNumber" id="cardNumber">Card Number: ' . $innerRow['card_number'] . '</p>
