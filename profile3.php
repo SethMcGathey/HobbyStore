@@ -47,7 +47,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 		            ?>
 		        	</div>
 				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-5">
 					<h3>New Card</h3>
 					<form action="changePayment.php" method="POST">
 						<p>Name on Card:</p><input type="text" placeholder="Name on Card" name="nameOnCard" id="nameOnCard">
