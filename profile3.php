@@ -36,8 +36,8 @@ require_once 'databaseClasses/customer_paymentClass.php';
 					<h3>Current Addresses</h3>
 					<div class="scrollbox">
 						<?php
-							$customer_address = new customer_addressDataAccess();
-							foreach($customer_address->readDataByUserID($_SESSION['customerid'])[1] as $innerRow)
+							$customer = new customerDataAccess();
+							foreach($customer->readDataByUserID($_SESSION['customerid'])[1] as $innerRow)
 							{
 								echo 'First Name: <p name="firstName" id="firstName" contenteditable>' . $innerRow['first_name'] . '</p>
 									  Last Name: <p name="lastName" id="lastName" contenteditable>' . $innerRow['last_name'] . '</p>
