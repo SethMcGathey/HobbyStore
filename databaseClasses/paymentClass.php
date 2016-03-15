@@ -18,8 +18,8 @@ class paymentDataAccess extends accessDatabase{
     }
 
 /***/
-    public function updateData($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$payment_type_id){
-        $columns = array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$payment_type_id);
+    public function updateData($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$payment_type_id, $id){
+        $columns = array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$payment_type_id, $id);
         $sql = "UPDATE payment  set card_full_name = ?, card_number = ?, card_security = ?, expires_month =?, expires_year =?, payment_type_id =? WHERE id = ?";       
         parent::doSql($sql, $columns);
     }

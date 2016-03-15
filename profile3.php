@@ -52,7 +52,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 			            ?>
 			            
 		        	</div>
-		        	<button id="updateGeneralInformation">Update</button>
+		        	<input id="updateGeneralInformation">Update</input>
 				</div>
 			</div>
 			<div class="row">
@@ -87,7 +87,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 			            ?>
 			            
 		        	</div>
-		        	<button id="updateAddress">Update</button>
+		        	<input id="updateAddress">Update</input>
 				</div>
 			</div>
 			<div class="row">
@@ -95,6 +95,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 					<h3>New Card</h3>
 					<form action="changePayment.php" method="POST">
 						<p>Name on Card:</p><input type="text" placeholder="Name on Card" name="nameOnCard" id="nameOnCard">
+						<p>Card Type:</p><input type="text" placeholder="Card Type" name="cardType" id="cardType">
 						<p>Card Number:</p><input type="text" placeholder="Card Number" name="cardNumber" id="cardNumber">
 						<p>Security Code:</p><input type="text" placeholder="Security Code" name="securityCode" id="securityCode">
 						<p>Expiration:</p><input type="text" placeholder="Expiration" name="expiration" id="expiration">
@@ -103,20 +104,23 @@ require_once 'databaseClasses/customer_paymentClass.php';
 				</div>
 				<div class="col-lg-6">
 					<h3>Cards on Record</h3>
-					<div class="scrollbox">
+					
 						<?php
+							echo '<div class="scrollbox">';
 							$customer_payment = new customer_paymentDataAccess();
 							foreach($customer_payment->readDataJoinedPayments($_SESSION['customerid'])[1] as $innerRow)
 							{
-								echo 'Name on Card: <p name="nameOnCard" id="nameOnCard" contenteditable>' . $innerRow['card_full_name'] . '</p>
-									  Card Number: <p name="cardNumber" id="cardNumber" contenteditable>' . $innerRow['card_number'] . '</p>
-									  Security Code: <p name="securityCode" id="securityCode" contenteditable>' . $innerRow['card_security'] . '</p>
-									  Expires: <p name="expiration" id="expiration" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
+								echo 'Name on Card: <p name="nameOnCard" id="nameOnCard' . $innerRow['id'] . '" contenteditable>' . $innerRow['card_full_name'] . '</p>
+									  Card Type: <p name="cardType" id="cardType' . $innerRow['id'] . '" contenteditable>' . $innerRow['payment_type'] . '</p>
+									  Card Number: <p name="cardNumber" id="cardNumber' . $innerRow['id'] . '" contenteditable>' . $innerRow['card_number'] . '</p>
+									  Security Code: <p name="securityCode" id="securityCode' . $innerRow['id'] . '" contenteditable>' . $innerRow['card_security'] . '</p>
+									  Expires: <p name="expiration" id="expiration' . $innerRow['id'] . '" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
 									  <br>';
+									  echo '<input id="updatePayment" href="updatePayment.php?">Update</input>';
 			                }
+			                echo '</div>';
 			            ?>
-		        	</div>
-		        	<button id="updatePayment">Update</button>
+		        	
 				</div>
 			</div>
 			<div id="inner_ajax_Output">
