@@ -24,6 +24,9 @@ require_once 'databaseClasses/customerClass.php';
     $q = $pdo->prepare($sql);
     $q->execute(array($myusername, $mypassword));
     $data = $q->fetch(PDO::FETCH_ASSOC);*/
+    echo $data['id'][2];
+    echo " \n"
+    echo $data[2]['id'];
     if(isset($data['id'][2]))
     {
     	
