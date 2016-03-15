@@ -16,8 +16,8 @@ class customerDataAccess extends accessDatabase{
     }
 
     public function readDataByUserID($userID){
-        $columns = array($username, $password);
-        $sql = "SELECT id, username, first_name, password, permission FROM customer WHERE id = ?";
+        $columns = array($userID);
+        $sql = "SELECT id, first_name, last_name, phone, dob, username, password, gender, email, permission FROM customer WHERE id = ?";
         return parent::doSql($sql, $columns);
     }
 
