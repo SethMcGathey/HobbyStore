@@ -34,6 +34,7 @@ require_once 'databaseClasses/customerClass.php';
     	//header('Location: index3.php');
     }else
     {
+    	print_f($data);
     	echo "Invalid Login";
     }
 
