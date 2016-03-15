@@ -111,13 +111,13 @@ require_once 'databaseClasses/customer_paymentClass.php';
 
 							foreach($customer_payment->readDataJoinedPayments($_SESSION['customerid'])[1] as $innerRow)
 							{
-								echo 'Name on Card: <p name="nameOnCard" id="nameOnCard' . $innerRow['id'] . '" contenteditable>' . $innerRow['card_full_name'] . '</p>
-									  Card Type: <p name="cardType" id="cardType' . $innerRow['id'] . '" contenteditable>' . $innerRow['payment_type'] . '</p>
-									  Card Number: <p name="cardNumber" id="cardNumber' . $innerRow['id'] . '" contenteditable>' . $innerRow['card_number'] . '</p>
-									  Security Code: <p name="securityCode" id="securityCode' . $innerRow['id'] . '" contenteditable>' . $innerRow['card_security'] . '</p>
-									  Expires: <p name="expiration" id="expiration' . $innerRow['id'] . '" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
+								echo 'Name on Card: <p name="nameOnCard" id="nameOnCard' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['card_full_name'] . '</p>
+									  Card Type: <p name="cardType" id="cardType' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['payment_type'] . '</p>
+									  Card Number: <p name="cardNumber" id="cardNumber' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['card_number'] . '</p>
+									  Security Code: <p name="securityCode" id="securityCode' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['card_security'] . '</p>
+									  Expires: <p name="expiration" id="expiration' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
 									  <br>';
-									  echo '<input type="submit" text="Update" id="updatePayment' . $innerRow['id'] . '">';
+									  echo '<input type="submit" text="Update" id="updatePayment' . $innerRow['payment_id'] . '">';
 			                }
 			                echo '</div>';
 			                print_r($customer_payment->readDataJoinedPayments($_SESSION['customerid'])[1])
