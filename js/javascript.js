@@ -132,11 +132,11 @@ function changeQuantity(quantity, id, transaction_id){
 
 $(':button').click(function() {
 	var buttonElementId = $(this).attr('id');
-	name = $('#nameOnCard' + buttonElementId).text;
-    type = $('#cardType' + buttonElementId).text;
-    number = $('#cardNumber' + buttonElementId).text;
-    code = $('#securityCode' + buttonElementId).text; 
-    exp = $('#exp' + buttonElementId).text;
+	name = $('#nameOnCard' + buttonElementId).text();
+    type = $('#cardType' + buttonElementId).text();
+    number = $('#cardNumber' + buttonElementId).text();
+    code = $('#securityCode' + buttonElementId).text(); 
+    exp = $('#exp' + buttonElementId).text();
     console.log(name);
 	$.ajax({
 		url: "updatePayment.php",
