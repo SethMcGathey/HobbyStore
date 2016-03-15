@@ -50,8 +50,9 @@ require_once 'databaseClasses/customer_paymentClass.php';
 									  <br>';
 							}
 			            ?>
-			            <button id="updateGeneralInformation">Update</button>
+			            
 		        	</div>
+		        	<button id="updateGeneralInformation">Update</button>
 				</div>
 			</div>
 			<div class="row">
@@ -84,8 +85,9 @@ require_once 'databaseClasses/customer_paymentClass.php';
 									  <br>';
 							}
 			            ?>
-			            <button id="updateAddress"</button>
+			            
 		        	</div>
+		        	<button id="updateAddress">Update</button>
 				</div>
 			</div>
 			<div class="row">
@@ -113,8 +115,8 @@ require_once 'databaseClasses/customer_paymentClass.php';
 									  <br>';
 			                }
 			            ?>
-			            <button id="updatePayment">Update</button>
 		        	</div>
+		        	<button id="updatePayment">Update</button>
 				</div>
 			</div>
 			<div id="inner_ajax_Output">
