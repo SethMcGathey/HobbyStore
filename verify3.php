@@ -24,7 +24,7 @@ require_once 'databaseClasses/customerClass.php';
     $q = $pdo->prepare($sql);
     $q->execute(array($myusername, $mypassword));
     $data = $q->fetch(PDO::FETCH_ASSOC);*/
-    if(isset($data[2]['id']))
+    if(isset($data['id'][2]))
     {
     	
     	$_SESSION['username'] = $data['username'];
