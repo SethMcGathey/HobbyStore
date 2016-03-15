@@ -108,6 +108,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 						<?php
 							echo '<div class="scrollbox">';
 							$customer_payment = new customer_paymentDataAccess();
+
 							foreach($customer_payment->readDataJoinedPayments($_SESSION['customerid'])[1] as $innerRow)
 							{
 								echo 'Name on Card: <p name="nameOnCard" id="nameOnCard' . $innerRow['id'] . '" contenteditable>' . $innerRow['card_full_name'] . '</p>
@@ -116,9 +117,10 @@ require_once 'databaseClasses/customer_paymentClass.php';
 									  Security Code: <p name="securityCode" id="securityCode' . $innerRow['id'] . '" contenteditable>' . $innerRow['card_security'] . '</p>
 									  Expires: <p name="expiration" id="expiration' . $innerRow['id'] . '" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
 									  <br>';
-									  echo '<input type="submit" text="Update" id="updatePayment">';
+									  echo '<input type="submit" text="Update" id="updatePayment' . $innerRow['id'] . '">';
 			                }
 			                echo '</div>';
+			                print_r($customer_payment->readDataJoinedPayments($_SESSION['customerid'])[1])
 			            ?>
 		        	
 				</div>
