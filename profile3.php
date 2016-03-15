@@ -34,17 +34,16 @@ require_once 'databaseClasses/customer_paymentClass.php';
 					<div class="scrollbox">
 					<?php
 						$customer_address = new customer_addressDataAccess();
-						foreach($customer_address->readDataJoinedAddress($_SESSION['customerid'])[1] as $innerRow)
+						foreach($customer_address->readDataJoinedAddress($_SESSION['customerid']) as $innerRow)
 						{
-							echo '<p name="street1" id="street1">Street 1: ' . $row['street_one'] . '</p>
-								  <p name="street2" id="street2">Street 2: ' . $row['street_two'] . '</p>
-								  <p name="zipcode" id="zipcode">Zipcode: ' . $row['zipcode'] . '</p>
-								  <p name="city" id="city">City: ' . $row['city'] . '</p>
-								  <p name="state" id="state">State: ' . $row['state'] . '</p>
-								  <p name="country" id="country">Country: ' . $row['country'] . '</p>
+							echo '<p name="street1" id="street1">Street 1: ' . $innerRow['street_one'] . '</p>
+								  <p name="street2" id="street2">Street 2: ' . $innerRow['street_two'] . '</p>
+								  <p name="zipcode" id="zipcode">Zipcode: ' . $innerRow['zipcode'] . '</p>
+								  <p name="city" id="city">City: ' . $innerRow['city'] . '</p>
+								  <p name="state" id="state">State: ' . $innerRow['state'] . '</p>
+								  <p name="country" id="country">Country: ' . $innerRow['country'] . '</p>
 								  <br>';
 						}
-						//echo $_SESSION['customerid'];
 		            ?>
 		        	</div>
 				</div>
@@ -65,10 +64,10 @@ require_once 'databaseClasses/customer_paymentClass.php';
 						$customer_address = new customer_addressDataAccess();
 						foreach($customer_address->readDataJoinedPayments($_SESSION['customerid'])[1] as $innerRow)
 						{
-							echo '<p name="nameOnCard" id="nameOnCard">Name on Card: ' . $row['card_full_name'] . '</p>
-								  <p name="cardNumber" id="cardNumber">Card Number: ' . $row['card_number'] . '</p>
-								  <p name="securityCode" id="securityCode">Security Code: ' . $row['card_security'] . '</p>
-								  <p name="expiration" id="expiration">Expires: ' . $row['expires_month'] . '/' . $row['expires_year'] . '</p>
+							echo '<p name="nameOnCard" id="nameOnCard">Name on Card: ' . $innerRow['card_full_name'] . '</p>
+								  <p name="cardNumber" id="cardNumber">Card Number: ' . $innerRow['card_number'] . '</p>
+								  <p name="securityCode" id="securityCode">Security Code: ' . $innerRow['card_security'] . '</p>
+								  <p name="expiration" id="expiration">Expires: ' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
 								  <br>';
 		                }
 		            ?>
