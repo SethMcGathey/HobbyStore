@@ -6,7 +6,7 @@ require_once 'database.php';
 <html lang="en">
 	<?php require_once 'header.php' ?>
 	<body>
-		<?php require_once 'navigation.php' ?>
+		<?php require_once 'navigation3.php' ?>
 		<div class="container" id="Not_Ajax_Output">
 			<h1>Login</h1>
 			<form action="verify.php" method="POST">

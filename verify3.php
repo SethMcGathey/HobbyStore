@@ -18,15 +18,6 @@ require_once 'databaseClasses/customerClass.php';
 	$customer = new customerDataAccess();
 	$data = $customer->readDataByUsernameAndPassword($myusername, $mypassword);
 
-	/*
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql="SELECT id, username, first_name, password, permission FROM customer WHERE username = ? AND password = ?";
-    $q = $pdo->prepare($sql);
-    $q->execute(array($myusername, $mypassword));
-    $data = $q->fetch(PDO::FETCH_ASSOC);*/
-    //echo $data['id'][2];
-    //echo " \n";
-    echo $data[1][0]['id'];
     if(isset($data[1][0]['id']))
     {
     	
