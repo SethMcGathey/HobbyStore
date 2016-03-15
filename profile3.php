@@ -36,12 +36,12 @@ require_once 'databaseClasses/customer_paymentClass.php';
 						$customer_address = new customer_addressDataAccess();
 						foreach($customer_address->readDataJoinedAddress($_SESSION['customerid'])[1] as $innerRow)
 						{
-							echo '<p name="street1" id="street1">Street 1: ' . $innerRow['street_one'] . '</p>
-								  <p name="street2" id="street2">Street 2: ' . $innerRow['street_two'] . '</p>
-								  <p name="zipcode" id="zipcode">Zipcode: ' . $innerRow['zipcode'] . '</p>
-								  <p name="city" id="city">City: ' . $innerRow['city'] . '</p>
-								  <p name="state" id="state">State: ' . $innerRow['state'] . '</p>
-								  <p name="country" id="country">Country: ' . $innerRow['country'] . '</p>
+							echo 'Street 1: <nobr><p name="street1" id="street1" contenteditable>' . $innerRow['street_one'] . '</p>
+								  Street 2: <nobr><p name="street2" id="street2" contenteditable>' . $innerRow['street_two'] . '</p>
+								  Zipcode: <nobr><p name="zipcode" id="zipcode" contenteditable>' . $innerRow['zipcode'] . '</p>
+								  City: <nobr><p name="city" id="city" contenteditable>' . $innerRow['city'] . '</p>
+								  State: <nobr><p name="state" id="state" contenteditable>' . $innerRow['state'] . '</p>
+								  Country: <nobr><p name="country" id="country" contenteditable>' . $innerRow['country'] . '</p>
 								  <br>';
 						}
 		            ?>
@@ -64,10 +64,10 @@ require_once 'databaseClasses/customer_paymentClass.php';
 						$customer_address = new customer_paymentDataAccess();
 						foreach($customer_address->readDataJoinedPayments($_SESSION['customerid'])[1] as $innerRow)
 						{
-							echo 'Name on Card: <p name="nameOnCard" id="nameOnCard" contenteditable>' . $innerRow['card_full_name'] . '</p>
-								  Card Number: <p name="cardNumber" id="cardNumber" contenteditable>' . $innerRow['card_number'] . '</p>
-								  Security Code: <p name="securityCode" id="securityCode" contenteditable>' . $innerRow['card_security'] . '</p>
-								  Expires: <p name="expiration" id="expiration" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
+							echo 'Name on Card: <nobr><p name="nameOnCard" id="nameOnCard" contenteditable>' . $innerRow['card_full_name'] . '</p>
+								  Card Number: <nobr><p name="cardNumber" id="cardNumber" contenteditable>' . $innerRow['card_number'] . '</p>
+								  Security Code: <nobr><p name="securityCode" id="securityCode" contenteditable>' . $innerRow['card_security'] . '</p>
+								  Expires: <nobr><p name="expiration" id="expiration" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
 								  <br>';
 		                }
 		            ?>
