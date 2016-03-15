@@ -6,8 +6,7 @@ require_once 'sessionStart.php';
 require_once 'accessDatabaseClass.php'; 
 require_once 'database.php';
 
-require_once 'databaseClasses/categoryClass.php';
-require_once 'databaseClasses/subcategoryClass.php';
+require_once 'databaseClasses/customerClass.php';
     $pdo = Database::connect();
 
 	if($_SERVER["REQUEST_METHOD"] == "POST")
