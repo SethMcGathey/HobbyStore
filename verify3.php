@@ -27,7 +27,7 @@ require_once 'databaseClasses/customerClass.php';
     //echo $data['id'][2];
     //echo " \n";
     echo $data[1][0]['id'];
-    if(isset($data['id'][2]))
+    if(isset($data[1][0]['id']))
     {
     	
     	$_SESSION['username'] = $data['username'];
