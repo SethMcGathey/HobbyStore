@@ -127,17 +127,43 @@ function changeQuantity(quantity, id, transaction_id){
 			 		alert("error");
 			 	}
 		 });
-
-
 }
 
+
 $(':button').click(function() {
-  var buttonElementId = $(this).attr('id');
-  location.href = "updatePayment.php?name=" + $('#nameOnCard' + buttonElementId).text +  
-  "&type=" + $('#cardType' + buttonElementId).text + 
-  "&number=" + $('#carNumber' + buttonElementId).text +
-  "&code=" + $('#securityCode' + buttonElementId).text +
-  "&expiration=" + $('#exp' + buttonElementId).text;
+	var buttonElementId = $(this).attr('id');
+	name = $('#nameOnCard' + buttonElementId).text;
+    type = $('#cardType' + buttonElementId).text;
+    number = $('#cardNumber' + buttonElementId).text;
+    code = $('#securityCode' + buttonElementId).text; 
+    exp = $('#exp' + buttonElementId).text;
+
+	$.ajax({
+		url: "updatePayment.php",
+	    method: 'POST',
+	    //dataType:"json",
+	   	data: {name, type, number, code, exp},
+	    success: function(){
+	    	console.log('madeit');
+	    	//14 transaction_id
+	    	/*console.log(dataVar);
+	    	console.log(dataVar.html);
+	    	console.log(dataVar[2]);
+	    	htmlEditor.setValue(dataVar.html);
+	    	javascriptEditor.setValue(dataVar.javascript);
+	    	cssEditor.setValue(dataVar.css);
+	    	result = dataVar;*/
+	     //$("#responseArea").text(data);
+	     
+	     //setCodeBoxes(result);
+
+	    },
+	    error : function() {
+		 		alert("error");
+		 	}
+	 });
+
+
 });
 /*$_POST['name'], $_POST['type'], $_POST['number'], $_POST['code'], $_POST['exp'], $_SESSION['customerid']
 nameOnCard,cardType,cardNumber,securityCode,expiration*/
