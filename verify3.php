@@ -16,7 +16,7 @@ require_once 'databaseClasses/customerClass.php';
 	$_SESSION['user'] = $myusername;
 
 	$customer = new customerDataAccess();
-	$data = $customer->readData($myusername, $mypassword);
+	$data = $customer->readDataByUsernameAndPassword($myusername, $mypassword);
 
 	/*
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -30,7 +30,7 @@ require_once 'databaseClasses/customerClass.php';
     	$_SESSION['username'] = $data['username'];
     	$_SESSION['customerid'] = $data['id'];
     	$_SESSION['permission'] = $data['permission'];
-    	print_r($data);
+    	print($data);
     	//header('Location: index3.php');
     }else
     {
