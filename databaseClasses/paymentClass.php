@@ -7,9 +7,9 @@ class paymentDataAccess extends accessDatabase{
         return parent::doSql($sql, $columns);
     }
 
-    public function createData($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$payment_type_id){
-        $columns = array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$payment_type_id);
-        $sql = "INSERT INTO payment (card_full_name,card_number,card_security,expires_month,expires_year,payment_type_id) values(?, ?, ?, ?, ?, ?)";
+    public function createData($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$payment_type){
+        $columns = array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$payment_type);
+        $sql = "INSERT INTO payment (card_full_name,card_number,card_security,expires_month,expires_year,payment_type) values(?, ?, ?, ?, ?, ?)";
         $payment_id = parent::doSql($sql, $columns);
 
         $columns2 = array($payment_id, $customer_id);
