@@ -7,6 +7,12 @@ class customer_paymentDataAccess extends accessDatabase{
         return parent::doSql($sql, $columns);
     }
 
+    public function readDataJoinedPayments($customer_id){
+        $columns = array($customer_id);
+        $sql = "SELECT card_full_name, card_number, card_security, expires_month, expires_year FROM customer_payment c JOIN payment a ON c.payment_id = a.id WHERE customer_id = ?";
+        return parent::doSql($sql, $columns);
+    }
+
     public function createData($payment_id, $customer_id){
         $columns = array($payment_id, $customer_id);
         $sql = "INSERT INTO customer_payment (payment_id, customer_id) values(?, ?)";

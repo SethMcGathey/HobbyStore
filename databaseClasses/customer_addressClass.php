@@ -7,6 +7,12 @@ class customer_addressDataAccess extends accessDatabase{
         return parent::doSql($sql, $columns);
     }
 
+    public function readDataJoinedAddress($customer_id){
+        $columns = array($customer_id);
+        $sql = "SELECT street_one, street_two, zipcode, city, state, country FROM customer_address c JOIN address a ON c.address_id = a.id WHERE customer_id = ?";
+        return parent::doSql($sql, $columns);
+    }
+
     public function createData($customer_id, $address_id){
         $columns = array($customer_id, $address_id);
         $sql = "INSERT INTO customer_address (customer_id, address_id) values(?, ?)";
