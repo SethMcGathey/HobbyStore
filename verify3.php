@@ -26,7 +26,7 @@ require_once 'databaseClasses/customerClass.php';
     $data = $q->fetch(PDO::FETCH_ASSOC);*/
     //echo $data['id'][2];
     //echo " \n";
-    echo $data['id'][2][1];
+    echo $data[1][0]['id'];
     if(isset($data['id'][2]))
     {
     	
