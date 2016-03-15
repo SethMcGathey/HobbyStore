@@ -137,12 +137,12 @@ $(':button').click(function() {
     number = $('#cardNumber' + buttonElementId).text;
     code = $('#securityCode' + buttonElementId).text; 
     exp = $('#exp' + buttonElementId).text;
-
+    console.log(name);
 	$.ajax({
 		url: "updatePayment.php",
 	    method: 'POST',
 	    dataType:"text",
-	   	data: {name: name, type: type, number: number, code: code, exp: exp},
+	   	data: {name: name, type: type, number: number, code: code, exp: exp, payment_id: buttonElementId},
 	    success: function(){
 	    	console.log('madeit');
 	    	//14 transaction_id

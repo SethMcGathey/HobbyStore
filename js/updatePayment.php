@@ -15,5 +15,5 @@ require_once 'databaseClasses/customerClass.php';
 	$_SESSION['user'] = $myusername;
 
 	$payment = new paymentDataAccess();
-	$payment->updateData($_POST['name'], $_POST['type'], $_POST['number'], $_POST['code'], $_POST['exp'], $_SESSION['customerid']);
+	$payment->updateData($_POST['name'], $_POST['type'], $_POST['number'], $_POST['code'], $_POST['exp'], $POST['payment_id']);
     //echo 'completed';
