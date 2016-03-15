@@ -117,10 +117,9 @@ require_once 'databaseClasses/customer_paymentClass.php';
 									  Security Code: <p name="securityCode" id="securityCode' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['card_security'] . '</p>
 									  Expires: <p name="expiration" id="expiration' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
 									  <br>';
-									  echo '<input type="submit" text="Update" id="updatePayment' . $innerRow['payment_id'] . '">';
+									  echo '<input type="submit" text="Update" id="updatePayment' . $innerRow['payment_id'] . '"><br>';
 			                }
 			                echo '</div>';
-			                print_r($customer_payment->readDataJoinedPayments($_SESSION['customerid'])[1])
 			            ?>
 		        	
 				</div>
