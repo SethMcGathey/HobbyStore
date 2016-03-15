@@ -64,10 +64,10 @@ require_once 'databaseClasses/customer_paymentClass.php';
 						$customer_address = new customer_paymentDataAccess();
 						foreach($customer_address->readDataJoinedPayments($_SESSION['customerid'])[1] as $innerRow)
 						{
-							echo '<p name="nameOnCard" id="nameOnCard">Name on Card: ' . $innerRow['card_full_name'] . '</p>
-								  <p name="cardNumber" id="cardNumber">Card Number: ' . $innerRow['card_number'] . '</p>
-								  <p name="securityCode" id="securityCode">Security Code: ' . $innerRow['card_security'] . '</p>
-								  <p name="expiration" id="expiration">Expires: ' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
+							echo '<p name="nameOnCard" id="nameOnCard" contenteditable>Name on Card: ' . $innerRow['card_full_name'] . '</p>
+								  <p name="cardNumber" id="cardNumber" contenteditable>Card Number: ' . $innerRow['card_number'] . '</p>
+								  <p name="securityCode" id="securityCode" contenteditable>Security Code: ' . $innerRow['card_security'] . '</p>
+								  <p name="expiration" id="expiration" contenteditable>Expires: ' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
 								  <br>';
 		                }
 		            ?>
