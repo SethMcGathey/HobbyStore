@@ -16,5 +16,5 @@ require_once 'databaseClasses/customerClass.php';
 
 	$payment = new paymentDataAccess();
 	$payment->updateData($_POST['name'], $_POST['type'], $_POST['number'], $_POST['code'], $_POST['exp'], $_SESSION['customerid']);
-
-    header('Location: profile3.php');
+    echo 'completed';
+    
