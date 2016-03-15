@@ -55,18 +55,22 @@ require_once 'databaseClasses/subcategoryClass.php';
                 echo '<li class="' . $ifActive["/register.php"] . '"><a href="register.php"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>';
                 echo '<li class="' . $ifActive["/login.php"] . '"><a href="login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>';
               }
-
-              $category = new categoryDataAccess();
-              foreach($category->readData(1)[1] as $innerRow)
-              {
-                  //echo $name = $innerRow['name'];
-                echo '<li><a href="">Action</a>' . $innerRow['name'] . '</li>';
-                  /*echo '<a href="#">
-                          <div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
-                            <img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>
-                          </div>
-                        </a>';*/
-              }
+              echo'<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
+                <ul class="dropdown-menu">';
+                $category = new categoryDataAccess();
+                foreach($category->readData(1)[1] as $innerRow)
+                {
+                    //echo $name = $innerRow['name'];
+                  echo '<li><a href="">' . $innerRow['name'] . '</a></li>';
+                    /*echo '<a href="#">
+                            <div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
+                              <img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>
+                            </div>
+                          </a>';*/
+                }
+                echo'</ul>
+              </li>';
         ?>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
