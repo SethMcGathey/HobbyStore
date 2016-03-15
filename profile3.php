@@ -18,7 +18,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 		<div class="container" id="Not_Ajax_Output">
 			<div class="row">
 				<div class="col-lg-6">
-					<h3>Address</h3>
+					<h3>General Information</h3>
 					<form action="changeAddress.php" method="POST">
 						<p>First Name:</p><input type="text" placeholder="First Name" name="firstName" id="firstName">
 						<p>Last Name:</p><input type="text" placeholder="Last Name" name="lastName" id="lastName">
@@ -33,7 +33,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 					</form>
 				</div>
 				<div class="col-lg-6">
-					<h3>Current Addresses</h3>
+					<h3>Current General Information</h3>
 					<div class="scrollbox">
 						<?php
 							$customer = new customerDataAccess();
@@ -50,6 +50,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 									  <br>';
 							}
 			            ?>
+			            <button id="updateGeneralInformation">Update</button>
 		        	</div>
 				</div>
 			</div>
@@ -83,6 +84,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 									  <br>';
 							}
 			            ?>
+			            <button id="updateAddress"</button>
 		        	</div>
 				</div>
 			</div>
@@ -101,8 +103,8 @@ require_once 'databaseClasses/customer_paymentClass.php';
 					<h3>Cards on Record</h3>
 					<div class="scrollbox">
 						<?php
-							$customer_address = new customer_paymentDataAccess();
-							foreach($customer_address->readDataJoinedPayments($_SESSION['customerid'])[1] as $innerRow)
+							$customer_payment = new customer_paymentDataAccess();
+							foreach($customer_payment->readDataJoinedPayments($_SESSION['customerid'])[1] as $innerRow)
 							{
 								echo 'Name on Card: <p name="nameOnCard" id="nameOnCard" contenteditable>' . $innerRow['card_full_name'] . '</p>
 									  Card Number: <p name="cardNumber" id="cardNumber" contenteditable>' . $innerRow['card_number'] . '</p>
@@ -111,6 +113,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 									  <br>';
 			                }
 			            ?>
+			            <button id="updatePayment">Update</button>
 		        	</div>
 				</div>
 			</div>
