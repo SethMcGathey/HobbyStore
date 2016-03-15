@@ -134,7 +134,7 @@ function changeQuantity(quantity, id, transaction_id){
 
 
 
-
+/*
 $("#updatePayment").on('click', function(){
 	$.ajax({
 		url: "updatePayment.php",
@@ -155,12 +155,12 @@ $("#updatePayment").on('click', function(){
 	     
 	     //setCodeBoxes(result);
 
-	    },
+/*	    },
 	    error : function() {
 		 		alert("error");
 		 	}
 	 });
 });
-
+*/
 
 

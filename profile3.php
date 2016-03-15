@@ -116,7 +116,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 									  Security Code: <p name="securityCode" id="securityCode' . $innerRow['id'] . '" contenteditable>' . $innerRow['card_security'] . '</p>
 									  Expires: <p name="expiration" id="expiration' . $innerRow['id'] . '" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
 									  <br>';
-									  echo '<input type="submit" id="updatePayment" href="updatePayment.php?">Update</input>';
+									  echo '<input type="submit" text="Update" id="updatePayment" href="updatePayment.php?">';
 			                }
 			                echo '</div>';
 			            ?>
