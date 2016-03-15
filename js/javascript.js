@@ -134,10 +134,10 @@ function changeQuantity(quantity, id, transaction_id){
 $(':button').click(function() {
   var buttonElementId = $(this).attr('id');
   location.href = "updatePayment.php?name=" + $('#nameOnCard' + buttonElementId).text +  
-  "type=" + $('#cardType' + buttonElementId).text + 
-  "number=" + $('#carNumber' + buttonElementId).text +
-  "code=" + $('#securityCode' + buttonElementId).text +
-  "expiration=" + $('#exp' + buttonElementId).text;
+  "&type=" + $('#cardType' + buttonElementId).text + 
+  "&number=" + $('#carNumber' + buttonElementId).text +
+  "&code=" + $('#securityCode' + buttonElementId).text +
+  "&expiration=" + $('#exp' + buttonElementId).text;
 });
 /*$_POST['name'], $_POST['type'], $_POST['number'], $_POST['code'], $_POST['exp'], $_SESSION['customerid']
 nameOnCard,cardType,cardNumber,securityCode,expiration*/
