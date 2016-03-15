@@ -33,7 +33,7 @@ require_once 'databaseClasses/customerClass.php';
     	$_SESSION['username'] = $data[1][0]['username'];
     	$_SESSION['customerid'] = $data[1][0]['id'];
     	$_SESSION['permission'] = $data[1][0]['permission'];
-    	//header('Location: index3.php');
+    	header('Location: index3.php');
     }else
     {
     	echo "Invalid Login";
