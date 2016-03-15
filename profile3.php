@@ -19,7 +19,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 			<div class="row">
 				<div class="col-lg-6">
 					<h3>General Information</h3>
-					<form action="changeAddress.php" method="POST">
+					<form action="changeGeneral.php" method="POST">
 						<p>First Name:</p><input type="text" placeholder="First Name" name="firstName" id="firstName">
 						<p>Last Name:</p><input type="text" placeholder="Last Name" name="lastName" id="lastName">
 						<p>Phone Number:</p><input type="text" placeholder="Phone Number" name="phoneNumber" id="phoneNumber">
@@ -28,7 +28,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 						<p>Password:</p><input type="text" placeholder="Password" name="password" id="password">
 						<p>Gender:</p><input type="text" placeholder="Gender" name="gender" id="gender">
 						<p>Email:</p><input type="text" placeholder="Email" name="email" id="email">
-						<button>Add Address</button>
+						<button>Add General</button>
 						<br>
 					</form>
 				</div>
@@ -117,7 +117,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 									  Security Code: <p name="securityCode" id="securityCode' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['card_security'] . '</p>
 									  Expires: <p name="expiration" id="expiration' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
 									  <br>';
-									  echo '<button type="submit" text="Update" id="updatePayment' . $innerRow['payment_id'] . '">Update</button><br>';
+									  echo '<button type="submit" text="Update" id="' . $innerRow['payment_id'] . '">Update</button><br>';
 			                }
 			                echo '</div>';
 			            ?>
