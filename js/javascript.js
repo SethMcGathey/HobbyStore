@@ -138,6 +138,10 @@ $(':button').click(function() {
     code = $('#securityCode' + buttonElementId).text(); 
     exp = $('#exp' + buttonElementId).text();
     console.log(name);
+    console.log(type);
+    console.log(number);
+    console.log(code);
+    console.log(exp);
 	$.ajax({
 		url: "updatePayment.php",
 	    method: 'POST',
