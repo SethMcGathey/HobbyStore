@@ -141,8 +141,8 @@ $(':button').click(function() {
 	$.ajax({
 		url: "updatePayment.php",
 	    method: 'POST',
-	    //dataType:"json",
-	   	data: {name, type, number, code, exp},
+	    dataType:"text",
+	   	data: {name: name, type: type, number: number, code: code, exp: exp},
 	    success: function(){
 	    	console.log('madeit');
 	    	//14 transaction_id
