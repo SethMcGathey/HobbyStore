@@ -34,7 +34,7 @@ require_once 'databaseClasses/customer_paymentClass.php';
 					<div class="scrollbox">
 					<?php
 						$customer_address = new customer_addressDataAccess();
-						foreach($customer_address->readDataJoinedAddress($_SESSION['customerid']) as $innerRow)
+						foreach($customer_address->readDataJoinedAddress($_SESSION['customerid'])[1] as $innerRow)
 						{
 							echo '<p name="street1" id="street1">Street 1: ' . $innerRow['street_one'] . '</p>
 								  <p name="street2" id="street2">Street 2: ' . $innerRow['street_two'] . '</p>
