@@ -18,7 +18,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 		<?php require_once 'navigation.php' ?> 
 		<div class="container-fluid" id="Not_Ajax_Output">
 			<h1 class="centerText">Admin Page</h1>
-			<input type="button" text="address">
+			<input type="button" value="address">
 			bin
 			category
 			customer
