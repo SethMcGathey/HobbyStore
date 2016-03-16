@@ -18,7 +18,7 @@ require_once '../../databaseClasses/customerClass.php';
 </head>
 
 <body>
-  <?php require '../../navigation.php' ?>
+  <?php require_once '../../navigation.php' ?>
     <div class="container">
             <div class="row">
                 <h3>PHP CRUD Grid</h3>
@@ -42,7 +42,6 @@ require_once '../../databaseClasses/customerClass.php';
                       </thead>
                       <tbody>
                       <?php
-                       include '../../database.php';
                        $pdo = Database::connect();
                        $sql = 'SELECT * FROM address ORDER BY id DESC';
                        foreach ($pdo->query($sql) as $row) {
