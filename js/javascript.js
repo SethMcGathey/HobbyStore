@@ -129,6 +129,33 @@ function changeQuantity(quantity, id, transaction_id){
 		 });
 }
 
+function makeChanges(tableName){
+	$.ajax({
+		url: "makeTableChanges.php",
+	    method: 'GET',
+	    //dataType:"json",
+	   	data: {tableName},
+	    success: function(){
+	    	console.log('madeit');
+	    	//14 transaction_id
+	    	/*console.log(dataVar);
+	    	console.log(dataVar.html);
+	    	console.log(dataVar[2]);
+	    	htmlEditor.setValue(dataVar.html);
+	    	javascriptEditor.setValue(dataVar.javascript);
+	    	cssEditor.setValue(dataVar.css);
+	    	result = dataVar;*/
+	     //$("#responseArea").text(data);
+	     
+	     //setCodeBoxes(result);
+
+	    },
+	    error : function() {
+		 		alert("error");
+		 	}
+	});
+}
+
 
 $(':button').click(function() {
 	var buttonElementId = $(this).attr('id');
