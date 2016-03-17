@@ -83,7 +83,7 @@ require_once '../../databaseClasses/addressClass.php';
         }
     } else {
         $address = new addressDataAccess();
-        $data = $address->readDataById($id)
+        $address->readDataById($id)
 /*
         $city = $data['city'];
         $country = $data['country'];
