@@ -7,6 +7,11 @@ class customer_paymentDataAccess extends accessDatabase{
         $sql = "SELECT * FROM customer_payment";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM customer_payment WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function readDataJoinedPayments($customer_id){
         $columns = array($customer_id);

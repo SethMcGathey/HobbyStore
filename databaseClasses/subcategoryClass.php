@@ -6,6 +6,11 @@ class subcategoryDataAccess extends accessDatabase{
         $sql = "SELECT * FROM subcategory";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM subcategory WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function readDataByCategoryID($selectParam){
         $columns = array($selectParam);

@@ -69,15 +69,30 @@ require_once '../../databaseClasses/customerClass.php';
 
         // update data
         if ($valid) {
+            
+            $customer->updateData($city,$country,$state,$street_one,$street_two,$zipcode,$id);
+            header("Location: addressIndex.php");
+            /*
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "UPDATE address  set city = ?, country = ?, state = ?, street_one =?, street_two =?, zipcode =? WHERE id = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($city,$country,$state,$street_one,$street_two,$zipcode,$id));
             Database::disconnect();
-            header("Location: addressIndex.php");
+            header("Location: addressIndex.php");*/
         }
     } else {
+        $address = new addressDataAccess();
+        $customer->readDataById($id);
+        $data = $customer->fetch(PDO::FETCH_ASSOC);
+        $city = $data['city'];
+        $country = $data['country'];
+        $state = $data['state'];
+        $street_one = $data['street_one'];
+        $street_two = $data['street_two'];
+        $zipcode = $data['zipcode'];
+
+/*
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * FROM address where id = ?";
@@ -90,7 +105,7 @@ require_once '../../databaseClasses/customerClass.php';
         $street_one = $data['street_one'];
         $street_two = $data['street_two'];
         $zipcode = $data['zipcode'];
-        Database::disconnect();
+        Database::disconnect();*/
     }
 ?>
 

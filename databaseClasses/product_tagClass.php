@@ -6,6 +6,11 @@ class product_tagDataAccess extends accessDatabase{
         $sql = "SELECT * FROM product_tag";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM product_tag WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function createData($tag_id,$product_id){
         $columns = array($tag_id,$product_id);

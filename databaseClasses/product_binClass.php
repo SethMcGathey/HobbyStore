@@ -6,6 +6,11 @@ class product_binDataAccess extends accessDatabase{
         $sql = "SELECT * FROM product_bin";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM product_bin WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function createData($stock,$bin_id,$product_id){
         $columns = array($stock,$bin_id,$product_id);

@@ -6,6 +6,11 @@ class productDataAccess extends accessDatabase{
         $sql = "SELECT * FROM product";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM product WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function readFullProductData($subcategory_id){
         $columns = array($subcategory_id);

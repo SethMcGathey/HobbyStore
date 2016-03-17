@@ -6,6 +6,11 @@ class categoryDataAccess extends accessDatabase{
         $sql = "SELECT * FROM category";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM category WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function createData($name){
         $columns = array($name);

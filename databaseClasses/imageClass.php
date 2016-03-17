@@ -6,6 +6,11 @@ class imageDataAccess extends accessDatabase{
         $sql = "SELECT * FROM image";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM image WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function createData($description,$featured,$image,$product_id){
         $columns = array($description,$featured,$image,$product_id);

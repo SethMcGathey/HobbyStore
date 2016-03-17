@@ -8,6 +8,11 @@ class customerDataAccess extends accessDatabase{
         $sql = "SELECT * FROM customer";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM customer WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function readDataByUsernameAndPassword($username, $password){
         $columns = array($username, $password);

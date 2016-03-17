@@ -6,6 +6,11 @@ class transactionDataAccess extends accessDatabase{
         $sql = "SELECT * FROM transaction WHERE ?";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM transaction WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function createData($cart,$timestamp,$payment_id,$customer_id, $phone,$type,$address_id, $quantity,$product_id){
         $columns = array($cart,$timestamp,$payment_id,$customer_id);

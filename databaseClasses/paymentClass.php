@@ -6,6 +6,11 @@ class paymentDataAccess extends accessDatabase{
         $sql = "SELECT * FROM payment";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM payment WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function createData($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$payment_type){
         $columns = array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$payment_type);

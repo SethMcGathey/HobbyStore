@@ -6,6 +6,11 @@ class customer_addressDataAccess extends accessDatabase{
         $sql = "SELECT * FROM customer_address";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM customer_address WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function readDataJoinedAddress($customer_id){
         $columns = array($customer_id);

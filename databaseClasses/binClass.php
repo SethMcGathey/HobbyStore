@@ -6,6 +6,11 @@ class binDataAccess extends accessDatabase{
         $sql = "SELECT * FROM bin";
         return parent::doSql($sql, $columns);
     }
+    public function readDataById($selectParam){
+        $columns = array($selectParam);
+        $sql = "SELECT * FROM bin WHERE id = ?";
+        return parent::doSql($sql, $columns);
+    }
 
     public function createData($name,$shipment_center_id){
         $columns = array($name,$shipment_center_id);
