@@ -10,7 +10,7 @@ require_once '../../databaseClasses/customerClass.php';
     }
 
     if ( null==$id ) {
-        header("Location: index.php");
+        header("Location: customerIndex.php");
     } else {
       $customer = new customerDataAccess();
       $data = $customer->readDataById($id)[1][0];
