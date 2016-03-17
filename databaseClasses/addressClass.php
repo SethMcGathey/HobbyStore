@@ -30,9 +30,9 @@ class addressDataAccess extends accessDatabase{
 		return parent::changeSql($sql, $columns);
 	}
 
-	public function deleteSql($id){
+	public function deleteData($id){
 		$columns = array($id);
 		$sql = "DELETE FROM address  WHERE id = ?";
-		parent::changeData($sql, $columns);
+		parent::changeSql($sql, $columns);
     }
 }
