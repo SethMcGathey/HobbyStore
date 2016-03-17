@@ -2,8 +2,8 @@
 
 class addressDataAccess extends accessDatabase{
 
-	public function readData($selectParam){
-		$columns = array($selectParam);
+	public function readData(){
+		$columns = array();
 		$sql = "SELECT * FROM address";
 		return parent::doSql($sql, $columns);
 	}
