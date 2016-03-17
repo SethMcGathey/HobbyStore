@@ -27,10 +27,10 @@ class addressDataAccess extends accessDatabase{
 	public function updateData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
 		$columns = array($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id);
 		$sql = "UPDATE address  set city = ?, country = ?, state = ?, street_one =?, street_two =?, zipcode =? WHERE id = ?";
-		return parent::changeData($sql, $columns);
+		return parent::changeSql($sql, $columns);
 	}
 
-	public function deleteData($id){
+	public function deleteSql($id){
 		$columns = array($id);
 		$sql = "DELETE FROM address  WHERE id = ?";
 		parent::changeData($sql, $columns);
