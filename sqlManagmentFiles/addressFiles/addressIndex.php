@@ -6,7 +6,7 @@ require_once '../../sessionStart.php';
 require_once '../../database.php';
 
 require_once '../../accessDatabaseClass.php'; 
-require_once '../../databaseClasses/customerClass.php';
+require_once '../../databaseClasses/addressClass.php';
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +42,26 @@ require_once '../../databaseClasses/customerClass.php';
                       </thead>
                       <tbody>
                       <?php
+                        $address = new addressDataAccess();
+                        foreach($address->readDataById($id) as $row)
+                        {
+                            echo '<tr>';
+                              echo '<td>'. $row['city'] . '</td>';
+                              echo '<td>'. $row['country'] . '</td>';
+                              echo '<td>'. $row['state'] . '</td>';
+                              echo '<td>'. $row['street_one'] . '</td>';
+                              echo '<td>'. $row['street_two'] . '</td>';
+                              echo '<td>'. $row['zipcode'] . '</td>';
+                              echo '<td width=250>';
+                              echo '<a class="btn" href="addressRead.php?id='.$row['id'].'">Read</a>';
+                              echo ' ';
+                              echo '<a class="btn btn-success" href="addressUpdate.php?id='.$row['id'].'">Update</a>';
+                              echo ' ';
+                              echo '<a class="btn btn-danger" href="addressDelete.php?id='.$row['id'].'">Delete</a>';
+                              echo '</td>';
+                            echo '</tr>';
+                        }
+                      /*
                        $pdo = Database::connect();
                        $sql = 'SELECT * FROM address ORDER BY id DESC';
                        foreach ($pdo->query($sql) as $row) {
@@ -61,7 +81,7 @@ require_once '../../databaseClasses/customerClass.php';
                                 echo '</td>';
                                 echo '</tr>';
                        }
-                       Database::disconnect();
+                       Database::disconnect();*/
                       ?>
                       </tbody>
                 </table>

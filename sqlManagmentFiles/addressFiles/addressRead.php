@@ -6,7 +6,7 @@ require_once '../../sessionStart.php';
 require_once '../../database.php';
 
 require_once '../../accessDatabaseClass.php'; 
-require_once '../../databaseClasses/customerClass.php';
+require_once '../../databaseClasses/addressClass.php';
 
     $id = null;
     if ( !empty($_GET['id'])) {
@@ -16,13 +16,17 @@ require_once '../../databaseClasses/customerClass.php';
     if ( null==$id ) {
         header("Location: addressIndex.php");
     } else {
+        $address = new addressDataAccess();
+        $data = $address->readDataById($id);
+
+        /*
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * FROM address where id = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
         $data = $q->fetch(PDO::FETCH_ASSOC);
-        Database::disconnect();
+        Database::disconnect();*/
     }
 ?>
 

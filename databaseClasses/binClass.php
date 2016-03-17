@@ -26,7 +26,7 @@ class binDataAccess extends accessDatabase{
     }
 
     public function deleteData($id){
-        $columns = array($d);
+        $columns = array($id);
         $sql = "DELETE FROM bin  WHERE id = ?";
         parent::doSql($sql, $columns);
     }

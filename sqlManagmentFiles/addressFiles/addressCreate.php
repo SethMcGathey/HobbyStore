@@ -6,7 +6,7 @@ require_once '../../sessionStart.php';
 require_once '../../database.php';
 
 require_once '../../accessDatabaseClass.php'; 
-require_once '../../databaseClasses/customerClass.php';
+require_once '../../databaseClasses/addressClass.php';
 
 
     if ( !empty($_POST)) {
@@ -61,13 +61,21 @@ require_once '../../databaseClasses/customerClass.php';
 
         // insert data
         if ($valid) {
-            $pdo = Database::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO address (city,country,state,street_one,street_two,zipcode) values(?, ?, ?, ?, ?, ?)";
-            $q = $pdo->prepare($sql);
-            $q->execute(array($city, $country, $state,$street_one,$street_two,$zipcode));
-            Database::disconnect();
-            header("Location: addressIndex.php");
+            if ( !empty($_POST)) {
+                // keep track post values
+                $id = $_POST['id'];
+
+                $address = new addressDataAccess();
+                $data = $address->createData($city, $country, $state,$street_one,$street_two,$zipcode,$id);
+/*
+                $pdo = Database::connect();
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $sql = "INSERT INTO address (city,country,state,street_one,street_two,zipcode) values(?, ?, ?, ?, ?, ?)";
+                $q = $pdo->prepare($sql);
+                $q->execute(array($city, $country, $state,$street_one,$street_two,$zipcode));
+                Database::disconnect();
+                header("Location: addressIndex.php");*/
+            }
         }
     }
 ?>

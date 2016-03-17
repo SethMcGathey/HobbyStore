@@ -6,7 +6,7 @@ require_once '../../sessionStart.php';
 require_once '../../database.php';
 
 require_once '../../accessDatabaseClass.php'; 
-require_once '../../databaseClasses/customerClass.php';
+require_once '../../databaseClasses/addressClass.php';
 
     $id = 0;
 
@@ -18,13 +18,16 @@ require_once '../../databaseClasses/customerClass.php';
         // keep track post values
         $id = $_POST['id'];
 
+        $address = new addressDataAccess();
+        $data = $address->deleteData($id);
+
         // delete data
-        $pdo = Database::connect();
+        /*$pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "DELETE FROM address  WHERE id = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($id));
-        Database::disconnect();
+        Database::disconnect();*/
         header("Location: addressIndex.php");
 
     }

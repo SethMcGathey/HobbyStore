@@ -31,7 +31,7 @@ class addressDataAccess extends accessDatabase{
 	}
 
 	public function deleteData($id){
-		$columns = array($d);
+		$columns = array($id);
 		$sql = "DELETE FROM address  WHERE id = ?";
 		parent::doSql($sql, $columns);
     }
