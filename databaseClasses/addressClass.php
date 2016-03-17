@@ -38,7 +38,7 @@ class addressDataAccess extends accessDatabase{
 }
 
 
-
+/*
 
 	public function createData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
 		$columns = array($city,$country,$state,$street_one,$street_two,$zipcode);
@@ -63,3 +63,4 @@ class addressDataAccess extends accessDatabase{
     		die();
     	}
 	}
+*/
