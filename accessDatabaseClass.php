@@ -31,6 +31,3 @@ abstract class accessDatabase{
         }
 	}
 }
-
-
-
