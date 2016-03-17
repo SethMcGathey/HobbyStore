@@ -6,7 +6,7 @@ require_once '../../sessionStart.php';
 require_once '../../database.php';
 
 require_once '../../accessDatabaseClass.php'; 
-require_once '../../databaseClasses/customerClass.php';
+require_once '../../databaseClasses/addressClass.php';
 
     $id = null;
     if ( !empty($_GET['id'])) {
