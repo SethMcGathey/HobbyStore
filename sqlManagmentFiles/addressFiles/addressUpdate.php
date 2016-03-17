@@ -82,7 +82,7 @@ require_once '../../databaseClasses/addressClass.php';
             header("Location: addressIndex.php");
         }
     } else {
-        /*$address = new addressDataAccess();
+        $address = new addressDataAccess();
         $data = $address->readDataById($id)
 
         $city = $data['city'];
@@ -90,10 +90,10 @@ require_once '../../databaseClasses/addressClass.php';
         $state = $data['state'];
         $street_one = $data['street_one'];
         $street_two = $data['street_two'];
-        $zipcode = $data['zipcode'];*/
+        $zipcode = $data['zipcode'];
         
 
-
+/*
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * FROM address where id = ?";
@@ -106,7 +106,7 @@ require_once '../../databaseClasses/addressClass.php';
         $street_one = $data['street_one'];
         $street_two = $data['street_two'];
         $zipcode = $data['zipcode'];
-        Database::disconnect();
+        Database::disconnect();*/
     }
 ?>
 
