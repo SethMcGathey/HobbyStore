@@ -85,12 +85,12 @@ require_once '../../databaseClasses/addressClass.php';
         $address = new addressDataAccess();
         $data = $address->readDataById($id);
         print_r($data);
-        $city = $data['city'];
-        $country = $data['country'];
-        $state = $data['state'];
-        $street_one = $data['street_one'];
-        $street_two = $data['street_two'];
-        $zipcode = $data['zipcode'];
+        $city = $data[1][1]['city'];
+        $country = $data[1][1]['country'];
+        $state = $data[1][1]['state'];
+        $street_one = $data[1][1]['street_one'];
+        $street_two = $data[1][1]['street_two'];
+        $zipcode = $data[1][1]['zipcode'];
         
 
 /*
