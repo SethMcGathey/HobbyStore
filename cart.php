@@ -31,7 +31,7 @@ require_once 'databaseClasses/transaction_addressClass.php';
 			</div>
 
 			<?php
-				$transaction_address = new transaction_addressDataAccess();
+				/*$transaction_address = new transaction_addressDataAccess();
                 foreach($transaction_address->readDataForCart($_SESSION['customerid'])[1] as $innerRow)
 				{
 					echo '<div class="row product" id="' . $row['id'] . '">' . 
@@ -53,7 +53,7 @@ require_once 'databaseClasses/transaction_addressClass.php';
 						$num = 0;
 	                }
 					echo $_SESSION['transaction_id'];
-				}/*
+				}*/
 				$sql = 'SELECT p.id, name, cost, p.description, tp.transaction_id, SUM(quantity) as fullQuantity, image FROM transaction t JOIN transaction_product tp ON tp.transaction_id = t.id JOIN product p ON p.id = tp.product_id JOIN image i ON i.product_id = p.id WHERE cart = 1 AND customer_ID = ' . $_SESSION['customerid'] . ' GROUP BY id';
 						$num = 0;
 						foreach ($pdo->query($sql) as $row) {
@@ -76,7 +76,7 @@ require_once 'databaseClasses/transaction_addressClass.php';
 								$num = 0;
 			                }
 						}
-						echo $_SESSION['transaction_id'];*/
+						echo $_SESSION['transaction_id'];
 			?>
 			<button onclick="window.location.href='choosePurchaseAddress.php'">Purchase</button>
 
