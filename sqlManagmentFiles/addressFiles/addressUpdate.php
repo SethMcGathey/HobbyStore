@@ -83,8 +83,8 @@ require_once '../../databaseClasses/addressClass.php';
         }
     } else {
         $address = new addressDataAccess();
-        $address->readDataById($id)
-/*
+        $address->readDataById($id);
+
         $city = $data['city'];
         $country = $data['country'];
         $state = $data['state'];
@@ -92,7 +92,7 @@ require_once '../../databaseClasses/addressClass.php';
         $street_two = $data['street_two'];
         $zipcode = $data['zipcode'];
         
-*/
+
 /*
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
