@@ -47,7 +47,7 @@ require_once '../../databaseClasses/addressClass.php';
                         foreach($address->readData()[1][0] as $innerRow)
                         {
                             echo '<tr>';
-                              echo '<td>'. $innerRow['city'] . '</td>';
+                              echo '<td>'. $innerRow[4] . '</td>';
                               echo '<td>'. $innerRow['country'] . '</td>';
                               echo '<td>'. $innerRow['state'] . '</td>';
                               echo '<td>'. $innerRow['street_one'] . '</td>';
