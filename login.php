@@ -1,13 +1,13 @@
-<?php 
+<?php
 require_once 'sessionStart.php'; 
-require_once 'database.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<?php require_once 'header.php' ?>
 	<body>
-		<?php require_once 'navigation3.php' ?>
-		<div class="container" id="Not_Ajax_Output">
+		<?php require_once 'navigation.php' ?>
+		<div class="container" id="">
 			<h1>Login</h1>
 			<form action="verify.php" method="POST">
 				<p>User Name:</p><input type="text" placeholder="User Name" name="usernameInput" id="usernameInput">

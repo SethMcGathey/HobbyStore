@@ -1,52 +1,27 @@
-<?php
-	require_once 'sessionStart.php'; 
-	require_once 'database.php';
-    $pdo = Database::connect();
+<?php   
+require_once 'sessionStart.php'; 
+require_once 'accessDatabaseClass.php'; 
 
-	//echo $_SESSION['user'];
-	if($_SERVER["REQUEST_METHOD"] == "POST")
+require_once 'databaseClasses/customerClass.php';
 
-	$myusername = $_POST['usernameInput'];
-	$mypassword = $_POST['passwordInput'];
-	$_SESSION['user'] = $myusername;
+    if($_SERVER["REQUEST_METHOD"] == "POST")
 
-	//$myusername=mysqli_real_escape_string($db, $_POST['username']);
-	//$mypassword=mysqli_real_escape_string($db, $_POST['password']);
-	//echo "<div>" . $myusername . "</div>";
-	//echo "<div>" . $mypassword . "</div>";
-	/*
-	$sql="SELECT id, first_name, password FROM customer WHERE username = " . $myusername;
+    $myusername = $_POST['usernameInput'];
+    $mypassword = $_POST['passwordInput'];
 
+    $customer = new customerDataAccess();
+    $data = $customer->readDataByUsernameAndPassword($myusername, $mypassword);
+    print_r($data);
 
-	foreach ($pdo->query($sql) as $row) {
-		echo "<div>garbage</div>";
-		echo '<div class="col-4-lg product" id="' . $row['id']. '">' . $row['first_name'] . ' ' . $row['password'] . '</div>';
-	}
-	//echo 'first_name';
-	Database::disconnect();
-*/
-
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql="SELECT id, username, first_name, password, permission FROM customer WHERE username = ? AND password = ?";
-    $q = $pdo->prepare($sql);
-    $q->execute(array($myusername, $mypassword));
-    $data = $q->fetch(PDO::FETCH_ASSOC);
-    if(isset($data['id']))
+    if(isset($data[1][0]['id']))
     {
-    	//echo $data['id'];
-    	//echo '<div class="col-4-lg product" id="' . $data['id'] . '">' . $data['first_name'] . ' ' . $data['password'] . '</div>';
-    	
-    	$_SESSION['username'] = $data['username'];
-    	$_SESSION['customerid'] = $data['id'];
-    	$_SESSION['permission'] = $data['permission'];
-    	//echo $_SESSION['customerid'];
-    	//echo $_SESSION['permission'];
-    	print_r($data);
-    	//header('Location: index.php');
+        
+        $_SESSION['username'] = $data[1][0]['username'];
+        $_SESSION['customerid'] = $data[1][0]['id'];
+        $_SESSION['permission'] = $data[1][0]['permission'];
+        $_SESSION['user'] = $myusername;
+        header('Location: index.php');
     }else
     {
-    	print_r($data);
-    	echo "Invalid Login";
+        echo "Invalid Login";
     }
-//print_r($_SESSION);
- 	Database::disconnect();
