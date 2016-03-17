@@ -83,14 +83,14 @@ require_once '../../databaseClasses/addressClass.php';
         }
     } else {
         $address = new addressDataAccess();
-        $address->readDataById($id);
+        $data = $address->readDataById($id);
 
-        $city = $data['city'];
-        $country = $data['country'];
-        $state = $data['state'];
-        $street_one = $data['street_one'];
-        $street_two = $data['street_two'];
-        $zipcode = $data['zipcode'];
+        $city = $data[1]['city'];
+        $country = $data[1]['country'];
+        $state = $data[1]['state'];
+        $street_one = $data[1]['street_one'];
+        $street_two = $data[1]['street_two'];
+        $zipcode = $data[1]['zipcode'];
         
 
 /*
