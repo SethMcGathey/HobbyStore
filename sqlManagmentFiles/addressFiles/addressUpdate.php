@@ -69,8 +69,8 @@ require_once '../../databaseClasses/addressClass.php';
 
         // update data
         if ($valid) {
-            
-            $customer->updateData($city,$country,$state,$street_one,$street_two,$zipcode,$id);
+            $address = new addressDataAccess();
+            $address->updateData($city,$country,$state,$street_one,$street_two,$zipcode,$id);
             header("Location: addressIndex.php");
             /*
             $pdo = Database::connect();
@@ -83,8 +83,8 @@ require_once '../../databaseClasses/addressClass.php';
         }
     } else {
         $address = new addressDataAccess();
-        $customer->readDataById($id);
-        $data = $customer->fetch(PDO::FETCH_ASSOC);
+        $address->readDataById($id);
+        $data = $address->fetch(PDO::FETCH_ASSOC);
         $city = $data['city'];
         $country = $data['country'];
         $state = $data['state'];
