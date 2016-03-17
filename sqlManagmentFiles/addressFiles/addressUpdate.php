@@ -9,7 +9,7 @@ require_once '../../databaseClasses/addressClass.php';
 
     $id = null;
     if ( !empty($_GET['id'])) {
-        echo $id = $_REQUEST['id'];
+        $id = $_REQUEST['id'];
     }
 
     if ( null==$id ) {
@@ -68,13 +68,9 @@ require_once '../../databaseClasses/addressClass.php';
 
         // update data
         if ($valid) {
-            echo 'stupid';
             $address = new addressDataAccess();
             $address->updateData($city,$country,$state,$street_one,$street_two,$zipcode,$id);
-            
-            RedirectToURL("addressIndex.php");
-
-            //header("Location: addressIndex.php");
+            header("Location: addressIndex.php");
         }
     } else {
         $address = new addressDataAccess();
