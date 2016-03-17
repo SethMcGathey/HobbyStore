@@ -1,6 +1,6 @@
 <?php
 	require_once 'sessionStart.php'; 
-	require_once '../../databaseClasses/productClass.php';
+	require_once 'databaseClasses/productClass.php';
 
     $product = new productDataAccess();
     $data = $product->readDataForSearch($_POST["id"]);
