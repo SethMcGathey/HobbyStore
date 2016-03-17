@@ -44,7 +44,7 @@ require_once '../../databaseClasses/addressClass.php';
                       <?php
                         $address = new addressDataAccess();
                         print_r($address->readData()[1][0]);
-                        foreach($address->readData()[1][0] as $innerRow)
+                        foreach($address->readData()[1] as $innerRow)
                         {
                             echo '<tr>';
                               echo '<td>'. $innerRow['city'] . '</td>';
