@@ -3,12 +3,12 @@
 class shipment_centerDataAccess extends accessDatabase{
     public function readData($selectParam){
         $columns = array($selectParam);
-        $sql = "SELECT * FROM product_tag";
+        $sql = "SELECT * FROM shipment_center";
         return parent::doSql($sql, $columns);
     }
     public function readDataById($selectParam){
         $columns = array($selectParam);
-        $sql = "SELECT * FROM product_tag WHERE id = ?";
+        $sql = "SELECT * FROM shipment_center WHERE id = ?";
         return parent::doSql($sql, $columns);
     }
 
