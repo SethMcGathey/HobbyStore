@@ -14,7 +14,7 @@ class transaction_addressDataAccess extends accessDatabase{
         return parent::doSql($sql, $columns);
     }
 
-    public function readData($selectParam){
+    public function readDataById($selectParam){
         $columns = array($selectParam);
         $sql = "SELECT * FROM transaction_address WHERE ?";
         return parent::doSql($sql, $columns);
