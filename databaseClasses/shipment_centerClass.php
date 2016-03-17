@@ -1,6 +1,6 @@
 <?php
 
-class product_tagDataAccess extends accessDatabase{
+class shipmetn_centerDataAccess extends accessDatabase{
     public function readData($selectParam){
         $columns = array($selectParam);
         $sql = "SELECT * FROM product_tag";
