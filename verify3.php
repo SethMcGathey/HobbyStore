@@ -6,7 +6,6 @@ require_once 'sessionStart.php';
 require_once 'accessDatabaseClass.php'; 
 
 require_once 'databaseClasses/customerClass.php';
-    $pdo = Database::connect();
 
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 
@@ -28,5 +27,3 @@ require_once 'databaseClasses/customerClass.php';
     {
     	echo "Invalid Login";
     }
-
- 	Database::disconnect();
