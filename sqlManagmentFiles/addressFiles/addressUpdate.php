@@ -84,7 +84,7 @@ require_once '../../databaseClasses/addressClass.php';
     } else {
         $address = new addressDataAccess();
         $data = $address->readDataById($id);
-
+        print_r($data);
         $city = $data['city'];
         $country = $data['country'];
         $state = $data['state'];
