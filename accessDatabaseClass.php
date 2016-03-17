@@ -12,8 +12,9 @@ abstract class accessDatabase{
 	        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	        $q = $pdo->prepare($sqlVar);
 	        $q->execute($inputValues);
+
 	        $returnId = $pdo->lastInsertId();
-	        $row = $q->fetchAll();
+	        $row = 5;//$q->fetchAll();
 	        $returnArray = array($returnId, $row);
 	        Database::disconnect();
 	        return $returnArray;
