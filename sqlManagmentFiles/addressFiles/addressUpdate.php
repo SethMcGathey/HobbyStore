@@ -3,7 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
 require_once '../../sessionStart.php'; 
-require_once '../../database.php';
 
 require_once '../../accessDatabaseClass.php'; 
 require_once '../../databaseClasses/addressClass.php';
