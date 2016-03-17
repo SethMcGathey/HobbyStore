@@ -4,13 +4,7 @@
     $pdo = Database::connect();
 
 abstract class accessDatabase{
-/*	abstract function insertData($tableColumnsArray);
-	abstract function updateData($tableColumnsArray);
 
-	public function selectData($tableName){
-		$sql = 'SELECT * FROM $tableName';
-	};
-*/
 	public function doSql($sqlVar, $inputValues ){
 		try{
 			$pdo = Database::connect();
