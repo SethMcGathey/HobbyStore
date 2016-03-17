@@ -52,7 +52,7 @@ require_once '../../databaseClasses/addressClass.php';
 
                     <form class="form-horizontal" action="addressDelete.php" method="post">
                       <input type="hidden" name="id" value="<?php echo $id;?>"/>
-                      <p class="alert alert-error">Are you sure to delete ?</p>
+                      <p class="alert alert-error">Are you sure you want to delete?</p>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-danger">Yes</button>
                           <a class="btn" href="addressIndex.php">No</a>

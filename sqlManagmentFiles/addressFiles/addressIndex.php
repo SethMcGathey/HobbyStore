@@ -43,22 +43,22 @@ require_once '../../databaseClasses/addressClass.php';
                       <tbody>
                       <?php
                         $address = new addressDataAccess();
-                        print_r($address->readData()[1][0]);
-                        foreach($address->readData()[1][0] as $row)
+                        //print_r($address->readData()[1][0]);
+                        foreach($address->readData()[1][0] as $innerRow)
                         {
                             echo '<tr>';
-                              echo '<td>'. $row['city'] . '</td>';
-                              echo '<td>'. $row['country'] . '</td>';
-                              echo '<td>'. $row['state'] . '</td>';
-                              echo '<td>'. $row['street_one'] . '</td>';
-                              echo '<td>'. $row['street_two'] . '</td>';
-                              echo '<td>'. $row['zipcode'] . '</td>';
+                              echo '<td>'. $innerRow['city'] . '</td>';
+                              echo '<td>'. $innerRow['country'] . '</td>';
+                              echo '<td>'. $innerRow['state'] . '</td>';
+                              echo '<td>'. $innerRow['street_one'] . '</td>';
+                              echo '<td>'. $innerRow['street_two'] . '</td>';
+                              echo '<td>'. $innerRow['zipcode'] . '</td>';
                               echo '<td width=250>';
-                              echo '<a class="btn" href="addressRead.php?id='.$row['id'].'">Read</a>';
+                              echo '<a class="btn" href="addressRead.php?id='.$innerRow['id'].'">Read</a>';
                               echo ' ';
-                              echo '<a class="btn btn-success" href="addressUpdate.php?id='.$row['id'].'">Update</a>';
+                              echo '<a class="btn btn-success" href="addressUpdate.php?id='.$innerRow['id'].'">Update</a>';
                               echo ' ';
-                              echo '<a class="btn btn-danger" href="addressDelete.php?id='.$row['id'].'">Delete</a>';
+                              echo '<a class="btn btn-danger" href="addressDelete.php?id='.$innerRow['id'].'">Delete</a>';
                               echo '</td>';
                             echo '</tr>';
                         }
