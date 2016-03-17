@@ -14,12 +14,6 @@ class transaction_addressDataAccess extends accessDatabase{
         return parent::doSql($sql, $columns);
     }
 
-    public function readDataById($selectParam){
-        $columns = array($selectParam);
-        $sql = "SELECT * FROM transaction_address WHERE ?";
-        return parent::doSql($sql, $columns);
-    }
-
     public function createData($phone,$type,$address_id,$transaction_id){
         $columns = array($phone,$type,$address_id,$transaction_id);
         $sql = "INSERT INTO transaction_address (phone,type,address_id,transaction_id) values(?, ?, ?, ?)";
