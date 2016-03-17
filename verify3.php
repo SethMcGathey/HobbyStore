@@ -11,10 +11,10 @@ require_once 'databaseClasses/customerClass.php';
 
 	$myusername = $_POST['usernameInput'];
 	$mypassword = $_POST['passwordInput'];
-	$_SESSION['user'] = $myusername;
 
 	$customer = new customerDataAccess();
 	$data = $customer->readDataByUsernameAndPassword($myusername, $mypassword);
+    print_r($data);
 
     if(isset($data[1][0]['id']))
     {
@@ -22,6 +22,7 @@ require_once 'databaseClasses/customerClass.php';
     	$_SESSION['username'] = $data[1][0]['username'];
     	$_SESSION['customerid'] = $data[1][0]['id'];
     	$_SESSION['permission'] = $data[1][0]['permission'];
+        $_SESSION['user'] = $myusername;
     	header('Location: index3.php');
     }else
     {
