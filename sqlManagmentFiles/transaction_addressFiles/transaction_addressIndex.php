@@ -1,3 +1,9 @@
+<?php
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/transaction_addressClass.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,10 +34,8 @@
                       </thead>
                       <tbody>
                       <?php
-                       include '../../database.php';
-                       $pdo = Database::connect();
-                       $sql = 'SELECT * FROM transaction_address ORDER BY id DESC';
-                       foreach ($pdo->query($sql) as $row) {
+                        $transaction_address = new transaction_addressDataAccess();
+                        foreach ($transaction_address->readData()[1] as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['phone'] . '</td>';
                                 echo '<td>'. $row['type'] . '</td>';
@@ -46,7 +50,6 @@
                                 echo '</td>';
                                 echo '</tr>';
                        }
-                       Database::disconnect();
                       ?>
                       </tbody>
                 </table>

@@ -1,3 +1,9 @@
+<?php
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/transactionClass.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,10 +34,8 @@
                       </thead>
                       <tbody>
                       <?php
-                       include '../../database.php';
-                       $pdo = Database::connect();
-                       $sql = 'SELECT * FROM transaction ORDER BY id DESC';
-                       foreach ($pdo->query($sql) as $row) {
+                        $transaction = new transactionDataAccess();
+                        foreach ($transaction->readData()[1] as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['cart'] . '</td>';
                                 echo '<td>'. $row['timestamp'] . '</td>';
@@ -46,7 +50,6 @@
                                 echo '</td>';
                                 echo '</tr>';
                        }
-                       Database::disconnect();
                       ?>
                       </tbody>
                 </table>

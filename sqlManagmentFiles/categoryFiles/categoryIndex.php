@@ -1,3 +1,9 @@
+<?php
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/categoryCreateClass.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +31,8 @@
                       </thead>
                       <tbody>
                       <?php
-                       include '../../database.php';
-                       $pdo = Database::connect();
-                       $sql = 'SELECT * FROM category ORDER BY id DESC';
-                       foreach ($pdo->query($sql) as $row) {
+                        $categoryCreate = new categoryCreateDataAccess();
+                        foreach ($categoryCreate->readData()[1] as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['name'] . '</td>';
                                 echo '<td width=250>';
@@ -40,7 +44,6 @@
                                 echo '</td>';
                                 echo '</tr>';
                        }
-                       Database::disconnect();
                       ?>
                       </tbody>
                 </table>

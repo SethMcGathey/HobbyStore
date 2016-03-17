@@ -1,3 +1,9 @@
+<?php
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/product_tagClass.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,10 +32,8 @@
                       </thead>
                       <tbody>
                       <?php
-                       include '../../database.php';
-                       $pdo = Database::connect();
-                       $sql = 'SELECT * FROM product_tag ORDER BY id DESC';
-                       foreach ($pdo->query($sql) as $row) {
+                        $product_tag = new product_tagDataAccess();
+                        foreach ($product_tag->readData()[1] as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['tag_id'] . '</td>';
                                 echo '<td>'. $row['product_id'] . '</td>';
@@ -42,7 +46,6 @@
                                 echo '</td>';
                                 echo '</tr>';
                        }
-                       Database::disconnect();
                       ?>
                       </tbody>
                 </table>

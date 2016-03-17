@@ -1,3 +1,9 @@
+<?php
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/transaction_productClass.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +33,8 @@
                       </thead>
                       <tbody>
                       <?php
-                       include '../../database.php';
-                       $pdo = Database::connect();
-                       $sql = 'SELECT * FROM transaction_product ORDER BY id DESC';
-                       foreach ($pdo->query($sql) as $row) {
+                        $transaction_product = new transaction_productDataAccess();
+                        foreach ($transaction_product->readData())[1] as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['quantity'] . '</td>';
                                 echo '<td>'. $row['transaction_id'] . '</td>';
@@ -44,7 +48,6 @@
                                 echo '</td>';
                                 echo '</tr>';
                        }
-                       Database::disconnect();
                       ?>
                       </tbody>
                 </table>

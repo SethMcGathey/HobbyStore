@@ -1,3 +1,9 @@
+<?php
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/binClass.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +33,8 @@
                       </thead>
                       <tbody>
                       <?php
-                       include '../../database.php';
-                       $pdo = Database::connect();
-                       $sql = 'SELECT * FROM bin ORDER BY id DESC';
-                       foreach ($pdo->query($sql) as $row) {
+                        $bin = new binDataAccess();
+                        foreach ($bin->readData()[1] as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['name'] . '</td>';
                                 echo '<td>'. $row['shipment_center_id'] . '</td>';
@@ -43,7 +47,6 @@
                                 echo '</td>';
                                 echo '</tr>';
                        }
-                       Database::disconnect();
                       ?>
                       </tbody>
                 </table>

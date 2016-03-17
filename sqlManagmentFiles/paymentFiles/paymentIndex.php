@@ -1,3 +1,9 @@
+<?php
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/paymentClass.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,10 +36,8 @@
                       </thead>
                       <tbody>
                       <?php
-                       include '../../database.php';
-                       $pdo = Database::connect();
-                       $sql = 'SELECT * FROM payment ORDER BY id DESC';
-                       foreach ($pdo->query($sql) as $row) {
+                        $payment = new paymentDataAccess();
+                        foreach ($payment->readData()[1] as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['card_full_name'] . '</td>';
                                 echo '<td>'. $row['card_number'] . '</td>';
@@ -50,7 +54,6 @@
                                 echo '</td>';
                                 echo '</tr>';
                        }
-                       Database::disconnect();
                       ?>
                       </tbody>
                 </table>

@@ -1,3 +1,9 @@
+<?php
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/productClass.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +35,8 @@
                       </thead>
                       <tbody>
                       <?php
-                       include '../../database.php';
-                       $pdo = Database::connect();
-                       $sql = 'SELECT * FROM product ORDER BY id desc';
-                       foreach ($pdo->query($sql) as $row) {
+                        $product = new productDataAccess();
+                        foreach ($product->readData()[1] as $row) {
                           echo '<tr>';
                           echo '<td>'. $row['name'] . '</td>';
                           echo '<td>'. $row['cost'] . '</td>';
@@ -47,7 +51,6 @@
                           echo '</td>';
                           echo '</tr>';
                        }
-                       Database::disconnect();
                       ?>
                       </tbody>
                 </table>

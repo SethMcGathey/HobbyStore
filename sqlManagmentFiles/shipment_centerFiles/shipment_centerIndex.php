@@ -1,3 +1,9 @@
+<?php
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/shipment_centerClass.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +33,8 @@
                       </thead>
                       <tbody>
                       <?php
-                       include '../../database.php';
-                       $pdo = Database::connect();
-                       $sql = 'SELECT * FROM shipment_center ORDER BY id DESC';
-                       foreach ($pdo->query($sql) as $row) {
+                        $shipment_center = new shipment_centerDataAccess();
+                        foreach ($shipment_center->readData()[1] as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['name'] . '</td>';
                                 echo '<td>'. $row['phone'] . '</td>';
@@ -44,7 +48,6 @@
                                 echo '</td>';
                                 echo '</tr>';
                        }
-                       Database::disconnect();
                       ?>
                       </tbody>
                 </table>

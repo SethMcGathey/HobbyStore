@@ -1,3 +1,9 @@
+<?php
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/customerClass.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,10 +39,8 @@
                       </thead>
                       <tbody>
                       <?php
-                       include '../../database.php';
-                       $pdo = Database::connect();
-                       $sql = 'SELECT * FROM customer ORDER BY id DESC';
-                       foreach ($pdo->query($sql) as $row) {
+                        $customer = new customerDataAccess();
+                        foreach ($customer->readData()[1] as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['first_name'] . '</td>';
                                 echo '<td>'. $row['last_name'] . '</td>';
@@ -56,7 +60,6 @@
                                 echo '</td>';
                                 echo '</tr>';
                        }
-                       Database::disconnect();
                       ?>
                       </tbody>
                 </table>
