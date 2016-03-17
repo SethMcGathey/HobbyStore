@@ -132,7 +132,7 @@ function changeQuantity(quantity, id, transaction_id){
 function makeChanges(tableName){
 	$.ajax({
 		url: "makeTableChanges.php",
-	    method: 'GET',
+	    method: 'POST',
 	    //dataType:"json",
 	   	data: {tableName},
 	    success: function(){
@@ -156,7 +156,7 @@ function makeChanges(tableName){
 	});
 }
 
-
+/*
 $(':button').click(function() {
 	var buttonElementId = $(this).attr('id');
 	name = $('#nameOnCard' + buttonElementId).text();
@@ -187,7 +187,7 @@ $(':button').click(function() {
 	     //$("#responseArea").text(data);
 	     
 	     //setCodeBoxes(result);
-
+/*
 	    },
 	    error : function() {
 		 		alert("error");
@@ -195,7 +195,7 @@ $(':button').click(function() {
 	 });
 
 
-});
+});*/
 /*$_POST['name'], $_POST['type'], $_POST['number'], $_POST['code'], $_POST['exp'], $_SESSION['customerid']
 nameOnCard,cardType,cardNumber,securityCode,expiration*/
 
