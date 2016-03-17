@@ -43,6 +43,7 @@ require_once '../../databaseClasses/addressClass.php';
                       <tbody>
                       <?php
                         $address = new addressDataAccess();
+                        print_r($address->readData());
                         foreach($address->readData() as $row)
                         {
                             echo '<tr>';
