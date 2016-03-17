@@ -18,6 +18,11 @@ class productDataAccess extends accessDatabase{
         return parent::doSql($sql, $columns);
     }
 
+    public function readDataForSearch($string){
+        $columns = array($string,$string,$string);
+        $sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.name LIKE \'%?%\' OR a.description LIKE \'%?%\' OR a.cost LIKE \'%?%\' ORDER BY a.id LIMIT 5'
+        return parent::doSql($sql, $columns);
+    }
     public function createData($name,$cost,$description,$subcategory_id, $stock, $bin_id, $description,$featured,$image,){
         $columns = array($name,$cost,$description,$subcategory_id);
         $sql = "INSERT INTO product (name,cost,description,subcategory_id) values(?, ?, ?, ?)";
