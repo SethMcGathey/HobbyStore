@@ -18,7 +18,7 @@ require_once '../../databaseClasses/addressClass.php';
     } else {
         $address = new addressDataAccess();
         $data = $address->readDataById($id)[1][0];
-        print_r($data);
+        //print_r($data);
         /*
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -51,49 +51,49 @@ require_once '../../databaseClasses/addressClass.php';
                       <div class="control-group">
                         <label class="control-label">City</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['city'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Country</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['country'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">State</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['state'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Street One</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['street_one'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Street Two</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['street_two'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Zipcode</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['zipcode'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="form-actions">
