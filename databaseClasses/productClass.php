@@ -14,12 +14,12 @@ class productDataAccess extends accessDatabase{
 
     public function readFullProductData($subcategory_id){
         $columns = array($subcategory_id);
-        $sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.subcategory_id = ' . $subcategory_id . ' ORDER BY id LIMIT 5';
+        $sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.subcategory_id = ? ORDER BY id LIMIT 5';
         return parent::doSql($sql, $columns);
     }
     public function readDataForSearch($string){
         $columns = array($string,$string,$string);
-        $sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.name LIKE \'%?%\' OR a.description LIKE \'%?%\' OR a.cost LIKE \'%?%\' ORDER BY a.id LIMIT 5';
+        $sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.name LIKE \'%' . $string . '%\' OR a.description LIKE \'%' . $string . '%\' OR a.cost LIKE \'%' . $string . '%\' ORDER BY a.id LIMIT 5';
         return parent::doSql($sql, $columns);
     }
 
