@@ -1,5 +1,9 @@
 <?php
-    require '../../database.php';
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/imageClass.php';
+
     $id = null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
@@ -8,13 +12,8 @@
     if ( null==$id ) {
         header("Location: imageIndex.php");
     } else {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM image where id = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        Database::disconnect();
+        $image = new imageDataAccess();
+        $data = $image->readDataById($id)[1][0];
     }
 ?>
 
@@ -38,33 +37,33 @@
                       <div class="control-group">
                         <label class="control-label">Description</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['description'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Featured</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['featured'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Image</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['image'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Product Id</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['product_id'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
 

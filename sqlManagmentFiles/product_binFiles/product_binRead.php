@@ -1,5 +1,9 @@
 <?php
-    require '../../database.php';
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/product_binClass.php';
+
     $id = null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
@@ -8,13 +12,8 @@
     if ( null==$id ) {
         header("Location: product_binIndex.php");
     } else {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM product_bin where id = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        Database::disconnect();
+        $product_bin = new product_binDataAccess();
+        $data = $product_bin->readDataById($id)[1][0];
     }
 ?>
 
@@ -38,25 +37,25 @@
                       <div class="control-group">
                         <label class="control-label">Stock</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['stock'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Bin Id</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['bin_id'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Product Id</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['product_id'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
 

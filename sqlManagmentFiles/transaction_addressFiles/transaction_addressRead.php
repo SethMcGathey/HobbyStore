@@ -1,5 +1,9 @@
 <?php
-    require '../../database.php';
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/transaction_addressClass.php';
+
     $id = null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
@@ -8,13 +12,8 @@
     if ( null==$id ) {
         header("Location: transaction_addressIndex.php");
     } else {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM transaction_address where id = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        Database::disconnect();
+        $transaction_address = new transaction_addressDataAccess();
+        $data = $transaction_address->readDataById($id)[1][0];
     }
 ?>
 
@@ -38,33 +37,33 @@
                       <div class="control-group">
                         <label class="control-label">Phone</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['phone'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Type</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['type'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Address Id</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['address_id'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Transaction Id</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['transaction_id'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
 

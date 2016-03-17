@@ -1,5 +1,9 @@
 <?php
-    require '../../database.php';
+require_once '../../sessionStart.php'; 
+
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/paymentClass.php';
+
     $id = null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
@@ -8,13 +12,8 @@
     if ( null==$id ) {
         header("Location: paymentIndex.php");
     } else {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM payment where id = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        Database::disconnect();
+        $payment = new paymentDataAccess();
+        $data = $payment->readDataById($id)[1][0];
     }
 ?>
 
@@ -38,49 +37,49 @@
                       <div class="control-group">
                         <label class="control-label">Name on Card</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['card_full_name'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Card Number</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['card_number'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Security Number</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['card_security'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Expiration Month</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['expires_month'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Experation Year</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['expires_year'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="control-group">
                         <label class="control-label">Payment Type</label>
                         <div class="controls">
-                            <label class="checkbox">
+                            <p class="checkbox">
                                 <?php echo $data['payment_type_id'];?>
-                            </label>
+                            </p>
                         </div>
                       </div>
                       <div class="form-actions">
