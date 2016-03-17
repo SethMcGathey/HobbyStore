@@ -17,8 +17,8 @@ require_once '../../databaseClasses/addressClass.php';
         header("Location: addressIndex.php");
     } else {
         $address = new addressDataAccess();
-        $data = $address->readDataById($id)[1];
-
+        $data = $address->readDataById($id)[1][0];
+        print_r($data);
         /*
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
