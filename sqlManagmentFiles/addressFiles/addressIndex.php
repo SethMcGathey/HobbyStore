@@ -43,11 +43,11 @@ require_once '../../databaseClasses/addressClass.php';
                       <tbody>
                       <?php
                         $address = new addressDataAccess();
-                        print_r($address->readData()[1][0]);
+                        //print_r($address->readData()[1][0]);
                         foreach($address->readData()[1][0] as $innerRow)
                         {
                             echo '<tr>';
-                              echo '<td>'. $innerRow[4] . '</td>';
+                              echo '<td>'. $innerRow['city'] . '</td>';
                               echo '<td>'. $innerRow['country'] . '</td>';
                               echo '<td>'. $innerRow['state'] . '</td>';
                               echo '<td>'. $innerRow['street_one'] . '</td>';
