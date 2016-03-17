@@ -47,18 +47,18 @@ require_once '../../databaseClasses/addressClass.php';
                         foreach($address->readData() as $row)
                         {
                             echo '<tr>';
-                              echo '<td>'. $row['city'] . '</td>';
-                              echo '<td>'. $row['country'] . '</td>';
-                              echo '<td>'. $row['state'] . '</td>';
-                              echo '<td>'. $row['street_one'] . '</td>';
-                              echo '<td>'. $row['street_two'] . '</td>';
-                              echo '<td>'. $row['zipcode'] . '</td>';
+                              echo '<td>'. $row[1][0]['city'] . '</td>';
+                              echo '<td>'. $row[1][0]['country'] . '</td>';
+                              echo '<td>'. $row[1][0]['state'] . '</td>';
+                              echo '<td>'. $row[1][0]['street_one'] . '</td>';
+                              echo '<td>'. $row[1][0]['street_two'] . '</td>';
+                              echo '<td>'. $row[1][0]['zipcode'] . '</td>';
                               echo '<td width=250>';
-                              echo '<a class="btn" href="addressRead.php?id='.$row['id'].'">Read</a>';
+                              echo '<a class="btn" href="addressRead.php?id='.$row[1][0]['id'].'">Read</a>';
                               echo ' ';
-                              echo '<a class="btn btn-success" href="addressUpdate.php?id='.$row['id'].'">Update</a>';
+                              echo '<a class="btn btn-success" href="addressUpdate.php?id='.$row[1][0]['id'].'">Update</a>';
                               echo ' ';
-                              echo '<a class="btn btn-danger" href="addressDelete.php?id='.$row['id'].'">Delete</a>';
+                              echo '<a class="btn btn-danger" href="addressDelete.php?id='.$row[1][0]['id'].'">Delete</a>';
                               echo '</td>';
                             echo '</tr>';
                         }
