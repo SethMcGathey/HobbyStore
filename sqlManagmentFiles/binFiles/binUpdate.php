@@ -34,13 +34,17 @@
 
         // update data
         if ($valid) {
+            $bin = new binDataAccess();
+            $data = $bin->updateData($name,$shipment_center_id,$id);
+            header("Location: binIndex.php");
+/*
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "UPDATE bin  set name = ?, shipment_center_id = ? WHERE id = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($name,$shipment_center_id,$id));
             Database::disconnect();
-            header("Location: binIndex.php");
+            header("Location: binIndex.php");*/
         }
     } else {
         $pdo = Database::connect();
