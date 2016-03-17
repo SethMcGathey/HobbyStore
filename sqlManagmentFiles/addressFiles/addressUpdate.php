@@ -83,14 +83,15 @@ require_once '../../databaseClasses/addressClass.php';
         }
     } else {
         $address = new addressDataAccess();
-        $address->readDataById($id);
-        $data = $address->fetch(PDO::FETCH_ASSOC);
+        $data = $address->readDataById($id)
+
         $city = $data['city'];
         $country = $data['country'];
         $state = $data['state'];
         $street_one = $data['street_one'];
         $street_two = $data['street_two'];
         $zipcode = $data['zipcode'];
+        
 
 /*
         $pdo = Database::connect();
