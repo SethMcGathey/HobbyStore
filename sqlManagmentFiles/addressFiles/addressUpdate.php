@@ -70,8 +70,9 @@ require_once '../../databaseClasses/addressClass.php';
         if ($valid) {
             $address = new addressDataAccess();
             $address->updateData($city,$country,$state,$street_one,$street_two,$zipcode,$id);
-            RedirectToURL("addressIndex.php");
             echo 'stupid';
+            RedirectToURL("addressIndex.php");
+
             //header("Location: addressIndex.php");
         }
     } else {
