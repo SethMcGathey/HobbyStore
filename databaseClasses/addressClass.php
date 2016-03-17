@@ -24,13 +24,13 @@ class addressDataAccess extends accessDatabase{
 		parent::doSql($sql2, $columns2);
 	}
 
-	public function updateData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
+	public function changeData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
 		$columns = array($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id);
 		$sql = "UPDATE address  set city = ?, country = ?, state = ?, street_one =?, street_two =?, zipcode =? WHERE id = ?";
-		parent::doSql($sql, $columns);
+		return parent::doSql($sql, $columns);
 	}
 
-	public function deleteData($id){
+	public function changeData($id){
 		$columns = array($id);
 		$sql = "DELETE FROM address  WHERE id = ?";
 		parent::doSql($sql, $columns);
