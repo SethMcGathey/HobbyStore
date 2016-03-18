@@ -5,7 +5,7 @@ ini_set('display_errors', 'on');
 require_once 'sessionStart.php'; 
 
 require_once 'accessDatabaseClass.php'; 
-require_once 'databaseClasses/transaction_addressClass.php';
+require_once 'databaseClasses/transactionClass.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@ require_once 'databaseClasses/transaction_addressClass.php';
 			</div>
 
 			<?php
-				$transaction_address = new transaction_addressDataAccess();
+				$transaction_address = new transactionDataAccess();
                 foreach($transaction_address->readDataForCart($_SESSION['customerid'])[1] as $innerRow)
 				{
 					echo '<div class="row product" id="' . $row['id'] . '">' . 

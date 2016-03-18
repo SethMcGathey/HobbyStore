@@ -13,11 +13,6 @@ class transaction_addressDataAccess extends accessDatabase{
         $sql = "SELECT * FROM transaction_address WHERE id = ?";
         return parent::doSql($sql, $columns);
     }
-    public function readDataForCart($id){
-        $columns = array($id);
-        $sql = 'SELECT p.id, name, cost, p.description, tp.transaction_id, SUM(quantity) as fullQuantity, image FROM transaction t JOIN transaction_product tp ON tp.transaction_id = t.id JOIN product p ON p.id = tp.product_id JOIN image i ON i.product_id = p.id WHERE cart = 1 AND customer_ID = ? GROUP BY id';
-        return parent::doSql($sql, $columns);
-    }
 
     public function createData($phone,$type,$address_id,$transaction_id){
         $columns = array($phone,$type,$address_id,$transaction_id);
