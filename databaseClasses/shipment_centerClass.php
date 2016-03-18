@@ -22,7 +22,7 @@ class shipment_centerDataAccess extends accessDatabase{
     public function updateData($name,$phone,$address_id){
         $columns = array($name,$phone,$address_id);
         $sql = "UPDATE shipment_center  set name = ?, phone = ?, address_id = ? WHERE id = ?";  
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 
     public function deleteData($id){

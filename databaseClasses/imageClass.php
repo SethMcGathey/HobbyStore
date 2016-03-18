@@ -22,7 +22,7 @@ class imageDataAccess extends accessDatabase{
     public function updateData($description,$featured,$image,$product_id){
         $columns = array($description,$featured,$image,$product_id);
         $sql = "UPDATE image  set description = ?, featured = ?, image = ?, product_id =? WHERE id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 
     public function deleteData($id){

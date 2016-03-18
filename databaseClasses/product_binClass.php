@@ -22,7 +22,7 @@ class product_binDataAccess extends accessDatabase{
     public function updateData($stock,$bin_id,$product_id){
         $columns = array($stock,$bin_id,$product_id);
         $sql = "UPDATE product_bin  set stock = ?, bin_id = ?, product_id = ? WHERE id = ?";  
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 
     public function deleteData($id){

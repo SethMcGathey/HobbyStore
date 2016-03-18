@@ -23,7 +23,7 @@ class binDataAccess extends accessDatabase{
     public function updateData($name,$shipment_center_id){
         $columns = array($name,$shipment_center_id);
         $sql = "UPDATE bin  set name = ?, shipment_center_id = ? WHERE id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 
     public function deleteData($id){

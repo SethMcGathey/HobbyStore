@@ -28,7 +28,7 @@ class subcategoryDataAccess extends accessDatabase{
     public function updateData($category_id, $name){
         $columns = array($category_id, $name);
         $sql = "UPDATE subcategory  set category_id = ?, name = ? WHERE id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 
     public function deleteData($id){

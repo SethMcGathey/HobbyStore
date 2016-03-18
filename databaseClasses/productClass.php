@@ -45,7 +45,7 @@ class productDataAccess extends accessDatabase{
     public function updateData($name,$cost,$description,$subcategory_id){
         $columns = array($name,$cost,$description,$subcategory_id);
         $sql = "UPDATE product  set name = ?, cost = ?, description = ?, subcategory_id =? WHERE id = ?"; 
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 
     public function deleteData($id){

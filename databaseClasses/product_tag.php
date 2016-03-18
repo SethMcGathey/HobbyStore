@@ -22,7 +22,7 @@ class product_tagDataAccess extends accessDatabase{
     public function updateData($tag_id,$product_id){
         $columns = array($tag_id,$product_id);
         $sql = "UPDATE product_tag  set tag_id = ?, product_id = ? WHERE id = ?";  
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 
     public function deleteData($id){

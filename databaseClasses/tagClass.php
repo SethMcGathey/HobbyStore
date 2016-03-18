@@ -22,7 +22,7 @@ class tagDataAccess extends accessDatabase{
     public function updateData($name){
         $columns = array($name);
         $sql = "UPDATE tag  set name = ? WHERE id = ?"; 
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 
     public function deleteData($id){
