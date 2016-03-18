@@ -14,7 +14,7 @@ class transactionDataAccess extends accessDatabase{
     }
     public function readCartData($customerid){
         $columns = array($customerid);
-        $sql = "SELECT id, cart FROM transaction WHERE customer_id = ? AND cart = 1";
+        $sql = "SELECT id, cart, timestamp,payment_id,customer_id FROM transaction WHERE customer_id = ? AND cart = 1";
         return parent::doSql($sql, $columns);
     }
     public function readDataForCart($id){
