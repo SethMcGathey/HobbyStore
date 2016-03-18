@@ -40,7 +40,13 @@ require_once 'databaseClasses/transactionClass.php';
 			    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
 			    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
 			    		  	 <div class="col-lg-3 cartLine' . $num . '">
+
+
+			    		  	 <button href="updateQuantity.php">-</button>
 			    			 <input type="text" class="textboxWidth" data-arbitraryName=' . $row['id'] . ' value="'. $row['fullQuantity'] . '"> 
+			    			 <button href="updateQuantity.php">+</button>
+
+
 			    			 <div class="rightAlign"><button onclick="changeQuantity('. $row['fullQuantity'] . ', '. $row['id'] . ', '. $row['transaction_id'] . ')">Delete</button></div>
 			    			 <div class="rightAlign"><button href="updateQuantity.php">Update</button></div>
 			    			 <div class="rightAlign"><button onclick="window.location.href=\'removeFromCart.php?productid=' . $row['id'] . '\'">Remove</button></div>
@@ -54,7 +60,7 @@ require_once 'databaseClasses/transactionClass.php';
 						$num = 0;
 	                }
 
-	                
+
 				}/*
 				$sql = 'SELECT p.id, name, cost, p.description, tp.transaction_id, SUM(quantity) as fullQuantity, image FROM transaction t JOIN transaction_product tp ON tp.transaction_id = t.id JOIN product p ON p.id = tp.product_id JOIN image i ON i.product_id = p.id WHERE cart = 1 AND customer_ID = ' . $_SESSION['customerid'] . ' GROUP BY id';
 						$num = 0;
