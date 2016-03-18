@@ -14,7 +14,7 @@ class transaction_productDataAccess extends accessDatabase{
     }
     public function readCartData($productId, $transactionId){
         $columns = array($productId, $transactionId);
-        $sql = "SELECT id, quantity FROM transaction_product WHERE product_id = ? AND transactio_id = ?";
+        $sql = "SELECT id, quantity FROM transaction_product WHERE product_id = ? AND transaction_id = ?";
         return parent::doSql($sql, $columns);
     }
 
