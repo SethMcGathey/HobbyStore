@@ -90,7 +90,7 @@ require_once 'databaseClasses/transactionClass.php';
 						}
 						echo $_SESSION['transaction_id'];*/
 			?>
-			<button onclick="window.location.href='choosePurchaseAddress.php'">Purchase</button>
+			<button onclick="window.location.href='choosePurchaseAddress3.php'">Purchase</button>
 
 		</div>
 
