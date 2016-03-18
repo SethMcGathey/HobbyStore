@@ -18,7 +18,13 @@ require_once 'databaseClasses/transaction_addressClass.php';
 	$transactionData = $transaction->readCartData($_SESSION['customerid'])[1][0];
 
 	$transaction_address = new transaction_addressDataAccess();
-    $transaction_address->createData($data['phone'], 'payment', $_SESSION['addressIdForPurchase'], 	$transactionData['id']);
+    $transaction_address->createData($data['phone'], $_GET['purchaseShipping'], $_SESSION['addressIdForPurchase'], 	$transactionData['id']);
 
-
+if($_GET['purchaseShipping'] == 'purchase')
+{
+	header('Location: chooseShippingAddress.php');
+}else if($_GET['purchaseShipping'])
+{
 	header('Location: choosePurchasePayment.php');
+}
+	
