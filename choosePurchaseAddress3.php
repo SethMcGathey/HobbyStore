@@ -19,7 +19,7 @@ require_once 'databaseClasses/addressClass.php';
             </div>
             <div class="row">
                 <p>
-                    <a href="addressCreate.php" class="btn btn-success">Create</a>
+                    <a href="addressCreate.php" class="btn btn-success">Create New Address</a>
                 </p>
 
                 <table class="table table-striped table-bordered">
@@ -37,7 +37,6 @@ require_once 'databaseClasses/addressClass.php';
                       <tbody>
                       <?php
                         $address = new addressDataAccess();
-                        print_r($address->readDataByCustomerId($_SESSION['customerid'])[1]);
                         foreach($address->readDataByCustomerId($_SESSION['customerid'])[1] as $innerRow)
                         {
                             echo '<tr>';
@@ -48,7 +47,7 @@ require_once 'databaseClasses/addressClass.php';
                               echo '<td>'. $innerRow['street_two'] . '</td>';
                               echo '<td>'. $innerRow['zipcode'] . '</td>';
                               echo '<td width=250>';
-                              echo '<a class="btn" href="addressRead.php?id='.$innerRow['id'].'">Read</a>';
+                              echo '<a class="btn" href="setAddress.php?addressid='.$innerRow['id'].'">Choose</a>';
                               echo ' ';
                               echo '<a class="btn btn-success" href="addressUpdate.php?id='.$innerRow['id'].'">Update</a>';
                               echo ' ';
