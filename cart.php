@@ -53,7 +53,7 @@ require_once 'databaseClasses/transactionClass.php';
 			    	   echo '<input type="submit" name="minusQuantity" id="minusQuantity" onClick="changeQuantity" value="-"><a href="updateQuantity3.php?id=' . $row['id'] . '&direction=minus">-</a>
 			    			 <input type="text" class="textboxWidth" data-arbitraryName="' . $row['id'] . '" value="'. $row['fullQuantity'] . '"> 
 			    			 <input type="submit" name="plusQuantity" id="plusQuantity" value="+"><a href="updateQuantity3.php?id=' . $row['id'] . '&direction=plus">+</a>
-			    			 <div class="rightAlign"><a href="updateQuantity3.php?remove=remove">Remove</a></div>
+			    			 <div class="rightAlign"><a href="updateQuantity3.php?id=' . $row['id'] . 'remove=remove">Remove</a></div>
 			    	 	  	 </div>
 			    	      </div> ';
 			    	if($num < 1)
