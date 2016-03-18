@@ -13,6 +13,11 @@ class addressDataAccess extends accessDatabase{
 		$sql = "SELECT * FROM address WHERE id = ?";
 		return parent::doSql($sql, $columns);
 	}
+	public function readDataByCustomerId($selectParam){
+		$columns = array($selectParam);
+		$sql = "SELECT a.id, street_one, street_two, zipcode, city, state, country FROM customer_address c JOIN address a ON c.address_id = a.id WHERE customer_id = ?";
+		return parent::doSql($sql, $columns);
+	}
 
 	public function createData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
 		$columns = array($city,$country,$state,$street_one,$street_two,$zipcode);
