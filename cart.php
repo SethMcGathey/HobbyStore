@@ -49,7 +49,7 @@ require_once 'databaseClasses/transactionClass.php';
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">
 
 				    	   		 <a href="updateQuantity3.php?id=' . $row['id'] . '&direction=minus">-</a>
-				    			 <p type="text" class="quantityTag" data-arbitraryName="' . $row['id'] . '">'. $row['fullQuantity'] . '</p> 
+				    			 '. $row['fullQuantity'] . '
 				    			 <a href="updateQuantity3.php?id=' . $row['id'] . '&direction=plus">+</a>
 				    			 <div class="rightAlign"><a href="updateQuantity3.php?id=' . $row['id'] . '&remove=remove">Remove</a></div>
 				    	 	  	 </div>
