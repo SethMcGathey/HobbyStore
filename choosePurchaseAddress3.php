@@ -47,7 +47,7 @@ require_once 'databaseClasses/addressClass.php';
                               echo '<td>'. $innerRow['street_two'] . '</td>';
                               echo '<td>'. $innerRow['zipcode'] . '</td>';
                               echo '<td width=250>';
-                              echo '<a class="btn" href="setAddress.php?addressid='.$innerRow['id'].'">Choose</a>';
+                              echo '<a class="btn" href="setAddress.php?addressid='. $innerRow['id'].'">Choose</a>';
                               echo ' ';
                               echo '<a class="btn btn-success" href="addressUpdate.php?id='.$innerRow['id'].'">Update</a>';
                               echo ' ';
