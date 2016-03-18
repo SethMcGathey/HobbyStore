@@ -14,10 +14,9 @@ require_once 'databaseClasses/transaction_productClass.php';
 		<div class="container" id="Not_Ajax_Output">
 			<div class="row">
 				<div class="col-lg-12">
-					<h3>Thank you!</h3>
-					<p>Thank you for your purchase! Your purchase will be processed shortly!</p>
+					<h3>Thank you for your purchase! </h3>
+					<p>Your purchase will be processed shortly!</p>
 				</div>
-
 			</div>
 		</div>
 	</body>
