@@ -15,7 +15,7 @@ require_once 'databaseClasses/addressClass.php';
   <?php require_once 'navigation.php' ?>
     <div class="container">
             <div class="row">
-                <h3>Choose Address</h3>
+                <h3>Choose Payment Address</h3>
             </div>
             <div class="row">
                 <p>
@@ -47,11 +47,11 @@ require_once 'databaseClasses/addressClass.php';
                               echo '<td>' . $innerRow['street_two'] . '</td>';
                               echo '<td>' . $innerRow['zipcode'] . '</td>';
                               echo '<td width=250>';
-                              echo '<a class="btn" href="setAddress.php?purchaseShipping=purchase&addressid=' . $innerRow['id'] . '">Choose</a>';
+                              echo '<a class="btn" href="setAddress.php?purchaseShipping=payment&addressid=' . $innerRow['id'] . '">Choose</a>';
                               echo ' ';
-                              echo '<a class="btn btn-success" href="addressUpdate.php?id=' .$innerRow['id'] . '">Update</a>';
+                              echo '<a class="btn btn-success" href="addressUpdate.php?id=' . $innerRow['id'] . '">Update</a>';
                               echo ' ';
-                              echo '<a class="btn btn-danger" href="addressDelete.php?id=' .$innerRow['id'] . '">Delete</a>';
+                              echo '<a class="btn btn-danger" href="addressDelete.php?id=' . $innerRow['id'] . '">Delete</a>';
                               echo '</td>';
                             echo '</tr>';
                         }
