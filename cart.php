@@ -42,7 +42,7 @@ require_once 'databaseClasses/transactionClass.php';
 			    		  	 <div class="col-lg-3 cartLine' . $num . '">
 
 			    		  	 <button href="updateQuantity.php?quantity=' . $row['fullQuantity'] - 1 . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '">-</button>
-			    			 <input type="text" class="textboxWidth" data-arbitraryName=' . $row['id'] . ' value="'. $row['fullQuantity'] . '"> 
+			    			 <input type="text" class="textboxWidth" data-arbitraryName="' . $row['id'] . '" value="'. $row['fullQuantity'] . '"> 
 			    			 <button href="updateQuantity.php?quantity=' . $row['fullQuantity'] + 1 . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '">+</button>
 			    			 
 			    			 <div class="rightAlign"><button onclick="changeQuantity('. $row['fullQuantity'] . ', '. $row['id'] . ', '. $row['transaction_id'] . ')">Delete</button></div>
@@ -59,7 +59,8 @@ require_once 'databaseClasses/transactionClass.php';
 	                }
 
 
-				}/*
+				}
+				/*
 				$sql = 'SELECT p.id, name, cost, p.description, tp.transaction_id, SUM(quantity) as fullQuantity, image FROM transaction t JOIN transaction_product tp ON tp.transaction_id = t.id JOIN product p ON p.id = tp.product_id JOIN image i ON i.product_id = p.id WHERE cart = 1 AND customer_ID = ' . $_SESSION['customerid'] . ' GROUP BY id';
 						$num = 0;
 						foreach ($pdo->query($sql) as $row) {
