@@ -16,8 +16,13 @@ require_once 'databaseClasses/subcategoryClass.php';
 
 		<?php require_once 'navigation.php' ?> 
 		<div class="container-fluid" id="Not_Ajax_Output">
-			<h1 class="centerText">Home Page</h1>
+			<h1 class="centerText">Clash Games</h1>
 			<div class="row">
+
+				<div class="col-lg-3"><img src="img/rrwggame.jpg" width="100px" class="categoryImage"/></div>
+				<div class="col-lg-3"><img src="img/rrwggame.jpg" width="100px" class="categoryImage"/></div>
+				<div class="col-lg-3"><img src="img/rrwggame.jpg" width="100px" class="categoryImage"/></div>
+				<div class="col-lg-3"><img src="img/rrwggame.jpg" width="100px" class="categoryImage"/></div>
 
 	          <?php
 		          $category = new categoryDataAccess();
