@@ -2,18 +2,17 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
-require_once '../../sessionStart.php'; 
-require_once '../../database.php';
+require_once 'sessionStart.php'; 
 
-require_once '../../accessDatabaseClass.php'; 
-require_once '../../databaseClasses/addressClass.php';
+require_once 'accessDatabaseClass.php'; 
+require_once 'databaseClasses/addressClass.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once 'header.php' ?>
 <body>
-  <?php require_once '../../navigation.php' ?>
+  <?php require_once 'navigation.php' ?>
     <div class="container">
             <div class="row">
                 <h3>Choose Address</h3>
