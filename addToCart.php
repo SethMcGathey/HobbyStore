@@ -11,6 +11,11 @@ require_once 'databaseClasses/addressClass.php';
 	//if($_SERVER["REQUEST_METHOD"] == "POST")
 
     $_SESSION['transaction_id'] = 0;
+
+    $transaction = new transactionDataAccess();
+    $transaction->readData($id);
+
+
    	$sql = "SELECT id, cart FROM transaction WHERE customer_id = " . $_SESSION['customerid'] . ' AND cart = 1';
 
 	foreach ($pdo->query($sql) as $row) {
