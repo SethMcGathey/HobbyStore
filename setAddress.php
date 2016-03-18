@@ -13,7 +13,7 @@ require_once 'databaseClasses/transaction_addressClass.php';
 	
 	$customer = new customerDataAccess();
     $data = $customer->readDataById($_SESSION['customerid'])[1];
-    echo $data;
+    print_r($data);
     $transaction = new transactionDataAccess();
 	$transactionData = $transaction->readCartData($_SESSION['customerid'])[1];
 
