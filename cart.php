@@ -46,9 +46,9 @@ require_once 'databaseClasses/transactionClass.php';
 			    		  	 <div class="col-lg-3 cartLine' . $num . '">'
 			?>
 
-							 <select name="quantity<?php echo $item['id']; ?>" class="form-control">
+							 <select name="quantity<?php echo $row['id']; ?>" class="form-control">
 								<?php for($i = 1; $i < 6; $i++) { ?>
-									<option value = <?php echo $i; if($i == $item['quantity']) { ?> selected <?php } ?>><?php echo $i; ?></option><?php } ?></select>
+									<option value = <?php echo $i; if($i == $row['quantity']) { ?> selected <?php } ?>><?php echo $i; ?></option><?php } ?></select>
 			<?php
 			    	   echo '<input type="submit" name="minusQuantity" id="minusQuantity" onClick="changeQuantity" value="-">
 			    			 <input type="text" class="textboxWidth" data-arbitraryName="' . $row['id'] . '" value="'. $row['fullQuantity'] . '"> 
