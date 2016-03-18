@@ -14,7 +14,10 @@ require_once 'databaseClasses/transaction_addressClass.php';
 
     $transaction = new transactionDataAccess();
 	$transactionData = $transaction->readCartData($_SESSION['customerid'])[1][0];
-
+	echo $transactionData['cart'];
+	echo $transactionData['timestamp'];
+	echo $_SESSION['paymentIdForPurchase'];
+	echo $transactionData['customer_id'];
     $transaction->updateData($transactionData['cart'],$transactionData['timestamp'],$_SESSION['paymentIdForPurchase'],$transactionData['customer_id']);
 
 	
