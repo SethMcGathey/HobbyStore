@@ -31,8 +31,8 @@ require_once 'databaseClasses/transactionClass.php';
 			</div>
 
 			<?php
-				$transaction_address = new transactionDataAccess();
-                foreach($transaction_address->readDataForCart($_SESSION['customerid'])[1] as $innerRow)
+				$transaction = new transactionDataAccess();
+                foreach($transaction->readDataForCart($_SESSION['customerid'])[1] as $row)
 				{
 					echo '<div class="row product" id="' . $row['id'] . '">' . 
 			    			'<div class="col-lg-3 cartLine' . $num . '"><img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
