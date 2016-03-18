@@ -33,7 +33,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 				$transaction_product->updateData(0,$_SESSION['transaction_id'],$_GET['id'],$currentId);
 
 			}
-			//header('Location: cart.php');
+			header('Location: cart.php');
 
 		}else{
 
@@ -49,6 +49,6 @@ require_once 'databaseClasses/transaction_productClass.php';
 				}
 
 			}
-			//header('Location: cart.php');
+			header('Location: cart.php');
 		}
 }
