@@ -43,7 +43,7 @@ require_once 'databaseClasses/transactionClass.php';
 
 			    		  	 <button href="updateQuantity.php?quantity=' . $row['fullQuantity'] - 1 . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '">-</button>
 			    			 <input type="text" class="textboxWidth" data-arbitraryName="' . $row['id'] . '" value="'. $row['fullQuantity'] . '"> 
-			    			 <button href="updateQuantity.php?quantity=' . $row['fullQuantity'] + 1 . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '">+</button>
+			    			 <button href="updateQuantity.php?quantity=' . $row['fullQuantity'] . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '">+</button>
 			    			 
 			    			 <div class="rightAlign"><button onclick="changeQuantity('. $row['fullQuantity'] . ', '. $row['id'] . ', '. $row['transaction_id'] . ')">Delete</button></div>
 			    			 <div class="rightAlign"><button href="updateQuantity.php">Update</button></div>
