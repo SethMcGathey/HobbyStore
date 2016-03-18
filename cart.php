@@ -47,8 +47,8 @@ require_once 'databaseClasses/transactionClass.php';
 			?>
 
 							 <select name="quantity<?php echo $row['id']; ?>" class="form-control">
-								<?php for($i = 1; $i < 6; $i++) { ?>
-									<option value = <?php echo $i; if($i == $row['quantity']) { ?> selected <?php } ?>><?php echo $i; ?></option><?php } ?></select>
+								<?php for($i= 1; $i<6; $i++) { ?>
+									<option value= <?php echo $i; if($i == $row['fullQuantity']) { ?> selected <?php } ?>><?php echo $i; ?></option><?php } ?></select>
 			<?php
 			    	   echo '<input type="submit" name="minusQuantity" id="minusQuantity" onClick="changeQuantity" value="-">
 			    			 <input type="text" class="textboxWidth" data-arbitraryName="' . $row['id'] . '" value="'. $row['fullQuantity'] . '"> 
