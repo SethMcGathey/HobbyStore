@@ -11,7 +11,7 @@ require_once 'databaseClasses/transaction_addressClass.php';
 
     $pdo = Database::connect();
 
-	$_SESSION['paymentIdForPurchase'] = $_POST['paymentid'];
+	$_SESSION['paymentIdForPurchase'] = $_GET['paymentid'];
 
     $transaction = new transactionDataAccess();
 	$transactionData = $transaction->readCartData($_SESSION['customerid'])[1][0];
