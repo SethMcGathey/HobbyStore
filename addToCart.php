@@ -32,7 +32,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 	{
 
 		$transaction_product = new transaction_productDataAccess();
-		foreach ($transaction_product->readCartData($_SESSION['customerid'])[1] as $row) {
+		foreach ($transaction_product->readCartData($_POST['id'],$_SESSION['transaction_id'])[1] as $row) {
 			$currentId = $row['id'];
 			$quantity = $row['quantity'];
 		}
