@@ -21,7 +21,7 @@ class transaction_productDataAccess extends accessDatabase{
     public function createData($quantity,$transaction_id,$product_id){
         $columns = array($quantity,$transaction_id,$product_id);
         $sql = "INSERT INTO transaction_product (quantity,transaction_id,product_id) values(?, ?, ?)";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 
 /***/
