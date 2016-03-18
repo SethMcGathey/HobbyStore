@@ -12,7 +12,8 @@ require_once 'databaseClasses/transaction_productClass.php';
 	foreach ($transaction->readCartData($_SESSION['customerid'])[1] as $row) {
 		$_SESSION['transaction_id'] = $row['id'];
 	}
-
+echo isset($_GET['remove']);
+echo !empty($_GET['remove']);
 if(isset($_GET['remove']) && !empty($_GET['remove'])){
 
 
@@ -22,7 +23,7 @@ if(isset($_GET['remove']) && !empty($_GET['remove'])){
 		$transaction_product->updateData(0,$_SESSION['transaction_id'],$_GET['id'],$currentId);
 
 	}
-	header('Location: cart.php');
+	//header('Location: cart.php');
 
 }else{
 
@@ -46,5 +47,5 @@ if(isset($_GET['remove']) && !empty($_GET['remove'])){
 		}
 
 	}
-	header('Location: cart.php');
+	//header('Location: cart.php');
 }
