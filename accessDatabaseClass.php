@@ -38,7 +38,7 @@ abstract class accessDatabase{
 	    }catch(PDOException $error){
             /*header("Location: 500.php");*/
             //header("Location: 500.php?msg=creating%20an%20address");
-            echo $error->getMessage();
+            //echo $error->getMessage();
             die();
         }
 	}
