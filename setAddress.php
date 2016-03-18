@@ -7,7 +7,7 @@ require_once 'sessionStart.php';
 require_once 'accessDatabaseClass.php';   
 require_once 'databaseClasses/addressClass.php';
 
-	$_SESSION['addressIdForPurchase'] = $_POST['addressid'];
+	$_SESSION['addressIdForPurchase'] = $_GET['addressid'];
 	
 	$customer = new customerDataAccess();
     $data = $customer->readDataById($_SESSION['customerid'])[1];
