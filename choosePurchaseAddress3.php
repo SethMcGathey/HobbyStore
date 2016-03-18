@@ -38,7 +38,7 @@ require_once 'databaseClasses/addressClass.php';
                       <?php
                         $address = new addressDataAccess();
                         //print_r($address->readData()[1][0]);
-                        foreach($address->readDataById($_SESSION['customer_id'])[1] as $innerRow)
+                        foreach($address->readDataById($_SESSION['customerid'])[1] as $innerRow)
                         {
                             echo '<tr>';
                               echo '<td>'. $innerRow['city'] . '</td>';
