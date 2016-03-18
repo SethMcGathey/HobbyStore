@@ -33,16 +33,21 @@ require_once 'databaseClasses/transactionClass.php';
 			<?php
 				$num=0;
 				$transaction = new transactionDataAccess();
-                foreach($transaction->readDataForCart($_SESSION['customerid'])[1] as $row)
+				$data = $transaction->readDataForCart($_SESSION['customerid'])
+                foreach($data[1] as $row)
 				{
 					echo '<div class="row product" id="' . $row['id'] . '">' . 
 			    			'<div class="col-lg-3 cartLine' . $num . '"><img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
 			    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
 			    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
 			    		  	 <div class="col-lg-3 cartLine' . $num . '">
+
+			    		  	 <button onclick="changeQuantity('. $row['quantity'] - 1 . ', '. $row['id'] . ', '. $row['transaction_id'] . ')">-</button>
 			    			 <input type="text" class="textboxWidth" data-arbitraryName=' . $row['id'] . ' value="'. $row['fullQuantity'] . '"> 
-			    			 <div class="rightAlign"><button onclick="changeQuantity('. $row['fullQuantity'] . ', '. $row['id'] . ', '. $row['transaction_id'] . ')">Delete</button></div>
-			    			 <div class="rightAlign"><button href="updateQuantity.php">Update</button></div>
+			    			 <button onclick="changeQuantity('. $row['quantity'] + 1 . ', '. $row['id'] . ', '. $row['transaction_id'] . ')">+</button>
+
+			    			 <div class="rightAlign"><button onclick="changeQuantity('. $row['quantity'] . ', '. $row['id'] . ', '. $row['transaction_id'] . ')">Update</button></div>
+			    			 <div class="rightAlign"><button href="updateQuantity.php?productId=' . $row['id'] . '&transactionId' . $data[1] . '&quantity=' .  . '">Update</button></div>
 			    			 <div class="rightAlign"><button onclick="window.location.href=\'removeFromCart.php?productid=' . $row['id'] . '\'">Remove</button></div>
 			    	 	  	 </div>
 			    	      </div> ';
@@ -53,6 +58,7 @@ require_once 'databaseClasses/transactionClass.php';
 	                {
 						$num = 0;
 	                }
+	                //<div class="rightAlign"><button onclick="changeQuantity('. $row['fullQuantity'] . ', '. $row['id'] . ', '. $row['transaction_id'] . ')">Delete</button></div>
 				}/*
 				$sql = 'SELECT p.id, name, cost, p.description, tp.transaction_id, SUM(quantity) as fullQuantity, image FROM transaction t JOIN transaction_product tp ON tp.transaction_id = t.id JOIN product p ON p.id = tp.product_id JOIN image i ON i.product_id = p.id WHERE cart = 1 AND customer_ID = ' . $_SESSION['customerid'] . ' GROUP BY id';
 						$num = 0;

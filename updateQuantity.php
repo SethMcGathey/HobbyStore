@@ -1,8 +1,16 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
-	require_once 'sessionStart.php'; 
-	require_once 'database.php';
+
+require_once 'sessionStart.php'; 
+
+require_once 'accessDatabaseClass.php'; 
+require_once 'databaseClasses/transaction_productClass.php';
+
+	$transaction_product = new transaction_productDataAccess();
+	$transaction_product->updateData($_GET['quantity'],$_GET['transactionId'],$_GET['productId'],$currentId);
+
+
     $pdo = Database::connect();
 
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
