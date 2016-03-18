@@ -13,7 +13,7 @@ class paymentDataAccess extends accessDatabase{
     }
     public function readDataByCustomerId($selectParam){
         $columns = array($selectParam);
-        $sql = "SELECT id,card_full_name,card_number,card_security,expires_month,expires_year,payment_type,payment_id,customer_id FROM customer_payment c JOIN payment a ON c.payment_id = a.id WHERE customer_id = ?";
+        $sql = "SELECT a.id,card_full_name,card_number,card_security,expires_month,expires_year,payment_type,payment_id,customer_id FROM customer_payment c JOIN payment a ON c.payment_id = a.id WHERE customer_id = ?";
         return parent::doSql($sql, $columns);
     }
 
