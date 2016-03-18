@@ -13,7 +13,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 		$_SESSION['transaction_id'] = $row['id'];
 	}
 
-if(!empty($_GET['remove']){
+if(isset($_GET['remove']) && !empty($_GET['remove'])){
 
 
 	if(trim($_SESSION['transaction_id']) > 0)
