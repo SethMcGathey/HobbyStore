@@ -40,18 +40,18 @@ require_once 'databaseClasses/addressClass.php';
                         foreach($address->readDataByCustomerId($_SESSION['customerid'])[1] as $innerRow)
                         {
                             echo '<tr>';
-                              echo '<td>'. $innerRow['city'] . '</td>';
-                              echo '<td>'. $innerRow['country'] . '</td>';
-                              echo '<td>'. $innerRow['state'] . '</td>';
-                              echo '<td>'. $innerRow['street_one'] . '</td>';
-                              echo '<td>'. $innerRow['street_two'] . '</td>';
-                              echo '<td>'. $innerRow['zipcode'] . '</td>';
+                              echo '<td>' . $innerRow['city'] . '</td>';
+                              echo '<td>' . $innerRow['country'] . '</td>';
+                              echo '<td>' . $innerRow['state'] . '</td>';
+                              echo '<td>' . $innerRow['street_one'] . '</td>';
+                              echo '<td>' . $innerRow['street_two'] . '</td>';
+                              echo '<td>' . $innerRow['zipcode'] . '</td>';
                               echo '<td width=250>';
-                              echo '<a class="btn" href="setAddress.php?addressid='. $innerRow['id'].'">Choose</a>';
+                              echo '<a class="btn" href="setAddress.php?addressid=' . $innerRow['id'] . '">Choose</a>';
                               echo ' ';
-                              echo '<a class="btn btn-success" href="addressUpdate.php?id='.$innerRow['id'].'">Update</a>';
+                              echo '<a class="btn btn-success" href="addressUpdate.php?id=' .$innerRow['id'] . '">Update</a>';
                               echo ' ';
-                              echo '<a class="btn btn-danger" href="addressDelete.php?id='.$innerRow['id'].'">Delete</a>';
+                              echo '<a class="btn btn-danger" href="addressDelete.php?id=' .$innerRow['id'] . '">Delete</a>';
                               echo '</td>';
                             echo '</tr>';
                         }

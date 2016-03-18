@@ -15,7 +15,7 @@ require_once 'databaseClasses/transaction_addressClass.php';
     $data = $customer->readDataById($_SESSION['customerid'])[1];
 
     $transaction = new transactionDataAccess();
-	$transactionData = $transaction->readCartData($_SESSION['customerid'])[1]
+	$transactionData = $transaction->readCartData($_SESSION['customerid'])[1];
 
 	$transaction_address = new transaction_addressDataAccess();
     $transaction_address->createData($data['phone'], 'payment', $_SESSION['addressIdForPurchase'], 	$transactionData['id']);
