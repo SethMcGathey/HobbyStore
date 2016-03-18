@@ -50,13 +50,10 @@ require_once 'databaseClasses/transactionClass.php';
 								<?php for($i= 1; $i<11; $i++) { ?>
 									<option value= <?php echo $i; if($i == $row['fullQuantity']) { ?> selected <?php } ?>><?php echo $i; ?></option><?php } ?></select>
 			<?php
-			    	   echo '<input type="submit" name="minusQuantity" id="minusQuantity" onClick="changeQuantity" value="-"><a href="updateQuantity3.php?id=' . $row['id'] . '">-</a>
+			    	   echo '<input type="submit" name="minusQuantity" id="minusQuantity" onClick="changeQuantity" value="-"><a href="updateQuantity3.php?id=' . $row['id'] . '&direction=minus">-</a>
 			    			 <input type="text" class="textboxWidth" data-arbitraryName="' . $row['id'] . '" value="'. $row['fullQuantity'] . '"> 
-			    			 <input type="submit" name="plusQuantity" id="plusQuantity" value="+"><a href="updateQuantity3.php?id=' . $row['id'] . '">+</a>
-			    			 
-			    			 <div class="rightAlign"><button onclick="changeQuantity('. $row['fullQuantity'] . ', '. $row['id'] . ', '. $row['transaction_id'] . ')">Delete</button></div>
-			    			 <div class="rightAlign"><button href="updateQuantity.php">Update</button></div>
-			    			 <div class="rightAlign"><button onclick="window.location.href=\'removeFromCart.php?productid=' . $row['id'] . '\'">Remove</button></div>
+			    			 <input type="submit" name="plusQuantity" id="plusQuantity" value="+"><a href="updateQuantity3.php?id=' . $row['id'] . '&direction=plus">+</a>
+			    			 <div class="rightAlign"><button><a href="updateQuantity3.php?remove=remove">Remove</a></button></div>
 			    	 	  	 </div>
 			    	      </div> ';
 			    	if($num < 1)
