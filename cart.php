@@ -31,6 +31,7 @@ require_once 'databaseClasses/transactionClass.php';
 			</div>
 
 			<?php
+				$num=0;
 				$transaction = new transactionDataAccess();
                 foreach($transaction->readDataForCart($_SESSION['customerid'])[1] as $row)
 				{
