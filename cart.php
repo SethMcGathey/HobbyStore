@@ -48,9 +48,9 @@ require_once 'databaseClasses/transactionClass.php';
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">
 
-				    	   		 <a class="plusMinusButtons" href="updateQuantity3.php?id=' . $row['id'] . '&direction=minus">-</a>
+				    	   		 <a class="minusButtons" href="updateQuantity3.php?id=' . $row['id'] . '&direction=minus">-</a>
 				    			 '. $row['fullQuantity'] . '
-				    			 <a class="plusMinusButtons" href="updateQuantity3.php?id=' . $row['id'] . '&direction=plus">+</a>
+				    			 <a class="plusButtons" href="updateQuantity3.php?id=' . $row['id'] . '&direction=plus">+</a>
 				    			 <div class="rightAlign"><a href="updateQuantity3.php?id=' . $row['id'] . '&remove=remove">Remove</a></div>
 				    	 	  	 </div>
 				    	      </div> ';
