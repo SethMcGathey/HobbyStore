@@ -16,9 +16,7 @@ require_once 'databaseClasses/transaction_addressClass.php';
     $transaction = new transactionDataAccess();
 	$transactionData = $transaction->readCartData($_SESSION['customerid'])[1][0];
 
-
-	$transaction = new transactionDataAccess();
-    //$transaction->updateData($transactionData['cart'],$transactionData['timestamp'],$_SESSION['paymentIdForPurchase'],$transactionData['customer_id']);
+    $transaction->updateData($transactionData['cart'],$transactionData['timestamp'],$_SESSION['paymentIdForPurchase'],$transactionData['customer_id']);
 
 	
 	header('Location: confirmPurchase.php');
