@@ -20,10 +20,10 @@ require_once 'databaseClasses/transaction_addressClass.php';
 	$transaction_address = new transaction_addressDataAccess();
     $transaction_address->createData($data['phone'], $_GET['purchaseShipping'], $_SESSION['addressIdForPurchase'], 	$transactionData['id']);
 
-if($_GET['purchaseShipping'] == 'purchase')
+if($_GET['purchaseShipping'] == 'payment')
 {
 	header('Location: chooseShippingAddress.php');
-}else if($_GET['purchaseShipping'])
+}else if($_GET['purchaseShipping'] == 'shipping')
 {
 	header('Location: choosePurchasePayment.php');
 }
