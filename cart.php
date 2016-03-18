@@ -37,15 +37,22 @@ require_once 'databaseClasses/transactionClass.php';
 				{
 					$quantityMinusOne = $row['fullQuantity'] - 1; 
 					$quantityPlusOne = $row['fullQuantity'] + 1; 
+					//href="updateQuantity.php?quantity=' . $quantityMinusOne . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '
+					//href="updateQuantity.php?quantity=' . $quantityPlusOne . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '"
 					echo '<div class="row product" id="' . $row['id'] . '"> 
 			    			 <div class="col-lg-3 cartLine' . $num . '"><img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
 			    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
 			    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
-			    		  	 <div class="col-lg-3 cartLine' . $num . '">
+			    		  	 <div class="col-lg-3 cartLine' . $num . '">'
+			?>
 
-			    		  	 <button href="updateQuantity.php?quantity=' . $quantityMinusOne . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '">-</button>
+							 <select name="quantity<?php echo $item['id']; ?>" class="form-control">
+								<?php for($i = 1; $i < 6; $i++) { ?>
+									<option value = <?php echo $i; if($i == $item['quantity']) { ?> selected <?php } ?>><?php echo $i; ?></option><?php } ?></select>
+			<?php
+			    	   echo '<input type="submit" name="minusQuantity" id="minusQuantity" onClick="changeQuantity" value="-">
 			    			 <input type="text" class="textboxWidth" data-arbitraryName="' . $row['id'] . '" value="'. $row['fullQuantity'] . '"> 
-			    			 <button href="updateQuantity.php?quantity=' . $quantityPlusOne . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '">+</button>
+			    			 <input type="submit" name="plusQuantity" id="plusQuantity" value="+">
 			    			 
 			    			 <div class="rightAlign"><button onclick="changeQuantity('. $row['fullQuantity'] . ', '. $row['id'] . ', '. $row['transaction_id'] . ')">Delete</button></div>
 			    			 <div class="rightAlign"><button href="updateQuantity.php">Update</button></div>
