@@ -47,12 +47,12 @@ require_once 'databaseClasses/transactionClass.php';
 			?>
 
 							 <select name="quantity<?php echo $row['id']; ?>" class="form-control">
-								<?php for($i= 1; $i<10; $i++) { ?>
+								<?php for($i= 1; $i<11; $i++) { ?>
 									<option value= <?php echo $i; if($i == $row['fullQuantity']) { ?> selected <?php } ?>><?php echo $i; ?></option><?php } ?></select>
 			<?php
-			    	   echo '<input type="submit" name="minusQuantity" id="minusQuantity" onClick="changeQuantity" value="-">
+			    	   echo '<input type="submit" name="minusQuantity" id="minusQuantity" onClick="changeQuantity" value="-"><a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a>
 			    			 <input type="text" class="textboxWidth" data-arbitraryName="' . $row['id'] . '" value="'. $row['fullQuantity'] . '"> 
-			    			 <input type="submit" name="plusQuantity" id="plusQuantity" value="+">
+			    			 <input type="submit" name="plusQuantity" id="plusQuantity" value="+"><a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a>
 			    			 
 			    			 <div class="rightAlign"><button onclick="changeQuantity('. $row['fullQuantity'] . ', '. $row['id'] . ', '. $row['transaction_id'] . ')">Delete</button></div>
 			    			 <div class="rightAlign"><button href="updateQuantity.php">Update</button></div>
