@@ -46,16 +46,11 @@ require_once 'databaseClasses/transactionClass.php';
 				    			 <div class="col-lg-3 cartLine' . $num . '"><img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
-				    		  	 <div class="col-lg-3 cartLine' . $num . '">'
-			?>
+				    		  	 <div class="col-lg-3 cartLine' . $num . '">
 
-								 <select name="quantity<?php echo $row['id']; ?>" class="form-control">
-									<?php for($i= 1; $i<11; $i++) { ?>
-										<option value= <?php echo $i; if($i == $row['fullQuantity']) { ?> selected <?php } ?>><?php echo $i; ?></option><?php } ?></select>
-			<?php
-				    	   echo '<input type="submit" name="minusQuantity" id="minusQuantity" onClick="changeQuantity" value="-"><a href="updateQuantity3.php?id=' . $row['id'] . '&direction=minus">-</a>
-				    			 <input type="text" class="textboxWidth" data-arbitraryName="' . $row['id'] . '" value="'. $row['fullQuantity'] . '"> 
-				    			 <input type="submit" name="plusQuantity" id="plusQuantity" value="+"><a href="updateQuantity3.php?id=' . $row['id'] . '&direction=plus">+</a>
+				    	   		 <a href="updateQuantity3.php?id=' . $row['id'] . '&direction=minus">-</a>
+				    			 <p type="text" class="quantityTag" data-arbitraryName="' . $row['id'] . '">'. $row['fullQuantity'] . '</p> 
+				    			 <a href="updateQuantity3.php?id=' . $row['id'] . '&direction=plus">+</a>
 				    			 <div class="rightAlign"><a href="updateQuantity3.php?id=' . $row['id'] . '&remove=remove">Remove</a></div>
 				    	 	  	 </div>
 				    	      </div> ';
