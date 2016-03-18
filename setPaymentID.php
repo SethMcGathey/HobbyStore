@@ -9,7 +9,6 @@ require_once 'databaseClasses/customerClass.php';
 require_once 'databaseClasses/transactionClass.php';
 require_once 'databaseClasses/transaction_addressClass.php';
 
-    $pdo = Database::connect();
 
 	$_SESSION['paymentIdForPurchase'] = $_GET['id'];
 
@@ -20,5 +19,3 @@ require_once 'databaseClasses/transaction_addressClass.php';
 
 	
 	header('Location: confirmPurchase.php');
-
-	Database::disconnect();
