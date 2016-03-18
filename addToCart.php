@@ -30,7 +30,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 	//$pdo = Database::connect();
 	if(trim($_SESSION['transaction_id']) > 0)
 	{
-
+		$quantity = 0;
 		$transaction_product = new transaction_productDataAccess();
 		foreach ($transaction_product->readCartData($_GET['id'],$_SESSION['transaction_id'])[1] as $row) {
 			$currentId = $row['id'];
@@ -46,7 +46,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 		if($quantity > 0)
 		{
 			$transaction_product = new transaction_productDataAccess();
-			$transaction_product->updateData($quantity+1,$_SESSION['transaction_id'],$_POST['id'],$currentId);
+			$transaction_product->updateData($quantity+1,$_SESSION['transaction_id'],$_GET['id'],$currentId);
 
 			/*$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$sql="UPDATE transaction_product SET quantity = (?) WHERE transaction_id = " . $_SESSION['transaction_id'] . " AND product_id = " . $_POST['id'];
@@ -55,7 +55,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 		}else
 		{
 			$transaction_product = new transaction_productDataAccess();
-			$transaction_product->createData(1,$_SESSION['transaction_id'], $_POST["id"]);
+			$transaction_product->createData(1,$_SESSION['transaction_id'], $_GET["id"]);
 			
 			/*
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
