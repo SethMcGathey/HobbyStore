@@ -96,6 +96,11 @@
 .minusButtons{
 	font-size: 25px;
 }
+
+.homePageImages{
+	width:100%;
+	padding:10px;
+}
 /*
 h1{
 	font-family:'ABeeZee', serif;

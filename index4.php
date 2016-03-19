@@ -18,34 +18,14 @@ require_once 'databaseClasses/subcategoryClass.php';
 		<div class="container-fluid" id="Not_Ajax_Output">
 			<h1 class="centerText">Clash Games</h1>
 			<div class="row">
-
-				<div class="col-lg-3"><img src="img/rrwggame.jpg" width="100px" class="categoryImage"/></div>
-				<div class="col-lg-3"><img src="img/rrwggame.jpg" width="100px" class="categoryImage"/></div>
-				<div class="col-lg-3"><img src="img/rrwggame.jpg" width="100px" class="categoryImage"/></div>
-				<div class="col-lg-3"><img src="img/rrwggame.jpg" width="100px" class="categoryImage"/></div>
-
 	          <?php
-		          $category = new categoryDataAccess();
-				  //$category->readData(1);
-				  $num = 0;
-				  //print_r($category->readData(1));
-				  //foreach ($category->readData(1) as $row) {
-					foreach($category->readData(1)[1] as $innerRow)
-					{
-						//echo $name = $innerRow['name'];
-						echo '<a href="#">
-		                		<div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
-		                			<img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>
-		                		</div>
-		                	  </a>';
-		                if($num < 1)
-		               	{
-		                	$num++;
-		                }else
-		                {
-							$num = 0;
-		                }
-					}
+	          	$image = new imageDataAccess();
+	          	$row = $image->readData()[1];
+					echo '<div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[1]['image']) . ' class="homePageImages"/></div>
+						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . ' class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[3]['image']) . ' class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[4]['image']) . ' class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[5]['image']) . ' class="homePageImages"/></div>';
               ?>
           	</div>
 
