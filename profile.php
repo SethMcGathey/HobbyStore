@@ -17,7 +17,7 @@ require_once 'databaseClasses/customerClass.php';
   <?php require_once 'navigation.php' ?>
     <div class="container">
             <div class="row">
-                <h3>Choose Payment Address</h3>
+                <h3>General Information</h3>
             </div>
             <div class="row">
                 <p>
@@ -64,6 +64,9 @@ require_once 'databaseClasses/customerClass.php';
                       ?>
                       </tbody>
                 </table>
+                <div class="row">
+                	<h3>Address</h3>
+            	</div>
                 <table class="table table-striped table-bordered">
                       <thead>
                         <tr>
@@ -100,6 +103,9 @@ require_once 'databaseClasses/customerClass.php';
                       ?>
                       </tbody>
                 </table>
+                <div class="row">
+                	<h3>Cards</h3>
+            	</div>
                 <table class="table table-striped table-bordered">
                       <thead>
                         <tr>
