@@ -60,20 +60,24 @@ p{
 }
 
 .subcategoryColor0{
-	background-color: #E8E8E8;
+	/*background-color: #E8E8E8;*/
+	border-top: solid;
 }
 
 .subcategoryColor1{
-	background-color: #FFFFFF ; 
+	/*background-color: #FFFFFF ;*/ 
+	border-top: solid;
 }
 
 .cartLine0{
-	background-color: #E8E8E8;
+	/*background-color: #E8E8E8;*/
+	border-top: solid;
 	height:100px;
 }
 
 .cartLine1{
-	background-color: #FFFFFF ; 
+	/*background-color: #FFFFFF ;*/ 
+	border-top: solid;
 	height:100px;
 }
 
