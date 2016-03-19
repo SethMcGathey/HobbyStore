@@ -1,10 +1,3 @@
-<?php
-require_once 'sessionStart.php'; 
-require_once 'accessDatabaseClass.php'; 
-
-require_once 'databaseClasses/categoryClass.php';
-require_once 'databaseClasses/subcategoryClass.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<?php require_once 'header.php' ?>
@@ -21,7 +14,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 				    unset($_SESSION['myForm']);
 				}
 			?>
-			<form action="registerUser3.php" method="POST">
+			<form action="registerUser.php" method="POST">
 				<p>First Name:</p><input type="text" placeholder="First Name" name="firstNameInput" id="firstNameInput" value="<?=$form_data['myForm']['firstNameInput']?>">
 				<p>Last Name:</p><input type="text" placeholder="Last Name" name="lastNameInput" id="lastNameInput" value="<?=$form_data['myForm']['lastNameInput']?>">
 				<p>User Name:</p><input type="text" placeholder="User Name" name="userNameInput" id="userNameInput" value="<?=$form_data['myForm']['userNameInput']?>">

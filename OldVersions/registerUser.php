@@ -1,14 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 'on');
-
-require_once 'sessionStart.php'; 
-require_once 'database.php';
-
-require_once 'accessDatabaseClass.php'; 
-require_once 'databaseClasses/customerClass.php';
-
-
+	require_once 'sessionStart.php'; 
+	require_once 'database.php';
     $pdo = Database::connect();
 
 	//echo $_SESSION['user'];
@@ -65,17 +57,12 @@ require_once 'databaseClasses/customerClass.php';
 
 		if(trim($firstName) != "" && trim($lastName) != "" && trim($username) != "" && trim($phoneNumber) != "" && trim($dob) != "" && trim($gender) != "" && trim($email) != "" && trim($password))
 		{
-			$customer = new customerDataAccess();
-			$customer->createData($firstName, $phoneNumber, $dob, $username, $password, $gender, 1, $email, $lastName);
-			header('Location: login3.php');
-
-
-			/*//echo "Got inside long if statement <br>";
+			//echo "Got inside long if statement <br>";
 		    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$sql="INSERT INTO customer (first_name, phone, dob, username, password, gender, permission, email, last_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		    $q = $pdo->prepare($sql);
 		    $q->execute(array($firstName, $phoneNumber, $dob, $username, $password, $gender, 1, $email, $lastName));
-	    	header('Location: login.php');*/
+	    	header('Location: login.php');
 		}else
 		{
 			$_SESSION['ErrorMessage'] =  "Fill in all required fields.";

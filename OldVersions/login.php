@@ -1,9 +1,5 @@
 <?php
 require_once 'sessionStart.php'; 
-require_once 'accessDatabaseClass.php'; 
-
-require_once 'databaseClasses/categoryClass.php';
-require_once 'databaseClasses/subcategoryClass.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +9,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 		<?php require_once 'navigation.php' ?>
 		<div class="container" id="">
 			<h1>Login</h1>
-			<form action="verify3.php" method="POST">
+			<form action="verify.php" method="POST">
 				<p>User Name:</p><input type="text" placeholder="User Name" name="usernameInput" id="usernameInput">
 				<p>Password:</p><input type="password" placeholder="Password" name="passwordInput" id="passwordInput">
 				<button>Log In</button>

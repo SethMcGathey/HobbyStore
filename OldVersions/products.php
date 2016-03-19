@@ -1,24 +1,19 @@
-<?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 'on');
-require_once 'sessionStart.php';
-require_once 'accessDatabaseClass.php'; 
-require_once 'databaseClasses/productClass.php';
- ?>
+<?php include 'sessionStart.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-	<?php require_once 'header.php' ?>
+	<?php require 'header.php' ?>
 	<body>
-		<?php require_once 'navigation.php' ?>
+		<?php require 'navigation.php' ?>
 		<div class="container-fluid" id="Not_Ajax_Output">
 			<h1>products.php</h1>
 
+
 			<?php
 				$pdo->setAttribute(PDO::ATTR_FETCH_TABLE_NAMES, true);
-				if(isset($_POST['id']))
+				if(isset($_GET['id']))
 				{
-					$sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.subcategory_id = ' . $_POST["id"] . ' ORDER BY id LIMIT 5';
-					//$sql = 'SELECT id,name,cost,description FROM product WHERE subcategory_id = ' . $_POST["id"] . ' ORDER BY id LIMIT 5';
+					$sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.subcategory_id = ' . $_GET["id"] . ' ORDER BY id LIMIT 5';
+					//$sql = 'SELECT id,name,cost,description FROM product WHERE subcategory_id = ' . $_GET["id"] . ' ORDER BY id LIMIT 5';
 					foreach ($pdo->query($sql) as $row) {
 					    echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['a.id']. '">' . '<img src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/> ' . $row['a.name'] . ' ' . $row['a.description'] . ' ' . $row['a.cost'] . ' <a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a></div>';
 					}
@@ -46,5 +41,5 @@ require_once 'databaseClasses/productClass.php';
 		</div>
 	</body>
 
-	<?php require_once 'footer.php' ?>
+	<?php require 'footer.php' ?>
 </html>

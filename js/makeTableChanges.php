@@ -10,44 +10,45 @@ require_once 'databaseClasses/customerClass.php';
 
 	$_POST['tableName'];
 
-	//echo $_SESSION['user'];
-	if($_SERVER["REQUEST_METHOD"] == "POST")
-	$_SESSION['ErrorMessage'] = "";
+switch ($_POST['tableName']){
+	case address:
+		$object = new addressDataAccess();
+	case bin:
+		$object = new binDataAccess();
+	case category: 
+		$object = new categoryDataAccess();
+	case customer:
+		$object = new customerDataAccess();
+	case customer_address:
+		$object = new customer_addressDataAccess();
+	case customer_payment:
+		$object = new customer_paymentDataAccess();
+	case image:
+		$object = new imageDataAccess();
+	case payment:
+		$object = new paymentDataAccess();
+	case product:
+		$object = new productDataAccess();
+	case product_bin:
+		$object = new product_binDataAccess();
+	case product_tag:
+		$object = new product_tagDataAccess();
+	case shipment_center:
+		$object = new shipment_centerDataAccess();
+	case subcategory:
+		$object = new subcategoryDataAccess();
+	case tag:
+		$object = new tagDataAccess();
+	case transaction:
+		$object = new transactionDataAccess();
+	case transaction_address:
+		$object = new transaction_addressDataAccess();
+	case transaction_product:
+		$object = new transaction_productDataAccess();
+}
 
-	if (!empty($_POST)) {
-        foreach($_POST as $key => $value) {
-            $_SESSION['myForm'][$key] = $value;
-        }
-    }
 	
-
-	if($_POST['passwordInput'] != $_POST['reenteredPasswordInput'])
-	{
-		$_SESSION['ErrorMessage'] = "Passwords do not match. <br>";
-		header('Location: register.php');
-	/*}
-	else if(trim($_POST['passwordInput']) == ""){
-		$_SESSION['ErrorMessage'] = "Please fill out password fields.";
-		header('Location: register.php');
-		//echo "passwordInput";*/
-	}else
-	{
-		$firstName = $_POST['firstNameInput'];
-		$lastName = $_POST['lastNameInput'];
-		$username = $_POST['userNameInput'];
-		$phoneNumber = $_POST['phoneNumberInput'];
-		$dob = $_POST['dobInput'];
-		$gender = $_POST['genderInput'];
-		$email = $_POST['emailInput'];
-		$_SESSION['ErrorMessage'] = "";
-		$password = $_POST['passwordInput'];
-		//$_SESSION['user'] = $username;
-		//echo "Got to the setting of variables <br>";
-	//echo isset($_POST['lastNameInput']);
-	//echo isset($_POST['userNameInput']);
-	//echo isset($_POST['phoneNumberInput']);
-
-
+	
 		if(trim($firstName) != "" && trim($lastName) != "" && trim($username) != "" && trim($phoneNumber) != "" && trim($dob) != "" && trim($gender) != "" && trim($email) != "" && trim($password))
 		{
 			$customer = new customerDataAccess();

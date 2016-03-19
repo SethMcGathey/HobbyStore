@@ -1,7 +1,14 @@
+<?php 
+require_once 'sessionStart.php'; 
+require_once 'accessDatabaseClass.php'; 
+
+require_once 'databaseClasses/categoryClass.php';
+require_once 'databaseClasses/subcategoryClass.php';
+?>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-tarPOST="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
@@ -16,8 +23,22 @@
 
           $ifActive[$_SERVER['PHP_SELF']] = "active";
           echo '<li class="' . $ifActive["/index.php"] . '"><a href="index.php">Home</a></li>';
-          echo '<li class="' . $ifActive["/products.php"] . '"><a href="products.php">Products</a></li>';
-
+          echo'<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
+            <ul class="dropdown-menu">';
+            $category = new categoryDataAccess();
+            foreach($category->readData(1)[1] as $innerRow)
+            {
+                //echo $name = $innerRow['name'];
+              echo '<li><a href="">' . $innerRow['name'] . '</a></li>';
+                /*echo '<a href="#">
+                        <div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
+                          <img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>
+                        </div>
+                      </a>';*/
+            }
+            echo'</ul>
+          </li>';
           if($_SESSION['permission'] == 1)
           {
             echo '<li class="' . $ifActive["/sqlManagmentFiles/productFiles/productIndex.php"] . '"><a href="sqlManagmentFiles/productFiles/productIndex.php">Admin</a></li>';
@@ -30,7 +51,7 @@
 
 
           $sql = 'SELECT SUM(quantity) as fullQuantity FROM transaction t JOIN transaction_product tp ON tp.transaction_id = t.id JOIN product p ON p.id = tp.product_id JOIN image i ON i.product_id = p.id WHERE cart = 1 AND customer_ID = 3';
-            //$sql = 'SELECT id,name,cost,description FROM product WHERE subcategory_id = ' . $_GET["id"] . ' ORDER BY id LIMIT 5';
+            //$sql = 'SELECT id,name,cost,description FROM product WHERE subcategory_id = ' . $_POST["id"] . ' ORDER BY id LIMIT 5';
             foreach ($pdo->query($sql) as $row) {
                 $quantity = $row['fullQuantity'];
             }
@@ -48,7 +69,6 @@
                 echo '<li class="' . $ifActive["/login.php"] . '"><a href="login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>';
               }
         ?>
-        
       </ul>
         <div class="col-sm-3 col-md-3 pull-right">
         <form class="navbar-form" role="search">

@@ -1,54 +1,64 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
+
 require_once 'sessionStart.php'; 
-require_once 'accessDatabaseClass.php'; 
-require_once 'databaseClasses/transactionClass.php';
-require_once 'databaseClasses/transaction_productClass.php';
+
+require_once 'accessDatabaseClass.php';   
+require_once 'databaseClasses/addressClass.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-	<?php require_once 'header.php' ?>
-	<body>
-		<?php require_once 'navigation.php' ?>
-		<div class="container" id="Not_Ajax_Output">
-			<div class="row">
-				<div class="col-lg-6">
-					<h3>Add Address</h3>
-					<form action="changeAddress.php" method="POST">
-						<p>Street 1:</p><input type="text" placeholder="Street 1" name="street1" id="street1">
-						<p>Street 2:</p><input type="text" placeholder="Street 2" name="street2" id="street2">
-						<p>Zipcode:</p><input type="text" placeholder="Zipcode" name="zipcode" id="zipcode">
-						<p>City:</p><input type="text" placeholder="City" name="city" id="city">
-						<p>State:</p><input type="text" placeholder="State" name="state" id="state">
-						<p>Country:</p><input type="text" placeholder="Country" name="country" id="country">
-						<button>Add Address</button>
-						<br>
-					</form>
-				</div>
-				<div class="col-lg-6">
-					<h3>Choose Address</h3>
-					<div class="scrollbox">
-					<?php
-						//echo $_SESSION['customerid'];
-		               	$sql = "SELECT a.id, street_one, street_two, zipcode, city, state, country FROM customer_address c JOIN address a ON c.address_id = a.id WHERE customer_id = " . $_SESSION['customerid'];
-		               	foreach ($pdo->query($sql) as $row) {
-			               	echo '<a href="setAddress.php?addressid=' . $row['id'] . '">
-			               		  <p name="street1" id="street1">Street 1: ' . $row['street_one'] . '</p>
-								  <p name="street2" id="street2">Street 2: ' . $row['street_two'] . '</p>
-								  <p name="zipcode" id="zipcode">Zipcode: ' . $row['zipcode'] . '</p>
-								  <p name="city" id="city">City: ' . $row['city'] . '</p>
-								  <p name="state" id="state">State: ' . $row['state'] . '</p>
-								  <p name="country" id="country">Country: ' . $row['country'] . '</p>
-								  </a>
-								  <br>';
-		               }
-		            ?>
-		        	</div>
-				</div>
-			</div>
-		</div>
-	</body>
+<?php require_once 'header.php' ?>
+<body>
+  <?php require_once 'navigation.php' ?>
+    <div class="container">
+            <div class="row">
+                <h3>Choose Payment Address</h3>
+            </div>
+            <div class="row">
+                <p>
+                    <a href="addressCreate.php" class="btn btn-success">Create New Address</a>
+                </p>
 
-	<?php require_once 'footer.php' ?>
+                <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>City</th>
+                          <th>Country</th>
+                          <th>State</th>
+                          <th>Street One</th>
+                          <th>Street Two</th>
+                          <th>Zipcode</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php
+                        $address = new addressDataAccess();
+                        foreach($address->readDataByCustomerId($_SESSION['customerid'])[1] as $innerRow)
+                        {
+                            echo '<tr>';
+                              echo '<td>' . $innerRow['city'] . '</td>';
+                              echo '<td>' . $innerRow['country'] . '</td>';
+                              echo '<td>' . $innerRow['state'] . '</td>';
+                              echo '<td>' . $innerRow['street_one'] . '</td>';
+                              echo '<td>' . $innerRow['street_two'] . '</td>';
+                              echo '<td>' . $innerRow['zipcode'] . '</td>';
+                              echo '<td width=250>';
+                              echo '<a class="btn" href="setAddress.php?purchaseShipping=payment&addressid=' . $innerRow['id'] . '">Choose</a>';
+                              echo ' ';
+                              echo '<a class="btn btn-success" href="addressUpdate.php?id=' . $innerRow['id'] . '">Update</a>';
+                              echo ' ';
+                              echo '<a class="btn btn-danger" href="addressDelete.php?id=' . $innerRow['id'] . '">Delete</a>';
+                              echo '</td>';
+                            echo '</tr>';
+                        }
+                      ?>
+                      </tbody>
+                </table>
+        </div>
+    </div> <!-- /container -->
+  </body>
 </html>

@@ -1,24 +1,54 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
-
 require_once 'sessionStart.php'; 
-
 require_once 'accessDatabaseClass.php'; 
+require_once 'databaseClasses/transactionClass.php';
 require_once 'databaseClasses/transaction_productClass.php';
 
-	$transaction_product = new transaction_productDataAccess();
-	$transaction_product->updateData($_GET['quantity'],$_GET['transactionId'],$_GET['productId'],$currentId);
+	$_SESSION['transaction_id'] = 0;
+	$quantity = 0;
+
+    $transaction = new transactionDataAccess();
+	foreach ($transaction->readCartData($_SESSION['customerid'])[1] as $row) {
+		$_SESSION['transaction_id'] = $row['id'];
+	}
+	if(trim($_SESSION['transaction_id']) > 0)
+	{
+
+		$transaction_product = new transaction_productDataAccess();
+		foreach ($transaction_product->readCartData($_GET['id'],$_SESSION['transaction_id'])[1] as $row) {
+			$currentId = $row['id'];
+			$quantity = $row['quantity'];
 
 
-    $pdo = Database::connect();
+		//echo isset($_GET['remove']);
+		//echo !empty($_GET['remove']);
+		if(isset($_GET['remove']) && !empty($_GET['remove'])){
 
-	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql="UPDATE transaction_product SET quantity = " . $_POST['quantity'] . " WHERE transaction_id = " . $_POST['transaction_id'] . " AND product_id = " . $_POST['productid'];
-    $q = $pdo->prepare($sql);
-    $q->execute();
 
-    echo "made it";
-    //header('Location: cart.php');
+			if(trim($_SESSION['transaction_id']) > 0)
+			{
+				$transaction_product = new transaction_productDataAccess();
+				$transaction_product->updateData(0,$_SESSION['transaction_id'],$_GET['id'],$currentId);
 
-	Database::disconnect();
+			}
+			header('Location: cart.php');
+
+		}else{
+
+
+				if($_GET['direction'] == 'plus')
+				{
+					$transaction_product = new transaction_productDataAccess();
+					$transaction_product->updateData($quantity+1,$_SESSION['transaction_id'],$_GET['id'],$currentId);
+				}else if($_GET['direction'] == 'minus')
+				{
+					$transaction_product = new transaction_productDataAccess();
+					$transaction_product->updateData($quantity-1,$_SESSION['transaction_id'],$_GET['id'],$currentId);
+				}
+
+			}
+			header('Location: cart.php');
+		}
+}

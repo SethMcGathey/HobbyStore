@@ -5,9 +5,9 @@ ini_set('display_errors', 'on');
 require_once 'sessionStart.php'; 
 require_once 'accessDatabaseClass.php'; 
 
-require_once 'sessionStart.php';
-require_once 'databaseClasses/categoryClass.php';
-require_once 'databaseClasses/subcategoryClass.php';
+require_once 'databaseClasses/customerClass.php';
+require_once 'databaseClasses/customer_addressClass.php';
+require_once 'databaseClasses/customer_paymentClass.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,46 @@ require_once 'databaseClasses/subcategoryClass.php';
 		<?php require_once 'navigation.php' ?>
 		<div class="container" id="Not_Ajax_Output">
 			<div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-6">
+					<h3>General Information</h3>
+					<form action="changeGeneral.php" method="POST">
+						<p>First Name:</p><input type="text" placeholder="First Name" name="firstName" id="firstName">
+						<p>Last Name:</p><input type="text" placeholder="Last Name" name="lastName" id="lastName">
+						<p>Phone Number:</p><input type="text" placeholder="Phone Number" name="phoneNumber" id="phoneNumber">
+						<p>Date Of Birth:</p><input type="text" placeholder="Date of Birth" name="dob" id="dob">
+						<p>Username:</p><input type="text" placeholder="Username" name="username" id="username">
+						<p>Password:</p><input type="text" placeholder="Password" name="password" id="password">
+						<p>Gender:</p><input type="text" placeholder="Gender" name="gender" id="gender">
+						<p>Email:</p><input type="text" placeholder="Email" name="email" id="email">
+						<button>Add General</button>
+						<br>
+					</form>
+				</div>
+				<div class="col-lg-6">
+					<h3>Current General Information</h3>
+					<div class="scrollbox">
+						<?php
+							$customer = new customerDataAccess();
+							foreach($customer->readDataByUserID($_SESSION['customerid'])[1] as $innerRow)
+							{
+								echo 'First Name: <p name="firstName" id="firstName" contenteditable>' . $innerRow['first_name'] . '</p>
+									  Last Name: <p name="lastName" id="lastName" contenteditable>' . $innerRow['last_name'] . '</p>
+									  Phone Number: <p name="phoneNumber" id="phoneNumber">' . $innerRow['phone'] . '</p>
+									  Date Of Birth: <p name="dob" id="dob" contenteditable>' . $innerRow['dob'] . '</p>
+									  Username: <p name="username" id="username" contenteditable>' . $innerRow['username'] . '</p>
+									  Password: <p name="password" id="password" contenteditable>' . $innerRow['password'] . '</p>
+									  Gender: <p name="gender" id="gender" contenteditable>' . $innerRow['gender'] . '</p>
+									  Email: <p name="email" id="email" contenteditable>' . $innerRow['email'] . '</p>
+									  <br>';
+							}
+			            ?>
+			            
+		        	</div>
+		        	<input id="updateGeneralInformation">Update</input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
 					<h3>Address</h3>
 					<form action="changeAddress.php" method="POST">
 						<p>Street 1:</p><input type="text" placeholder="Street 1" name="street1" id="street1">
@@ -29,49 +68,59 @@ require_once 'databaseClasses/subcategoryClass.php';
 						<br>
 					</form>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-6">
 					<h3>Current Addresses</h3>
 					<div class="scrollbox">
-					<?php
-						//echo $_SESSION['customerid'];
-		               	$sql = "SELECT street_one, street_two, zipcode, city, state, country FROM customer_address c JOIN address a ON c.address_id = a.id WHERE customer_id = " . $_SESSION['customerid'];
-		               	foreach ($pdo->query($sql) as $row) {
-			               	echo '<p name="street1" id="street1">Street 1: ' . $row['street_one'] . '</p>
-								  <p name="street2" id="street2">Street 2: ' . $row['street_two'] . '</p>
-								  <p name="zipcode" id="zipcode">Zipcode: ' . $row['zipcode'] . '</p>
-								  <p name="city" id="city">City: ' . $row['city'] . '</p>
-								  <p name="state" id="state">State: ' . $row['state'] . '</p>
-								  <p name="country" id="country">Country: ' . $row['country'] . '</p>
-								  <br>';
-		               }
-		            ?>
+						<?php
+							$customer_address = new customer_addressDataAccess();
+							foreach($customer_address->readDataJoinedAddress($_SESSION['customerid'])[1] as $innerRow)
+							{
+								echo 'Street 1: <p name="street1" id="street1" contenteditable>' . $innerRow['street_one'] . '</p>
+									  Street 2: <p name="street2" id="street2" contenteditable>' . $innerRow['street_two'] . '</p>
+									  Zipcode: <p name="zipcode" id="zipcode" contenteditable>' . $innerRow['zipcode'] . '</p>
+									  City: <p name="city" id="city" contenteditable>' . $innerRow['city'] . '</p>
+									  State: <p name="state" id="state" contenteditable>' . $innerRow['state'] . '</p>
+									  Country: <p name="country" id="country" contenteditable>' . $innerRow['country'] . '</p>
+									  <br>';
+							}
+			            ?>
+			            
 		        	</div>
+		        	<input id="updateAddress">Update</input>
 				</div>
-				<div class="col-lg-3">
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
 					<h3>New Card</h3>
 					<form action="changePayment.php" method="POST">
 						<p>Name on Card:</p><input type="text" placeholder="Name on Card" name="nameOnCard" id="nameOnCard">
+						<p>Card Type:</p><input type="text" placeholder="Card Type" name="cardType" id="cardType">
 						<p>Card Number:</p><input type="text" placeholder="Card Number" name="cardNumber" id="cardNumber">
 						<p>Security Code:</p><input type="text" placeholder="Security Code" name="securityCode" id="securityCode">
 						<p>Expiration:</p><input type="text" placeholder="Expiration" name="expiration" id="expiration">
 						<button>Add Card</button>
 					</form>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-6">
 					<h3>Cards on Record</h3>
-					<div class="scrollbox">
-					<?php
-						//echo $_SESSION['customerid'];
-		               	$sql = "SELECT card_full_name, card_number, card_security, expires_month, expires_year FROM customer_payment c JOIN payment a ON c.payment_id = a.id WHERE customer_id = " . $_SESSION['customerid'];
-		               	foreach ($pdo->query($sql) as $row) {
-			               	echo '<p name="nameOnCard" id="nameOnCard">Name on Card: ' . $row['card_full_name'] . '</p>
-								  <p name="cardNumber" id="cardNumber">Card Number: ' . $row['card_number'] . '</p>
-								  <p name="securityCode" id="securityCode">Security Code: ' . $row['card_security'] . '</p>
-								  <p name="expiration" id="expiration">Expires: ' . $row['expires_month'] . '/' . $row['expires_year'] . '</p>
-								  <br>';
-		               }
-		            ?>
-		        	</div>
+					
+						<?php
+							echo '<div class="scrollbox">';
+							$customer_payment = new customer_paymentDataAccess();
+
+							foreach($customer_payment->readDataJoinedPayments($_SESSION['customerid'])[1] as $innerRow)
+							{
+								echo 'Name on Card: <p name="nameOnCard" id="nameOnCard' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['card_full_name'] . '</p>
+									  Card Type: <p name="cardType" id="cardType' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['payment_type'] . '</p>
+									  Card Number: <p name="cardNumber" id="cardNumber' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['card_number'] . '</p>
+									  Security Code: <p name="securityCode" id="securityCode' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['card_security'] . '</p>
+									  Expires: <p name="expiration" id="expiration' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
+									  <br>';
+									  echo '<button type="submit" text="Update" id="' . $innerRow['payment_id'] . '">Update</button><br>';
+			                }
+			                echo '</div>';
+			            ?>
+		        	
 				</div>
 			</div>
 			<div id="inner_ajax_Output">

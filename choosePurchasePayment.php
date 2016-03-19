@@ -1,49 +1,61 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
+
 require_once 'sessionStart.php'; 
+
 require_once 'accessDatabaseClass.php'; 
-require_once 'databaseClasses/transactionClass.php';
-require_once 'databaseClasses/transaction_productClass.php';
+require_once 'databaseClasses/paymentClass.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<?php require_once 'header.php' ?>
-	<body>
-		<?php require_once 'navigation.php' ?>
-		<div class="container" id="Not_Ajax_Output">
-			<div class="row">
-				<div class="col-lg-6">
-					<h3>Add Card</h3>
-					<form action="changePayment.php" method="POST">
-						<p>Name on Card:</p><input type="text" placeholder="Name on Card" name="nameOnCard" id="nameOnCard">
-						<p>Card Number:</p><input type="text" placeholder="Card Number" name="cardNumber" id="cardNumber">
-						<p>Security Code:</p><input type="text" placeholder="Security Code" name="securityCode" id="securityCode">
-						<p>Expiration:</p><input type="text" placeholder="Expiration" name="expiration" id="expiration">
-						<button>Add Card</button>
-					</form>
-				</div>
-				<div class="col-lg-6">
-					<h3>Choose Card</h3>
-					<div class="scrollbox">
-					<?php
-						//echo $_SESSION['customerid'];
-		               	$sql = "SELECT a.id, card_full_name, card_number, card_security, expires_month, expires_year FROM customer_payment c JOIN payment a ON c.payment_id = a.id WHERE customer_id = " . $_SESSION['customerid'];
-		               	foreach ($pdo->query($sql) as $row) {
-			               	echo '<a href="setPaymentID.php?paymentid=' . $row['id'] . '">
-			               		  <p name="nameOnCard" id="nameOnCard">Name on Card: ' . $row['card_full_name'] . '</p>
-								  <p name="cardNumber" id="cardNumber">Card Number: ' . $row['card_number'] . '</p>
-								  <p name="securityCode" id="securityCode">Security Code: ' . $row['card_security'] . '</p>
-								  <p name="expiration" id="expiration">Expires: ' . $row['expires_month'] . '/' . $row['expires_year'] . '</p>
-								  </a>
-								  <br>';
-		               }
-		            ?>
-		        	</div>
-				</div>
-			</div>
-		</div>
-	</body>
+<?php require_once 'header.php' ?>
+<body>
+    <div class="container">
+            <div class="row">
+                <h3>PHP CRUD Grid</h3>
+            </div>
+            <div class="row">
+                <p>
+                    <a href="paymentCreate.php" class="btn btn-success">Create</a>
+                </p>
 
-	<?php require_once 'footer.php' ?>
+                <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Name on Card</th>
+                          <th>Card Number</th>
+                          <th>Security Number</th>
+                          <th>Expiration Month</th>
+                          <th>Experation Year</th>
+                          <th>Payment Type</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php
+                        $payment = new paymentDataAccess();
+                        foreach ($payment->readDataByCustomerId($_SESSION['customerid'])[1] as $row) {
+                                echo '<tr>';
+                                echo '<td>'. $row['card_full_name'] . '</td>';
+                                echo '<td>'. $row['card_number'] . '</td>';
+                                echo '<td>'. $row['card_security'] . '</td>';
+                                echo '<td>'. $row['expires_month'] . '</td>';
+                                echo '<td>'. $row['expires_year'] . '</td>';
+                                echo '<td>'. $row['payment_type'] . '</td>';
+                                echo '<td width=250>';
+                                echo '<a class="btn" href="setPaymentID.php?id='.$row['id'].'">Choose</a>';
+                                echo ' ';
+                                echo '<a class="btn btn-success" href="paymentUpdate.php?id='.$row['id'].'">Update</a>';
+                                echo ' ';
+                                echo '<a class="btn btn-danger" href="paymentDelete.php?id='.$row['id'].'">Delete</a>';
+                                echo '</td>';
+                                echo '</tr>';
+                       }
+                      ?>
+                      </tbody>
+                </table>
+        </div>
+    </div> <!-- /container -->
+  </body>
 </html>

@@ -100,6 +100,12 @@ $(document).ready(function(){
 		/*}
 	});
 });*/
+$("#minusQuantity").onclick(function(){
+	var ajaxurl = 'updateQuantity.php';
+	var data = {quantity: $(this).};
+	$.post(ajaxurl)
+})
+$("#plusQuantity").onclick()
 
 function changeQuantity(quantity, id, transaction_id){
 	console.log('made it to function');
