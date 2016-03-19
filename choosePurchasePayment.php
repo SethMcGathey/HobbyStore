@@ -11,6 +11,7 @@ require_once 'databaseClasses/paymentClass.php';
 <html lang="en">
 <?php require_once 'header.php' ?>
 <body>
+    <?php require_once 'navigation.php' ?>
     <div class="container">
             <div class="row">
                 <h3>PHP CRUD Grid</h3>
@@ -58,4 +59,5 @@ require_once 'databaseClasses/paymentClass.php';
         </div>
     </div> <!-- /container -->
   </body>
+  <?php require 'footer.php' ?>
 </html>
