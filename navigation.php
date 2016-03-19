@@ -30,7 +30,7 @@ require_once 'databaseClasses/subcategoryClass.php';
             foreach($category->readData(1)[1] as $innerRow)
             {
                 //echo $name = $innerRow['name'];
-              echo '<li><a href="">' . $innerRow['name'] . '</a></li>';
+              echo '<li><a href="products.php">' . $innerRow['name'] . '</a></li>';
                 /*echo '<a href="#">
                         <div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
                           <img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>
