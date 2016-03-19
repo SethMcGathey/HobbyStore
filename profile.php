@@ -21,7 +21,7 @@ require_once 'databaseClasses/customerClass.php';
             </div>
             <div class="row">
                 <p>
-                    <a href="sqlManagmentFiles/customerFiles/addressCreate.php" class="btn btn-success">Create New Address</a>
+                    <a href="sqlManagmentFiles/customerFiles/customerCreate.php" class="btn btn-success">Create New Address</a>
                 </p>
                 <table class="table table-striped table-bordered">
                       <thead>
@@ -69,7 +69,7 @@ require_once 'databaseClasses/customerClass.php';
             	</div>
             	<div class="row">
                 <p>
-                    <a href="sqlManagmentFiles/addressFiles/paymentCreate.php" class="btn btn-success">Create Address</a>
+                    <a href="sqlManagmentFiles/addressFiles/addressCreate.php" class="btn btn-success">Create Address</a>
                 </p>
                 <table class="table table-striped table-bordered">
                       <thead>
@@ -112,7 +112,7 @@ require_once 'databaseClasses/customerClass.php';
             	</div>
             	<div class="row">
                 <p>
-                    <a href="sqlManagmentFiles/paymentFiles/customerCreate.php" class="btn btn-success">Create Card</a>
+                    <a href="sqlManagmentFiles/paymentFiles/paymentCreate.php" class="btn btn-success">Create Card</a>
                 </p>
                 <table class="table table-striped table-bordered">
                       <thead>
