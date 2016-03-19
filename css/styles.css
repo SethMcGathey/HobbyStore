@@ -2,6 +2,10 @@
 	background-color: #E8E8E8;
 }
 
+p{
+	font: 'ABeeZee';
+}
+
 .centerText{
 	text-align:center;
 }
