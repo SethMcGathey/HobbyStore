@@ -17,12 +17,11 @@ require_once 'databaseClasses/productClass.php';
       <h1>products.php</h1>
 
 
-      <?php
-        $product = new productDataAccess();
-        $data = $product->readProductForSinglePageData($id)[1];
-        
+      <?php        
         if(isset($_GET['id']))
         {
+          $product = new productDataAccess();
+          $data = $product->readProductForSinglePageData($_GET['id'])[1];
           foreach ($data as $row) {
               echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['a.id']. '">' . '<img src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/> ' . $row['a.name'] . ' ' . $row['a.description'] . ' ' . $row['a.cost'] . ' <a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a></div>';
           }
