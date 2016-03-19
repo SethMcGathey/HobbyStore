@@ -18,7 +18,7 @@ require_once '../../databaseClasses/addressClass.php';
 </head>
 
 <body>
-  <?php require_once '../../navigation.php' ?>
+  <?php require_once '../navigation.php' ?>
     <div class="container">
             <div class="row">
                 <h3>PHP CRUD Grid</h3>
