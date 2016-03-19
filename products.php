@@ -15,7 +15,7 @@ require_once 'databaseClasses/productClass.php';
 
 			<?php
 				$pdo->setAttribute(PDO::ATTR_FETCH_TABLE_NAMES, true);
-				if(isset($_POST['id']))
+				if(isset($_GET['id']))
 				{
 					$sql = 'SELECT * FROM product a JOIN subcategory b ON subcategory_id = b.id JOIN category c ON b.id = c.id WHERE c.id = ' . $_POST['id'];
 					//$sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.subcategory_id = ' . $_POST["id"] . ' ORDER BY id';
