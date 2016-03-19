@@ -26,7 +26,9 @@ require_once 'databaseClasses/imageClass.php';
 						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[1]['image']) . ' class="homePageImages"/></div>
 						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . ' class="homePageImages"/></div>
 						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[0]['image']) . ' class="homePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . ' class="homePageImages"/></div>';
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . ' class="homePageImages"/></div>
+						  <img src="data:image/jpeg;base64,' . base64_encode($row[0]['image']) . '"width="100px"/>';
+              									
               ?>
           	</div>
 
