@@ -31,7 +31,8 @@ require_once 'databaseClasses/subcategoryClass.php';
             {
                 //echo $name = $innerRow['name'];
               //echo '<ul class="dropdown-menu">';
-              echo '<li><a href="products.php?id=' . $innerRow['subcategory_id'] . '">' . $innerRow['name'] . '</a></li>';
+              //?id=' . $innerRow['subcategory_id'] . '
+              echo '<li><a href="products.php">' . $innerRow['name'] . '</a></li>';
                 /*echo '<a href="#">
                         <div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
                           <img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>
