@@ -22,6 +22,11 @@ class productDataAccess extends accessDatabase{
         $sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.name LIKE \'%' . $string . '%\' OR a.description LIKE \'%' . $string . '%\' OR a.cost LIKE \'%' . $string . '%\' ORDER BY a.id LIMIT 5';
         return parent::doSql($sql, $columns);
     }
+    public function readProductForSinglePageData($productId){
+        $columns = array($productId);
+        $sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.product_id = ?';
+        return parent::doSql($sql, $columns);
+    }
 
     public function createData($name,$cost,$description,$subcategory_id, $stock, $bin_id, $description,$featured,$image){
         $columns = array($name,$cost,$description,$subcategory_id);
