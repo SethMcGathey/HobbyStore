@@ -17,8 +17,6 @@ require_once 'databaseClasses/productClass.php';
 
 
       <?php      
-        echo isset($_GET['id']);
-        echo !empty($_GET['id']);
         if(isset($_GET['id']) && !empty($_GET['id']))
         {
           $product = new productDataAccess();
