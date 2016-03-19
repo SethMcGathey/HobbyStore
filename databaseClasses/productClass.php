@@ -24,7 +24,7 @@ class productDataAccess extends accessDatabase{
     }
     public function readProductForSinglePageData($productId){
         $columns = array($productId);
-        $sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.product_id = ?';
+        $sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE b.product_id = ?';
         return parent::doSql($sql, $columns);
     }
 
