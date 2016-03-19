@@ -7,12 +7,11 @@ require_once 'sessionStart.php';
 require_once 'accessDatabaseClass.php'; 
 require_once 'databaseClasses/productClass.php';
 ?>
-<?php include 'sessionStart.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-  <?php require 'header.php' ?>
+  <?php require_once 'header.php' ?>
   <body>
-    <?php require 'navigation.php' ?>
+    <?php require_once 'navigation.php' ?>
     <div class="container-fluid" id="Not_Ajax_Output">
       <h1>products.php</h1>
 
