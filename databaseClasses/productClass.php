@@ -1,8 +1,8 @@
 <?php
 
 class productDataAccess extends accessDatabase{
-    public function readData($selectParam){
-        $columns = array($selectParam);
+    public function readData(){
+        $columns = array();
         $sql = "SELECT * FROM product";
         return parent::doSql($sql, $columns);
     }
