@@ -26,8 +26,8 @@ require_once 'databaseClasses/subcategoryClass.php';
           echo'<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
             <ul class="dropdown-menu">';
-            $category = new categoryDataAccess();
-            foreach($category->readData(1)[1] as $innerRow)
+            $subcategory = new subcategoryDataAccess();
+            foreach($subcategory->readData(1)[1] as $innerRow)
             {
                 //echo $name = $innerRow['name'];
               //echo '<ul class="dropdown-menu">';
