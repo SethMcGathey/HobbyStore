@@ -29,7 +29,7 @@ class customerDataAccess extends accessDatabase{
     public function createData($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username){
         $columns = array($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username);
         $sql = "INSERT INTO customer (first_name,last_name,email,phone,dob,gender,password,permission,username) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
 /*
         $columns2 = array($city,$country,$state,$street_one,$street_two,$zipcode);
         $sql2 = "INSERT INTO address (city,country,state,street_one,street_two,zipcode) values(?, ?, ?, ?, ?, ?)";
