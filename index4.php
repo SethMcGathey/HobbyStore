@@ -7,6 +7,7 @@ require_once 'accessDatabaseClass.php';
 
 require_once 'databaseClasses/categoryClass.php';
 require_once 'databaseClasses/subcategoryClass.php';
+require_once 'databaseClasses/imageClass.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +25,8 @@ require_once 'databaseClasses/subcategoryClass.php';
 					echo '<div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[1]['image']) . ' class="homePageImages"/></div>
 						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . ' class="homePageImages"/></div>
 						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[3]['image']) . ' class="homePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[4]['image']) . ' class="homePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[5]['image']) . ' class="homePageImages"/></div>';
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[1]['image']) . ' class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . ' class="homePageImages"/></div>';
               ?>
           	</div>
 
