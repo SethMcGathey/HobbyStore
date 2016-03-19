@@ -123,6 +123,10 @@ p{
 		padding-right:80px;
 	}
 }
+
+.productsImage{
+	float:left;
+}
 /*
 h1{
 	font-family:'ABeeZee', serif;
