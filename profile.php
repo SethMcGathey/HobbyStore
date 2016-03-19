@@ -1,135 +1,142 @@
-<?php 
+<?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
 require_once 'sessionStart.php'; 
-require_once 'accessDatabaseClass.php'; 
 
+require_once 'accessDatabaseClass.php';   
+require_once 'databaseClasses/addressClass.php';
+require_once 'databaseClasses/paymentClass.php';
 require_once 'databaseClasses/customerClass.php';
-require_once 'databaseClasses/customer_addressClass.php';
-require_once 'databaseClasses/customer_paymentClass.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-	<?php require_once 'header.php' ?>
-	<body>
-		<?php require_once 'navigation.php' ?>
-		<div class="container" id="Not_Ajax_Output">
-			<div class="row">
-				<div class="col-lg-6">
-					<h3>General Information</h3>
-					<form action="changeGeneral.php" method="POST">
-						<p>First Name:</p><input type="text" placeholder="First Name" name="firstName" id="firstName">
-						<p>Last Name:</p><input type="text" placeholder="Last Name" name="lastName" id="lastName">
-						<p>Phone Number:</p><input type="text" placeholder="Phone Number" name="phoneNumber" id="phoneNumber">
-						<p>Date Of Birth:</p><input type="text" placeholder="Date of Birth" name="dob" id="dob">
-						<p>Username:</p><input type="text" placeholder="Username" name="username" id="username">
-						<p>Password:</p><input type="text" placeholder="Password" name="password" id="password">
-						<p>Gender:</p><input type="text" placeholder="Gender" name="gender" id="gender">
-						<p>Email:</p><input type="text" placeholder="Email" name="email" id="email">
-						<button>Add General</button>
-						<br>
-					</form>
-				</div>
-				<div class="col-lg-6">
-					<h3>Current General Information</h3>
-					<div class="scrollbox">
-						<?php
-							$customer = new customerDataAccess();
-							foreach($customer->readDataByUserID($_SESSION['customerid'])[1] as $innerRow)
-							{
-								echo 'First Name: <p name="firstName" id="firstName" contenteditable>' . $innerRow['first_name'] . '</p>
-									  Last Name: <p name="lastName" id="lastName" contenteditable>' . $innerRow['last_name'] . '</p>
-									  Phone Number: <p name="phoneNumber" id="phoneNumber">' . $innerRow['phone'] . '</p>
-									  Date Of Birth: <p name="dob" id="dob" contenteditable>' . $innerRow['dob'] . '</p>
-									  Username: <p name="username" id="username" contenteditable>' . $innerRow['username'] . '</p>
-									  Password: <p name="password" id="password" contenteditable>' . $innerRow['password'] . '</p>
-									  Gender: <p name="gender" id="gender" contenteditable>' . $innerRow['gender'] . '</p>
-									  Email: <p name="email" id="email" contenteditable>' . $innerRow['email'] . '</p>
-									  <br>';
-							}
-			            ?>
-			            
-		        	</div>
-		        	<input id="updateGeneralInformation">Update</input>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<h3>Address</h3>
-					<form action="changeAddress.php" method="POST">
-						<p>Street 1:</p><input type="text" placeholder="Street 1" name="street1" id="street1">
-						<p>Street 2:</p><input type="text" placeholder="Street 2" name="street2" id="street2">
-						<p>Zipcode:</p><input type="text" placeholder="Zipcode" name="zipcode" id="zipcode">
-						<p>City:</p><input type="text" placeholder="City" name="city" id="city">
-						<p>State:</p><input type="text" placeholder="State" name="state" id="state">
-						<p>Country:</p><input type="text" placeholder="Country" name="country" id="country">
-						<button>Add Address</button>
-						<br>
-					</form>
-				</div>
-				<div class="col-lg-6">
-					<h3>Current Addresses</h3>
-					<div class="scrollbox">
-						<?php
-							$customer_address = new customer_addressDataAccess();
-							foreach($customer_address->readDataJoinedAddress($_SESSION['customerid'])[1] as $innerRow)
-							{
-								echo 'Street 1: <p name="street1" id="street1" contenteditable>' . $innerRow['street_one'] . '</p>
-									  Street 2: <p name="street2" id="street2" contenteditable>' . $innerRow['street_two'] . '</p>
-									  Zipcode: <p name="zipcode" id="zipcode" contenteditable>' . $innerRow['zipcode'] . '</p>
-									  City: <p name="city" id="city" contenteditable>' . $innerRow['city'] . '</p>
-									  State: <p name="state" id="state" contenteditable>' . $innerRow['state'] . '</p>
-									  Country: <p name="country" id="country" contenteditable>' . $innerRow['country'] . '</p>
-									  <br>';
-							}
-			            ?>
-			            
-		        	</div>
-		        	<input id="updateAddress">Update</input>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<h3>New Card</h3>
-					<form action="changePayment.php" method="POST">
-						<p>Name on Card:</p><input type="text" placeholder="Name on Card" name="nameOnCard" id="nameOnCard">
-						<p>Card Type:</p><input type="text" placeholder="Card Type" name="cardType" id="cardType">
-						<p>Card Number:</p><input type="text" placeholder="Card Number" name="cardNumber" id="cardNumber">
-						<p>Security Code:</p><input type="text" placeholder="Security Code" name="securityCode" id="securityCode">
-						<p>Expiration:</p><input type="text" placeholder="Expiration" name="expiration" id="expiration">
-						<button>Add Card</button>
-					</form>
-				</div>
-				<div class="col-lg-6">
-					<h3>Cards on Record</h3>
-					
-						<?php
-							echo '<div class="scrollbox">';
-							$customer_payment = new customer_paymentDataAccess();
+<?php require_once 'header.php' ?>
+<body>
+  <?php require_once 'navigation.php' ?>
+    <div class="container">
+            <div class="row">
+                <h3>Choose Payment Address</h3>
+            </div>
+            <div class="row">
+                <p>
+                    <a href="addressCreate.php" class="btn btn-success">Create New Address</a>
+                </p>
+                <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Email Address</th>
+                          <th>Phone</th>
+                          <th>Date of Birth</th>
+                          <th>Gender</th>
+                          <th>Password</th>
+                          <th>Permission</th>
+                          <th>Username</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php
+                        $customer = new customerDataAccess();
+                        foreach ($customer->readData()[1] as $row) {
+                                echo '<tr>';
+                                echo '<td>'. $row['first_name'] . '</td>';
+                                echo '<td>'. $row['last_name'] . '</td>';
+                                echo '<td>'. $row['email'] . '</td>';
+                                echo '<td>'. $row['phone'] . '</td>';
+                                echo '<td>'. $row['dob'] . '</td>';
+                                echo '<td>'. $row['gender'] . '</td>';
+                                echo '<td>'. $row['password'] . '</td>';
+                                echo '<td>'. $row['permission'] . '</td>';
+                                echo '<td>'. $row['username'] . '</td>';
+                                echo '<td width=250>';
+                                echo '<a class="btn" href="sqlManagmentFiles/read.php?id='.$row['id'].'">Read</a>';
+                                echo ' ';
+                                echo '<a class="btn btn-success" href="sqlManagmentFiles/update.php?id='.$row['id'].'">Update</a>';
+                                echo ' ';
+                                echo '<a class="btn btn-danger" href="sqlManagmentFiles/delete.php?id='.$row['id'].'">Delete</a>';
+                                echo '</td>';
+                                echo '</tr>';
+                       }
+                      ?>
+                      </tbody>
+                </table>
+                <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>City</th>
+                          <th>Country</th>
+                          <th>State</th>
+                          <th>Street One</th>
+                          <th>Street Two</th>
+                          <th>Zipcode</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php
+                        $address = new addressDataAccess();
+                        foreach($address->readDataByCustomerId($_SESSION['customerid'])[1] as $innerRow)
+                        {
+                            echo '<tr>';
+                              echo '<td>' . $innerRow['city'] . '</td>';
+                              echo '<td>' . $innerRow['country'] . '</td>';
+                              echo '<td>' . $innerRow['state'] . '</td>';
+                              echo '<td>' . $innerRow['street_one'] . '</td>';
+                              echo '<td>' . $innerRow['street_two'] . '</td>';
+                              echo '<td>' . $innerRow['zipcode'] . '</td>';
+                              echo '<td width=250>';
+                              echo '<a class="btn" href="sqlManagmentFiles/setAddress.php?purchaseShipping=payment&addressid=' . $innerRow['id'] . '">Read</a>';
+                              echo ' ';
+                              echo '<a class="btn btn-success" href="sqlManagmentFiles/addressUpdate.php?id=' . $innerRow['id'] . '">Update</a>';
+                              echo ' ';
+                              echo '<a class="btn btn-danger" href="sqlManagmentFiles/addressDelete.php?id=' . $innerRow['id'] . '">Delete</a>';
+                              echo '</td>';
+                            echo '</tr>';
+                        }
+                      ?>
+                      </tbody>
+                </table>
+                <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Name on Card</th>
+                          <th>Card Number</th>
+                          <th>Security Number</th>
+                          <th>Expiration Month</th>
+                          <th>Experation Year</th>
+                          <th>Payment Type</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php
+                        $payment = new paymentDataAccess();
+                        foreach ($payment->readDataByCustomerId($_SESSION['customerid'])[1] as $row) {
+                                echo '<tr>';
+                                echo '<td>'. $row['card_full_name'] . '</td>';
+                                echo '<td>'. $row['card_number'] . '</td>';
+                                echo '<td>'. $row['card_security'] . '</td>';
+                                echo '<td>'. $row['expires_month'] . '</td>';
+                                echo '<td>'. $row['expires_year'] . '</td>';
+                                echo '<td>'. $row['payment_type'] . '</td>';
+                                echo '<td width=250>';
+                                echo '<a class="btn" href="sqlManagmentFiles/setPaymentID.php?id='.$row['id'].'">Read</a>';
+                                echo ' ';
+                                echo '<a class="btn btn-success" href="sqlManagmentFiles/paymentUpdate.php?id='.$row['id'].'">Update</a>';
+                                echo ' ';
+                                echo '<a class="btn btn-danger" href="sqlManagmentFiles/paymentDelete.php?id='.$row['id'].'">Delete</a>';
+                                echo '</td>';
+                                echo '</tr>';
+                       }
+                      ?>
+                      </tbody>
+                </table>
 
-							foreach($customer_payment->readDataJoinedPayments($_SESSION['customerid'])[1] as $innerRow)
-							{
-								echo 'Name on Card: <p name="nameOnCard" id="nameOnCard' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['card_full_name'] . '</p>
-									  Card Type: <p name="cardType" id="cardType' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['payment_type'] . '</p>
-									  Card Number: <p name="cardNumber" id="cardNumber' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['card_number'] . '</p>
-									  Security Code: <p name="securityCode" id="securityCode' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['card_security'] . '</p>
-									  Expires: <p name="expiration" id="expiration' . $innerRow['payment_id'] . '" contenteditable>' . $innerRow['expires_month'] . '/' . $innerRow['expires_year'] . '</p>
-									  <br>';
-									  echo '<button type="submit" text="Update" id="' . $innerRow['payment_id'] . '">Update</button><br>';
-			                }
-			                echo '</div>';
-			            ?>
-		        	
-				</div>
-			</div>
-			<div id="inner_ajax_Output">
-			</div>
-		</div>
-
-		<div class="container-fluid" id="ajax_Output">
-		</div>
-	</body>
-
-	<?php require_once 'footer.php' ?>
+        </div>
+    </div> <!-- /container -->
+  </body>
 </html>
