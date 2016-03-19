@@ -138,7 +138,7 @@ require_once 'databaseClasses/customerClass.php';
                                 echo '<td>'. $row['expires_year'] . '</td>';
                                 echo '<td>'. $row['payment_type'] . '</td>';
                                 echo '<td width=250>';
-                                echo '<a class="btn" href="sqlManagmentFiles/paymentFiles/setPaymentID.php?id='.$row['id'].'">Read</a>';
+                                echo '<a class="btn" href="sqlManagmentFiles/paymentFiles/paymentRead.php?id='.$row['id'].'">Read</a>';
                                 echo ' ';
                                 echo '<a class="btn btn-success" href="sqlManagmentFiles/paymentFiles/paymentUpdate.php?id='.$row['id'].'">Update</a>';
                                 echo ' ';
