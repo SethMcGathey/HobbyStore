@@ -22,10 +22,10 @@ require_once 'databaseClasses/imageClass.php';
 	          <?php
 	          	$image = new imageDataAccess();
 	          	$row = $image->readData()[1];
-					echo '<div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[1]['image']) . ' class="homePageImages"/></div>
-						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . ' class="homePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[3]['image']) . ' class="homePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[1]['image']) . ' class="homePageImages"/></div>
+					echo '<div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[0]['image']) . ' class="homePageImages"/></div>
+						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[1]['image']) . ' class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . ' class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[0]['image']) . ' class="homePageImages"/></div>
 						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . ' class="homePageImages"/></div>';
               ?>
           	</div>
