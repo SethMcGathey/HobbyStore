@@ -15,7 +15,7 @@ class categoryDataAccess extends accessDatabase{
     public function createData($name){
         $columns = array($name);
         $sql = "INSERT INTO category (name) values(?)";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 
 /***/
