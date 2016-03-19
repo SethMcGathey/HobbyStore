@@ -24,9 +24,9 @@ require_once 'databaseClasses/imageClass.php';
 	          	$row = $image->readData()[1];
 					echo '<div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[0]['image']) . '"width="100px" class="homePageImages"/></div>
 						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[1]['image']) . '"width="100px" class="homePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . '"width="100px" class="homePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[3]['image']) . '"width="100px" class="homePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[4]['image']) . '"width="100px" class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . '"width="100px" class="smallHomePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[3]['image']) . '"width="100px" class="smallHomePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[4]['image']) . '"width="100px" class="smallHomePageImages"/></div>
 						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[5]['image']) . '"width="100px" class="homePageImages"/></div>
 						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[6]['image']) . '"width="100px" class="homePageImages"/></div>
 						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[7]['image']) . '"width="100px" class="homePageImages"/></div>
