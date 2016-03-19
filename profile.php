@@ -41,7 +41,7 @@ require_once 'databaseClasses/customerClass.php';
                       <tbody>
                       <?php
                         $customer = new customerDataAccess();
-                        foreach ($customer->readData()[1] as $row) {
+                        foreach ($customer->readDataById($_SESSION['customerid'])[1] as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['first_name'] . '</td>';
                                 echo '<td>'. $row['last_name'] . '</td>';
