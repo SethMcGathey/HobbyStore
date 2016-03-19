@@ -78,7 +78,7 @@ require_once '../../databaseClasses/paymentClass.php';
                         <label class="control-label">Payment Type</label>
                         <div class="controls">
                             <p class="checkbox">
-                                <?php echo $data['payment_type_id'];?>
+                                <?php echo $data['payment_type'];?>
                             </p>
                         </div>
                       </div>
