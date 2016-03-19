@@ -16,7 +16,8 @@ require_once 'databaseClasses/productClass.php';
       <h1>products.php</h1>
 
 
-      <?php        
+      <?php     
+        echo "text";   
         echo isset($_GET['id']);
         echo !empty($_GET['id']);
         if(isset($_GET['id']) && !empty($_GET['id']))
