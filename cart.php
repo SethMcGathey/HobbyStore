@@ -44,7 +44,7 @@ require_once 'databaseClasses/transactionClass.php';
 						//href="updateQuantity.php?quantity=' . $quantityPlusOne . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '"
 						echo '<div class="row product" id="' . $row['id'] . '"> 
 				    			 <div class="col-lg-3 cartLine' . $num . '"><img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
-				    		  	 <div class="col-lg-3 cartLine' . $num . '"><h5>' . $row['name'] . '</h5><br> ' . $row['description'] . '</div> 
+				    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">
 

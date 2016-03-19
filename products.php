@@ -21,6 +21,13 @@ require_once 'databaseClasses/productClass.php';
 					//$sql = 'SELECT id,name,cost,description FROM product WHERE subcategory_id = ' . $_POST["id"] . ' ORDER BY id LIMIT 5';
 					foreach ($pdo->query($sql) as $row) {
 					    echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['a.id']. '">' . '<img class="productsImage" src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/> <p>' . $row['a.name'] . '</p> <p>' . $row['a.description'] . '</p> <p>$' . $row['a.cost'] . '.00</p> <a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a></div>';
+					
+						echo '<div class="row product" id="' . $row['id'] . '"> 
+				    			 <div class="col-lg-3 cartLine' . $num . '"><img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
+				    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
+				    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
+				    		  	 <div class="col-lg-3 cartLine' . $num . '">';
+
 					}
 				}else
 				{
