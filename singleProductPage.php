@@ -16,16 +16,22 @@ require_once 'databaseClasses/productClass.php';
       <h1>products.php</h1>
 
 
-      <?php     
-        echo "text";   
+      <?php      
         echo isset($_GET['id']);
         echo !empty($_GET['id']);
         if(isset($_GET['id']) && !empty($_GET['id']))
         {
           $product = new productDataAccess();
           $data = $product->readProductForSinglePageData($_GET['id'])[1];
+          $num = 0;
           foreach ($data as $row) {
               echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['id']. '">' . '<img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> ' . $row['name'] . ' ' . $row['description'] . ' ' . $row['cost'] . ' <a href="addToCart.php?id=' . $row['id'] . '">Add to Cart</a></div>';
+              if($num < 1){
+                $num++;
+              }else
+              {
+                $num = 0;
+              }
           }
 
         }else
