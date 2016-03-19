@@ -25,8 +25,16 @@ require_once 'databaseClasses/imageClass.php';
 					echo '<div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[0]['image']) . '"width="100px" class="homePageImages"/></div>
 						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[1]['image']) . '"width="100px" class="homePageImages"/></div>
 						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . '"width="100px" class="homePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[12]['image']) . '"width="100px" class="homePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[13]['image']) . '"width="100px" class="homePageImages"/></div>';
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[3]['image']) . '"width="100px" class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[4]['image']) . '"width="100px" class="homePageImages"/></div>
+						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[5]['image']) . '"width="100px" class="homePageImages"/></div>
+						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[6]['image']) . '"width="100px" class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[7]['image']) . '"width="100px" class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[8]['image']) . '"width="100px" class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[9]['image']) . '"width="100px" class="homePageImages"/></div>
+						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[10]['image']) . '"width="100px" class="homePageImages"/></div>
+						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[11]['image']) . '"width="100px" class="homePageImages"/></div>
+						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[12]['image']) . '"width="100px" class="homePageImages"/></div>';
               									
               ?>
           	</div>
