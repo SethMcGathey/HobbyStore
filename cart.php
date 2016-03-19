@@ -48,10 +48,10 @@ require_once 'databaseClasses/transactionClass.php';
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">
 
-				    	   		 <a class="minusButtons" href="updateQuantity3.php?id=' . $row['id'] . '&direction=minus">-</a>
+				    	   		 <a class="minusButtons" href="updateQuantity.php?id=' . $row['id'] . '&direction=minus">-</a>
 				    			 '. $row['fullQuantity'] . '
-				    			 <a class="plusButtons" href="updateQuantity3.php?id=' . $row['id'] . '&direction=plus">+</a>
-				    			 <div class="rightAlign"><a href="updateQuantity3.php?id=' . $row['id'] . '&remove=remove">Remove</a></div>
+				    			 <a class="plusButtons" href="updateQuantity.php?id=' . $row['id'] . '&direction=plus">+</a>
+				    			 <div class="rightAlign"><a href="updateQuantity.php?id=' . $row['id'] . '&remove=remove">Remove</a></div>
 				    	 	  	 </div>
 				    	      </div> ';
 				    	if($num < 1)
@@ -90,7 +90,7 @@ require_once 'databaseClasses/transactionClass.php';
 						}
 						echo $_SESSION['transaction_id'];*/
 			?>
-			<button onclick="window.location.href='choosePurchaseAddress3.php'">Purchase</button>
+			<button onclick="window.location.href='choosePurchaseAddress.php'">Purchase</button>
 
 		</div>
 
