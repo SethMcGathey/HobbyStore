@@ -22,33 +22,14 @@ require_once 'databaseClasses/imageClass.php';
 	          <?php
 	          	$image = new imageDataAccess();
 	          	$row = $image->readData()[1];
-					echo '<div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[0]['image']) . '"width="100px" class="homePageImages"/></div>
-						  <div class="col-lg-6"><img src="data:image/jpeg;base64,' . base64_encode($row[1]['image']) . '"width="100px" class="homePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . '"width="100px" class="smallHomePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[3]['image']) . '"width="100px" class="smallHomePageImages"/></div>
-						  <div class="col-lg-4"><img src="data:image/jpeg;base64,' . base64_encode($row[4]['image']) . '"width="100px" class="smallHomePageImages"/></div>';
+					echo '<div class="col-lg-6"><a href="singleProductPage.php"><img src="data:image/jpeg;base64,' . base64_encode($row[0]['image']) . '"width="100px" class="homePageImages"/></a></div>
+						  <div class="col-lg-6"><a href="singleProductPage.php"><img src="data:image/jpeg;base64,' . base64_encode($row[1]['image']) . '"width="100px" class="homePageImages"/></a></div>
+						  <div class="col-lg-4"><a href="singleProductPage.php"><img src="data:image/jpeg;base64,' . base64_encode($row[2]['image']) . '"width="100px" class="smallHomePageImages"/></a></div>
+						  <div class="col-lg-4"><a href="singleProductPage.php"><img src="data:image/jpeg;base64,' . base64_encode($row[3]['image']) . '"width="100px" class="smallHomePageImages"/></a></div>
+						  <div class="col-lg-4"><a href="singleProductPage.php"><img src="data:image/jpeg;base64,' . base64_encode($row[4]['image']) . '"width="100px" class="smallHomePageImages"/></a></div>';
               									
               ?>
           	</div>
-
-			<div id="inner_ajax_Output">
-				<?php
-		          	$subcategory = new subcategoryDataAccess();
-				 
-				  	$num = 0;
-					foreach($subcategory->readData(1)[1] as $innerRow)
-					{
-						echo '<a class=categoryId' . $innerRow['category_id'] . ' href="products.php?id=' . $innerRow['id']. '"><div class="col-lg-12 subcategoryColor' . $num . ' id="' . $innerRow['id']. '"><p class="leftRight' . $num . '"">' . $innerRow['name'] . '</p></div></a>';
-		                if($num < 1)
-		               	{
-		                	$num++;
-		                }else
-		                {
-							$num = 0;
-		                }
-					}
-				?>
-			</div>
 		</div>
 
 		<div class="container-fluid" id="ajax_Output">
