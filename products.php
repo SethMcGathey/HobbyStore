@@ -21,6 +21,7 @@ require_once 'databaseClasses/productClass.php';
 					//$sql = 'SELECT * FROM product a JOIN subcategory b ON subcategory_id = b.id JOIN category c ON b.id = c.id WHERE c.id = ' . $_GET['id'];
 					//$sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.subcategory_id = ' . $_POST["id"] . ' ORDER BY id';
 					//$sql = 'SELECT id,name,cost,description FROM product WHERE subcategory_id = ' . $_POST["id"] . ' ORDER BY id LIMIT 5';
+					$num = 0;
 					foreach ($pdo->query($sql) as $row) {
 					    echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['a.id']. '">' . '<a href="singleProductPage.php?id='.$row['a.id'].'"><img class="productsImage" src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/></a> <p>' . $row['a.name'] . '</p> <p>' . $row['a.description'] . '</p> <p>$' . $row['a.cost'] . '.00</p> <a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a></div>';
 					
@@ -29,7 +30,12 @@ require_once 'databaseClasses/productClass.php';
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['a.name'] . '<br> ' . $row['a.description'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['a.cost'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">';
-*/
+*/						if($num < 1){
+				    		$num++;
+				    	}else
+				    	{
+				    		$num = 0;
+				    	}
 					}
 				}else
 				{
