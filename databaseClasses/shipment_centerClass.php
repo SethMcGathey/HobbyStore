@@ -1,8 +1,8 @@
 <?php
 
 class shipment_centerDataAccess extends accessDatabase{
-    public function readData($selectParam){
-        $columns = array($selectParam);
+    public function readData(){
+        $columns = array();
         $sql = "SELECT * FROM shipment_center";
         return parent::doSql($sql, $columns);
     }

@@ -1,8 +1,8 @@
 <?php
 
 class customer_addressDataAccess extends accessDatabase{
-    public function readData($selectParam){
-        $columns = array($selectParam);
+    public function readData(){
+        $columns = array();
         $sql = "SELECT * FROM customer_address";
         return parent::doSql($sql, $columns);
     }

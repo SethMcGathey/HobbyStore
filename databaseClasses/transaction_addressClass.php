@@ -3,8 +3,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
 class transaction_addressDataAccess extends accessDatabase{
-    public function readData($selectParam){
-        $columns = array($selectParam);
+    public function readData(){
+        $columns = array();
         $sql = "SELECT * FROM transaction_address WHERE ?";
         return parent::doSql($sql, $columns);
     }

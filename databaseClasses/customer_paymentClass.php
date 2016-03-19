@@ -2,8 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 class customer_paymentDataAccess extends accessDatabase{
-    public function readData($selectParam){
-        $columns = array($selectParam);
+    public function readData(){
+        $columns = array();
         $sql = "SELECT * FROM customer_payment";
         return parent::doSql($sql, $columns);
     }

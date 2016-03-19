@@ -1,8 +1,8 @@
 <?php
 
 class tagDataAccess extends accessDatabase{
-    public function readData($selectParam){
-        $columns = array($selectParam);
+    public function readData(){
+        $columns = array();
         $sql = "SELECT * FROM tag WHERE ?";
         return parent::doSql($sql, $columns);
     }
