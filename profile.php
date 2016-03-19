@@ -96,7 +96,7 @@ require_once 'databaseClasses/customerClass.php';
                               echo '<td>' . $innerRow['street_two'] . '</td>';
                               echo '<td>' . $innerRow['zipcode'] . '</td>';
                               echo '<td width=250>';
-                              echo '<a class="btn" href="sqlManagmentFiles/addressFiles/setAddress.php?purchaseShipping=payment&addressid=' . $innerRow['id'] . '">Read</a>';
+                              echo '<a class="btn" href="sqlManagmentFiles/addressFiles/addressRead.php?id=' . $innerRow['id'] . '">Read</a>';
                               echo ' ';
                               echo '<a class="btn btn-success" href="sqlManagmentFiles/addressFiles/addressUpdate.php?id=' . $innerRow['id'] . '">Update</a>';
                               echo ' ';
