@@ -67,6 +67,10 @@ require_once 'databaseClasses/customerClass.php';
                 <div class="row">
                 	<h3>Address</h3>
             	</div>
+            	<div class="row">
+                <p>
+                    <a href="paymentCreate.php" class="btn btn-success">Create Address</a>
+                </p>
                 <table class="table table-striped table-bordered">
                       <thead>
                         <tr>
@@ -106,6 +110,10 @@ require_once 'databaseClasses/customerClass.php';
                 <div class="row">
                 	<h3>Cards</h3>
             	</div>
+            	<div class="row">
+                <p>
+                    <a href="customerCreate.php" class="btn btn-success">Create Card</a>
+                </p>
                 <table class="table table-striped table-bordered">
                       <thead>
                         <tr>
