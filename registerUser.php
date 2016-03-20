@@ -3,7 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
 require_once 'sessionStart.php'; 
-require_once 'database.php';
 
 require_once 'accessDatabaseClass.php'; 
 require_once 'databaseClasses/customerClass.php';
@@ -63,7 +62,7 @@ require_once 'databaseClasses/customerClass.php';
 	//echo isset($_POST['phoneNumberInput']);
 
 
-		if(trim($firstName) != "" && trim($lastName) != "" && trim($username) != "" && trim($phoneNumber) != "" && trim($dob) != "" && trim($gender) != "" && trim($email) != "" && trim($password))
+		if((trim($firstName) != "" || isset($firstname)) && trim($lastName) != "" && trim($username) != "" && trim($phoneNumber) != "" && trim($dob) != "" && trim($gender) != "" && trim($email) != "" && trim($password))
 		{
 			$customer = new customerDataAccess();
 			$customer->createData($firstName, $phoneNumber, $dob, $username, $password, $gender, 1, $email, $lastName);
