@@ -18,11 +18,11 @@ require_once 'databaseClasses/subcategoryClass.php';
 			<?php
 				//echo '<div>' .  $_SESSION['ErrorMessage'] . '</div>';
 				$array = $_SESSION['ErrorMessage'];
-				print_r($array);
-				/*foreach($_SESSION['ErrorMessage'] as $row)
+				//print_r($array);
+				foreach($array as $row)
 				{
 					echo '<div>' .  $row . '</div>';
-				}*/
+				}
 				if (isset($_SESSION['myForm']) && !empty($_SESSION['myForm'])) {
 				    $form_data = $_SESSION['myForm'];
 				    unset($_SESSION['myForm']);
