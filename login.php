@@ -19,7 +19,6 @@ require_once 'databaseClasses/subcategoryClass.php';
 				if(!empty($_GET['error']))
 				{
 					$array = $_SESSION['ErrorMessage'];
-
 					foreach($array as $row)
 					{
 						echo '<div class="errorReports">' .  $row . '</div>';
