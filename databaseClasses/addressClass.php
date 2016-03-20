@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 'on');
 class addressDataAccess extends accessDatabase{
 
 	public function readData(){
@@ -8,16 +6,21 @@ class addressDataAccess extends accessDatabase{
 		$sql = "SELECT * FROM address";
 		return parent::doSql($sql, $columns);
 	}
+
+
 	public function readDataById($selectParam){
 		$columns = array($selectParam);
 		$sql = "SELECT * FROM address WHERE id = ?";
 		return parent::doSql($sql, $columns);
 	}
+	
+
 	public function readDataByCustomerId($selectParam){
 		$columns = array($selectParam);
 		$sql = "SELECT a.id, street_one, street_two, zipcode, city, state, country FROM customer_address c JOIN address a ON c.address_id = a.id WHERE customer_id = ?";
 		return parent::doSql($sql, $columns);
 	}
+
 
 	public function createData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
 		$columns = array($city,$country,$state,$street_one,$street_two,$zipcode);
@@ -29,11 +32,13 @@ class addressDataAccess extends accessDatabase{
 		parent::doSql($sql2, $columns2);
 	}
 
+
 	public function updateData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
 		$columns = array($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id);
 		$sql = "UPDATE address  set city = ?, country = ?, state = ?, street_one =?, street_two =?, zipcode =? WHERE id = ?";
 		return parent::changeSql($sql, $columns);
 	}
+
 
 	public function deleteData($id){
 		$columns = array($id);

@@ -21,7 +21,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 				    unset($_SESSION['myForm']);
 				}*/
 			?>
-			<form action="registerUser.php" method="POST">
+			<form action="registerUser.php" method="POST" onsubmit="return validateForm()">
 				<p>First Name:</p><input type="text" placeholder="First Name" name="firstNameInput" id="firstNameInput" value="">
 				<p>Last Name:</p><input type="text" placeholder="Last Name" name="lastNameInput" id="lastNameInput" value="">
 				<p>User Name:</p><input type="text" placeholder="User Name" name="userNameInput" id="userNameInput" value="">

@@ -100,12 +100,12 @@ $(document).ready(function(){
 		/*}
 	});
 });*/
-$("#minusQuantity").onclick(function(){
+/*$("#minusQuantity").onclick(function(){
 	var ajaxurl = 'updateQuantity.php';
 	var data = {quantity: $(this).};
 	$.post(ajaxurl)
 })
-$("#plusQuantity").onclick()
+$("#plusQuantity").onclick()*/
 
 function changeQuantity(quantity, id, transaction_id){
 	console.log('made it to function');
@@ -160,6 +160,14 @@ function makeChanges(tableName){
 		 		alert("error");
 		 	}
 	});
+}
+
+function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
 }
 
 /*
