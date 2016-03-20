@@ -10,6 +10,8 @@ require_once 'databaseClasses/customerClass.php';
 
     $pdo = Database::connect();
 
+    $array = array();
+    array_push($array, 'Errors:');
 	//echo $_SESSION['user'];
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	$_SESSION['ErrorMessage'] = "";
@@ -38,7 +40,8 @@ require_once 'databaseClasses/customerClass.php';
 
 	if($_POST['passwordInput'] != $_POST['reenteredPasswordInput'])
 	{
-		$_SESSION['ErrorMessage'] = "Passwords do not match. <br>";
+		array_push($array, "Passwords do not match. <br>");
+		$_SESSION['ErrorMessage'] = $array;
 		header('Location: register.php');
 	/*}
 	else if(trim($_POST['passwordInput']) == ""){
@@ -62,8 +65,7 @@ require_once 'databaseClasses/customerClass.php';
 	//echo isset($_POST['userNameInput']);
 	//echo isset($_POST['phoneNumberInput']);
 
-		$_SESSION['ErrorMessage'];
-		$array = array();
+
 		if(trim($firstName) == "")
 		{
 			array_push($array, 'First Name was left empty.');
@@ -129,6 +131,6 @@ require_once 'databaseClasses/customerClass.php';
 	}
 
 	//echo "made it through everything <br>";
-	echo $_SESSION['ErrorMessage'];
+	//echo $_SESSION['ErrorMessage'];
 	//print_r($_SESSION);
  	Database::disconnect();
