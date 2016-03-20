@@ -12,6 +12,7 @@ require_once 'databaseClasses/customerClass.php';
 
     
     $array = array();
+    array_push($array, 'Errors:');
     if(trim($myusername) == "")
     {
         array_push($array, 'Username was left empty.');
