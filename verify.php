@@ -9,17 +9,15 @@ require_once 'databaseClasses/customerClass.php';
 	$myusername = $_POST['usernameInput'];
 	$mypassword = $_POST['passwordInput'];
 
-	$customer = new customerDataAccess();
-	$data = $customer->readDataByUsernameAndPassword($myusername, $mypassword);
     //print_r($data);
     
     $array = array();
-    if(trim($usernameInput) == "")
+    if(trim($myusername) == "")
     {
         array_push($array, 'Username was left empty.');
         $everythingFilled = 0;
     }
-    if(trim($passwordInput) == "")
+    if(trim($mypassword) == "")
     {
         array_push($array, 'Password was left empty.');
         $everythingFilled = 0;
