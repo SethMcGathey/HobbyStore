@@ -17,10 +17,11 @@ require_once 'databaseClasses/subcategoryClass.php';
 			<h1>Register</h1>
 			<?php
 				//echo '<div>' .  $_SESSION['ErrorMessage'] . '</div>';
-				foreach($_SESSION['ErrorMessage'] as $row)
+				print_r($_SESSION['ErrorMessage']);
+				/*foreach($_SESSION['ErrorMessage'] as $row)
 				{
 					echo '<div>' .  $row . '</div>';
-				}
+				}*/
 				if (isset($_SESSION['myForm']) && !empty($_SESSION['myForm'])) {
 				    $form_data = $_SESSION['myForm'];
 				    unset($_SESSION['myForm']);
