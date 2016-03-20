@@ -13,6 +13,17 @@ require_once 'databaseClasses/subcategoryClass.php';
 		<?php require_once 'navigation.php' ?>
 		<div class="container" id="">
 			<h1>Login</h1>
+			<?php
+				if(!empty($_GET['error']))
+				{
+					$array = $_SESSION['ErrorMessage'];
+
+					foreach($array as $row)
+					{
+						echo '<div class="errorReports">' .  $row . '</div>';
+					}
+				}
+			?>
 			<form action="verify.php" method="POST">
 				<p>User Name:</p><input type="text" placeholder="User Name" name="usernameInput" id="usernameInput">
 				<p>Password:</p><input type="password" placeholder="Password" name="passwordInput" id="passwordInput">
