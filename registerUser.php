@@ -61,8 +61,34 @@ require_once 'databaseClasses/customerClass.php';
 	//echo isset($_POST['userNameInput']);
 	//echo isset($_POST['phoneNumberInput']);
 
+		$_SESSION['ErrorMessage'] = array();
+		if(trim($firstName) != "")
+		{
+			array_push($_SESSION['ErrorMessage'], 'First Name left empty.');
+		}else if(trim($lastName) != "")
+		{
+			array_push($_SESSION['ErrorMessage'], 'Last Name left empty.');
+		}else if(trim($username) != "")
+		{
+			array_push($_SESSION['ErrorMessage'], 'Usernam left empty.');
+		}else if(trim($phoneNumber) != "")
+		{
+			array_push($_SESSION['ErrorMessage'], 'Phone Number left empty.');
+		}else if(trim($dob) != "")
+		{
+			array_push($_SESSION['ErrorMessage'], 'Date of birth left empty.');
+		}else if(trim($gender) != "")
+		{
+			array_push($_SESSION['ErrorMessage'], 'Gender left empty.');
+		}else if(trim($email) != "")
+		{
+			array_push($_SESSION['ErrorMessage'], 'Email left empty.');
+		}else if(trim($password) != "")
+		{
+			array_push($_SESSION['ErrorMessage'], 'Password left empty.');
+		}
 
-		if(trim($firstName) != "" && isset($firstname) && trim($lastName) != "" && trim($username) != "" && trim($phoneNumber) != "" && trim($dob) != "" && trim($gender) != "" && trim($email) != "" && trim($password))
+		if(trim($firstName) != "" && trim($lastName) != "" && trim($username) != "" && trim($phoneNumber) != "" && trim($dob) != "" && trim($gender) != "" && trim($email) != "" && trim($password) != "")
 		{
 			$customer = new customerDataAccess();
 			$customer->createData($firstName, $phoneNumber, $dob, $username, $password, $gender, 1, $email, $lastName);
