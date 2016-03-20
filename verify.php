@@ -38,10 +38,12 @@ require_once 'databaseClasses/customerClass.php';
         }else
         {
             array_push($array, 'Login failed, please try again.');
+            $_SESSION['ErrorMessage'] = $array;
             header('Location: login.php?error=true');
         }
     }else
     {
         array_push($array, 'Login failed, please try again.');
+        $_SESSION['ErrorMessage'] = $array;
         header('Location: login.php?error=true');
     }
