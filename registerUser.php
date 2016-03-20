@@ -63,41 +63,41 @@ require_once 'databaseClasses/customerClass.php';
 
 		$_SESSION['ErrorMessage'];
 		$array = array();
-		if(trim($firstName) != "")
+		if(trim($firstName) == "")
 		{
 			array_push($array, 'First Name left empty.');
 		}
-		if(trim($lastName) != "")
+		if(trim($lastName) == "")
 		{
 			array_push($array, 'Last Name left empty.');
 		}
-		if(trim($username) != "")
+		if(trim($username) == "")
 		{
 			array_push($array, 'Usernam left empty.');
 		}
-		if(trim($phoneNumber) != "")
+		if(trim($phoneNumber) == "")
 		{
 			array_push($array, 'Phone Number left empty.');
 		}
-		if(trim($dob) != "")
+		if(trim($dob) == "")
 		{
 			array_push($array, 'Date of birth left empty.');
 		}
-		if(trim($gender) != "")
+		if(trim($gender) == "")
 		{
 			array_push($array, 'Gender left empty.');
 		}
-		if(trim($email) != "")
+		if(trim($email) == "")
 		{
 			array_push($array, 'Email left empty.');
 		}
-		if(trim($password) != "")
+		if(trim($password) == "")
 		{
 			array_push($array, 'Password left empty.');
 		}
 
 		$_SESSION['ErrorMessage'] = $array;
-		
+
 		if(trim($firstName) != "" && trim($lastName) != "" && trim($username) != "" && trim($phoneNumber) != "" && trim($dob) != "" && trim($gender) != "" && trim($email) != "" && trim($password) != "")
 		{
 			$customer = new customerDataAccess();
