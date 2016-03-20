@@ -14,12 +14,12 @@ require_once 'databaseClasses/subcategoryClass.php';
 		<div class="container" id="Not_Ajax_Output">
 			<h1>Register</h1>
 			<?php
-				//echo '<div>' .  $_SESSION['ErrorMessage'] . '</div>';
+				echo '<div>' .  $_SESSION['ErrorMessage'] . '</div>';
 
-				/*if (isset($_SESSION['myForm']) && !empty($_SESSION['myForm'])) {
+				if (isset($_SESSION['myForm']) && !empty($_SESSION['myForm'])) {
 				    $form_data = $_SESSION['myForm'];
 				    unset($_SESSION['myForm']);
-				}*/
+				}
 			?>
 			<form action="registerUser.php" method="POST" onsubmit="return validateForm()">
 				<p>First Name:</p><input type="text" placeholder="First Name" name="firstNameInput" id="firstNameInput" value="">
