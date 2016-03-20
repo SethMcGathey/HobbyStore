@@ -132,7 +132,9 @@ p{
 	float:left;
 }
 
-
+.errorReports{
+	color:red;
+}
 
 
 /*
