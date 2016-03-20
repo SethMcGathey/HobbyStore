@@ -17,7 +17,8 @@ require_once 'databaseClasses/subcategoryClass.php';
 			<h1>Register</h1>
 			<?php
 				//echo '<div>' .  $_SESSION['ErrorMessage'] . '</div>';
-				print_r($_SESSION['ErrorMessage']);
+				$array = $_SESSION['ErrorMessage'];
+				print_r($array);
 				/*foreach($_SESSION['ErrorMessage'] as $row)
 				{
 					echo '<div>' .  $row . '</div>';
