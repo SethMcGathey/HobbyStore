@@ -8,8 +8,8 @@ require_once 'databaseClasses/customerClass.php';
 
 	$myusername = $_POST['usernameInput'];
 	$mypassword = $_POST['passwordInput'];
+    $everythingFilled = 1;
 
-    //print_r($data);
     
     $array = array();
     if(trim($myusername) == "")
