@@ -30,6 +30,7 @@ require_once 'databaseClasses/customerClass.php';
 	$email = NULL;
 	//$_SESSION['user'] = NULL;
 	$password = NULL;
+	$everythingFilled = 1;
 	/*echo $_POST['passwordInput'] . "<br>";
 	echo $_POST['reenteredPasswordInput'] . "<br>";
 	$password = $_POST['passwordInput'];*/
@@ -65,40 +66,49 @@ require_once 'databaseClasses/customerClass.php';
 		$array = array();
 		if(trim($firstName) == "")
 		{
-			array_push($array, 'First Name left empty.');
+			array_push($array, 'First Name was left empty.');
+			$everythingFilled = 0;
 		}
 		if(trim($lastName) == "")
 		{
-			array_push($array, 'Last Name left empty.');
+			array_push($array, 'Last Name was left empty.');
+			$everythingFilled = 0;
 		}
 		if(trim($username) == "")
 		{
-			array_push($array, 'Usernam left empty.');
+			array_push($array, 'Username was left empty.');
+			$everythingFilled = 0;
 		}
 		if(trim($phoneNumber) == "")
 		{
-			array_push($array, 'Phone Number left empty.');
+			array_push($array, 'Phone Number was left empty.');
+			$everythingFilled = 0;
 		}
 		if(trim($dob) == "")
 		{
-			array_push($array, 'Date of birth left empty.');
+			array_push($array, 'Date of birth was left empty.');
+			$everythingFilled = 0;
 		}
 		if(trim($gender) == "")
 		{
-			array_push($array, 'Gender left empty.');
+			array_push($array, 'Gender was left empty.');
+			$everythingFilled = 0;
 		}
 		if(trim($email) == "")
 		{
-			array_push($array, 'Email left empty.');
+			array_push($array, 'Email was left empty.');
+			$everythingFilled = 0;
 		}
 		if(trim($password) == "")
 		{
-			array_push($array, 'Password left empty.');
+			array_push($array, 'Password was left empty.');
+			$everythingFilled = 0;
 		}
 
 		$_SESSION['ErrorMessage'] = $array;
 
-		if(trim($firstName) != "" && trim($lastName) != "" && trim($username) != "" && trim($phoneNumber) != "" && trim($dob) != "" && trim($gender) != "" && trim($email) != "" && trim($password) != "")
+		if($everythingFilled)
+		//if(trim($firstName) != "" && trim($lastName) != "" && trim($username) != "" && trim($phoneNumber) != "" && trim($dob) != "" && trim($gender) != "" && trim($email) != "" && trim($password) != "")
 		{
 			$customer = new customerDataAccess();
 			$customer->createData($firstName, $phoneNumber, $dob, $username, $password, $gender, 1, $email, $lastName);
