@@ -19,6 +19,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 				//echo '<div>' .  $_SESSION['ErrorMessage'] . '</div>';
 				$array = $_SESSION['ErrorMessage'];
 				//print_r($array);
+				echo $_SESSION['ErrorMessage'][0];
 				foreach($array as $row)
 				{
 					echo '<div>' .  $row . '</div>';
