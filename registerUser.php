@@ -61,33 +61,43 @@ require_once 'databaseClasses/customerClass.php';
 	//echo isset($_POST['userNameInput']);
 	//echo isset($_POST['phoneNumberInput']);
 
-		$_SESSION['ErrorMessage'] = array();
+		$_SESSION['ErrorMessage'];
+		$array = array();
 		if(trim($firstName) != "")
 		{
-			array_push($_SESSION['ErrorMessage'], 'First Name left empty.');
-		}else if(trim($lastName) != "")
+			array_push($array, 'First Name left empty.');
+		}
+		if(trim($lastName) != "")
 		{
-			array_push($_SESSION['ErrorMessage'], 'Last Name left empty.');
-		}else if(trim($username) != "")
+			array_push($array, 'Last Name left empty.');
+		}
+		if(trim($username) != "")
 		{
-			array_push($_SESSION['ErrorMessage'], 'Usernam left empty.');
-		}else if(trim($phoneNumber) != "")
+			array_push($array, 'Usernam left empty.');
+		}
+		if(trim($phoneNumber) != "")
 		{
-			array_push($_SESSION['ErrorMessage'], 'Phone Number left empty.');
-		}else if(trim($dob) != "")
+			array_push($array, 'Phone Number left empty.');
+		}
+		if(trim($dob) != "")
 		{
-			array_push($_SESSION['ErrorMessage'], 'Date of birth left empty.');
-		}else if(trim($gender) != "")
+			array_push($array, 'Date of birth left empty.');
+		}
+		if(trim($gender) != "")
 		{
-			array_push($_SESSION['ErrorMessage'], 'Gender left empty.');
-		}else if(trim($email) != "")
+			array_push($array, 'Gender left empty.');
+		}
+		if(trim($email) != "")
 		{
-			array_push($_SESSION['ErrorMessage'], 'Email left empty.');
-		}else if(trim($password) != "")
+			array_push($array, 'Email left empty.');
+		}
+		if(trim($password) != "")
 		{
-			array_push($_SESSION['ErrorMessage'], 'Password left empty.');
+			array_push($array, 'Password left empty.');
 		}
 
+		$_SESSION['ErrorMessage'] = $array;
+		
 		if(trim($firstName) != "" && trim($lastName) != "" && trim($username) != "" && trim($phoneNumber) != "" && trim($dob) != "" && trim($gender) != "" && trim($email) != "" && trim($password) != "")
 		{
 			$customer = new customerDataAccess();
