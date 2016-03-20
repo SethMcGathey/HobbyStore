@@ -16,12 +16,14 @@ require_once 'databaseClasses/subcategoryClass.php';
 		<div class="container" id="Not_Ajax_Output">
 			<h1>Register</h1>
 			<?php
-
-				$array = $_SESSION['ErrorMessage'];
-
-				foreach($array as $row)
+				if($_GET['error'] == 'true')
 				{
-					echo '<div class="errorReports">' .  $row . '</div>';
+					$array = $_SESSION['ErrorMessage'];
+
+					foreach($array as $row)
+					{
+						echo '<div class="errorReports">' .  $row . '</div>';
+					}
 				}
 				if (isset($_SESSION['myForm']) && !empty($_SESSION['myForm'])) {
 				    $form_data = $_SESSION['myForm'];

@@ -124,7 +124,7 @@ require_once 'databaseClasses/customerClass.php';
 		}else
 		{
 			//$_SESSION['ErrorMessage'] =  "Fill in all required fields.";
-			header('Location: register.php');
+			header('Location: register.php?error=true');
 		}
 	}
 
