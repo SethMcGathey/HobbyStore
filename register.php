@@ -16,7 +16,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 		<div class="container" id="Not_Ajax_Output">
 			<h1>Register</h1>
 			<?php
-				if($_GET['error'] == 'true')
+				if(!empty($_GET['error'])
 				{
 					$array = $_SESSION['ErrorMessage'];
 
