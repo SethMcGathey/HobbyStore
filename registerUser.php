@@ -103,7 +103,7 @@ require_once 'databaseClasses/customerClass.php';
 	    	header('Location: login.php');*/
 		}else
 		{
-			$_SESSION['ErrorMessage'] =  "Fill in all required fields.";
+			//$_SESSION['ErrorMessage'] =  "Fill in all required fields.";
 			header('Location: register.php');
 		}
 	}
