@@ -39,4 +39,8 @@ require_once 'databaseClasses/customerClass.php';
             $_SESSION['ErrorMessage'] = 'Login failed, please try again.';
             header('Location: login.php?error=true');
         }
+    }else
+    {
+        $_SESSION['ErrorMessage'] = 'Login failed, please try again.';
+        header('Location: login.php?error=true');
     }
