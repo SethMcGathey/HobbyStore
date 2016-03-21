@@ -11,10 +11,10 @@ require_once '../../databaseClasses/addressClass.php';
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php' ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/HobbyStore/header.php' ?>
 
 <body>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/navigation.php' ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/HobbyStore/navigation.php' ?>
     <div class="container">
 
             <div class="row">
