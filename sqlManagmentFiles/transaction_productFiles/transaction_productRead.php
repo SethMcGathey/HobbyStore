@@ -19,10 +19,10 @@ require_once '../../databaseClasses/transaction_productClass.php';
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once '../../header.php' ?>
+<?php require_once '../header.php' ?>
 
 <body>
-    <?php require '../../navigation.php' ?>
+    <?php require_once '../navigation.php' ?>
     <div class="container">
  
                 <div class="span10 offset1">
@@ -65,6 +65,6 @@ require_once '../../databaseClasses/transaction_productClass.php';
                 </div>
 
     </div> <!-- /container -->
-    <?php require_once '../../footer.php' ?>
+    <?php require_once '../footer.php' ?>
   </body>
 </html>

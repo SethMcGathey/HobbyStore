@@ -24,10 +24,10 @@ require_once '../../databaseClasses/addressClass.php';
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once '../../header.php' ?>
+<?php require_once '../header.php' ?>
 
 <body>
-    <?php require '../../navigation.php' ?>
+    <?php require_once '../navigation.php' ?>
     <div class="container">
 
 
@@ -47,6 +47,6 @@ require_once '../../databaseClasses/addressClass.php';
                 </div>
 
     </div> <!-- /container -->
-    <?php require_once '../../footer.php' ?>
+    <?php require_once '../footer.php' ?>
   </body>
 </html>
