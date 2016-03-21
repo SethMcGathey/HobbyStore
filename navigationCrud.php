@@ -19,7 +19,7 @@
         <li><a href="../paymentFiles/paymentIndex.php">Payment</a></li>
         <li><a href="../product_binFiles/product_binIndex.php">Product Bin</a></li>
         <li><a href="../product_tagFiles/product_tagIndex.php">Product Tag</a></li>
-        <li><a href="../productFiles/productIndex.php">Product Files</a></li>
+        <li><a href="../productFiles/productIndex.php">ProductS</a></li>
         <li><a href="../shipment_centerFiles/shipment_centerIndex.php">Shipment Center</a></li>
         <li><a href="../subcategoryFiles/subcategoryIndex.php">Subcategory</a></li>
         <li><a href="../tagFiles/tagIndex.php">Tag</a></li>
