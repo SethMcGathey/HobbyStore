@@ -38,7 +38,6 @@ require_once 'databaseClasses/subcategoryClass.php';
             echo'<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tables <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li class="active"><a href="index.php">Home</a></li>
                 <li><a href="sqlManagmentFiles/addressFiles/addressIndex.php">Address</a></li>
                 <li><a href="sqlManagmentFiles/binFiles/binIndex.php">Bin</a></li>
                 <li><a href="sqlManagmentFiles/categoryFiles/categoryIndex.php">Category</a></li>
