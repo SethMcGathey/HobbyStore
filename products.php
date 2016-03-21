@@ -17,7 +17,7 @@ require_once 'databaseClasses/productClass.php';
 				$pdo->setAttribute(PDO::ATTR_FETCH_TABLE_NAMES, true);
 				if(isset($_GET['id']))
 				{
-					$sql = 'SELECT a.id,a.name,a.cost,a.description,b.image,b.desciption FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.subcategory_id = ' . $_GET["id"];
+					$sql = 'SELECT a.id,a.name,a.cost,a.description,b.image,b.description FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.subcategory_id = ' . $_GET["id"];
 					$num = 0;
 					foreach ($pdo->query($sql) as $row) {
 					    echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['a.id']. '">' . '<a href="singleProductPage.php?id='.$row['a.id'].'"><img class="productsImage" alt="' . $row['b.description'] . '" title="' . $row['b.description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/></a> <p>' . $row['a.name'] . '</p> <p>' . $row['a.description'] . '</p> <p>$' . $row['a.cost'] . '.00</p> <a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a></div>';
@@ -31,7 +31,7 @@ require_once 'databaseClasses/productClass.php';
 					}
 				}else
 				{
-					$sql = 'SELECT a.id,a.name,a.cost,a.description,b.image,b.desciption FROM product a LEFT JOIN image b ON a.id = b.product_id ORDER BY a.id';
+					$sql = 'SELECT a.id,a.name,a.cost,a.description,b.image,b.description FROM product a LEFT JOIN image b ON a.id = b.product_id ORDER BY a.id';
 					$num = 0;
 					foreach ($pdo->query($sql) as $row) {
 					    echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['a.id'] . '">' . '<a href="singleProductPage.php?id='.$row['a.id'].'"><img class="productsImage" alt="' . $row['b.description'] . '" title="' . $row['b.description'] . '" src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/></a> <p>' . $row['a.name'] . '</p> <p>' . $row['a.description'] . '</p> <p>$' . $row['a.cost'] . '.00</p> <a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a></div>';
