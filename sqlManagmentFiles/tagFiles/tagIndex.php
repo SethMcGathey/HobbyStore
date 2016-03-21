@@ -49,5 +49,6 @@ require_once '../../databaseClasses/tagClass.php';
                 </table>
         </div>
     </div> <!-- /container -->
+      <?php require_once 'footer.php' ?>
   </body>
 </html>
