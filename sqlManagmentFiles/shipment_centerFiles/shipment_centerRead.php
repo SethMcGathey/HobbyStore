@@ -21,15 +21,11 @@ require_once '../../databaseClasses/shipment_centerClass.php';
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link   href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-</head>
+<?php require_once '../../header.php' ?>
 
 <body>
     <div class="container">
-
+            <?php require_once '../../navigation.php' ?> 
                 <div class="span10 offset1">
                     <div class="row">
                         <h3>Read a Shipment Center</h3>

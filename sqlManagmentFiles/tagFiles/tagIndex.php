@@ -10,11 +10,11 @@ require_once '../../databaseClasses/tagClass.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <?php require_once '../../header.php' ?>
+<?php require_once '../../header.php' ?>
 
-  <body>
-      <?php require_once '../navigation.php' ?>
-
+<body>
+    <div class="container">
+            <?php require_once '../../navigation.php' ?> 
       <div class="container">
             <div class="row">
                 <h3>PHP CRUD Grid</h3>
