@@ -40,7 +40,7 @@ require_once 'databaseClasses/transactionClass.php';
 						$quantityPlusOne = $row['fullQuantity'] + 1; 
 						//href="updateQuantity.php?quantity=' . $quantityMinusOne . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '
 						//href="updateQuantity.php?quantity=' . $quantityPlusOne . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '"
-						echo ?><div class="row product cartLine' . $num . '" id="' . $row['id'] . '"> 
+						echo '<div class="row product cartLine' . $num . '" id="' . $row['id'] . '"> 
 				    			 <div class="col-lg-3"><img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
 				    		  	 <div class="col-lg-3"><h4>' . $row['name'] . '</h4><br> ' . $row['description'] . '</div> 
 				    		  	 <div class="col-lg-3">$' . $row['cost'] . '</div> 
