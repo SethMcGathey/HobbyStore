@@ -34,33 +34,36 @@ require_once '../../databaseClasses/subcategoryClass.php';
             }
             echo'</ul>
           </li>';
-          if($_SESSION['permission'] == 1)
+          if(!empty($_SESSION['permission']))
           {
-            //<li><a href="../customer_addressFiles/customer_addressIndex.php">Customer Address</a></li>
-            //<li><a href="../customer_paymentFiles/customer_paymentIndex.php">Customer Payment</a></li>
-            //echo '<li class="' . $ifActive["/sqlManagmentFiles/productFiles/productIndex.php"] . '"><a href="sqlManagmentFiles/productFiles/productIndex.php">Admin</a></li>';
-            echo'<li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tables <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="../addressFiles/addressIndex.php">Address</a></li>
-                <li><a href="../binFiles/binIndex.php">Bin</a></li>
-                <li><a href="../categoryFiles/categoryIndex.php">Category</a></li>
-                <li><a href="../customerFiles/customerIndex.php">Customer</a></li>
-                
-                <li><a href="../imageFiles/imageIndex.php">Image</a></li>
-                <li><a href="../paymentFiles/paymentIndex.php">Payment</a></li>
-                <li><a href="../product_binFiles/product_binIndex.php">Product Bin</a></li>
-                <li><a href="../product_tagFiles/product_tagIndex.php">Product Tag</a></li>
-                <li><a href="../productFiles/productIndex.php">Product</a></li>
-                <li><a href="../shipment_centerFiles/shipment_centerIndex.php">Shipment Center</a></li>
-                <li><a href="../subcategoryFiles/subcategoryIndex.php">Subcategory</a></li>
-                <li><a href="../tagFiles/tagIndex.php">Tag</a></li>
-                <li><a href="../transaction_addressFiles/transaction_addressIndex.php">Transaction Address</a></li>
-                <li><a href="../transaction_productFiles/transaction_productIndex.php">Transaction Product</a></li>
-                <li><a href="../transactionFiles/transactionIndex.php">Transaction</a></li>
-                <li><a href="../Files/lkmerIndex.php"></a></li>
-                <li><a href="../Files/lkermgIndex.php"></a></li>
-            </ul>';
+            if($_SESSION['permission'] == 1)
+            {
+              //<li><a href="../customer_addressFiles/customer_addressIndex.php">Customer Address</a></li>
+              //<li><a href="../customer_paymentFiles/customer_paymentIndex.php">Customer Payment</a></li>
+              //echo '<li class="' . $ifActive["/sqlManagmentFiles/productFiles/productIndex.php"] . '"><a href="sqlManagmentFiles/productFiles/productIndex.php">Admin</a></li>';
+              echo'<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tables <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a href="../addressFiles/addressIndex.php">Address</a></li>
+                  <li><a href="../binFiles/binIndex.php">Bin</a></li>
+                  <li><a href="../categoryFiles/categoryIndex.php">Category</a></li>
+                  <li><a href="../customerFiles/customerIndex.php">Customer</a></li>
+                  
+                  <li><a href="../imageFiles/imageIndex.php">Image</a></li>
+                  <li><a href="../paymentFiles/paymentIndex.php">Payment</a></li>
+                  <li><a href="../product_binFiles/product_binIndex.php">Product Bin</a></li>
+                  <li><a href="../product_tagFiles/product_tagIndex.php">Product Tag</a></li>
+                  <li><a href="../productFiles/productIndex.php">Product</a></li>
+                  <li><a href="../shipment_centerFiles/shipment_centerIndex.php">Shipment Center</a></li>
+                  <li><a href="../subcategoryFiles/subcategoryIndex.php">Subcategory</a></li>
+                  <li><a href="../tagFiles/tagIndex.php">Tag</a></li>
+                  <li><a href="../transaction_addressFiles/transaction_addressIndex.php">Transaction Address</a></li>
+                  <li><a href="../transaction_productFiles/transaction_productIndex.php">Transaction Product</a></li>
+                  <li><a href="../transactionFiles/transactionIndex.php">Transaction</a></li>
+                  <li><a href="../Files/lkmerIndex.php"></a></li>
+                  <li><a href="../Files/lkermgIndex.php"></a></li>
+              </ul>';
+            }
           }
         
       echo '</ul>

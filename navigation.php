@@ -59,7 +59,7 @@ require_once 'databaseClasses/subcategoryClass.php';
                   <li><a href="sqlManagmentFiles/transactionFiles/transactionIndex.php">Transaction</a></li>
                   <li><a href="sqlManagmentFiles/Files/lkmerIndex.php"></a></li>
                   <li><a href="sqlManagmentFiles/Files/lkermgIndex.php"></a></li>
-              </ul>';
+              </ul></li>';
             }
           }
         
@@ -87,7 +87,7 @@ require_once 'databaseClasses/subcategoryClass.php';
       </ul>
         <div class="col-sm-3 col-md-3 pull-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <form class="navbar-form" role="search">
                 <div class="input-group">
