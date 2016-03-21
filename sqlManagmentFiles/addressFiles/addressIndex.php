@@ -14,7 +14,7 @@ require_once '../../databaseClasses/addressClass.php';
 <?php require_once '../header.php' ?>
 
 <body>
-    <?php require '../../navigation.php' ?>
+    <?php require '../navigation.php' ?>
     <div class="container">
 
             <div class="row">
