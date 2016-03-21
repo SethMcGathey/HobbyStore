@@ -1,6 +1,9 @@
 <?php
     require_once '../../database.php';
 
+    require_once '../../accessDatabaseClass.php'; 
+    require_once '../../databaseClasses/transaction_productClass.php';
+
     $id = null;
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
