@@ -22,8 +22,9 @@ require_once '../../databaseClasses/subcategoryClass.php';
 <?php require_once '../../header.php' ?>
 
 <body>
+    <?php require '../../navigation.php' ?>
     <div class="container">
-            <?php require_once '../../navigation.php' ?> 
+
                 <div class="span10 offset1">
                     <div class="row">
                         <h3>Read a Subcategory</h3>
@@ -56,5 +57,6 @@ require_once '../../databaseClasses/subcategoryClass.php';
                 </div>
 
     </div> <!-- /container -->
+    <?php require_once '../../footer.php' ?>
   </body>
 </html>

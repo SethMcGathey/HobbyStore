@@ -52,7 +52,9 @@
 <?php require_once '../../header.php' ?>
 
 <body>
+    <?php require '../../navigation.php' ?>
     <div class="container">
+
 
                 <div class="span10 offset1">
                     <div class="row">
@@ -78,5 +80,6 @@
                 </div>
 
     </div> <!-- /container -->
+    <?php require_once 'footer.php' ?>
   </body>
 </html>

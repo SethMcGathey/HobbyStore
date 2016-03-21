@@ -46,5 +46,6 @@
                 </div>
 
     </div> <!-- /container -->
+    <?php require_once 'footer.php' ?>
   </body>
 </html>

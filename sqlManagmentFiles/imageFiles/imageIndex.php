@@ -9,7 +9,9 @@ require_once '../../databaseClasses/imageClass.php';
 <?php require_once '../../header.php' ?>
 
 <body>
+    <?php require '../../navigation.php' ?>
     <div class="container">
+
             <div class="row">
                 <h3>PHP CRUD Grid</h3>
             </div>
@@ -51,5 +53,6 @@ require_once '../../databaseClasses/imageClass.php';
                 </table>
         </div>
     </div> <!-- /container -->
+    <?php require_once 'footer.php' ?>
   </body>
 </html>

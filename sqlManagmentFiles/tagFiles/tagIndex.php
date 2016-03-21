@@ -13,8 +13,9 @@ require_once '../../databaseClasses/tagClass.php';
 <?php require_once '../../header.php' ?>
 
 <body>
+    <?php require '../../navigation.php' ?>
     <div class="container">
-            <?php require_once '../../navigation.php' ?> 
+
       <div class="container">
             <div class="row">
                 <h3>PHP CRUD Grid</h3>

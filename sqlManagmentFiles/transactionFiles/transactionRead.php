@@ -22,8 +22,9 @@ require_once '../../databaseClasses/transactionClass.php';
 <?php require_once '../../header.php' ?>
 
 <body>
+    <?php require '../../navigation.php' ?>
     <div class="container">
-            <?php require_once '../../navigation.php' ?> 
+ 
                 <div class="span10 offset1">
                     <div class="row">
                         <h3>Read a Transaction</h3>
@@ -72,5 +73,6 @@ require_once '../../databaseClasses/transactionClass.php';
                 </div>
 
     </div> <!-- /container -->
+    <?php require_once '../../footer.php' ?>
   </body>
 </html>

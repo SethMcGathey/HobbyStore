@@ -9,8 +9,9 @@ require_once '../../databaseClasses/shipment_centerClass.php';
 <?php require_once '../../header.php' ?>
 
 <body>
+    <?php require '../../navigation.php' ?>
     <div class="container">
-            <?php require_once '../../navigation.php' ?> 
+
             <div class="row">
                 <h3>PHP CRUD Grid</h3>
             </div>
@@ -50,5 +51,6 @@ require_once '../../databaseClasses/shipment_centerClass.php';
                 </table>
         </div>
     </div> <!-- /container -->
+    <?php require_once '../../footer.php' ?>
   </body>
 </html>

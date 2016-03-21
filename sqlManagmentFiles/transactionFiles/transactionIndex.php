@@ -9,8 +9,9 @@ require_once '../../databaseClasses/transactionClass.php';
 <?php require_once '../../header.php' ?>
 
 <body>
+    <?php require '../../navigation.php' ?>
     <div class="container">
-            <?php require_once '../../navigation.php' ?> 
+
             <div class="row">
                 <h3>PHP CRUD Grid</h3>
             </div>
@@ -52,5 +53,6 @@ require_once '../../databaseClasses/transactionClass.php';
                 </table>
         </div>
     </div> <!-- /container -->
+    <?php require_once '../../footer.php' ?>
   </body>
 </html>

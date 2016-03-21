@@ -81,22 +81,6 @@ require_once '../../databaseClasses/addressClass.php';
         $street_one = $data[1][0]['street_one'];
         $street_two = $data[1][0]['street_two'];
         $zipcode = $data[1][0]['zipcode'];
-        
-
-/*
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM address where id = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        $city = $data['city'];
-        $country = $data['country'];
-        $state = $data['state'];
-        $street_one = $data['street_one'];
-        $street_two = $data['street_two'];
-        $zipcode = $data['zipcode'];
-        Database::disconnect();*/
     }
 ?>
 
@@ -105,8 +89,9 @@ require_once '../../databaseClasses/addressClass.php';
 <?php require_once '../../header.php' ?>
 
 <body>
-  <?php require_once '../navigation.php' ?>
+    <?php require '../../navigation.php' ?>
     <div class="container">
+
 
                 <div class="span10 offset1">
                     <div class="row">
@@ -177,5 +162,6 @@ require_once '../../databaseClasses/addressClass.php';
                 </div>
 
     </div> <!-- /container -->
+    <?php require_once 'footer.php' ?>
   </body>
 </html>
