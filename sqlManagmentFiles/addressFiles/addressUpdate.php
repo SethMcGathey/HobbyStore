@@ -86,10 +86,17 @@ require_once '../../databaseClasses/addressClass.php';
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once '../../header.php' ?>
-
+<?php 
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= '../../header.php';
+   require_once $path 
+?>
 <body>
-    <?php require '../../navigation.php' ?>
+    <?php 
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= '../../navigation.php';
+        require_once $path 
+    ?>
     <div class="container">
 
 
