@@ -20,7 +20,7 @@ require_once 'databaseClasses/productClass.php';
 					$sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id WHERE a.subcategory_id = ' . $_GET["id"];
 					$num = 0;
 					foreach ($pdo->query($sql) as $row) {
-					    echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['a.id']. '">' . '<a href="singleProductPage.php?id='.$row['a.id'].'"><img class="productsImage" alt="' . base64_encode($row['description']) . '" title="' . base64_encode($row['description']) . '"  src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/></a> <p>' . $row['a.name'] . '</p> <p>' . $row['a.description'] . '</p> <p>$' . $row['a.cost'] . '.00</p> <a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a></div>';
+					    echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['a.id']. '">' . '<a href="singleProductPage.php?id='.$row['a.id'].'"><img class="productsImage" alt="' . $row['description'] . '" title="' . $row['description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/></a> <p>' . $row['a.name'] . '</p> <p>' . $row['a.description'] . '</p> <p>$' . $row['a.cost'] . '.00</p> <a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a></div>';
 					
 						if($num < 1){
 				    		$num++;
@@ -34,7 +34,7 @@ require_once 'databaseClasses/productClass.php';
 					$sql = 'SELECT a.id,a.name,a.cost,a.description,b.image FROM product a LEFT JOIN image b ON a.id = b.product_id ORDER BY a.id';
 					$num = 0;
 					foreach ($pdo->query($sql) as $row) {
-					    echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['a.id'] . '">' . '<a href="singleProductPage.php?id='.$row['a.id'].'"><img class="productsImage" alt="' . base64_encode($row['description']) . '" title="' . base64_encode($row['description']) . '" src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/></a> <p>' . $row['a.name'] . '</p> <p>' . $row['a.description'] . '</p> <p>$' . $row['a.cost'] . '.00</p> <a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a></div>';
+					    echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['a.id'] . '">' . '<a href="singleProductPage.php?id='.$row['a.id'].'"><img class="productsImage" alt="' . $row['description'] . '" title="' . $row['description'] . '" src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/></a> <p>' . $row['a.name'] . '</p> <p>' . $row['a.description'] . '</p> <p>$' . $row['a.cost'] . '.00</p> <a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a></div>';
 
 				    	if($num < 1){
 				    		$num++;
