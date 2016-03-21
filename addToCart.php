@@ -33,6 +33,6 @@ require_once 'databaseClasses/transaction_productClass.php';
 	}else
 	{
 		$transaction = new transactionDataAccess();
-		$transaction->createData(1,time(), NULL, $_SESSION['customerid']);
+		$transaction->createData(1,time(), NULL, $_SESSION['customerid'], 1, $_GET["id"]);
 	}
 	header('Location: products.php');
