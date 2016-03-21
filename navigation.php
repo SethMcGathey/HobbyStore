@@ -38,24 +38,24 @@ require_once 'databaseClasses/subcategoryClass.php';
             echo'<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li class="active"><a href="../../index.php">Home</a></li>
-                <li><a href="../addressFiles/addressIndex.php">Address</a></li>
-                <li><a href="../binFiles/binIndex.php">Bin</a></li>
-                <li><a href="../categoryFiles/categoryIndex.php">Category</a></li>
-                <li><a href="../customerFiles/customerIndex.php">Customer</a></li>
-                <li><a href="../imageFiles/imageIndex.php">Image</a></li>
-                <li><a href="../paymentFiles/paymentIndex.php">Payment</a></li>
-                <li><a href="../product_binFiles/product_binIndex.php">Product Bin</a></li>
-                <li><a href="../product_tagFiles/product_tagIndex.php">Product Tag</a></li>
-                <li><a href="../productFiles/productIndex.php">ProductS</a></li>
-                <li><a href="../shipment_centerFiles/shipment_centerIndex.php">Shipment Center</a></li>
-                <li><a href="../subcategoryFiles/subcategoryIndex.php">Subcategory</a></li>
-                <li><a href="../tagFiles/tagIndex.php">Tag</a></li>
-                <li><a href="../transaction_addressFiles/transaction_addressIndex.php">Transaction Address</a></li>
-                <li><a href="../transaction_productFiles/transaction_productIndex.php">Transaction Product</a></li>
-                <li><a href="../transactionFiles/transactionIndex.php">Transaction</a></li>
-                <li><a href="../Files/lkmerIndex.php"></a></li>
-                <li><a href="../Files/lkermgIndex.php"></a></li>
+                <li class="active"><a href="index.php">Home</a></li>
+                <li><a href="sqlManagmentFiles/addressFiles/addressIndex.php">Address</a></li>
+                <li><a href="sqlManagmentFiles/binFiles/binIndex.php">Bin</a></li>
+                <li><a href="sqlManagmentFiles/categoryFiles/categoryIndex.php">Category</a></li>
+                <li><a href="sqlManagmentFiles/customerFiles/customerIndex.php">Customer</a></li>
+                <li><a href="sqlManagmentFiles/imageFiles/imageIndex.php">Image</a></li>
+                <li><a href="sqlManagmentFiles/paymentFiles/paymentIndex.php">Payment</a></li>
+                <li><a href="sqlManagmentFiles/product_binFiles/product_binIndex.php">Product Bin</a></li>
+                <li><a href="sqlManagmentFiles/product_tagFiles/product_tagIndex.php">Product Tag</a></li>
+                <li><a href="sqlManagmentFiles/productFiles/productIndex.php">ProductS</a></li>
+                <li><a href="sqlManagmentFiles/shipment_centerFiles/shipment_centerIndex.php">Shipment Center</a></li>
+                <li><a href="sqlManagmentFiles/subcategoryFiles/subcategoryIndex.php">Subcategory</a></li>
+                <li><a href="sqlManagmentFiles/tagFiles/tagIndex.php">Tag</a></li>
+                <li><a href="sqlManagmentFiles/transaction_addressFiles/transaction_addressIndex.php">Transaction Address</a></li>
+                <li><a href="sqlManagmentFiles/transaction_productFiles/transaction_productIndex.php">Transaction Product</a></li>
+                <li><a href="sqlManagmentFiles/transactionFiles/transactionIndex.php">Transaction</a></li>
+                <li><a href="sqlManagmentFiles/Files/lkmerIndex.php"></a></li>
+                <li><a href="sqlManagmentFiles/Files/lkermgIndex.php"></a></li>
             </ul>';
           }
         
