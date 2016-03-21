@@ -25,7 +25,6 @@ class customer_paymentDataAccess extends accessDatabase{
         parent::doSql($sql, $columns);
     }
 
-/***/
     public function updateData($payment_id, $customer_id){
         $columns = array($payment_id, $customer_id);
         $sql = "UPDATE customer_payment set payment_id = ?, customer_id = ? WHERE id = ?";

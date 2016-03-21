@@ -20,7 +20,6 @@ class transaction_addressDataAccess extends accessDatabase{
         parent::changeSql($sql, $columns);
     }
 
-/***/
     public function updateData($phone,$type,$address_id,$transaction_id){
         $columns = array($phone,$type,$address_id,$transaction_id);
         $sql = "UPDATE transaction_address  set phone = ?, type = ?, address_id = ?, transaction_id =? WHERE id = ?";        

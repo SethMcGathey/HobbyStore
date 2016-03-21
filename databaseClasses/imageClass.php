@@ -18,7 +18,6 @@ class imageDataAccess extends accessDatabase{
         parent::doSql($sql, $columns);
     }
 
-/***/
     public function updateData($description,$featured,$image,$product_id){
         $columns = array($description,$featured,$image,$product_id);
         $sql = "UPDATE image  set description = ?, featured = ?, image = ?, product_id =? WHERE id = ?";

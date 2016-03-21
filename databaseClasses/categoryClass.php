@@ -18,7 +18,6 @@ class categoryDataAccess extends accessDatabase{
         parent::changeSql($sql, $columns);
     }
 
-/***/
     public function updateData($name){
         $columns = array($name);
         $sql = "UPDATE category set name = ? WHERE id = ?";   

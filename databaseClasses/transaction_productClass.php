@@ -24,7 +24,6 @@ class transaction_productDataAccess extends accessDatabase{
         parent::changeSql($sql, $columns);
     }
 
-/***/
     public function updateData($quantity,$transaction_id,$product_id,$id){
         $columns = array($quantity,$transaction_id,$product_id,$id);
         $sql = "UPDATE transaction_product  set quantity = ?, transaction_id = ?, product_id = ? WHERE id = ?";      

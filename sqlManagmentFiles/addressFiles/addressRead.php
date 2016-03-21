@@ -17,15 +17,6 @@ require_once '../../databaseClasses/addressClass.php';
     } else {
         $address = new addressDataAccess();
         $data = $address->readDataById($id)[1][0];
-        //print_r($data);
-        /*
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM address where id = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($id));
-        $data = $q->fetch(PDO::FETCH_ASSOC);
-        Database::disconnect();*/
     }
 ?>
 

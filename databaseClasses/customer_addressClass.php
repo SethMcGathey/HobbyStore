@@ -24,7 +24,6 @@ class customer_addressDataAccess extends accessDatabase{
         parent::doSql($sql, $columns);
     }
 
-/***/
     public function updateData($customer_id, $address_id){
         $columns = array($customer_id, $address_id);
         $sql = "UPDATE customer_address  set customer_id = ?, address_id = ? WHERE id = ?";

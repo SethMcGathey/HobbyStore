@@ -21,13 +21,9 @@ require_once 'databaseClasses/subcategoryClass.php';
 
 	          <?php
 		          $category = new categoryDataAccess();
-				  //$category->readData(1);
 				  $num = 0;
-				  //print_r($category->readData(1));
-				  //foreach ($category->readData(1) as $row) {
 					foreach($category->readData(1)[1] as $innerRow)
 					{
-						//echo $name = $innerRow['name'];
 						echo '<a href="#">
 		                		<div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
 		                			<img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>

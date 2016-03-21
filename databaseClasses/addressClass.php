@@ -42,6 +42,22 @@ class addressDataAccess extends accessDatabase{
 
 	public function deleteData($id){
 		$columns = array($id);
+		$sql = "DELETE FROM customer_address WHERE address_id = ?";
+		parent::changeSql($sql, $columns);
+
+		$columns = array($id);
+		$sql = "SELECT a.id FROM customer_address c JOIN address a ON c.address_id = a.id WHERE address_id = ?";
+		return parent::doSql($sql, $columns);
+
+		$columns = array($id);
+		$sql = "DELETE FROM bin WHERE shipment_center_id = ?";
+		parent::changeSql($sql, $columns);
+
+		$columns = array($id);
+		$sql = "DELETE FROM shipment_center WHERE address_id = ?";
+		parent::changeSql($sql, $columns);
+
+		$columns = array($id);
 		$sql = "DELETE FROM address WHERE id = ?";
 		parent::changeSql($sql, $columns);
     }

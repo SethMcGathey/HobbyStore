@@ -18,7 +18,6 @@ class product_tagDataAccess extends accessDatabase{
         parent::doSql($sql, $columns);
     }
 
-/***/
     public function updateData($tag_id,$product_id){
         $columns = array($tag_id,$product_id);
         $sql = "UPDATE product_tag  set tag_id = ?, product_id = ? WHERE id = ?";  

@@ -27,24 +27,6 @@
        
         // validate input
         $valid = true;
-/*        if (empty($firstname)) {
-            $firstnameError = 'Please enter First Name';
-            $valid = false;
-        }
-         
-        if (empty($email)) {
-            $emailError = 'Please enter Email Address';
-            $valid = false;
-        } else if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
-            $emailError = 'Please enter a valid Email Address';
-            $valid = false;
-        }
-         
-        if (empty($phone)) {
-            $phoneError = 'Please enter Mobile Number';
-            $valid = false;
-        }
-*/
 
 	// insert data
         if ($valid) {

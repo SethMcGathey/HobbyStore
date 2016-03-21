@@ -14,7 +14,6 @@ require_once '../../databaseClasses/addressClass.php';
     }
 
     if ( !empty($_POST)) {
-        // keep track post values
         $id = $_POST['id'];
         $address = new addressDataAccess();
         $address->deleteData($id);

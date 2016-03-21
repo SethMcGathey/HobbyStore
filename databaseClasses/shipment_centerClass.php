@@ -18,7 +18,6 @@ class shipment_centerDataAccess extends accessDatabase{
         parent::doSql($sql, $columns);
     }
 
-/***/
     public function updateData($name,$phone,$address_id){
         $columns = array($name,$phone,$address_id);
         $sql = "UPDATE shipment_center  set name = ?, phone = ?, address_id = ? WHERE id = ?";  

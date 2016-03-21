@@ -18,7 +18,6 @@ class tagDataAccess extends accessDatabase{
         parent::doSql($sql, $columns);
     }
 
-/***/
     public function updateData($name){
         $columns = array($name);
         $sql = "UPDATE tag  set name = ? WHERE id = ?"; 

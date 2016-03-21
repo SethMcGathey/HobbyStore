@@ -37,7 +37,6 @@ class transactionDataAccess extends accessDatabase{
         parent::doSql($sql3, $columns3);
     }
 
-/***/
     public function updateData($cart,$timestamp,$payment_id,$customer_id,$id){
         $columns = array($cart,$timestamp,$payment_id,$customer_id,$id);
         $sql = "UPDATE transaction  set cart = ?, timestamp = ?, payment_id = ?, customer_id =? WHERE id = ?";  

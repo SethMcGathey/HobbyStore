@@ -3,16 +3,13 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
 require_once 'sessionStart.php'; 
-
 require_once 'accessDatabaseClass.php'; 
 require_once 'databaseClasses/customerClass.php';
-
 
     $pdo = Database::connect();
 
     $array = array();
     array_push($array, 'Errors:');
-	//echo $_SESSION['user'];
 	if($_SERVER["REQUEST_METHOD"] == "POST")
 	$_SESSION['ErrorMessage'] = "";
 
@@ -20,7 +17,6 @@ require_once 'databaseClasses/customerClass.php';
         foreach($_POST as $key => $value) {
             $_SESSION['myForm'][$key] = $value;
         }
-        //print_r($_SESSION['myForm']);
     }
 	
 	$firstName = NULL;
@@ -30,24 +26,15 @@ require_once 'databaseClasses/customerClass.php';
 	$dob = NULL;
 	$gender = NULL; 
 	$email = NULL;
-	//$_SESSION['user'] = NULL;
 	$password = NULL;
 	$everythingFilled = 1;
-	/*echo $_POST['passwordInput'] . "<br>";
-	echo $_POST['reenteredPasswordInput'] . "<br>";
-	$password = $_POST['passwordInput'];*/
-	//echo trim($_POST['passwordInput']) . '<br>';
 
 	if($_POST['passwordInput'] != $_POST['reenteredPasswordInput'])
 	{
 		array_push($array, "Passwords do not match. <br>");
 		$_SESSION['ErrorMessage'] = $array;
 		header('Location: register.php');
-	/*}
-	else if(trim($_POST['passwordInput']) == ""){
-		$_SESSION['ErrorMessage'] = "Please fill out password fields.";
-		header('Location: register.php');
-		//echo "passwordInput";*/
+
 	}else
 	{
 		$firstName = $_POST['firstNameInput'];
@@ -59,12 +46,6 @@ require_once 'databaseClasses/customerClass.php';
 		$email = $_POST['emailInput'];
 		$_SESSION['ErrorMessage'] = "";
 		$password = $_POST['passwordInput'];
-		//$_SESSION['user'] = $username;
-		//echo "Got to the setting of variables <br>";
-	//echo isset($_POST['lastNameInput']);
-	//echo isset($_POST['userNameInput']);
-	//echo isset($_POST['phoneNumberInput']);
-
 
 		if(trim($firstName) == "")
 		{
@@ -110,27 +91,15 @@ require_once 'databaseClasses/customerClass.php';
 		$_SESSION['ErrorMessage'] = $array;
 
 		if($everythingFilled)
-		//if(trim($firstName) != "" && trim($lastName) != "" && trim($username) != "" && trim($phoneNumber) != "" && trim($dob) != "" && trim($gender) != "" && trim($email) != "" && trim($password) != "")
 		{
 			$customer = new customerDataAccess();
 			$customer->createData($firstName, $phoneNumber, $dob, $username, $password, $gender, 1, $email, $lastName);
 			header('Location: login.php');
 
-
-			/*//echo "Got inside long if statement <br>";
-		    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql="INSERT INTO customer (first_name, phone, dob, username, password, gender, permission, email, last_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		    $q = $pdo->prepare($sql);
-		    $q->execute(array($firstName, $phoneNumber, $dob, $username, $password, $gender, 1, $email, $lastName));
-	    	header('Location: login.php');*/
 		}else
 		{
-			//$_SESSION['ErrorMessage'] =  "Fill in all required fields.";
 			header('Location: register.php?error=true');
 		}
 	}
 
-	//echo "made it through everything <br>";
-	//echo $_SESSION['ErrorMessage'];
-	//print_r($_SESSION);
  	Database::disconnect();

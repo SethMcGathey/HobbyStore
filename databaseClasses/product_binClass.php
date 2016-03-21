@@ -18,7 +18,6 @@ class product_binDataAccess extends accessDatabase{
         parent::doSql($sql, $columns);
     }
 
-/***/
     public function updateData($stock,$bin_id,$product_id){
         $columns = array($stock,$bin_id,$product_id);
         $sql = "UPDATE product_bin  set stock = ?, bin_id = ?, product_id = ? WHERE id = ?";  

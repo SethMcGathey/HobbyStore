@@ -40,7 +40,6 @@ class customerDataAccess extends accessDatabase{
         parent::doSql($sql3, $columns3);*/
     }
 
-/***/
     public function updateData($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username){
         $columns = array($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username);
         $sql = "UPDATE customer  set first_name = ?, last_name = ?, email = ?, phone =?, dob =?, gender =?, password =?, permission =?, username =? WHERE id = ?";  

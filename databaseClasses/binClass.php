@@ -19,7 +19,6 @@ class binDataAccess extends accessDatabase{
         parent::doSql($sql, $columns);
     }
 
-/***/
     public function updateData($name,$shipment_center_id){
         $columns = array($name,$shipment_center_id);
         $sql = "UPDATE bin  set name = ?, shipment_center_id = ? WHERE id = ?";
