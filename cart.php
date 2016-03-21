@@ -36,17 +36,19 @@ require_once 'databaseClasses/transactionClass.php';
                 foreach($transaction->readDataForCart($_SESSION['customerid'])[1] as $row)
 				{
 					if($row['fullQuantity'] != 0){
-						
-
+						$quantityMinusOne = $row['fullQuantity'] - 1; 
+						$quantityPlusOne = $row['fullQuantity'] + 1; 
+						//href="updateQuantity.php?quantity=' . $quantityMinusOne . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '
+						//href="updateQuantity.php?quantity=' . $quantityPlusOne . '&transactionId=' . $row['transaction_id'] . '&productId=' . $row['id'] . '"
 						echo '<div class="row product" id="' . $row['id'] . '"> 
-				    			 <div class="col-lg-3 cartLine' . $num . '"><img alt="' . $row['description'] . '" title="' . $row['description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
-				    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
+				    			 <div class="col-lg-3 cartLine' . $num . '"><img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
+				    		  	 <div class="col-lg-3 cartLine' . $num . '"><h4>' . $row['name'] . '</h4><br> ' . $row['description'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">
-				    	   		 <a class="minusButtons" href="updateQuantity.php?id=' . $row['id'] . '&direction=minus">-</a>
+				    	   		 <a class="minusButtons" href="updateQuantity3.php?id=' . $row['id'] . '&direction=minus">-</a>
 				    			 '. $row['fullQuantity'] . '
-				    			 <a class="plusButtons" href="updateQuantity.php?id=' . $row['id'] . '&direction=plus">+</a>
-				    			 <div class="rightAlign"><a href="updateQuantity.php?id=' . $row['id'] . '&remove=remove">Remove</a></div>
+				    			 <a class="plusButtons" href="updateQuantity3.php?id=' . $row['id'] . '&direction=plus">+</a>
+				    			 <div class="rightAlign"><a href="updateQuantity3.php?id=' . $row['id'] . '&remove=remove">Remove</a></div>
 				    	 	  	 </div>
 				    	      </div> ';
 				    	if($num < 1)
