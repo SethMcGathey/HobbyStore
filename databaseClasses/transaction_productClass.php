@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
+
 class transaction_productDataAccess extends accessDatabase{
     public function readData(){
         $columns = array();

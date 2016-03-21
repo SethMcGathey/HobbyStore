@@ -36,13 +36,9 @@ require_once 'databaseClasses/transactionClass.php';
                 foreach($transaction->readDataForCart($_SESSION['customerid'])[1] as $row)
 				{
 					if($row['fullQuantity'] != 0){
-
-
-						$quantityMinusOne = $row['fullQuantity'] - 1; 
-						$quantityPlusOne = $row['fullQuantity'] + 1; 
 						
 						echo '<div class="row product" id="' . $row['id'] . '"> 
-				    			 <div class="col-lg-3 cartLine' . $num . '"><img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
+				    			 <div class="col-lg-3 cartLine' . $num . '"><img alt="' . base64_encode($row['description']) . '" title="' . base64_encode($row['description']) . '"  src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">
