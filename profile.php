@@ -154,5 +154,6 @@ require_once 'databaseClasses/customerClass.php';
 
         </div>
     </div> <!-- /container -->
+    <?php require_once 'footer.php' ?>
   </body>
 </html>
