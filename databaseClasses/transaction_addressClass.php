@@ -5,7 +5,7 @@ ini_set('display_errors', 'on');
 class transaction_addressDataAccess extends accessDatabase{
     public function readData(){
         $columns = array();
-        $sql = "SELECT * FROM transaction_address WHERE ?";
+        $sql = "SELECT * FROM transaction_address";
         return parent::doSql($sql, $columns);
     }
     public function readDataById($selectParam){

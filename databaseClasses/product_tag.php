@@ -3,7 +3,7 @@
 class product_tagDataAccess extends accessDatabase{
     public function readData(){
         $columns = array();
-        $sql = "SELECT * FROM product_tag WHERE ?";
+        $sql = "SELECT * FROM product_tag";
         return parent::doSql($sql, $columns);
     }
     public function readDataById($selectParam){

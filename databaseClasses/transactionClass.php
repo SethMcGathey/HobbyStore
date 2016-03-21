@@ -2,9 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 class transactionDataAccess extends accessDatabase{
-    public function readData($selectParam){
-        $columns = array($selectParam);
-        $sql = "SELECT * FROM transaction WHERE ?";
+    public function readData(){
+        $columns = array();
+        $sql = "SELECT * FROM transaction";
         return parent::doSql($sql, $columns);
     }
     public function readDataById($selectParam){
