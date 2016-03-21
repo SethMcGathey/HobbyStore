@@ -16,7 +16,7 @@ require_once 'databaseClasses/subcategoryClass.php';
       </button>
       <a class="navbar-brand" href="index.php">Clash Games</a>
     </div>
-    <div class="navbar-collapse collapse">
+    <div class="navbar-collapse collapse" id=".navbar-collapse">
       <ul class="nav navbar-nav">
         <?php
           $ifActive = array("/index.php"=>"", "/products.php"=>"", "/sqlManagmentFiles/productFiles/productIndex.php"=>"", "/contact.php"=>"", "/cart.php"=>"", "/logout.php"=>"", "/profile.php"=>"", "/register.php"=>"", "/login.php"=>"");
