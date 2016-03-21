@@ -40,4 +40,9 @@ class transaction_productDataAccess extends accessDatabase{
         $sql = "DELETE FROM transaction_product  WHERE id = ?";
         parent::doSql($sql, $columns);
     }
+    public function deleteZeroQuantityData(){
+        $columns = array();
+        $sql = "DELETE FROM transaction_product  WHERE quantity = 0";
+        parent::doSql($sql, $columns);
+    }
 }
