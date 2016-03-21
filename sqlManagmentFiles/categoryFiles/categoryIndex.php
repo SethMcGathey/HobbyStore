@@ -47,6 +47,6 @@ require_once '../../databaseClasses/categoryClass.php';
                 </table>
         </div>
     </div> <!-- /container -->
-    <?php require_once 'footer.php' ?>
+    <?php require_once '../../footer.php' ?>
   </body>
 </html>

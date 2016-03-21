@@ -89,6 +89,6 @@ require_once '../../databaseClasses/paymentClass.php';
                 </div>
 
     </div> <!-- /container -->
-    <?php require_once 'footer.php' ?>
+    <?php require_once '../../footer.php' ?>
   </body>
 </html>
