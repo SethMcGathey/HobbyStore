@@ -1,9 +1,9 @@
 <?php 
-require_once '../sessionStart.php'; 
-require_once '../accessDatabaseClass.php'; 
+require_once '/sessionStart.php'; 
+require_once '/accessDatabaseClass.php'; 
 
-require_once '../databaseClasses/categoryClass.php';
-require_once '../databaseClasses/subcategoryClass.php';
+require_once '/databaseClasses/categoryClass.php';
+require_once '/databaseClasses/subcategoryClass.php';
 ?>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -38,7 +38,6 @@ require_once '../databaseClasses/subcategoryClass.php';
             echo'<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tables <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li class="active"><a href="index.php">Home</a></li>
                 <li><a href="addressFiles/addressIndex.php">Address</a></li>
                 <li><a href="binFiles/binIndex.php">Bin</a></li>
                 <li><a href="categoryFiles/categoryIndex.php">Category</a></li>
