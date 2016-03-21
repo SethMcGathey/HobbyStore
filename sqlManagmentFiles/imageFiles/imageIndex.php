@@ -39,7 +39,7 @@ require_once '../../databaseClasses/imageClass.php';
                                 echo '<tr>';
                                 echo '<td>'. $row['description'] . '</td>';
                                 echo '<td>'. $row['featured'] . '</td>';
-                                echo '<td>'. $row['image'] . '</td>';
+                                echo '<td><img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px" class="homePageImages"/></td>';
                                 echo '<td>'. $row['product_id'] . '</td>';
                                 echo '<td width=250>';
                                 echo '<a class="btn" href="imageRead.php?id='.$row['id'].'">Read</a>';
