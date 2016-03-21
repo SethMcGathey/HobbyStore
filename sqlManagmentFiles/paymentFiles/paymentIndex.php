@@ -44,7 +44,7 @@ require_once '../../databaseClasses/paymentClass.php';
                                 echo '<td>'. $row['card_security'] . '</td>';
                                 echo '<td>'. $row['expires_month'] . '</td>';
                                 echo '<td>'. $row['expires_year'] . '</td>';
-                                echo '<td>'. $row['payment_type_id'] . '</td>';
+                                echo '<td>'. $row['payment_type'] . '</td>';
                                 echo '<td width=250>';
                                 echo '<a class="btn" href="paymentRead.php?id='.$row['id'].'">Read</a>';
                                 echo ' ';
