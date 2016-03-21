@@ -1,9 +1,9 @@
 <?php 
-require_once '../../sessionStart.php'; 
-require_once '../../accessDatabaseClass.php'; 
+require_once '../sessionStart.php'; 
+require_once '../accessDatabaseClass.php'; 
 
-require_once '../../databaseClasses/categoryClass.php';
-require_once '../../databaseClasses/subcategoryClass.php';
+require_once '../databaseClasses/categoryClass.php';
+require_once '../databaseClasses/subcategoryClass.php';
 ?>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -18,47 +18,58 @@ require_once '../../databaseClasses/subcategoryClass.php';
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <?php
-          //sets up an associative array with the url of each page as the name so that I can set that link to "active"
           $ifActive = array("/index.php"=>"", "/products.php"=>"", "/sqlManagmentFiles/productFiles/productIndex.php"=>"", "/contact.php"=>"", "/cart.php"=>"", "/logout.php"=>"", "/profile.php"=>"", "/register.php"=>"", "/login.php"=>"");
 
           $ifActive[$_SERVER['PHP_SELF']] = "active";
-          echo '<li class="' . $ifActive["/index.php"] . '"><a href="../../index.php">Home</a></li>';
+          echo '<li class="' . $ifActive["/index.php"] . '"><a href="index.php">Home</a></li>';
           echo'<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
             <ul class="dropdown-menu">';
             $subcategory = new subcategoryDataAccess();
             foreach($subcategory->readData(1)[1] as $innerRow)
             {
-                //echo $name = $innerRow['name'];
-              echo '<li><a href="products.php">' . $innerRow['name'] . '</a></li>';
-                /*echo '<a href="#">
-                        <div class="col-lg-4 myCategories categoryBackgroundColor' . $num . '" id="' . $innerRow['id']. '">
-                          <img src="img/rrwggame.jpg" width="100px" class="categoryImage"/><p class="centerText">' . $innerRow['name'] . '</p>
-                        </div>
-                      </a>';*/
+              echo '<li><a href="products.php?id=' . $innerRow['id'] . '">' . $innerRow['name'] . '</a></li>';
             }
             echo'</ul>
           </li>';
           if($_SESSION['permission'] == 1)
           {
-            echo '<li class="' . $ifActive["/sqlManagmentFiles/productFiles/productIndex.php"] . '"><a href="sqlManagmentFiles/productFiles/productIndex.php">Admin</a></li>';
+            //echo '<li class="' . $ifActive["/sqlManagmentFiles/productFiles/productIndex.php"] . '"><a href="sqlManagmentFiles/productFiles/productIndex.php">Admin</a></li>';
+            echo'<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tables <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li class="active"><a href="index.php">Home</a></li>
+                <li><a href="addressFiles/addressIndex.php">Address</a></li>
+                <li><a href="binFiles/binIndex.php">Bin</a></li>
+                <li><a href="categoryFiles/categoryIndex.php">Category</a></li>
+                <li><a href="customerFiles/customerIndex.php">Customer</a></li>
+                <li><a href="imageFiles/imageIndex.php">Image</a></li>
+                <li><a href="paymentFiles/paymentIndex.php">Payment</a></li>
+                <li><a href="product_binFiles/product_binIndex.php">Product Bin</a></li>
+                <li><a href="product_tagFiles/product_tagIndex.php">Product Tag</a></li>
+                <li><a href="productFiles/productIndex.php">ProductS</a></li>
+                <li><a href="shipment_centerFiles/shipment_centerIndex.php">Shipment Center</a></li>
+                <li><a href="subcategoryFiles/subcategoryIndex.php">Subcategory</a></li>
+                <li><a href="tagFiles/tagIndex.php">Tag</a></li>
+                <li><a href="transaction_addressFiles/transaction_addressIndex.php">Transaction Address</a></li>
+                <li><a href="transaction_productFiles/transaction_productIndex.php">Transaction Product</a></li>
+                <li><a href="transactionFiles/transactionIndex.php">Transaction</a></li>
+                <li><a href="Files/lkmerIndex.php"></a></li>
+                <li><a href="Files/lkermgIndex.php"></a></li>
+            </ul>';
           }
         
-          //echo '<li class="' . $ifActive["/contact.php"] . '"><a href="contact.php">Contact</a></li>';
-
       echo '</ul>
       <ul class="nav navbar-nav navbar-right">';
 
 
           $sql = 'SELECT SUM(quantity) as fullQuantity FROM transaction t JOIN transaction_product tp ON tp.transaction_id = t.id JOIN product p ON p.id = tp.product_id JOIN image i ON i.product_id = p.id WHERE cart = 1 AND customer_ID = 3';
-            //$sql = 'SELECT id,name,cost,description FROM product WHERE subcategory_id = ' . $_POST["id"] . ' ORDER BY id LIMIT 5';
-            foreach ($pdo->query($sql) as $row) {
-                $quantity = $row['fullQuantity'];
-            }
+          foreach ($pdo->query($sql) as $row) {
+              $quantity = $row['fullQuantity'];
+          }
 
           echo '<li class="' . $ifActive["/cart.php"] . '"><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart ' . $quantity . '</a></li>';
 
-              //changes login to logout when a person logs in and puts their name in the Navbar
               if(isset($_SESSION['username']))
               {
                 echo '<li class="' . $ifActive["/logout.php"] . '"><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>';
