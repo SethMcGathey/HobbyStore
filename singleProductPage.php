@@ -23,7 +23,7 @@ require_once 'databaseClasses/productClass.php';
           $data = $product->readProductForSinglePageData($_GET['id'])[1];
           $num = 0;
           foreach ($data as $row) {
-              echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['id']. '">' . '<img alt="' . base64_encode($row['description']) . '" title="' . base64_encode($row['description']) . '" src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> ' . $row['name'] . ' ' . $row['description'] . ' ' . $row['cost'] . ' <a href="addToCart.php?id=' . $row['id'] . '">Add to Cart</a></div>';
+              echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['id']. '">' . '<img alt="' . $row['description'] . '" title="' . $row['description'] . '" src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> ' . $row['name'] . ' ' . $row['description'] . ' ' . $row['cost'] . ' <a href="addToCart.php?id=' . $row['id'] . '">Add to Cart</a></div>';
               if($num < 1){
                 $num++;
               }else

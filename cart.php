@@ -38,7 +38,7 @@ require_once 'databaseClasses/transactionClass.php';
 					if($row['fullQuantity'] != 0){
 						
 						echo '<div class="row product" id="' . $row['id'] . '"> 
-				    			 <div class="col-lg-3 cartLine' . $num . '"><img alt="' . base64_encode($row['description']) . '" title="' . base64_encode($row['description']) . '"  src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
+				    			 <div class="col-lg-3 cartLine' . $num . '"><img alt="' . $row['description'] . '" title="' . $row['description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
 				    		  	 <div class="col-lg-3 cartLine' . $num . '">
