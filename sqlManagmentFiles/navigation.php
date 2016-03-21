@@ -14,7 +14,7 @@ require_once '../../databaseClasses/subcategoryClass.php';
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.php">Clash Games</a>
+      <a class="navbar-brand" href="../../index.php">Clash Games</a>
     </div>
     <div class="navbar-collapse collapse" id="navbar-collapse">
       <ul class="nav navbar-nav">
@@ -22,10 +22,11 @@ require_once '../../databaseClasses/subcategoryClass.php';
           $ifActive = array("/index.php"=>"", "/products.php"=>"", "/sqlManagmentFiles/productFiles/productIndex.php"=>"", "/contact.php"=>"", "/cart.php"=>"", "/logout.php"=>"", "/profile.php"=>"", "/register.php"=>"", "/login.php"=>"");
 
           $ifActive[$_SERVER['PHP_SELF']] = "active";
-          echo '<li class="' . $ifActive["/index.php"] . '"><a href="../index.php">Home</a></li>';
+          echo '<li class="' . $ifActive["/index.php"] . '"><a href="../../index.php">Home</a></li>';
           echo'<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
-            <ul class="dropdown-menu">';
+            <ul class="dropdown-menu">
+              <li><a href="../../products.php">All Products</a></li>';
             $subcategory = new subcategoryDataAccess();
             foreach($subcategory->readData(1)[1] as $innerRow)
             {

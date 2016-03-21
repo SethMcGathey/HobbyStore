@@ -25,7 +25,8 @@ require_once 'databaseClasses/subcategoryClass.php';
           echo '<li class="' . $ifActive["/index.php"] . '"><a href="index.php">Home</a></li>';
           echo'<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
-            <ul class="dropdown-menu">';
+            <ul class="dropdown-menu">
+              <li><a href="../../products.php">All Products</a></li>';
             $subcategory = new subcategoryDataAccess();
             foreach($subcategory->readData(1)[1] as $innerRow)
             {
@@ -47,7 +48,7 @@ require_once 'databaseClasses/subcategoryClass.php';
                 <li><a href="sqlManagmentFiles/paymentFiles/paymentIndex.php">Payment</a></li>
                 <li><a href="sqlManagmentFiles/product_binFiles/product_binIndex.php">Product Bin</a></li>
                 <li><a href="sqlManagmentFiles/product_tagFiles/product_tagIndex.php">Product Tag</a></li>
-                <li><a href="sqlManagmentFiles/productFiles/productIndex.php">ProductS</a></li>
+                <li><a href="sqlManagmentFiles/productFiles/productIndex.php">Product</a></li>
                 <li><a href="sqlManagmentFiles/shipment_centerFiles/shipment_centerIndex.php">Shipment Center</a></li>
                 <li><a href="sqlManagmentFiles/subcategoryFiles/subcategoryIndex.php">Subcategory</a></li>
                 <li><a href="sqlManagmentFiles/tagFiles/tagIndex.php">Tag</a></li>
