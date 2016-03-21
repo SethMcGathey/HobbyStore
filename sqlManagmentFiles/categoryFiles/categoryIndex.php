@@ -31,7 +31,7 @@ require_once '../../databaseClasses/categoryClass.php';
                       </thead>
                       <tbody>
                       <?php
-                        $categoryCreate = new categoryCreateDataAccess();
+                        $categoryCreate = new categoryDataAccess();
                         foreach ($categoryCreate->readData()[1] as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['name'] . '</td>';
