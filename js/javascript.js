@@ -19,7 +19,6 @@ function hideSubcategories(start){
 		$(".categoryId1").show();
 		$(".categoryId2").hide();
 		$(".categoryId3").hide();
-		console.log('with var');
 	}else
 	{
 		var clickedId = this.id;
@@ -27,7 +26,6 @@ function hideSubcategories(start){
 		$(".categoryId2").hide();
 		$(".categoryId3").hide();
 		$(".categoryId" + clickedId).show();
-		console.log('without var');
 	}
 };
 
@@ -107,33 +105,6 @@ $(document).ready(function(){
 })
 $("#plusQuantity").onclick()*/
 
-function changeQuantity(quantity, id, transaction_id){
-	console.log('made it to function');
-	$.ajax({
-			url: "updateQuantity.php",
-		    method: 'GET',
-		    //dataType:"json",
-		   	data: {quantity, id, transaction_id},
-		    success: function(){
-		    	console.log('madeit');
-		    	//14 transaction_id
-		    	/*console.log(dataVar);
-		    	console.log(dataVar.html);
-		    	console.log(dataVar[2]);
-		    	htmlEditor.setValue(dataVar.html);
-		    	javascriptEditor.setValue(dataVar.javascript);
-		    	cssEditor.setValue(dataVar.css);
-		    	result = dataVar;*/
-		     //$("#responseArea").text(data);
-		     
-		     //setCodeBoxes(result);
-
-		    },
-		    error : function() {
-			 		alert("error");
-			 	}
-		 });
-}
 
 function makeChanges(tableName){
 	$.ajax({
