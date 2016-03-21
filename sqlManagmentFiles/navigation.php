@@ -34,6 +34,8 @@ require_once '../../databaseClasses/subcategoryClass.php';
           </li>';
           if($_SESSION['permission'] == 1)
           {
+            //<li><a href="../customer_addressFiles/customer_addressIndex.php">Customer Address</a></li>
+            //<li><a href="../customer_paymentFiles/customer_paymentIndex.php">Customer Payment</a></li>
             //echo '<li class="' . $ifActive["/sqlManagmentFiles/productFiles/productIndex.php"] . '"><a href="sqlManagmentFiles/productFiles/productIndex.php">Admin</a></li>';
             echo'<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tables <span class="caret"></span></a>
@@ -42,8 +44,7 @@ require_once '../../databaseClasses/subcategoryClass.php';
                 <li><a href="../binFiles/binIndex.php">Bin</a></li>
                 <li><a href="../categoryFiles/categoryIndex.php">Category</a></li>
                 <li><a href="../customerFiles/customerIndex.php">Customer</a></li>
-                <li><a href="../customer_addressFiles/customer_addressIndex.php">Customer Address</a></li>
-                <li><a href="../customer_paymentFiles/customer_paymentIndex.php">Customer Payment</a></li>
+                
                 <li><a href="../imageFiles/imageIndex.php">Image</a></li>
                 <li><a href="../paymentFiles/paymentIndex.php">Payment</a></li>
                 <li><a href="../product_binFiles/product_binIndex.php">Product Bin</a></li>
