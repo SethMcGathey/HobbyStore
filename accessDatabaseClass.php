@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
 require_once 'sessionStart.php'; 
 $pdo = Database::connect();
 
@@ -18,7 +20,7 @@ abstract class accessDatabase{
 	        return $returnArray;
 
 	    }catch(PDOException $error){
-            header("Location: 500.php");
+            //header("Location: 500.php");
             die();
         }
 	}
@@ -32,7 +34,7 @@ abstract class accessDatabase{
 	        Database::disconnect();
 
 	    }catch(PDOException $error){
-            header("Location: 500.php");
+            //header("Location: 500.php");
             die();
         }
 	}
