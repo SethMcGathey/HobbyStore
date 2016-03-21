@@ -28,7 +28,7 @@ require_once '../../databaseClasses/subcategoryClass.php';
             $subcategory = new subcategoryDataAccess();
             foreach($subcategory->readData(1)[1] as $innerRow)
             {
-              echo '<li><a href="products.php?id=' . $innerRow['id'] . '">' . $innerRow['name'] . '</a></li>';
+              echo '<li><a href="../../products.php?id=' . $innerRow['id'] . '">' . $innerRow['name'] . '</a></li>';
             }
             echo'</ul>
           </li>';
@@ -70,16 +70,16 @@ require_once '../../databaseClasses/subcategoryClass.php';
               $quantity = $row['fullQuantity'];
           }
 
-          echo '<li class="' . $ifActive["/cart.php"] . '"><a href="../cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart ' . $quantity . '</a></li>';
+          echo '<li class="' . $ifActive["/cart.php"] . '"><a href="../../cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>Cart ' . $quantity . '</a></li>';
 
               if(isset($_SESSION['username']))
               {
-                echo '<li class="' . $ifActive["/logout.php"] . '"><a href="../logout.php"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>';
-                echo '<li class="' . $ifActive["/profile.php"] . '"><a href="../profile.php">Welcome, ' . $_SESSION['username'] . '</a></li>';
+                echo '<li class="' . $ifActive["/logout.php"] . '"><a href="../../logout.php"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>';
+                echo '<li class="' . $ifActive["/profile.php"] . '"><a href="../../profile.php">Welcome, ' . $_SESSION['username'] . '</a></li>';
               }else
               {
-                echo '<li class="' . $ifActive["/register.php"] . '"><a href="../register.php"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>';
-                echo '<li class="' . $ifActive["/login.php"] . '"><a href="../login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>';
+                echo '<li class="' . $ifActive["/register.php"] . '"><a href="../../register.php"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>';
+                echo '<li class="' . $ifActive["/login.php"] . '"><a href="../../login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>';
               }
         ?>
       </ul>
