@@ -13,7 +13,7 @@ require_once '../../databaseClasses/tagClass.php';
   <?php require_once '../../header.php' ?>
 
   <body>
-      <?php require_once '../../navigation.php' ?>
+      <?php require_once '../navigation.php' ?>
 
       <div class="container">
             <div class="row">
