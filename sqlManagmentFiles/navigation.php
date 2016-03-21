@@ -68,8 +68,18 @@ require_once '../../databaseClasses/subcategoryClass.php';
         
       echo '</ul>
       <ul class="nav navbar-nav navbar-right">';
-
-
+      ?>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <form class="navbar-form" role="search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="searchField" id="searchField">
+              </div>
+            </form>
+          </ul>
+      </li>
+      <?php
           $sql = 'SELECT SUM(quantity) as fullQuantity FROM transaction t JOIN transaction_product tp ON tp.transaction_id = t.id JOIN product p ON p.id = tp.product_id JOIN image i ON i.product_id = p.id WHERE cart = 1 AND customer_ID = 3';
           foreach ($pdo->query($sql) as $row) {
               $quantity = $row['fullQuantity'];
@@ -88,13 +98,6 @@ require_once '../../databaseClasses/subcategoryClass.php';
               }
         ?>
       </ul>
-        <div class="col-sm-3 col-md-3 pull-right">
-        <form class="navbar-form" role="search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="searchField" id="searchField">
-        </div>
-        </form>
-        </div>
     </div>
   </div>
 </nav>
