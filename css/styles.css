@@ -69,17 +69,12 @@ p{
 	border-top: solid;
 }
 
-.cartLine0{
+.cartLine{
 	/*background-color: #E8E8E8;*/
 	border-top: solid;
-	height:100px;
+	/*height:100px;*/
 }
 
-.cartLine1{
-	/*background-color: #FFFFFF ;*/ 
-	border-top: solid;
-	height:100px;
-}
 
 
 .rightAlign{
