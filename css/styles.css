@@ -69,7 +69,12 @@ p{
 	border-top: solid;
 }
 
-.cartLine{
+.cartLine0{
+	/*background-color: #E8E8E8;*/
+	border-top: solid;
+	/*height:100px;*/
+}
+.cartLine1{
 	/*background-color: #E8E8E8;*/
 	border-top: solid;
 	/*height:100px;*/
