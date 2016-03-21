@@ -82,11 +82,15 @@ require_once 'databaseClasses/subcategoryClass.php';
         ?>
       </ul>
         <div class="col-sm-3 col-md-3 pull-right">
-        <form class="navbar-form" role="search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="searchField" id="searchField">
-        </div>
-        </form>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <form class="navbar-form" role="search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="searchField" id="searchField">
+              </div>
+            </form>
+          </ul>
+
         </div>
     </div>
   </div>
