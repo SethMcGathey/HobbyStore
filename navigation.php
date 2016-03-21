@@ -34,30 +34,33 @@ require_once 'databaseClasses/subcategoryClass.php';
             }
             echo'</ul>
           </li>';
-          if($_SESSION['permission'] == 1)
+          if(!empty($_SESSION['permission']))
           {
-            //echo '<li class="' . $ifActive["/sqlManagmentFiles/productFiles/productIndex.php"] . '"><a href="sqlManagmentFiles/productFiles/productIndex.php">Admin</a></li>';
-            echo'<li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tables <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="sqlManagmentFiles/addressFiles/addressIndex.php">Address</a></li>
-                <li><a href="sqlManagmentFiles/binFiles/binIndex.php">Bin</a></li>
-                <li><a href="sqlManagmentFiles/categoryFiles/categoryIndex.php">Category</a></li>
-                <li><a href="sqlManagmentFiles/customerFiles/customerIndex.php">Customer</a></li>
-                <li><a href="sqlManagmentFiles/imageFiles/imageIndex.php">Image</a></li>
-                <li><a href="sqlManagmentFiles/paymentFiles/paymentIndex.php">Payment</a></li>
-                <li><a href="sqlManagmentFiles/product_binFiles/product_binIndex.php">Product Bin</a></li>
-                <li><a href="sqlManagmentFiles/product_tagFiles/product_tagIndex.php">Product Tag</a></li>
-                <li><a href="sqlManagmentFiles/productFiles/productIndex.php">Product</a></li>
-                <li><a href="sqlManagmentFiles/shipment_centerFiles/shipment_centerIndex.php">Shipment Center</a></li>
-                <li><a href="sqlManagmentFiles/subcategoryFiles/subcategoryIndex.php">Subcategory</a></li>
-                <li><a href="sqlManagmentFiles/tagFiles/tagIndex.php">Tag</a></li>
-                <li><a href="sqlManagmentFiles/transaction_addressFiles/transaction_addressIndex.php">Transaction Address</a></li>
-                <li><a href="sqlManagmentFiles/transaction_productFiles/transaction_productIndex.php">Transaction Product</a></li>
-                <li><a href="sqlManagmentFiles/transactionFiles/transactionIndex.php">Transaction</a></li>
-                <li><a href="sqlManagmentFiles/Files/lkmerIndex.php"></a></li>
-                <li><a href="sqlManagmentFiles/Files/lkermgIndex.php"></a></li>
-            </ul>';
+            if($_SESSION['permission'] == 1)
+            {
+              //echo '<li class="' . $ifActive["/sqlManagmentFiles/productFiles/productIndex.php"] . '"><a href="sqlManagmentFiles/productFiles/productIndex.php">Admin</a></li>';
+              echo'<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tables <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a href="sqlManagmentFiles/addressFiles/addressIndex.php">Address</a></li>
+                  <li><a href="sqlManagmentFiles/binFiles/binIndex.php">Bin</a></li>
+                  <li><a href="sqlManagmentFiles/categoryFiles/categoryIndex.php">Category</a></li>
+                  <li><a href="sqlManagmentFiles/customerFiles/customerIndex.php">Customer</a></li>
+                  <li><a href="sqlManagmentFiles/imageFiles/imageIndex.php">Image</a></li>
+                  <li><a href="sqlManagmentFiles/paymentFiles/paymentIndex.php">Payment</a></li>
+                  <li><a href="sqlManagmentFiles/product_binFiles/product_binIndex.php">Product Bin</a></li>
+                  <li><a href="sqlManagmentFiles/product_tagFiles/product_tagIndex.php">Product Tag</a></li>
+                  <li><a href="sqlManagmentFiles/productFiles/productIndex.php">Product</a></li>
+                  <li><a href="sqlManagmentFiles/shipment_centerFiles/shipment_centerIndex.php">Shipment Center</a></li>
+                  <li><a href="sqlManagmentFiles/subcategoryFiles/subcategoryIndex.php">Subcategory</a></li>
+                  <li><a href="sqlManagmentFiles/tagFiles/tagIndex.php">Tag</a></li>
+                  <li><a href="sqlManagmentFiles/transaction_addressFiles/transaction_addressIndex.php">Transaction Address</a></li>
+                  <li><a href="sqlManagmentFiles/transaction_productFiles/transaction_productIndex.php">Transaction Product</a></li>
+                  <li><a href="sqlManagmentFiles/transactionFiles/transactionIndex.php">Transaction</a></li>
+                  <li><a href="sqlManagmentFiles/Files/lkmerIndex.php"></a></li>
+                  <li><a href="sqlManagmentFiles/Files/lkermgIndex.php"></a></li>
+              </ul>';
+            }
           }
         
       echo '</ul>
