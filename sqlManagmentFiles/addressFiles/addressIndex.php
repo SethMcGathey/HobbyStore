@@ -11,13 +11,17 @@ require_once '../../databaseClasses/addressClass.php';
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once '../../header.php' ?>
+<head>
+    <meta charset="utf-8">
+    <link   href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
 
 <body>
   <?php require_once '../navigation.php' ?>
     <div class="container">
             <div class="row">
-                <h3>Address</h3>
+                <h3>PHP CRUD Grid</h3>
             </div>
             <div class="row">
                 <p>
