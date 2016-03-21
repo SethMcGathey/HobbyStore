@@ -12,7 +12,7 @@ require_once '../../databaseClasses/binClass.php';
   <?php require_once '../navigation.php' ?>
     <div class="container">
             <div class="row">
-                <h3>PHP CRUD Grid</h3>
+                <h3>Bin</h3>
             </div>
             <div class="row">
                 <p>

@@ -13,7 +13,7 @@ require_once '../../databaseClasses/product_binClass.php';
     <div class="container">
 
             <div class="row">
-                <h3>PHP CRUD Grid</h3>
+                <h3>Product Bin</h3>
             </div>
             <div class="row">
                 <p>

@@ -13,7 +13,7 @@ require_once '../../databaseClasses/product_tagClass.php';
     <div class="container">
 
             <div class="row">
-                <h3>PHP CRUD Grid</h3>
+                <h3>Product Tag</h3>
             </div>
             <div class="row">
                 <p>

@@ -18,7 +18,7 @@ require_once '../../databaseClasses/tagClass.php';
 
       <div class="container">
             <div class="row">
-                <h3>PHP CRUD Grid</h3>
+                <h3>Tag</h3>
             </div>
             <div class="row">
                 <p>

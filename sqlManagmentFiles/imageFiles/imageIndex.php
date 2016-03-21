@@ -13,7 +13,7 @@ require_once '../../databaseClasses/imageClass.php';
     <div class="container">
 
             <div class="row">
-                <h3>PHP CRUD Grid</h3>
+                <h3>Image</h3>
             </div>
             <div class="row">
                 <p>
