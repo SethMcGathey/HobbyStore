@@ -10,7 +10,7 @@ require_once 'databaseClasses/transactionClass.php';
 	<?php require_once 'header.php' ?>
 	<body>
 		<?php require_once 'navigation.php' ?>
-		<div class="container-fluid" id="Not_Ajax_Output">
+		<div class="container" id="Not_Ajax_Output">
 			<h1>Cart</h1>
 <!--
 			<div class="row">
@@ -35,10 +35,10 @@ require_once 'databaseClasses/transactionClass.php';
 					if($row['fullQuantity'] != 0){
 						
 						echo '<div class="row product" id="' . $row['id'] . '"> 
-				    			 <div class="col-lg-3 cartLine' . $num . '"><img alt="' . $row['description'] . '" title="' . $row['description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
-				    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
-				    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
-				    		  	 <div class="col-lg-3 cartLine' . $num . '">
+				    			 <div class="col-3-lg cartLine' . $num . '"><img alt="' . $row['description'] . '" title="' . $row['description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
+				    		  	 <div class="col-3-lg cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
+				    		  	 <div class="col-3-lg cartLine' . $num . '">$' . $row['cost'] . '</div> 
+				    		  	 <div class="col-3-lg cartLine' . $num . '">
 				    	   		 <a class="minusButtons" href="updateQuantity.php?id=' . $row['id'] . '&direction=minus">-</a>
 				    			 '. $row['fullQuantity'] . '
 				    			 <a class="plusButtons" href="updateQuantity.php?id=' . $row['id'] . '&direction=plus">+</a>
