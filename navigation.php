@@ -4,7 +4,6 @@ require_once 'accessDatabaseClass.php';
 
 require_once 'databaseClasses/categoryClass.php';
 require_once 'databaseClasses/subcategoryClass.php';
-require_once 'header.php'; 
 ?>
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
