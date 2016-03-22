@@ -57,7 +57,7 @@ require_once 'databaseClasses/transactionClass.php';
 		            }
 				}
 				echo '<div class="row product" id="totals"> 
-				    		  	 <div class="col-lg-3 cartLine' . $num . '">Total: $' . $overallTotal . '.00</div> 
+				    		  	 <div class="col-lg-3 cartLine rightAlign' . $num . '">Total: $' . $overallTotal . '.00</div> 
 				    	      </div> ';
 			?>
 			<button onclick="window.location.href='choosePurchaseAddress.php'">Purchase</button>
