@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
 class subcategoryDataAccess extends accessDatabase{
     public function readData(){
         $columns = array();

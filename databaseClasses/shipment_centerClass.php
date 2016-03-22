@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
 class shipment_centerDataAccess extends accessDatabase{
     public function readData(){
         $columns = array();

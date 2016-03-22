@@ -12,7 +12,6 @@ require_once 'databaseClasses/transactionClass.php';
 		<?php require_once 'navigation.php' ?>
 		<div class="container" id="Not_Ajax_Output">
 			<h1>Cart</h1>
-<!--
 			<div class="row">
 				<div class="col-lg-3">
 				</div>
@@ -26,7 +25,6 @@ require_once 'databaseClasses/transactionClass.php';
 					<p>Quantity</p>
 				</div>
 			</div>
--->
 			<?php
 				$num=0;
 				$overallTotal = 0;
