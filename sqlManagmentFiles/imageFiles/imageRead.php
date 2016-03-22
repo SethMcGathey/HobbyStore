@@ -52,7 +52,7 @@ require_once '../../databaseClasses/imageClass.php';
                         <label class="control-label">Image</label>
                         <div class="controls">
                             <p class="checkbox">
-                                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/>';?>
+                                <?php echo base64_encode($data['image']);?>
                             </p>
                         </div>
                       </div>

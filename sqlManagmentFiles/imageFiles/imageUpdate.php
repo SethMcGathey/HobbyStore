@@ -107,7 +107,7 @@
                       <div class="control-group <?php echo !empty($imageError)?'error':'';?>">
                         <label class="control-label">Image</label>
                         <div class="controls">
-                            <input name="image" type="text" placeholder="Image" value="<?php echo !empty($image)?'<img src="data:image/jpeg;base64,' . base64_encode(image) . '"width="100px"/>$image:';?>">
+                            <input name="image" type="text" placeholder="Image" value="<?php echo !empty($image)?$image:'';?>">
                             <?php if (!empty($imageError)): ?>
                                 <span class="help-inline"><?php echo $imageError;?></span>
                             <?php endif;?>
