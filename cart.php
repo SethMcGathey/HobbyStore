@@ -1,21 +1,16 @@
-<?php
+<?php 
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
-
-require_once 'sessionStart.php'; 
-
+require_once 'sessionStart.php';
 require_once 'accessDatabaseClass.php'; 
 require_once 'databaseClasses/transactionClass.php';
-?>
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 	<?php require_once 'header.php' ?>
-	<link   href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-
 	<body>
 		<?php require_once 'navigation.php' ?>
-
-		<div class="container" id="Not_Ajax_Output">
+		<div class="container-fluid" id="Not_Ajax_Output">
 			<h1>Cart</h1>
 <!--
 			<div class="row">
