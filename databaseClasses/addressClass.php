@@ -49,7 +49,7 @@ class addressDataAccess extends accessDatabase{
 
 		$columns = array($id);
 		$sql = "SELECT a.id FROM customer_address c JOIN address a ON c.address_id = a.id WHERE address_id = ?";
-		return parent::doSql($sql, $columns);
+		parent::doSql($sql, $columns);
 
 		$columns = array($id);
 		$sql = "DELETE FROM bin WHERE shipment_center_id = ?";
