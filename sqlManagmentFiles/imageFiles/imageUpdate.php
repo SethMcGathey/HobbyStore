@@ -82,7 +82,7 @@
 
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Update a Image</h3>
+                        <h3>Update an Image</h3>
                     </div>
 
                     <form class="form-horizontal" action="imageUpdate.php?id=<?php echo $id?>" method="post">
@@ -107,7 +107,7 @@
                       <div class="control-group <?php echo !empty($imageError)?'error':'';?>">
                         <label class="control-label">Image</label>
                         <div class="controls">
-                            <input name="image" type="text" placeholder="Image" value="<?php echo !empty($image)?$image:'';?>">
+                            <input name="image" type="text" placeholder="Image" value="<?php echo !empty($image)?'<img src="data:image/jpeg;base64,' . base64_encode(image) . '"width="100px"/>$image:';?>">
                             <?php if (!empty($imageError)): ?>
                                 <span class="help-inline"><?php echo $imageError;?></span>
                             <?php endif;?>
