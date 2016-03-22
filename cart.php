@@ -29,6 +29,7 @@ require_once 'databaseClasses/transactionClass.php';
 -->
 			<?php
 				$num=0;
+				$overallTotal = 0;
 				$transaction = new transactionDataAccess();
                 foreach($transaction->readDataForCart($_SESSION['customerid'])[1] as $row)
 				{
@@ -45,6 +46,7 @@ require_once 'databaseClasses/transactionClass.php';
 				    			 <div class="rightAlign"><a href="updateQuantity.php?id=' . $row['id'] . '&remove=remove">Remove</a></div>
 				    	 	  	 </div>
 				    	      </div> ';
+				    	$overallTotal += $row['cost'];
 				    	if($num < 1)
 		               	{
 		                	$num++;
@@ -54,6 +56,9 @@ require_once 'databaseClasses/transactionClass.php';
 		                }
 		            }
 				}
+				echo '<div class="row product" id="totals"> 
+				    		  	 <div class="col-lg-3 cartLine' . $num . '">Total: $' . $overallTotal . '.00</div> 
+				    	      </div> ';
 			?>
 			<button onclick="window.location.href='choosePurchaseAddress.php'">Purchase</button>
 
