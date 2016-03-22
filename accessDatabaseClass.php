@@ -21,7 +21,8 @@ abstract class accessDatabase{
 
 	    }catch(PDOException $error){
             //header("Location: 500.php");
-            header("Location: ../../500.php?msg=creating%20an%20address");
+            //header("Location: ../../500.php?msg=creating%20an%20address");
+            echo $error->getMessage();
             die();
         }
 	}
@@ -36,7 +37,8 @@ abstract class accessDatabase{
 
 	    }catch(PDOException $error){
             //header("Location: 500.php");
-            header("Location: ../../500.php?msg=creating%20an%20address");
+            //header("Location: ../../500.php?msg=creating%20an%20address");
+            echo $error->getMessage();
             die();
         }
 	}
