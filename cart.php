@@ -10,6 +10,8 @@ require_once 'databaseClasses/transactionClass.php';
 <!DOCTYPE html>
 <html lang="en">
 	<?php require_once 'header.php' ?>
+	<link   href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
 	<body>
 		<?php require_once 'navigation.php' ?>
 
@@ -67,5 +69,6 @@ require_once 'databaseClasses/transactionClass.php';
 		</div>
 
 	</body>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
 	<?php require_once 'footer.php' ?>
 </html>
