@@ -69,6 +69,7 @@ require_once 'databaseClasses/transactionClass.php';
 		</div>
 
 	</body>
+	<script src="js/jquery-2.1.4.min.js" type="text/javascript"> </script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
 	<?php require_once 'footer.php' ?>
 </html>
