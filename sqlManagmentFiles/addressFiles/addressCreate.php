@@ -64,6 +64,7 @@ require_once '../../databaseClasses/addressClass.php';
             if ( !empty($_POST)) {
                 $address = new addressDataAccess();
                 $data = $address->createData($city, $country, $state,$street_one,$street_two,$zipcode,$_SESSION['customerid']);
+                header("Location: addressIndex.php");
             }
         }
     }
