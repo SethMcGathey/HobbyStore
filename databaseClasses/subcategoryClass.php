@@ -34,7 +34,7 @@ class subcategoryDataAccess extends accessDatabase{
     public function deleteData($id){
             //deleting product related rows before we can delete a subcategory
             $columns = array($subcategory_id);
-            $sql = "SELECT * FROM product WHERE subcategory_id = ?";
+            $sql = "SELECT id FROM product WHERE subcategory_id = ?";
             $product_id = parent::doSql($sql, $columns);
 
                 $columns = array($product_id);

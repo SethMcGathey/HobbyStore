@@ -34,7 +34,7 @@ class categoryDataAccess extends accessDatabase{
             $subcategory_id = parent::doSql($sql, $columns);
 
             $columns = array($subcategory_id);
-            $sql = "SELECT * FROM product WHERE subcategory_id = ?";
+            $sql = "SELECT id FROM product WHERE subcategory_id = ?";
             $product_id = parent::doSql($sql, $columns);
 
                 $columns = array($product_id);
