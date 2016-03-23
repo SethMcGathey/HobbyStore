@@ -27,7 +27,7 @@ class addressDataAccess extends accessDatabase{
 	public function createData($city,$country,$state,$street_one,$street_two,$zipcode,$customer_id){
 		$columns = array($city,$country,$state,$street_one,$street_two,$zipcode);
 		$sql = "INSERT INTO address (city,country,state,street_one,street_two,zipcode) values(?, ?, ?, ?, ?, ?)";
-		$address_id = parent::doSql($sql, $columns);
+		$address_id = parent::changeSql($sql, $columns);
 
 		$columns2 = array($customer_id, $address_id);
 		$sql2 = "INSERT INTO customer_address (customer_id, address_id) values(?, ?)";

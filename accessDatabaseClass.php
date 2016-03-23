@@ -33,7 +33,9 @@ abstract class accessDatabase{
 	        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	        $q = $pdo->prepare($sqlVar);
 	        $q->execute($inputValues);
+	        $returnId = $pdo->lastInsertId();
 	        Database::disconnect();
+	        return $returnId;
 
 	    }catch(PDOException $error){
             //header("Location: 500.php");
