@@ -47,12 +47,39 @@ require_once 'databaseClasses/transaction_productClass.php';
 				</div>
 			</div>
 			<div class="row">
-				<?php
-					$sql = 'SELECT p.id, name, cost, p.description, i.description as imageDescription, SUM(quantity) as fullQuantity, image FROM transaction t JOIN transaction_product tp ON tp.transaction_id = t.id JOIN product p ON p.id = tp.product_id JOIN image i ON i.product_id = p.id WHERE cart = 1 AND customer_ID = 3 GROUP BY id';
-						foreach ($pdo->query($sql) as $row) {
-						    echo '<div class="col-4-lg product" id="' . $row['id']. '">' . '<img alt="' . $row['imageDescription'] . '" title="' . $row['imageDescription'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> <p>' . $row['name'] . '</p> <p>' . $row['description'] . '</p> <p>$' . $row['cost'] . '.00</p> <p>Quantity: ' . $row['fullQuantity'] . '</p></div>';
-						}
-				?>
+			<?php
+				$num=0;
+				$overallTotal = 0;
+				$transaction = new transactionDataAccess();
+                foreach($transaction->readDataForCart($_SESSION['customerid'])[1] as $row)
+				{
+					if($row['fullQuantity'] != 0){
+						
+						echo '<div class="row product" id="' . $row['id'] . '"> 
+				    			 <div class="col-lg-3 cartLine' . $num . '"><img alt="' . $row['description'] . '" title="' . $row['description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> </div>
+				    		  	 <div class="col-lg-3 cartLine' . $num . '">' . $row['name'] . '<br> ' . $row['description'] . '</div> 
+				    		  	 <div class="col-lg-3 cartLine' . $num . '">$' . $row['cost'] . '</div> 
+				    		  	 <div class="col-lg-3 cartLine' . $num . '">
+				    	   		 <a class="minusButtons" href="updateQuantity.php?id=' . $row['id'] . '&direction=minus">-</a>
+				    			 '. $row['fullQuantity'] . '
+				    			 <a class="plusButtons" href="updateQuantity.php?id=' . $row['id'] . '&direction=plus">+</a>
+				    			 <div class="rightAlign"><a href="updateQuantity.php?id=' . $row['id'] . '&remove=remove">Remove</a></div>
+				    	 	  	 </div>
+				    	      </div> ';
+				    	$overallTotal += $row['cost'];
+				    	if($num < 1)
+		               	{
+		                	$num++;
+		                }else
+		                {
+							$num = 0;
+		                }
+		            }
+				}
+				echo '<div class="row product" id="totals"> 
+				    		  	 <div class="col-lg-3 rightAlign' . $num . '">Total: $' . $overallTotal . '.00</div> 
+				    	      </div> ';
+			?>
 			</div>
 			<button onclick="window.location.href='updateCartAfterPurchase.php'">Confirm Purchase</button>
 		</div>
