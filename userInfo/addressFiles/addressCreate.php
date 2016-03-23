@@ -148,6 +148,7 @@ require_once '../../databaseClasses/addressClass.php';
                 </div>
 
     </div> <!-- /container -->
+    </body>
+
     <?php require_once '../../footer.php' ?>
-  </body>
 </html>

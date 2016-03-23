@@ -63,6 +63,8 @@ require_once '../../databaseClasses/addressClass.php';
                 </table>
         </div>
     </div> <!-- container -->
+    </body>
+
     <?php require_once '../../footer.php' ?>
-  </body>
 </html>
+
