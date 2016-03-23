@@ -213,7 +213,7 @@
 
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Update</button>
-                          <a class="btn" href="index.php">Back</a>
+                          <a class="btn" href="customerIndex.php">Back</a>
                         </div>
                     </form>
                 </div>
