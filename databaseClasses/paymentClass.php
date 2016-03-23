@@ -38,7 +38,7 @@ class paymentDataAccess extends accessDatabase{
             //deleting transaction related stuff before deleting transaction
             $columns = array($id);
             $sql = "SELECT id FROM transaction WHERE payment_id = ?";
-            $transaction_id parent::doSql($sql, $columns);
+            $transaction_id = parent::doSql($sql, $columns);
 
             $columns = array($transaction_id);
             $sql = "DELETE FROM transaction_product  WHERE transaction_id = ?";

@@ -49,7 +49,7 @@ class customerDataAccess extends accessDatabase{
     public function deleteData($id){
         $columns = array($id);
         $sql = "SELECT id FROM transaction WHERE customer_id = ?";
-        $transaction_id parent::doSql($sql, $columns);
+        $transaction_id = parent::doSql($sql, $columns);
 
 
         $columns = array($transaction_id);
