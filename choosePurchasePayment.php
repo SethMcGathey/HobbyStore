@@ -14,7 +14,7 @@ require_once 'databaseClasses/paymentClass.php';
     <?php require_once 'navigation.php' ?>
     <div class="container">
             <div class="row">
-                <h3>PHP CRUD Grid</h3>
+                <h3>Choose Credit Card</h3>
             </div>
             <div class="row">
                 <p>
