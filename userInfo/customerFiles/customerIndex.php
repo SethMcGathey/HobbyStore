@@ -1,8 +1,8 @@
 <?php
-require_once '../../sessionStart.php'; 
+require_once '../sessionStart.php'; 
 
-require_once '../../accessDatabaseClass.php'; 
-require_once '../../databaseClasses/customerClass.php';
+require_once '../accessDatabaseClass.php'; 
+require_once '../databaseClasses/customerClass.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
