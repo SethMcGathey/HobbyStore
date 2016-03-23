@@ -1,11 +1,11 @@
 <?php
-
+     
     require_once '../../database.php';
-
+ 
     if ( !empty($_POST)) {
         // keep track validation errors
-        $first_nameError = null;
-        $last_nameError = null;
+        $firstnameError = null;
+        $lastnameError = null;
         $emailError = null;
         $phoneError = null;
         $dobError = null;
@@ -15,8 +15,8 @@
         $usernameError = null;
 
         // keep track post values
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $dob = $_POST['dob'];
@@ -24,65 +24,17 @@
         $password = $_POST['password'];
         $permission = $_POST['permission'];
         $username = $_POST['username'];
-
+       
         // validate input
         $valid = true;
-        if (empty($first_name)) {
-            $first_nameError = 'Please enter First Name';
-            $valid = false;
-        }
 
-        if (empty($last_name)) {
-            $last_nameError = 'Please enter Last Name';
-            $valid = false;
-        }
-
-        if (empty($email)) {
-            $emailError = 'Please enter Email Address';
-            $valid = false;
-        } else if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
-            $emailError = 'Please enter a valid Email Address';
-            $valid = false;
-        }
-
-        if (empty($phone)) {
-            $phoneError = 'Please enter Phone Number';
-            $valid = false;
-        }
-
-        if (empty($dob)) {
-            $dobError = 'Please enter Date of Birth';
-            $valid = false;
-        }
-
-        if (empty($gender)) {
-            $genderError = 'Please enter Gender';
-            $valid = false;
-        }
-
-        if (empty($password)) {
-            $passwordError = 'Please enter Password';
-            $valid = false;
-        }
-
-        if (empty($permission)) {
-            $permissionError = 'Please enter Permission';
-            $valid = false;
-        }
-
-        if (empty($username)) {
-            $usernameError = 'Please enter Username';
-            $valid = false;
-        }
-
-
-        // insert data
+	// insert data
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO customer (first_name,last_name,email,phone,dob,gender,password,permission,username) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO customer (name,email,phone) values(?, ?, ?)";
             $q = $pdo->prepare($sql);
-            $q->execute(array($first_name, $last_name, $email,$phone,$dob,$gender,$password,$permission,$username));
+            $q->execute(array($name,$email,$phone));
             Database::disconnect();
             header("Location: index.php");
         }
@@ -103,22 +55,22 @@
                         <h3>Create a Customer</h3>
                     </div>
 
-                    <form class="form-horizontal" action="customerCreate.php" method="post">
-                      <div class="control-group <?php echo !empty($first_nameError)?'error':'';?>">
+                    <form class="form-horizontal" action="create2.php" method="post">
+                      <div class="control-group <?php echo !empty($fisrtnameError)?'error':'';?>">
                         <label class="control-label">First Name</label>
                         <div class="controls">
-                            <input name="first_name" type="text"  placeholder="First Name" value="<?php echo !empty($first_name)?$first_name:'';?>">
-                            <?php if (!empty($first_nameError)): ?>
-                                <span class="help-inline"><?php echo $first_nameError;?></span>
+                            <input name="firstname" type="text"  placeholder="First Name" value="<?php echo !empty($firstname)?$firstsame:'';?>">
+                            <?php if (!empty($nameError)): ?>
+                                <span class="help-inline"><?php echo $nameError;?></span>
                             <?php endif; ?>
                         </div>
                       </div>
-                      <div class="control-group <?php echo !empty($last_nameError)?'error':'';?>">
+                      <div class="control-group <?php echo !empty($lastnameError)?'error':'';?>">
                         <label class="control-label">Last Name</label>
                         <div class="controls">
-                            <input name="last_name" type="text"  placeholder="Last Name" value="<?php echo !empty($last_name)?$last_name:'';?>">
-                            <?php if (!empty($last_nameError)): ?>
-                                <span class="help-inline"><?php echo $last_nameError;?></span>
+                            <input name="lastname" type="text"  placeholder="Last Name" value="<?php echo !empty($lastname)?$lastname:'';?>">
+                            <?php if (!empty($lastnameError)): ?>
+                                <span class="help-inline"><?php echo $lastnameError;?></span>
                             <?php endif; ?>
                         </div>
                       </div>
@@ -188,7 +140,7 @@
                       </div>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Create</button>
-                          <a class="btn" href="customerIndex.php">Back</a>
+                          <a class="btn" href="index.php">Back</a>
                         </div>
                     </form>
                 </div>
@@ -197,4 +149,4 @@
     <?php require_once '../footer.php' ?>
   </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+

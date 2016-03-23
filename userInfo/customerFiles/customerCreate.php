@@ -188,7 +188,7 @@
                       </div>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Create</button>
-                          <a class="btn" href="customerIndex.php">Back</a>
+                          <a class="btn" href="../profile.php">Back</a>
                         </div>
                     </form>
                 </div>

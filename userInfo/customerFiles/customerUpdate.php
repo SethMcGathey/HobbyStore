@@ -1,6 +1,14 @@
 <?php
-
     require_once '../../database.php';
+
+    $id = null;
+    if ( !empty($_GET['id'])) {
+        $id = $_REQUEST['id'];
+    }
+
+    if ( null==$id ) {
+        header("Location: ../profile.php");
+    }
 
     if ( !empty($_POST)) {
         // keep track validation errors
@@ -33,7 +41,7 @@
         }
 
         if (empty($last_name)) {
-            $last_nameError = 'Please enter Last Name';
+            $last_nameError = 'Please enter First Name';
             $valid = false;
         }
 
@@ -76,16 +84,33 @@
         }
 
 
-        // insert data
+        // update data
         if ($valid) {
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "INSERT INTO customer (first_name,last_name,email,phone,dob,gender,password,permission,username) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "UPDATE customer  set first_name = ?, last_name = ?, email = ?, phone =?, dob =?, gender =?, password =?, permission =?, username =? WHERE id = ?";
             $q = $pdo->prepare($sql);
-            $q->execute(array($first_name, $last_name, $email,$phone,$dob,$gender,$password,$permission,$username));
+            $q->execute(array($first_name,$last_name,$email,$phone,$dob,$gender,$password,$permission,$username,$id));
             Database::disconnect();
-            header("Location: index.php");
+            header("Location: ../profile.php");
         }
+    } else {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT * FROM customer where id = ?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($id));
+        $data = $q->fetch(PDO::FETCH_ASSOC);
+        $first_name = $data['first_name'];
+        $last_name = $data['last_name'];
+        $email = $data['email'];
+        $phone = $data['phone'];
+        $dob = $data['dob'];
+        $gender = $data['gender'];
+        $password = $data['password'];
+        $permission = $data['permission'];
+        $username = $data['username'];
+        Database::disconnect();
     }
 ?>
 
@@ -100,10 +125,10 @@
 
                 <div class="span10 offset1">
                     <div class="row">
-                        <h3>Create a Customer</h3>
+                        <h3>Update a Customer</h3>
                     </div>
 
-                    <form class="form-horizontal" action="customerCreate.php" method="post">
+                    <form class="form-horizontal" action="update.php?id=<?php echo $id?>" method="post">
                       <div class="control-group <?php echo !empty($first_nameError)?'error':'';?>">
                         <label class="control-label">First Name</label>
                         <div class="controls">
@@ -132,19 +157,18 @@
                         </div>
                       </div>
                       <div class="control-group <?php echo !empty($phoneError)?'error':'';?>">
-                        <label class="control-label">Phone Number</label>
+                        <label class="control-label">Phone</label>
                         <div class="controls">
-                            <input name="phone" type="text"  placeholder="Phone Number" value="<?php echo !empty($phone)?$phone:'';?>">
+                            <input name="phone" type="text"  placeholder="Phone" value="<?php echo !empty($phone)?$phone:'';?>">
                             <?php if (!empty($phoneError)): ?>
                                 <span class="help-inline"><?php echo $phoneError;?></span>
                             <?php endif;?>
                         </div>
                       </div>
-
                       <div class="control-group <?php echo !empty($dobError)?'error':'';?>">
                         <label class="control-label">Date of Birth</label>
                         <div class="controls">
-                            <input name="dob" type="text"  placeholder="Date of Birth" value="<?php echo !empty($dob)?$dob:'';?>">
+                            <input name="dob" type="text"  placeholder="Date Of Birth" value="<?php echo !empty($dob)?$dob:'';?>">
                             <?php if (!empty($dobError)): ?>
                                 <span class="help-inline"><?php echo $dobError;?></span>
                             <?php endif;?>
@@ -163,7 +187,7 @@
                         <label class="control-label">Password</label>
                         <div class="controls">
                             <input name="password" type="text"  placeholder="Password" value="<?php echo !empty($password)?$password:'';?>">
-                            <?php if (!empty($password)): ?>
+                            <?php if (!empty($passwordError)): ?>
                                 <span class="help-inline"><?php echo $passwordError;?></span>
                             <?php endif;?>
                         </div>
@@ -178,7 +202,7 @@
                         </div>
                       </div>
                       <div class="control-group <?php echo !empty($usernameError)?'error':'';?>">
-                        <label class="control-label">username</label>
+                        <label class="control-label">Username</label>
                         <div class="controls">
                             <input name="username" type="text"  placeholder="Username" value="<?php echo !empty($username)?$username:'';?>">
                             <?php if (!empty($usernameError)): ?>
@@ -186,9 +210,10 @@
                             <?php endif;?>
                         </div>
                       </div>
+
                       <div class="form-actions">
-                          <button type="submit" class="btn btn-success">Create</button>
-                          <a class="btn" href="customerIndex.php">Back</a>
+                          <button type="submit" class="btn btn-success">Update</button>
+                          <a class="btn" href="../profile.php">Back</a>
                         </div>
                     </form>
                 </div>
@@ -197,4 +222,4 @@
     <?php require_once '../footer.php' ?>
   </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+~        
