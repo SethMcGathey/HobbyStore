@@ -48,7 +48,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 			</div>
 			<div class="row">
 				<?php
-					$sql = 'SELECT p.id, name, cost, p.description, i.description SUM(quantity) as fullQuantity, image FROM transaction t JOIN transaction_product tp ON tp.transaction_id = t.id JOIN product p ON p.id = tp.product_id JOIN image i ON i.product_id = p.id WHERE cart = 1 AND customer_ID = 3 GROUP BY id';
+					$sql = 'SELECT p.id, name, cost, p.description, i.description, SUM(quantity) as fullQuantity, image FROM transaction t JOIN transaction_product tp ON tp.transaction_id = t.id JOIN product p ON p.id = tp.product_id JOIN image i ON i.product_id = p.id WHERE cart = 1 AND customer_ID = 3 GROUP BY id';
 						foreach ($pdo->query($sql) as $row) {
 						    echo '<div class="col-4-lg product" id="' . $row['id']. '">' . '<img alt="' . $row['i.description'] . '" title="' . $row['i.description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> ' . $row['name'] . ' ' . $row['description'] . ' ' . $row['cost'] . ' ' . $row['fullQuantity'] . '</div>';
 						}
