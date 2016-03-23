@@ -46,14 +46,14 @@ class transactionDataAccess extends accessDatabase{
     public function deleteData($id){
         $columns = array($id);
         $sql = "DELETE FROM transaction_product  WHERE transaction_id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
 
         $columns = array($id);
         $sql = "DELETE FROM transaction_address  WHERE transaction_id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
 
         $columns = array($id);
         $sql = "DELETE FROM transaction  WHERE id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 }

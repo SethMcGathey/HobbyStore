@@ -39,28 +39,28 @@ class subcategoryDataAccess extends accessDatabase{
 
                 $columns = array($product_id);
                 $sql = "DELETE FROM product_bin  WHERE product_id = ?";
-                parent::doSql($sql, $columns);
+                parent::changeSql($sql, $columns);
                 
                 $columns = array($product_id);
                 $sql = "DELETE FROM transaction_product  WHERE product_id = ?";
-                parent::doSql($sql, $columns);
+                parent::changeSql($sql, $columns);
 
                 $columns = array($product_id);
                 $sql = "DELETE FROM product_tag  WHERE product_id = ?";
-                parent::doSql($sql, $columns);
+                parent::changeSql($sql, $columns);
 
                 $columns = array($product_id);
                 $sql = "DELETE FROM image  WHERE product_id = ?";
-                parent::doSql($sql, $columns);
+                parent::changeSql($sql, $columns);
             //deleting product related rows before we can delete a subcategory
 
 
         $columns = array($id);
         $sql = "DELETE FROM product  WHERE subcategory_id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
 
         $columns = array($id);
         $sql = "DELETE FROM subcategory  WHERE id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 }

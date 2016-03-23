@@ -51,14 +51,14 @@ class paymentDataAccess extends accessDatabase{
 
         $columns = array($id);
         $sql = "DELETE FROM transaction  WHERE payment_id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
 
         $columns = array($id);
         $sql = "DELETE FROM customer_payment  WHERE payment_id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
 
         $columns = array($id);
         $sql = "DELETE FROM payment  WHERE id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 }

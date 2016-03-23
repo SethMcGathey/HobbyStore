@@ -28,6 +28,6 @@ class imageDataAccess extends accessDatabase{
     public function deleteData($id){
         $columns = array($id);
         $sql = "DELETE FROM image  WHERE id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 }

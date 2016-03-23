@@ -34,6 +34,6 @@ class customer_paymentDataAccess extends accessDatabase{
     public function deleteData($id){
         $columns = array($id);
         $sql = "DELETE FROM customer_payment WHERE id = ?";
-        parent::doSql($sql, $columns);
+        parent::changeSql($sql, $columns);
     }
 }
