@@ -21,7 +21,7 @@ require_once 'databaseClasses/customerClass.php';
             </div>
             <div class="row">
                 <p>
-                    <a href="sqlManagmentFiles/customerFiles/customerCreate.php" class="btn btn-success">Create New Address</a>
+                    <a href="userInfo/customerCreate.php" class="btn btn-success">Create New Address</a>
                 </p>
                 <table class="table table-striped table-bordered">
                       <thead>
@@ -53,11 +53,11 @@ require_once 'databaseClasses/customerClass.php';
                                 echo '<td>'. $row['permission'] . '</td>';
                                 echo '<td>'. $row['username'] . '</td>';
                                 echo '<td width=250>';
-                                echo '<a class="btn" href="sqlManagmentFiles/customerFiles/customerRead.php?id='.$row['id'].'">Read</a>';
+                                echo '<a class="btn" href="userInfo/customerRead.php?id='.$row['id'].'">Read</a>';
                                 echo ' ';
-                                echo '<a class="btn btn-success" href="sqlManagmentFiles/customerFiles/customerUpdate.php?id='.$row['id'].'">Update</a>';
+                                echo '<a class="btn btn-success" href="userInfo/customerUpdate.php?id='.$row['id'].'">Update</a>';
                                 echo ' ';
-                                echo '<a class="btn btn-danger" href="sqlManagmentFiles/customerFiles/customerDelete.php?id='.$row['id'].'">Delete</a>';
+                                echo '<a class="btn btn-danger" href="userInfo/customerDelete.php?id='.$row['id'].'">Delete</a>';
                                 echo '</td>';
                                 echo '</tr>';
                        }
@@ -70,7 +70,7 @@ require_once 'databaseClasses/customerClass.php';
             	</div>
             	<div class="row">
                 <p>
-                    <a href="sqlManagmentFiles/addressFiles/addressCreate.php" class="btn btn-success">Create Address</a>
+                    <a href="userInfo/addressCreate.php" class="btn btn-success">Create Address</a>
                 </p>
                 <table class="table table-striped table-bordered">
                       <thead>
@@ -97,11 +97,11 @@ require_once 'databaseClasses/customerClass.php';
                               echo '<td>' . $innerRow['street_two'] . '</td>';
                               echo '<td>' . $innerRow['zipcode'] . '</td>';
                               echo '<td width=250>';
-                              echo '<a class="btn" href="sqlManagmentFiles/addressFiles/addressRead.php?id=' . $innerRow['id'] . '">Read</a>';
+                              echo '<a class="btn" href="userInfo/addressRead.php?id=' . $innerRow['id'] . '">Read</a>';
                               echo ' ';
-                              echo '<a class="btn btn-success" href="sqlManagmentFiles/addressFiles/addressUpdate.php?id=' . $innerRow['id'] . '">Update</a>';
+                              echo '<a class="btn btn-success" href="userInfo/addressUpdate.php?id=' . $innerRow['id'] . '">Update</a>';
                               echo ' ';
-                              echo '<a class="btn btn-danger" href="sqlManagmentFiles/addressFiles/addressDelete.php?id=' . $innerRow['id'] . '">Delete</a>';
+                              echo '<a class="btn btn-danger" href="userInfo/addressDelete.php?id=' . $innerRow['id'] . '">Delete</a>';
                               echo '</td>';
                             echo '</tr>';
                         }
@@ -114,7 +114,7 @@ require_once 'databaseClasses/customerClass.php';
           	  </div>
             	<div class="row">
                 <p>
-                    <a href="sqlManagmentFiles/paymentFiles/paymentCreate.php" class="btn btn-success">Create Card</a>
+                    <a href="userInfo/paymentCreate.php" class="btn btn-success">Create Card</a>
                 </p>
                 <table class="table table-striped table-bordered">
                       <thead>
@@ -140,11 +140,11 @@ require_once 'databaseClasses/customerClass.php';
                                 echo '<td>'. $row['expires_year'] . '</td>';
                                 echo '<td>'. $row['payment_type'] . '</td>';
                                 echo '<td width=250>';
-                                echo '<a class="btn" href="sqlManagmentFiles/paymentFiles/paymentRead.php?id='.$row['id'].'">Read</a>';
+                                echo '<a class="btn" href="userInfo/paymentRead.php?id='.$row['id'].'">Read</a>';
                                 echo ' ';
-                                echo '<a class="btn btn-success" href="sqlManagmentFiles/paymentFiles/paymentUpdate.php?id='.$row['id'].'">Update</a>';
+                                echo '<a class="btn btn-success" href="userInfo/paymentUpdate.php?id='.$row['id'].'">Update</a>';
                                 echo ' ';
-                                echo '<a class="btn btn-danger" href="sqlManagmentFiles/paymentFiles/paymentDelete.php?id='.$row['id'].'">Delete</a>';
+                                echo '<a class="btn btn-danger" href="userInfo/paymentDelete.php?id='.$row['id'].'">Delete</a>';
                                 echo '</td>';
                                 echo '</tr>';
                        }
