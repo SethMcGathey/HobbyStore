@@ -31,7 +31,7 @@ class addressDataAccess extends accessDatabase{
 
 		$columns2 = array($customer_id, $address_id);
 		$sql2 = "INSERT INTO customer_address (customer_id, address_id) values(?, ?)";
-		parent::doSql($sql2, $columns2);
+		parent::changeSql($sql2, $columns2);
 	}
 
 
