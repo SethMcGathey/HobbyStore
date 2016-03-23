@@ -128,7 +128,7 @@
                         <h3>Update a Customer</h3>
                     </div>
 
-                    <form class="form-horizontal" action="update.php?id=<?php echo $id?>" method="post">
+                    <form class="form-horizontal" action="customerUpdate.php?id=<?php echo $id?>" method="post">
                       <div class="control-group <?php echo !empty($first_nameError)?'error':'';?>">
                         <label class="control-label">First Name</label>
                         <div class="controls">
