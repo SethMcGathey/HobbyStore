@@ -43,7 +43,7 @@ class addressDataAccess extends accessDatabase{
 
 
 	public function deleteData($id){
-		$columns = array($id);
+		/*$columns = array($id);
 		$sql = "DELETE FROM customer_address WHERE address_id = ?";
 		parent::changeSql($sql, $columns);
 
@@ -57,7 +57,34 @@ class addressDataAccess extends accessDatabase{
 
 		$columns = array($id);
 		$sql = "DELETE FROM shipment_center WHERE address_id = ?";
-		parent::changeSql($sql, $columns);
+		parent::changeSql($sql, $columns);*/
+        $columns = array($id);
+        $sql = "DELETE FROM transaction_address  WHERE address_id = ?";
+        parent::doSql($sql, $columns);
+
+            $columns = array($id);
+			$sql = "SELECT id FROM shipment_center WHERE address_id = ?";
+			$shipment_center_id = parent::doSql($sql, $columns);
+        	
+	        	$columns = array($shipment_center_id);
+				$sql = "SELECT id FROM bin WHERE shipment_center_id = ?";
+				$bin_id = parent::doSql($sql, $columns);
+
+	            $columns = array($bin_id);
+	        	$sql = "DELETE FROM product_bin  WHERE bin_id = ?";
+	        	parent::doSql($sql, $columns);
+
+            $columns = array($shipment_center_id);
+        	$sql = "DELETE FROM bin  WHERE shipment_center_id = ?";
+        	parent::doSql($sql, $columns);
+
+        $columns = array($id);
+        $sql = "DELETE FROM shipment_center  WHERE address_id = ?";
+        parent::doSql($sql, $columns);
+
+        $columns = array($id);
+        $sql = "DELETE FROM customer_address  WHERE address_id = ?";
+        parent::doSql($sql, $columns);
 
 		$columns = array($id);
 		$sql = "DELETE FROM address WHERE id = ?";

@@ -48,6 +48,36 @@ class customerDataAccess extends accessDatabase{
 
     public function deleteData($id){
         $columns = array($id);
+        $sql = "SELECT id FROM transaction WHERE customer_id = ?";
+        $transaction_id parent::doSql($sql, $columns);
+
+
+        $columns = array($transaction_id);
+        $sql = "DELETE FROM transaction_product  WHERE transaction_id = ?";
+        parent::doSql($sql, $columns);
+
+        $columns = array($transaction_id);
+        $sql = "DELETE FROM transaction_address  WHERE transaction_id = ?";
+        parent::doSql($sql, $columns);
+
+        $columns = array($transaction_id);
+        $sql = "DELETE FROM transaction  WHERE id = ?";
+        parent::doSql($sql, $columns);
+
+
+        $columns = array($id);
+        $sql = "DELETE FROM transaction  WHERE customer_id = ?";
+        parent::doSql($sql, $columns);
+
+        $columns = array($id);
+        $sql = "DELETE FROM customer_payment  WHERE customer_id = ?";
+        parent::doSql($sql, $columns);
+
+        $columns = array($id);
+        $sql = "DELETE FROM customer_address  WHERE customer_id = ?";
+        parent::doSql($sql, $columns);
+
+        $columns = array($id);
         $sql = "DELETE FROM customer  WHERE id = ?";
         parent::doSql($sql, $columns);
     }

@@ -55,6 +55,22 @@ class productDataAccess extends accessDatabase{
 
     public function deleteData($id){
         $columns = array($id);
+        $sql = "DELETE FROM product_bin  WHERE product_id = ?";
+        parent::doSql($sql, $columns);
+        
+        $columns = array($id);
+        $sql = "DELETE FROM transaction_product  WHERE product_id = ?";
+        parent::doSql($sql, $columns);
+
+        $columns = array($id);
+        $sql = "DELETE FROM product_tag  WHERE product_id = ?";
+        parent::doSql($sql, $columns);
+
+        $columns = array($id);
+        $sql = "DELETE FROM image  WHERE product_id = ?";
+        parent::doSql($sql, $columns);
+
+        $columns = array($id);
         $sql = "DELETE FROM product  WHERE id = ?";
         parent::doSql($sql, $columns);
     }

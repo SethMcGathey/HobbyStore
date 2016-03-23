@@ -35,6 +35,28 @@ class paymentDataAccess extends accessDatabase{
     }
 
     public function deleteData($id){
+            //deleting transaction related stuff before deleting transaction
+            $columns = array($id);
+            $sql = "SELECT id FROM transaction WHERE payment_id = ?";
+            $transaction_id parent::doSql($sql, $columns);
+
+            $columns = array($transaction_id);
+            $sql = "DELETE FROM transaction_product  WHERE transaction_id = ?";
+            parent::doSql($sql, $columns);
+
+            $columns = array($transaction_id);
+            $sql = "DELETE FROM transaction_address  WHERE transaction_id = ?";
+            parent::doSql($sql, $columns);
+            //deleting transaction related stuff before deleting transaction
+
+        $columns = array($id);
+        $sql = "DELETE FROM transaction  WHERE payment_id = ?";
+        parent::doSql($sql, $columns);
+
+        $columns = array($id);
+        $sql = "DELETE FROM customer_payment  WHERE payment_id = ?";
+        parent::doSql($sql, $columns);
+
         $columns = array($id);
         $sql = "DELETE FROM payment  WHERE id = ?";
         parent::doSql($sql, $columns);

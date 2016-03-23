@@ -27,6 +27,10 @@ class tagDataAccess extends accessDatabase{
 
     public function deleteData($id){
         $columns = array($id);
+        $sql = "DELETE FROM product_tag  WHERE tag_id = ?";
+        parent::doSql($sql, $columns);
+
+        $columns = array($id);
         $sql = "DELETE FROM tag  WHERE id = ?";
         parent::doSql($sql, $columns);
     }

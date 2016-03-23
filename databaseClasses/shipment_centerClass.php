@@ -26,6 +26,21 @@ class shipment_centerDataAccess extends accessDatabase{
     }
 
     public function deleteData($id){
+            //deleting bin related stuff before deleting bin
+            $columns = array($id);
+            $sql = "SELECT id FROM bin WHERE shipment_center_id = ?";
+            $bin_id parent::doSql($sql, $columns);
+
+            $columns = array($bin_id);
+            $sql = "DELETE FROM product_bin  WHERE bin_id = ?";
+            parent::doSql($sql, $columns);
+            //deleting bin related stuff before deleting bin
+
+
+        $columns = array($id);
+        $sql = "DELETE FROM bin  WHERE sipment_center_id = ?";
+        parent::doSql($sql, $columns);
+
         $columns = array($id);
         $sql = "DELETE FROM shipment_center  WHERE id = ?";
         parent::doSql($sql, $columns);
