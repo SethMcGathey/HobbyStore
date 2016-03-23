@@ -61,9 +61,9 @@ require_once '../../databaseClasses/addressClass.php';
 
         // insert data
         if ($valid) {
-            if ( !empty($_POST)) {
+            if ( !empty($_GET)) {
                 // keep track post values
-                $id = $_POST['id'];
+                $id = $_GET['id'];
 
                 $address = new addressDataAccess();
                 $data = $address->createData($city, $country, $state,$street_one,$street_two,$zipcode,$id);
