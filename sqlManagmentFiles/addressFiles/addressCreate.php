@@ -60,6 +60,7 @@ require_once '../../databaseClasses/addressClass.php';
 
 
         // insert data
+        echo !empty($_GET);
         if ($valid) {
             if ( !empty($_GET)) {
                 // keep track post values
