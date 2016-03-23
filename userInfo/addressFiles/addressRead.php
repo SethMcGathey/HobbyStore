@@ -2,10 +2,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
-require_once '../sessionStart.php'; 
+require_once '../../sessionStart.php'; 
 
-require_once '../accessDatabaseClass.php'; 
-require_once '../databaseClasses/addressClass.php';
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/addressClass.php';
 
     $id = null;
     if ( !empty($_GET['id'])) {
@@ -13,7 +13,7 @@ require_once '../databaseClasses/addressClass.php';
     }
 
     if ( null==$id ) {
-        header("Location: ../profile.php");
+        header("Location: ../../profile.php");
     } else {
         $address = new addressDataAccess();
         $data = $address->readDataById($id)[1][0];
@@ -22,10 +22,10 @@ require_once '../databaseClasses/addressClass.php';
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once '../header.php' ?>
+<?php require_once '../../header.php' ?>
 
 <body>
-    <?php require_once '../navigation.php' ?>
+    <?php require_once '../../navigation.php' ?>
     <div class="container">
 
 
@@ -84,7 +84,7 @@ require_once '../databaseClasses/addressClass.php';
                         </div>
                       </div>
                       <div class="form-actions">
-                          <a class="btn" href="../profile.php">Back</a>
+                          <a class="btn" href="../../profile.php">Back</a>
                        </div>
 
 
@@ -92,6 +92,6 @@ require_once '../databaseClasses/addressClass.php';
                 </div>
 
     </div> <!-- /container -->
-    <?php require_once '../footer.php' ?>
+    <?php require_once '../../footer.php' ?>
   </body>
 </html>

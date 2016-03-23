@@ -2,11 +2,11 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
-require_once '../sessionStart.php'; 
-require_once '../database.php';
+require_once '../../sessionStart.php'; 
+require_once '../../database.php';
 
-require_once '../accessDatabaseClass.php'; 
-require_once '../databaseClasses/addressClass.php';
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/addressClass.php';
 
 
     if ( !empty($_POST)) {
@@ -64,7 +64,7 @@ require_once '../databaseClasses/addressClass.php';
             if ( !empty($_POST)) {
                 $address = new addressDataAccess();
                 $data = $address->createData($city, $country, $state,$street_one,$street_two,$zipcode,$_SESSION['customerid']);
-                header("Location: ../profile.php");
+                header("Location: ../../profile.php");
             }
         }
     }
@@ -72,10 +72,10 @@ require_once '../databaseClasses/addressClass.php';
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once '../header.php' ?>
+<?php require_once '../../header.php' ?>
 
 <body>
-    <?php require_once '../navigation.php' ?>
+    <?php require_once '../../navigation.php' ?>
     <div class="container">
 
 
@@ -142,12 +142,12 @@ require_once '../databaseClasses/addressClass.php';
                       </div>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Create</button>
-                          <a class="btn" href="../profile.php">Back</a>
+                          <a class="btn" href="../../profile.php">Back</a>
                         </div>
                     </form>
                 </div>
 
     </div> <!-- /container -->
-    <?php require_once '../footer.php' ?>
+    <?php require_once '../../footer.php' ?>
   </body>
 </html>

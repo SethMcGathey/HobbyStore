@@ -2,10 +2,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
-require_once '../sessionStart.php'; 
+require_once '../../sessionStart.php'; 
 
-require_once '../accessDatabaseClass.php'; 
-require_once '../databaseClasses/addressClass.php';
+require_once '../../accessDatabaseClass.php'; 
+require_once '../../databaseClasses/addressClass.php';
 
     $id = 0;
 
@@ -17,17 +17,17 @@ require_once '../databaseClasses/addressClass.php';
         $id = $_POST['id'];
         $address = new addressDataAccess();
         $address->deleteData($id);
-        header("Location: ../profile.php");
+        header("Location: ../../profile.php");
 
     }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once '../header.php' ?>
+<?php require_once '../../header.php' ?>
 
 <body>
-    <?php require_once '../navigation.php' ?>
+    <?php require_once '../../navigation.php' ?>
     <div class="container">
 
 
@@ -41,12 +41,12 @@ require_once '../databaseClasses/addressClass.php';
                       <p class="alert alert-error">Are you sure you want to delete?</p>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-danger">Yes</button>
-                          <a class="btn" href="../profile.php">No</a>
+                          <a class="btn" href="../../profile.php">No</a>
                         </div>
                     </form>
                 </div>
 
     </div> <!-- /container -->
-    <?php require_once '../footer.php' ?>
+    <?php require_once '../../footer.php' ?>
   </body>
 </html>

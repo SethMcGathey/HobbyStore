@@ -1,5 +1,5 @@
 <?php
-    require_once '../database.php';
+    require_once '../../database.php';
 
     $id = null;
     if ( !empty($_GET['id'])) {
@@ -7,7 +7,7 @@
     }
 
     if ( null==$id ) {
-        header("Location: ../profile.php");
+        header("Location: ../../profile.php");
     }
 
     if ( !empty($_POST)) {
@@ -68,7 +68,7 @@
             $q = $pdo->prepare($sql);
             $q->execute(array($card_full_name,$card_number,$card_security,$expires_month,$expires_year,$payment_type_id,$id));
             Database::disconnect();
-            header("Location: ../profile.php");
+            header("Location: ../../profile.php");
         }
     } else {
         $pdo = Database::connect();
@@ -89,10 +89,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once '../header.php' ?>
+<?php require_once '../../header.php' ?>
 
 <body>
-    <?php require_once '../navigation.php' ?>
+    <?php require_once '../../navigation.php' ?>
     <div class="container">
 
 
@@ -159,12 +159,12 @@
 
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Update</button>
-                          <a class="btn" href="../profile.php">Back</a>
+                          <a class="btn" href="../../profile.php">Back</a>
                         </div>
                     </form>
                 </div>
 
     </div> <!-- /container -->
-    <?php require_once '../footer.php' ?>
+    <?php require_once '../../footer.php' ?>
   </body>
 </html>
