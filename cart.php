@@ -10,7 +10,7 @@ require_once 'databaseClasses/transactionClass.php';
 	<?php require_once 'header.php' ?>
 	<body>
 		<?php require_once 'navigation.php' ?>
-		<div class="container" id="Not_Ajax_Output">
+		<div class="container wrapper" id="Not_Ajax_Output">
 			<h1>Cart</h1>
 			<div class="row">
 				<div class="col-lg-3">
@@ -63,7 +63,7 @@ require_once 'databaseClasses/transactionClass.php';
 		</div>
 
 
-		<div class="container-fluid wrapper" id="ajax_Output">
+		<div class="container wrapper" id="ajax_Output">
 		</div>
 
 	</body>

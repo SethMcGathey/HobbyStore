@@ -79,7 +79,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 			<button onclick="window.location.href='updateCartAfterPurchase.php'">Confirm Purchase</button>
 		</div>
 	</body>
-	<div class="container-fluid wrapper" id="Not_Ajax_Output">
+	<div class="container wrapper" id="Not_Ajax_Output">
 
 	<?php require_once 'footer.php' ?>
 </html>

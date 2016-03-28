@@ -14,7 +14,7 @@ require_once '../../databaseClasses/addressClass.php';
 
 <body>
     <?php require_once '../navigation.php' ?>
-    <div class="container">
+    <div class="container wrapper" id="Not_Ajax_Output">
 
             <div class="row">
                 <h3>Address</h3>
