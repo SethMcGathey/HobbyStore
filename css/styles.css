@@ -148,13 +148,8 @@ p{
 html, body {
 	height: 100%;
 }
-.wrapper {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -8em;
-}
 .footer, .push {
 	text-align:center;
-	height: 11em;
+	bottom:0px;
+    position: fixed;  
 }
