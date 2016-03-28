@@ -4,7 +4,7 @@
 	<body>
 		<?php require_once 'navigation.php' ?>
 
-		<div class="container" id="Not_Ajax_Output">
+		<div class="container wrapper" id="Not_Ajax_Output">
 			<h1>Add Product</h1>
 			<?php
 				echo '<div>' .  $_SESSION['ErrorMessage'] . '</div>';

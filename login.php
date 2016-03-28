@@ -13,7 +13,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 	<?php require_once 'header.php' ?>
 	<body>
 		<?php require_once 'navigation.php' ?>
-		<div class="container" id="">
+		<div class="container" id="Not_Ajax_Output">
 			<h1>Login</h1>
 			<?php
 				if(!empty($_GET['error']))

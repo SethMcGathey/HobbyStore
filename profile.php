@@ -15,7 +15,7 @@ require_once 'databaseClasses/customerClass.php';
 <?php require_once 'header.php' ?>
 <body>
   <?php require_once 'navigation.php' ?>
-    <div class="container-fluid wrapper" id="Not_Ajax_Output">
+    <div class="container wrapper" id="Not_Ajax_Output">
             <div class="row">
                 <h3>General Information</h3>
             </div>
@@ -154,7 +154,7 @@ require_once 'databaseClasses/customerClass.php';
 
         </div>
     </div> <!-- /container -->
-    <div class="container-fluid wrapper" id="ajax_Output">
+    <div class="container wrapper" id="ajax_Output">
     </div>
     <?php require_once 'footer.php' ?>
   </body>

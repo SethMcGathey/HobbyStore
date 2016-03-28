@@ -15,7 +15,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 	<body>
 
 		<?php require_once 'navigation.php' ?> 
-		<div class="container-fluid" id="Not_Ajax_Output">
+		<div class="container" id="Not_Ajax_Output">
 			<h1 class="centerText">Admin Page</h1>
 			<input type="button" value="address" onclick="makeChanges('address')">
 			<input type="button" value="bin" onclick="makeChanges('bin')">
@@ -38,7 +38,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 	          
 		</div>
 
-		<div class="container-fluid wrapper" id="ajax_Output">
+		<div class="container wrapper" id="ajax_Output">
 		</div>
 <?php require_once 'footer.php' ?>
 

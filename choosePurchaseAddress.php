@@ -13,7 +13,7 @@ require_once 'databaseClasses/addressClass.php';
 <?php require_once 'header.php' ?>
 <body>
   <?php require_once 'navigation.php' ?>
-    <div class="container-fluid wrapper" id="Not_Ajax_Output">
+    <div class="container wrapper" id="Not_Ajax_Output">
             <div class="row">
                 <h3>Choose Payment Address</h3>
             </div>
@@ -60,7 +60,7 @@ require_once 'databaseClasses/addressClass.php';
                 </table>
         </div>
     </div> <!-- /container -->
-    <div class="container-fluid wrapper" id="ajax_Output">
+    <div class="container wrapper" id="ajax_Output">
     </div>
   </body>
   <?php require 'footer.php' ?>
