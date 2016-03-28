@@ -16,7 +16,7 @@ require_once 'databaseClasses/imageClass.php';
 	<body>
 
 		<?php require_once 'navigation.php' ?> 
-		<div class="container-fluid" id="Not_Ajax_Output">
+		<div class="container-fluid wrapper" id="Not_Ajax_Output">
 			<h1 class="centerText">Clash Games</h1>
 			<div class="row">
 	          <?php
@@ -32,7 +32,8 @@ require_once 'databaseClasses/imageClass.php';
           	</div>
 		</div>
 
-		<div class="container-fluid" id="ajax_Output">
+		<div class="container-fluid wrapper" id="ajax_Output">
+			<div class="push"></div>
 		</div>
 
 <?php require_once 'footer.php' ?>

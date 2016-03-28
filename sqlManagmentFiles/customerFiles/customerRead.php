@@ -105,7 +105,7 @@ require_once '../../databaseClasses/customerClass.php';
                         </div>
                       </div>
                         <div class="form-actions">
-                          <a class="btn" href="index.php">Back</a>
+                          <a class="btn" href="customerIndex.php">Back</a>
                        </div>
 
 
