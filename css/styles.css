@@ -152,9 +152,9 @@ html, body {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	margin: 0 auto -10em;
+	margin: 0 auto -8em;
 }
 .footer, .push {
 	text-align:center;
-	height: 10em;
+	height: 11em;
 }
