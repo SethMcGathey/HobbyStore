@@ -33,7 +33,6 @@ require_once 'databaseClasses/imageClass.php';
 		</div>
 
 		<div class="container-fluid wrapper" id="ajax_Output">
-			<div class="push"></div>
 		</div>
 
 <?php require_once 'footer.php' ?>

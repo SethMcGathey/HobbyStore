@@ -63,7 +63,7 @@ require_once 'databaseClasses/transactionClass.php';
 		</div>
 
 
-		<div class="container-fluid" id="ajax_Output">
+		<div class="container-fluid wrapper" id="ajax_Output">
 		</div>
 
 	</body>

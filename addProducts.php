@@ -25,6 +25,8 @@
 			</form>
 
 		</div>
+		<div class="container-fluid wrapper" id="ajax_Output">
+		</div>
 
 	</body>
 

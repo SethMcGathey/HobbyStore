@@ -11,7 +11,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 	<?php require_once 'header.php' ?>
 	<body>
 		<?php require_once 'navigation.php' ?>
-		<div class="container" id="Not_Ajax_Output">
+		<div class="container wrapper" id="Not_Ajax_Output">
 			<div class="row">
 				<div class="col-lg-6">
 					<h3>Chosen Card</h3>
@@ -79,6 +79,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 			<button onclick="window.location.href='updateCartAfterPurchase.php'">Confirm Purchase</button>
 		</div>
 	</body>
+	<div class="container-fluid wrapper" id="Not_Ajax_Output">
 
 	<?php require_once 'footer.php' ?>
 </html>

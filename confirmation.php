@@ -11,7 +11,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 	<?php require_once 'header.php' ?>
 	<body>
 		<?php require_once 'navigation.php' ?>
-		<div class="container" id="Not_Ajax_Output">
+		<div class="container-fluid wrapper" id="Not_Ajax_Output">
 			<div class="row">
 				<div class="col-lg-12">
 					<h3>Thank you for your purchase! </h3>
@@ -20,6 +20,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 			</div>
 		</div>
 	</body>
-
+	<div class="container-fluid wrapper" id="ajax_Output">
+	</div>
 	<?php require_once 'footer.php' ?>
 </html>

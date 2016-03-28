@@ -34,6 +34,7 @@ require_once 'databaseClasses/subcategoryClass.php';
 		</div>
 
 	</body>
-
+	<div class="container-fluid wrapper" id="Not_Ajax_Output">
+	</div>
 	<?php require_once 'footer.php' ?>
 </html>

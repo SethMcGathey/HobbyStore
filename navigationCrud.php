@@ -1,5 +1,5 @@
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="container-fluid" id="Not_Ajax_Output">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>

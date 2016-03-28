@@ -6,7 +6,7 @@ require_once 'databaseClasses/categoryClass.php';
 require_once 'databaseClasses/subcategoryClass.php';
 ?>
 <nav class="navbar navbar-inverse" role="navigation">
-  <div class="container-fluid">
+  <div class="container-fluid wrapper" id="Not_Ajax_Output">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -94,6 +94,8 @@ require_once 'databaseClasses/subcategoryClass.php';
         ?>
       </ul>
     </div>
+  </div>
+  <div class="container-fluid wrapper" id="ajax_Output">
   </div>
 </nav>
 
