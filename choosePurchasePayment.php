@@ -14,7 +14,7 @@ require_once 'databaseClasses/paymentClass.php';
     <?php require_once 'navigation.php' ?>
     <div class="container wrapper" id="Not_Ajax_Output">
             <div class="row">
-                <h3>Choose Credit Card</h3>
+                <h3 class="centerText">Choose Credit Card</h3>
             </div>
             <div class="row">
                 <p>

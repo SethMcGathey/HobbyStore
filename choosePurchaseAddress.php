@@ -15,7 +15,7 @@ require_once 'databaseClasses/addressClass.php';
   <?php require_once 'navigation.php' ?>
     <div class="container wrapper" id="Not_Ajax_Output">
             <div class="row">
-                <h3>Choose Payment Address</h3>
+                <h3 class="centerText">Choose Payment Address</h3>
             </div>
             <div class="row">
                 <p>
