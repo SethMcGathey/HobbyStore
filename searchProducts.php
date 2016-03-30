@@ -12,7 +12,7 @@ require_once 'databaseClasses/productClass.php';
 	    //echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['id']. '">' . '<img alt="' . $row['description'] . '" title="' . $row['description'] . '" src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/> ' . $row['name'] . ' ' . $row['description'] . ' ' . $row['cost'] . ' <a href="#">Add to Cart</a></div>';
 	    
 
-        echo '<div class="row subcategoryColor product" id="' . $row['a.id']. '">
+        echo '<div class="row subcategoryColor product" id="' . $row['id']. '">
                 <div class="col-lg-6" >
                     <a href="singleProductPage.php?id='.$row['id'].'"><img class="productsImage" alt="' . $row['description'] . '" title="' . $row['description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"width="100px"/></a>
                 </div>
