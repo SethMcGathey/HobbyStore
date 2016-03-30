@@ -45,7 +45,7 @@ require_once 'databaseClasses/productClass.php';
 										</div>
 									</div>
 								</div>
-							</div>'
+							</div>';
 
 
 
