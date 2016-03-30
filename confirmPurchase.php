@@ -80,6 +80,6 @@ require_once 'databaseClasses/transaction_productClass.php';
 		</div>
 	</body>
 	<div class="container wrapper" id="Not_Ajax_Output">
-
+	</div>
 	<?php require_once 'footer.php' ?>
 </html>
