@@ -26,7 +26,7 @@ class transactionDataAccess extends accessDatabase{
     public function createData($cart,$timestamp,$payment_id,$customer_id, /*$phone,$type,$address_id, */$quantity,$product_id){
         $columns = array($cart,$timestamp,$payment_id,$customer_id);
         $sql = "INSERT INTO transaction (cart,timestamp,payment_id,customer_id) values(?, ?, ?, ?)";
-        $transaction_id = parent::doSql($sql, $columns);
+        $transaction_id = parent::insertWithIdReturn($sql, $columns);
 /*
         $columns2 = array($phone,$type,$address_id,$transaction_id);
         $sql2 = "INSERT INTO transaction_address (phone,type,address_id,transaction_id) values(?, ?, ?, ?)";
