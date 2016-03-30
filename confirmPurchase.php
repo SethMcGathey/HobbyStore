@@ -76,7 +76,7 @@ require_once 'databaseClasses/transaction_productClass.php';
 				    	      </div>';
 			?>
 			</div>
-			<div class="row product centerText" id="totals">
+			<div class="row centerText" id="totals">
 				<button class="centerText" onclick="window.location.href='updateCartAfterPurchase.php'">Confirm Purchase</button>
 			</div>
 		</div>
