@@ -149,6 +149,7 @@ p{
 	border-width: 1px;
 	font-size: 25px;
 	height: 110px;
+	line-height: 110px;
 }
 .nameSpan{
 	display: inline-block;
