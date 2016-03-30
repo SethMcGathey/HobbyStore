@@ -67,8 +67,8 @@ require_once 'databaseClasses/productClass.php';
 					    //echo '<div class="col-4-lg subcategoryColor' . $num . ' product" id="' . $row['a.id'] . '">' . '<a href="singleProductPage.php?id='.$row['a.id'].'"><img class="productsImage" alt="' . $row['b.description'] . '" title="' . $row['b.description'] . '" src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/></a> <p>' . $row['a.name'] . '</p> <p>' . $row['a.description'] . '</p> <p>$' . $row['a.cost'] . '.00</p> <a href="addToCart.php?id=' . $row['a.id'] . '">Add to Cart</a></div>';
 
 					    echo '<div class="row subcategoryColor product" id="' . $row['a.id']. '">
-								<div class="col-lg-6" >
-									<a class="testingImage" href="singleProductPage.php?id='.$row['a.id'].'"><img class="productsImage" alt="' . $row['b.description'] . '" title="' . $row['b.description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/></a>
+								<div class="col-lg-6">
+									<img class="productsImage" alt="' . $row['b.description'] . '" title="' . $row['b.description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/>
 								</div>
 								<div class="col-lg-6">
 									<div class="row">

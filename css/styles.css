@@ -132,7 +132,7 @@ p{
 }
 
 .productsImage{
-	float:left;
+	width:100%;
 }
 
 .errorReports{
