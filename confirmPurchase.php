@@ -71,12 +71,12 @@ require_once 'databaseClasses/transaction_productClass.php';
 		                }
 		            }
 				}
-				echo '<div class="row product" id="totals"> 
+				echo '<div class="row product centerText" id="totals"> 
 				    		  	 <div class="col-lg-3 rightAlign' . $num . '">Total: $' . $overallTotal . '.00</div> 
 				    	      </div> ';
 			?>
 			</div>
-			<button onclick="window.location.href='updateCartAfterPurchase.php'">Confirm Purchase</button>
+			<button class="centerText" onclick="window.location.href='updateCartAfterPurchase.php'">Confirm Purchase</button>
 		</div>
 	</body>
 	<div class="container wrapper" id="Not_Ajax_Output">
