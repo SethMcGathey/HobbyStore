@@ -73,7 +73,7 @@ require_once 'databaseClasses/productClass.php';
 								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-12 name">
-											<span class="nameSpan">' . $row['a.name'] . '</span>
+											<span>' . $row['a.name'] . '</span>
 										</div>
 										<div class="col-lg-6 discription" >
 											<span class="discriptionSpan">' . $row['a.description'] . '</span>
