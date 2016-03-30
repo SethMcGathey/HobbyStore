@@ -179,7 +179,7 @@ p{
 	border-color: #808080;
 	border-width: 1px;
 	height: 176px;
-	line-height: 150px;
+	line-height: 176px;
 	font-size: 20px;
 }
 .priceSpan{
@@ -192,8 +192,8 @@ p{
 	/*border-bottom: solid;*/
 	border-color: #808080;
 	border-width: 1px;
-	height: 150px;
-	line-height: 150px;
+	height: 176px;
+	line-height: 176px;
 	font-size: 20px;
 }
 .addToCartSpan{
