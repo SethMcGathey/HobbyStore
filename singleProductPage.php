@@ -13,7 +13,7 @@ require_once 'databaseClasses/productClass.php';
   <body>
     <?php require_once 'navigation.php' ?>
     <div class="container wrapper" id="Not_Ajax_Output">
-      <h1>products.php</h1>
+      <h1>Products</h1>
 
 
       <?php      
