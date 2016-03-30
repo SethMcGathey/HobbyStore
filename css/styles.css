@@ -193,7 +193,9 @@ p{
 	border-color: #808080;
 	border-width: 1px;
 }
-
+.testingImage{
+	background-color: red;
+}
 /* sticky footer */
 * {
 	margin: 0;

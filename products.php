@@ -68,7 +68,7 @@ require_once 'databaseClasses/productClass.php';
 
 					    echo '<div class="row subcategoryColor product" id="' . $row['a.id']. '">
 								<div class="col-lg-6" >
-									<a href="singleProductPage.php?id='.$row['a.id'].'"><img class="productsImage" alt="' . $row['b.description'] . '" title="' . $row['b.description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/></a>
+									<a class="testingImage" href="singleProductPage.php?id='.$row['a.id'].'"><img class="productsImage" alt="' . $row['b.description'] . '" title="' . $row['b.description'] . '"  src="data:image/jpeg;base64,' . base64_encode($row['b.image']) . '"width="100px"/></a>
 								</div>
 								<div class="col-lg-6">
 									<div class="row">
