@@ -133,6 +133,8 @@ p{
 
 .productsImage{
 	width:80%;
+	display: block;
+    margin: 0 auto;
 }
 
 .errorReports{
@@ -147,6 +149,11 @@ p{
 	border-width: 1px;
 	font-size: 25px;
 	height: 110px;
+}
+.nameSpan{
+	display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
 }
 .discription{
 	text-align: center;
