@@ -132,7 +132,7 @@ p{
 }
 
 .productsImage{
-	width:50%;
+	width:100%;
 }
 
 .errorReports{
@@ -146,6 +146,7 @@ p{
 	border-color: #808080;
 	border-width: 1px;
 	font-size: 20px;
+	height:30px;
 }
 .discription{
 	text-align: center;
@@ -154,8 +155,8 @@ p{
 	border-color: #808080;
 	border-width: 1px;
 	/*border-bottom: solid;*/
-	height: 167px;
-	line-height: 167px;
+	height: 171px;
+	line-height: 171px;
 }
 .discriptionSpan{
 	display: inline-block;
@@ -167,8 +168,8 @@ p{
 	border-bottom: solid;
 	border-color: #808080;
 	border-width: 1px;
-	height: 83px;
-	line-height: 83px;
+	height: 85px;
+	line-height: 85px;
 }
 .priceSpan{
 	display: inline-block;
@@ -180,8 +181,8 @@ p{
 	/*border-bottom: solid;*/
 	border-color: #808080;
 	border-width: 1px;
-	height: 83px;
-	line-height: 83px;
+	height: 85px;
+	line-height: 85px;
 }
 .addToCartSpan{
 	display: inline-block;
