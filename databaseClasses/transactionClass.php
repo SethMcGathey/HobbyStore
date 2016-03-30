@@ -34,7 +34,7 @@ class transactionDataAccess extends accessDatabase{
 
         $columns3 = array($quantity,$transaction_id,$product_id);
         $sql3 = "INSERT INTO transaction_product (quantity,transaction_id,product_id) values(?, ?, ?)";
-        parent::doSql($sql3, $columns3);
+        parent::changeSql($sql3, $columns3);
     }
 
     public function updateData($cart,$timestamp,$payment_id,$customer_id,$id){
